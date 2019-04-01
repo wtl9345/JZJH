@@ -1,0 +1,19 @@
+
+积分兑换增加购买永久加成伤害
+增加挑战模式，积分更多
+伤害超过13位有额外积分奖励，特殊模式和挑战模式皆可
+激活九阳真经残卷可提升技能升级速度，与七绝叠加
+积分兑换性格只会兑换未满5的性格
+略微加强七伤拳，泰山、丐帮、峨眉、女神龙微调
+恒山万花剑法、灵鹫如意刀法改成可以对空
+号令天下加强改成加声望：波数/7+1，天书自带号令天下效果
+江湖武学快捷键调整
+修复一些bug和图标异常
+
+<span style="color:#FF00FF">由于不是原作者账号，所以各位在评论中提出的问题不能一一回复，大家有问题可以加下面的群一起讨论</span>
+游戏攻略：
+<a onclick="javascript:platform.external_open('http://note.youdao.com/noteshare?id=682985370d7a1b22fbdab4d848aa707e&sub=7A834CE3CAA94283878E34C1360416F6')" style="text-decoration:underline;color:#0af5ff; cursor: pointer;" >点击查看攻略</a>
+玩家群：
+<a onclick="javascript:platform.external_open('https://jq.qq.com/?_wv=1027&k=523f1E2')" style="text-decoration:underline;color:#0af5ff; cursor: pointer;" >点击加入群：341305274</a>
+<a onclick="javascript:platform.external_open('https://jq.qq.com/?_wv=1027&k=5zLO41m')" style="text-decoration:underline;color:#0af5ff; cursor: pointer;" >点击加入群：159030768</a>
+

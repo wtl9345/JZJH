@@ -1,0 +1,24 @@
+<span style="color:#FF00FF">修复自由3级自动学的技能不加属性的bug，修复武当带专属有历练要求bug</span>
+<span style="color:#FF00FF">自由门派号令天下令牌爆率翻倍</span>
+<span style="color:#FF00FF">华山的夺命剑诀和全真的金雁功耗蓝随等级降低</span>
+<span style="color:#FF00FF">和以前版本相比伤害没什么大改动，所以不要专属也能通关</span>
+
+全门派添加专属，自由专属“天书（自由可以用宠物合成，不限使用门派，提升所有伤害3倍）”
+加速出怪改成跳到26波（高难度请量力而行）
+店小二添加狼皮任务，杀猪奖励提高，缓解一下人多练功房不足情况
+郭靖环戒、张无忌杀猪刀、乔峰的草鞋组成（不是合成）大侠套装，散件新手任务或者杀野狼概率爆
+泰山、神龙加入随机列表，神龙随机的话不分男女角色，男的可能随机到女神龙
+自由3级送技能书改成自动学会技能，40%概率学绝内和九阴系列，不包括绝学和医疗篇等没用的技能
+加强丐帮心法伤害和专属伤害
+修复恒山烧基地bug
+泰山去掉毕业技能快活三剑（太卡）
+反两仪刀法持续时间改回20s
+
+<span style="color:#FF00FF">由于不是原作者账号，所以各位在评论中提出的问题不能一一回复，大家有问题可以加下面的群一起讨论</span>
+游戏攻略：
+<a onclick="javascript:platform.external_open('http://note.youdao.com/noteshare?id=682985370d7a1b22fbdab4d848aa707e&sub=7A834CE3CAA94283878E34C1360416F6')" style="text-decoration:underline;color:#0af5ff; cursor: pointer;" >点击查看攻略</a>
+玩家群：
+<a onclick="javascript:platform.external_open('https://jq.qq.com/?_wv=1027&k=523f1E2')" style="text-decoration:underline;color:#0af5ff; cursor: pointer;" >点击加入群：341305274</a>
+<a onclick="javascript:platform.external_open('https://jq.qq.com/?_wv=1027&k=5zLO41m')" style="text-decoration:underline;color:#0af5ff; cursor: pointer;" >点击加入群：159030768</a>
+
+
