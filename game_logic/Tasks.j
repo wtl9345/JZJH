@@ -393,6 +393,10 @@ function jfChange takes integer i,integer jf returns nothing
 	call DzAPI_Map_StoreInteger(Player(i),"jf",udg_jf[i])
 endfunction
 
+globals
+	integer array jf_qiWu
+endglobals
+
 //============积分商店=============//
 // 随机一个AB性格加一:5积分；明教一局：20积分；精钢剑：4积分；随机一本奇武：4积分；桃花岛传送符（永久版）：4积分；重置门派称号：14积分；号令天下：10积分
 function isJfShop takes nothing returns boolean
@@ -447,10 +451,16 @@ function jfShop takes nothing returns nothing
 			call jfChange(i,jf2)
 		endif
 	elseif ((GetItemTypeId(GetManipulatedItem())=='I0DE')) and udg_jf[i] >= jf3 and (jf_useMax[i]+jf3) <= jf_max then
-		// 随机一本奇武
-		call unitadditembyidswapped(LoadInteger(YDHT, StringHash("武学")+GetRandomInt(42, 56), 1), u)
-		call jfChange(i,jf3)
-		call DisplayTimedTextToPlayer(Player(i),0,0,5,"|cFF66CC00B随机获取一本奇武，扣除4积分")
+		// 限定一局最多3本奇武
+		if jf_qiWu[i] >= 3 then
+			call DisplayTimedTextToPlayer(Player(i),0,0,5,"|CFFFE890D一局游戏只能兑换3本奇武！")
+		else
+			// 随机一本奇武
+			call unitadditembyidswapped(LoadInteger(YDHT, StringHash("武学")+GetRandomInt(42, 56), 1), u)
+			call jfChange(i,jf3)
+			call DisplayTimedTextToPlayer(Player(i),0,0,5,"|cFF66CC00B随机获取一本奇武，扣除4积分")
+		endif
+		set jf_qiWu[i] = jf_qiWu[i] +1
 	elseif ((GetItemTypeId(GetManipulatedItem())=='I0DF')) and udg_jf[i] >= jf4 and (jf_useMax[i]+jf4) <= jf_max then
 		// 桃花岛传送符，不限次数
 		call unitadditembyidswapped('I0DI',u) 
@@ -461,11 +471,11 @@ function jfShop takes nothing returns nothing
 		set udg_zhangmen[i+1] = false
 		call DisplayTimedTextToPlayer(Player(i),0,0,5,"|cFF66CC00重置门派称号成功，扣除14积分")
 		call jfChange(i,jf5)
-	elseif ((GetItemTypeId(GetManipulatedItem())=='I0DH')) and udg_jf[i] >= jf6 and (jf_useMax[i]+jf6) <= jf_max then
-		// 号令
-		call unitadditembyidswapped('I06F',u) 
-		call DisplayTimedTextToPlayer(Player(i),0,0,5,"|cFF66CC00获取号令天下令牌，扣除10积分")
-		call jfChange(i,jf6)
+	// elseif ((GetItemTypeId(GetManipulatedItem())=='I0DH')) and udg_jf[i] >= jf6 and (jf_useMax[i]+jf6) <= jf_max then
+	// 	// 号令
+	// 	call unitadditembyidswapped('I06F',u) 
+	// 	call DisplayTimedTextToPlayer(Player(i),0,0,5,"|cFF66CC00获取号令天下令牌，扣除10积分")
+	// 	call jfChange(i,jf6)
 	else
 		call DisplayTimedTextToPlayer(Player(i),0,0,5,"|CFFFE890D不好意思你的积分不够了哦，或者已经或者已经达到本局使用上限50！")
 	endif

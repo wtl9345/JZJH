@@ -254,7 +254,7 @@ function KeyInput takes nothing returns nothing
 			set loc = null
 		endif
 	endif
-	if s=="11" and GetUnitAbilityLevel(udg_hero[i],'A07W')>1 and IsUnitAliveBJ(udg_hero[i]) then
+	if s=="11" and GetUnitAbilityLevel(udg_hero[i],'A07W')>6 and IsUnitAliveBJ(udg_hero[i]) then
 		if RectContainsUnit(lh_r,udg_hero[i]) then
 			call DisplayTextToPlayer(p,0,0,"桃花岛不能创建飞行点")
 		else
@@ -267,7 +267,7 @@ function KeyInput takes nothing returns nothing
 			set loc = null
 		endif
 	endif
-	if s=="22" and GetUnitAbilityLevel(udg_hero[i],'A07W')>1 and IsUnitAliveBJ(udg_hero[i]) then
+	if s=="22" and GetUnitAbilityLevel(udg_hero[i],'A07W')>6 and IsUnitAliveBJ(udg_hero[i]) then
 		if qiankun2hao[i]==null then
 			call DisplayTextToPlayer(p,0,0,"你还没有设置飞行点，请输入聊天信息“11”来设置")
 		else
@@ -278,30 +278,30 @@ function KeyInput takes nothing returns nothing
 			set loc = null
 		endif
 	endif
-	if s=="111" and GetUnitAbilityLevel(udg_hero[i],'A07W')>2 and IsUnitAliveBJ(udg_hero[i]) then
-		if RectContainsUnit(lh_r,udg_hero[i]) then
-			call DisplayTextToPlayer(p,0,0,"桃花岛不能创建飞行点")
-		else
-			call RemoveUnit(qiankun3hao[i])
-			set loc = GetUnitLoc(udg_hero[i])
-			call CreateNUnitsAtLoc(1,1697656906,p,loc,bj_UNIT_FACING)
-			set qiankun3hao[i]=bj_lastCreatedUnit
-			call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"创建飞行点")
-			call RemoveLocation(loc)
-			set loc = null
-		endif
-	endif
-	if s=="222" and GetUnitAbilityLevel(udg_hero[i],'A07W')>2 and IsUnitAliveBJ(udg_hero[i]) then
-		if qiankun3hao[i]==null then
-			call DisplayTextToPlayer(p,0,0,"你还没有设置飞行点，请输入聊天信息“111”来设置")
-		else
-			set loc = GetUnitLoc(qiankun3hao[i])
-			call SetUnitPositionLoc(udg_hero[i],loc)
-			call PanCameraToTimedLocForPlayer(p,loc,0)
-			call RemoveLocation(loc)
-			set loc = null
-		endif
-	endif
+	// if s=="111" and GetUnitAbilityLevel(udg_hero[i],'A07W')>2 and IsUnitAliveBJ(udg_hero[i]) then
+	// 	if RectContainsUnit(lh_r,udg_hero[i]) then
+	// 		call DisplayTextToPlayer(p,0,0,"桃花岛不能创建飞行点")
+	// 	else
+	// 		call RemoveUnit(qiankun3hao[i])
+	// 		set loc = GetUnitLoc(udg_hero[i])
+	// 		call CreateNUnitsAtLoc(1,1697656906,p,loc,bj_UNIT_FACING)
+	// 		set qiankun3hao[i]=bj_lastCreatedUnit
+	// 		call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"创建飞行点")
+	// 		call RemoveLocation(loc)
+	// 		set loc = null
+	// 	endif
+	// endif
+	// if s=="222" and GetUnitAbilityLevel(udg_hero[i],'A07W')>2 and IsUnitAliveBJ(udg_hero[i]) then
+	// 	if qiankun3hao[i]==null then
+	// 		call DisplayTextToPlayer(p,0,0,"你还没有设置飞行点，请输入聊天信息“111”来设置")
+	// 	else
+	// 		set loc = GetUnitLoc(qiankun3hao[i])
+	// 		call SetUnitPositionLoc(udg_hero[i],loc)
+	// 		call PanCameraToTimedLocForPlayer(p,loc,0)
+	// 		call RemoveLocation(loc)
+	// 		set loc = null
+	// 	endif
+	// endif
 	//if s==GetVIPNum(p, LoadStr(YDHT, GetHandleId(p), GetHandleId(p)*2)) then
 	//	set udg_vip[i] = 1
 	//	call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933感谢玩家"+GetPlayerName(p)+"对决战江湖的赞助|r")

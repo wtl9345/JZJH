@@ -132,7 +132,7 @@ globals
 	// 是否单通
 	boolean singlePlayerFlag = false
 	// 是否是测试版
-	boolean testVersion = false
+	boolean testVersion = true
 	// 奖励的武功伤害
 	real array bonus_wugong
 	// 奖励的爆伤

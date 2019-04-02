@@ -30,7 +30,11 @@ function YingZhao_Action takes nothing returns nothing
     local integer i=1+GetPlayerId(GetOwningPlayer(u))
     local location loc=GetUnitLoc(u)
     local timer t = CreateTimer()
-    local real dist = SquareRoot((GetUnitX(u)-GetUnitX(uc))*(GetUnitX(u)-GetUnitX(uc))+(GetUnitY(u)-GetUnitY(uc))*(GetUnitY(u)-GetUnitY(uc)))
+	local real dist = 200.0
+	// 学龙象，距离影响伤害
+	 if GetUnitAbilityLevel(u,'S002')>=1 then
+	    set dist= SquareRoot((GetUnitX(u)-GetUnitX(uc))*(GetUnitX(u)-GetUnitX(uc))+(GetUnitY(u)-GetUnitY(uc))*(GetUnitY(u)-GetUnitY(uc)))
+    endif
     set shxishu=1.8+0.2*dist*GetRandomReal(20.,50.)/I2R(LoadInteger(YDHT, GetHandleId(u), StringHash("鹰爪")))/I2R(LoadInteger(YDHT, GetHandleId(u), StringHash("鹰爪")))
     if GetUnitAbilityLevel(u,'A034')>=1 or GetUnitAbilityLevel(u,'A035')>=1 then
 	    set shxishu=shxishu*2
@@ -91,7 +95,11 @@ function YingZhaoZhuDong_Action takes nothing returns nothing
     local integer i=1+GetPlayerId(GetOwningPlayer(u))
     local location loc=GetUnitLoc(u)
     local timer t = CreateTimer()
-    local real dist = SquareRoot((GetUnitX(u)-GetUnitX(uc))*(GetUnitX(u)-GetUnitX(uc))+(GetUnitY(u)-GetUnitY(uc))*(GetUnitY(u)-GetUnitY(uc)))
+    local real dist = 200.0
+	// 学龙象，距离影响伤害
+	if GetUnitAbilityLevel(u,'S002')>=1 then
+	    set dist=SquareRoot((GetUnitX(u)-GetUnitX(uc))*(GetUnitX(u)-GetUnitX(uc))+(GetUnitY(u)-GetUnitY(uc))*(GetUnitY(u)-GetUnitY(uc)))
+    endif
     set shxishu=1.8+0.2*dist*GetRandomReal(20.,50.)/I2R(LoadInteger(YDHT, GetHandleId(u), StringHash("鹰爪主动")))/I2R(1+LoadInteger(YDHT, GetHandleId(u), StringHash("鹰爪主动")))
     if GetUnitAbilityLevel(u,'A034')>=1 or GetUnitAbilityLevel(u,'A035')>=1 then
 	    set shxishu=shxishu*2
@@ -166,7 +174,8 @@ library MaxSpeed /* v1.2
          // Vexorian's Table or Bribe's (NEW)
          private constant boolean TEST_MODE = false
          private constant real PERIOD = 0.03125
-         private constant real MAX_SPEED = 2088.0
+        //  private constant real MAX_SPEED = 2088.0
+		private constant real MAX_SPEED = 522.0
          // 最大速度限定，超出视为传送。
         private constant real MIN_SPEED = 500.0
          // 判定的最小距离，此项过小或速度过大会使原地打转几率增加，超出则没有加速效果。

@@ -13,117 +13,117 @@ globals
 	constant integer MAX_BAN_LV_NUM = 14
 endglobals
 
-native DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
-native DzAPI_Map_GetServerValue takes player whichPlayer, string key returns string
-native DzAPI_Map_Ladder_SetStat takes player whichPlayer, string key, string value returns nothing
-native DzAPI_Map_IsRPGLadder takes nothing returns boolean
-native DzAPI_Map_GetGameStartTime takes nothing returns integer
-native DzAPI_Map_Stat_SetStat takes player whichPlayer, string key, string value returns nothing
-native DzAPI_Map_GetMatchType takes nothing returns integer
-native DzAPI_Map_Ladder_SetPlayerStat takes player whichPlayer, string key, string value returns nothing
-native DzAPI_Map_GetServerValueErrorCode takes player whichPlayer returns integer
-native DzAPI_Map_GetLadderLevel takes player whichPlayer returns integer
-native DzAPI_Map_IsRedVIP takes player whichPlayer returns boolean
-native DzAPI_Map_IsBlueVIP takes player whichPlayer returns boolean
-native DzAPI_Map_GetLadderRank takes player whichPlayer returns integer
-native DzAPI_Map_GetMapLevelRank takes player whichPlayer returns integer
-native DzAPI_Map_GetGuildName takes player whichPlayer returns string
-native DzAPI_Map_GetGuildRole takes player whichPlayer returns integer
-native DzAPI_Map_IsRPGLobby takes nothing returns boolean
-native DzAPI_Map_GetMapLevel takes player whichPlayer returns integer
-native DzAPI_Map_MissionComplete takes player whichPlayer, string key, string value returns nothing
-native DzAPI_Map_GetActivityData takes nothing returns string
-native DzAPI_Map_GetMapConfig takes string key returns string
+// native DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
+// native DzAPI_Map_GetServerValue takes player whichPlayer, string key returns string
+// native DzAPI_Map_Ladder_SetStat takes player whichPlayer, string key, string value returns nothing
+// native DzAPI_Map_IsRPGLadder takes nothing returns boolean
+// native DzAPI_Map_GetGameStartTime takes nothing returns integer
+// native DzAPI_Map_Stat_SetStat takes player whichPlayer, string key, string value returns nothing
+// native DzAPI_Map_GetMatchType takes nothing returns integer
+// native DzAPI_Map_Ladder_SetPlayerStat takes player whichPlayer, string key, string value returns nothing
+// native DzAPI_Map_GetServerValueErrorCode takes player whichPlayer returns integer
+// native DzAPI_Map_GetLadderLevel takes player whichPlayer returns integer
+// native DzAPI_Map_IsRedVIP takes player whichPlayer returns boolean
+// native DzAPI_Map_IsBlueVIP takes player whichPlayer returns boolean
+// native DzAPI_Map_GetLadderRank takes player whichPlayer returns integer
+// native DzAPI_Map_GetMapLevelRank takes player whichPlayer returns integer
+// native DzAPI_Map_GetGuildName takes player whichPlayer returns string
+// native DzAPI_Map_GetGuildRole takes player whichPlayer returns integer
+// native DzAPI_Map_IsRPGLobby takes nothing returns boolean
+// native DzAPI_Map_GetMapLevel takes player whichPlayer returns integer
+// native DzAPI_Map_MissionComplete takes player whichPlayer, string key, string value returns nothing
+// native DzAPI_Map_GetActivityData takes nothing returns string
+// native DzAPI_Map_GetMapConfig takes string key returns string
 
-// function DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_GetServerValue takes player whichPlayer, string key returns string
-// 	return ""
-// endfunction
+function DzAPI_Map_GetServerValue takes player whichPlayer, string key returns string
+	return ""
+endfunction
 
-// function DzAPI_Map_Ladder_SetStat takes player whichPlayer, string key, string value returns nothing
-// endfunction
+function DzAPI_Map_Ladder_SetStat takes player whichPlayer, string key, string value returns nothing
+endfunction
 
-// function DzAPI_Map_IsRPGLadder takes nothing returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_IsRPGLadder takes nothing returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_GetGameStartTime takes nothing returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetGameStartTime takes nothing returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_Stat_SetStat takes player whichPlayer, string key, string value returns nothing
-// endfunction
+function DzAPI_Map_Stat_SetStat takes player whichPlayer, string key, string value returns nothing
+endfunction
 
-// function DzAPI_Map_GetMatchType takes nothing returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetMatchType takes nothing returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_Ladder_SetPlayerStat takes player whichPlayer, string key, string value returns nothing
-// endfunction
+function DzAPI_Map_Ladder_SetPlayerStat takes player whichPlayer, string key, string value returns nothing
+endfunction
 
-// function DzAPI_Map_GetServerValueErrorCode takes player whichPlayer returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetServerValueErrorCode takes player whichPlayer returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_GetLadderLevel takes player whichPlayer returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetLadderLevel takes player whichPlayer returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_IsRedVIP takes player whichPlayer returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_IsRedVIP takes player whichPlayer returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_IsBlueVIP takes player whichPlayer returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_IsBlueVIP takes player whichPlayer returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_GetLadderRank takes player whichPlayer returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetLadderRank takes player whichPlayer returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_GetMapLevelRank takes player whichPlayer returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetMapLevelRank takes player whichPlayer returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_GetGuildName takes player whichPlayer returns string
-// 	return ""
-// endfunction
+function DzAPI_Map_GetGuildName takes player whichPlayer returns string
+	return ""
+endfunction
 
-// function DzAPI_Map_GetGuildRole takes player whichPlayer returns integer
-// 	return 1
+function DzAPI_Map_GetGuildRole takes player whichPlayer returns integer
+	return 1
 
-// endfunction
+endfunction
 
-// function DzAPI_Map_IsRPGLobby takes nothing returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_IsRPGLobby takes nothing returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_GetMapLevel takes player whichPlayer returns integer
-// 	return 30
-// endfunction
+function DzAPI_Map_GetMapLevel takes player whichPlayer returns integer
+	return 30
+endfunction
 
-// function DzAPI_Map_MissionComplete takes player whichPlayer, string key, string value returns nothing
-// endfunction
+function DzAPI_Map_MissionComplete takes player whichPlayer, string key, string value returns nothing
+endfunction
 
-// function DzAPI_Map_GetActivityData takes nothing returns string
-// 	return ""
-// endfunction
+function DzAPI_Map_GetActivityData takes nothing returns string
+	return ""
+endfunction
 
-// function DzAPI_Map_GetMapConfig takes string key returns string
-// 	if key == "admin" then
-// 		return "0"
-// 	endif
-// 	if key == "info" then
-// 		return "无"
-// 	endif
-// 	if key == "jfBeishu" then
-// 		return "哈哈哈"
-// 	endif
-// 	return ""
-// endfunction
+function DzAPI_Map_GetMapConfig takes string key returns string
+	if key == "admin" then
+		return "0"
+	endif
+	if key == "info" then
+		return "无"
+	endif
+	if key == "jfBeishu" then
+		return "哈哈哈"
+	endif
+	return ""
+endfunction
 
 //library DzAPI:
 function GetPlayerServerValueSuccess takes player whichPlayer returns boolean
