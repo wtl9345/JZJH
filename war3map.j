@@ -46897,24 +46897,24 @@ function InitEquipments takes nothing returns nothing
 	set ZhuangBei[14]='I090'
 	//饰品清单
 	//白字
-	set ShiPin[1]='I023'
-	set ShiPin[2]='I023'
-	set ShiPin[3]='I01U'
-	set ShiPin[4]='I01V'
-	set ShiPin[5]='I01W'
-	set ShiPin[6]='I01X'
-	set ShiPin[7]='I01Y'
-	set ShiPin[8]='I01Z'
-	set ShiPin[9]='I01I'
-	set ShiPin[10]='I01J'
-	set ShiPin[11]='I01K'
-	set ShiPin[12]='I015'
-	set ShiPin[13]='I018'
-	set ShiPin[14]='I019'
-	set ShiPin[15]='I01A'
-	set ShiPin[16]='I01B'
-	set ShiPin[17]='I01C'
-	set ShiPin[18]='I01D'
+	set ShiPin[1]='I023' // 护身符
+	set ShiPin[2]='I024' // 环戒
+	set ShiPin[3]='I01U' // 纱绒
+	set ShiPin[4]='I01V' // 苍莽
+	set ShiPin[5]='I01W' // 传家
+	set ShiPin[6]='I01X' // 琥珀项链
+	set ShiPin[7]='I01Y' // 水碧
+	set ShiPin[8]='I01Z' // 闪避
+	set ShiPin[9]='I01I' // 星云
+	set ShiPin[10]='I01J' // 七绝
+	set ShiPin[11]='I01K' // 青竹
+	set ShiPin[12]='I015'  // 霓云
+	set ShiPin[13]='I018' // 彩云
+	set ShiPin[14]='I019' // 白虎
+	set ShiPin[15]='I01A' // 蓝魔
+	set ShiPin[16]='I01B' // 北斗
+	set ShiPin[17]='I01C' // 梦蝶
+	set ShiPin[18]='I01D' // 天璇
 	//蓝字
 	set ShiPin[19]='I01M'
 	set ShiPin[20]='I011'

@@ -60,7 +60,7 @@ function TanZhiShangHai_Action takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(GetEventDamageSource()))
 	local unit u=udg_hero[i]
     local unit uc=GetEnumUnit()
-    local real shxishu=1.
+    local real shxishu=1.+gengu[i]/20
     local real shanghai=0.
     set shanghai=ShangHaiGongShi(u,uc,30.8,30.8,shxishu,'A06H')
     call WuGongShangHai(u,uc,shanghai)
@@ -71,7 +71,7 @@ function TanZhiShangHai takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(GetEventDamageSource()))
 	local unit u=udg_hero[i]
     local unit uc=GetTriggerUnit()
-    local real shxishu=1.
+    local real shxishu=1. + gengu[i]/20
     local real shanghai=0.
     local location loc=GetUnitLoc(u)
     local location loc2=GetUnitLoc(uc)
@@ -148,7 +148,7 @@ function hF takes nothing returns nothing
     local integer i=1+GetPlayerId(GetOwningPlayer(GetEventDamageSource()))
 	local unit u=udg_hero[i]
     local unit uc=GetTriggerUnit()
-    local real shxishu=1.
+    local real shxishu=1. + yishu[i]/20
     local real shanghai=0.
     local location loc=GetUnitLoc(uc)
     if((GetUnitAbilityLevel(u,1093678932)!=0))then
@@ -325,7 +325,7 @@ function rF takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(GetEventDamageSource()))
 	local unit u=udg_hero[i]
     local unit uc=GetTriggerUnit()
-    local real shxishu=1.
+    local real shxishu=1. + wuxing[i]/20
     local real shanghai=0.
     if((GetUnitAbilityLevel(u,'A07J')!=0))then
         set shxishu=shxishu+.7
@@ -549,7 +549,7 @@ function EF takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(GetEventDamageSource()))
 	local unit u=udg_hero[i]
     local unit uc=GetTriggerUnit()
-    local real shxishu=1.
+    local real shxishu=1. + jingmai[i]/20
     local real shanghai=0.
     if((GetUnitAbilityLevel(u,'A07P')!=0))then
         set shxishu=shxishu+.6
@@ -602,7 +602,7 @@ function JF takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(GetEventDamageSource()))
 	local unit u=udg_hero[i]
     local unit uc=GetTriggerUnit()
-    local real shxishu=1.
+    local real shxishu=1. + gengu[i]/20
     local real shanghai=0.
     local location loc=GetUnitLoc(uc)
     local location loc2=null
@@ -642,7 +642,7 @@ function MF takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(GetEventDamageSource()))
 	local unit u=udg_hero[i]
     local unit uc=GetTriggerUnit()
-    local real shxishu=1.
+    local real shxishu=1. + jingmai[i]/20
     local real shanghai=0.
     local location loc=GetUnitLoc(uc)
     if((GetUnitAbilityLevel(u,'A06J')!=0))then
@@ -690,7 +690,7 @@ function QF takes nothing returns nothing
 	local unit uc=GetEnumUnit()
 	local location loc=GetUnitLoc(uc)
 	local integer i=1+GetPlayerId(GetOwningPlayer(u))
-	local real shxishu=1.
+	local real shxishu=1. + wuxing[i]/20
 	local real shanghai=0.
 	// 搭配吸星，伤害加50%
     if GetUnitAbilityLevel(u,'A07R')!=0 then
@@ -910,7 +910,7 @@ function BiHai_Action takes nothing returns nothing
 	set yinlv[4]="徵!"
 	set yinlv[5]="羽!"
 	if dongxie[i] then
-		set shxishu=shxishu*5
+		set shxishu=shxishu*10
 	endif
 	if GetUnitAbilityLevel(u,'A06H')>=1 then
 	    set j=3

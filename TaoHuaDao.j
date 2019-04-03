@@ -112,13 +112,13 @@ function TaoHuaGun takes nothing returns nothing
 			endif
 			
 
-			if GetUnitTypeId(GetTriggerUnit())=='o021' and ((GetRandomInt(1,100)<=30) or (GetRandomInt(1,100)<=50 and udg_xbdsbool[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]==true)) then
+			if GetUnitTypeId(GetTriggerUnit())=='o021' and ((GetRandomInt(1,100)<=30) or (GetRandomInt(1,100)<=70 and udg_xbdsbool[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]==true)) then
 				call unitadditembyidswapped('I067',u)
 			endif
-			if GetUnitTypeId(GetTriggerUnit())=='o022' and ((GetRandomInt(1,100)<=30) or (GetRandomInt(1,100)<=50 and udg_xbdsbool[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]==true)) then
+			if GetUnitTypeId(GetTriggerUnit())=='o022' and ((GetRandomInt(1,100)<=30) or (GetRandomInt(1,100)<=70 and udg_xbdsbool[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]==true)) then
 				call unitadditembyidswapped('I061',u)
 			endif
-			if GetUnitTypeId(GetTriggerUnit())=='n00A' and ((GetRandomInt(1,100)<=30) or (GetRandomInt(1,100)<=50 and udg_xbdsbool[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]==true)) then
+			if GetUnitTypeId(GetTriggerUnit())=='n00A' and ((GetRandomInt(1,100)<=30) or (GetRandomInt(1,100)<=70 and udg_xbdsbool[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]==true)) then
 				call unitadditembyidswapped('I060',u)
 			endif
 			// 失心疯n00D，寻宝大师100%爆逆九阴

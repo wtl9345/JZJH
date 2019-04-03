@@ -1361,7 +1361,7 @@ function Zw takes nothing returns nothing
 	call AddSpecialEffectTargetUnitBJ("overhead",Bt,"Objects\\RandomObject\\RandomObject.mdl")
 	call AddSpecialEffectTargetUnitBJ("overhead",gg_unit_N007_0055,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
 	call CreateTextTagUnitBJ("点我加门派后可离开此地",Rs,.0,15.,100.,100.,.0,50.)
-	call CreateTextTagLocBJ("决战江湖1.64名人榜",GetRectCenter(uh),100.,$A,100,100,.0,50.)
+	call CreateTextTagLocBJ("决战江湖1.66名人榜",GetRectCenter(uh),100.,$A,100,100,.0,50.)
 	set v7[1]=GetRectCenter(Ie)
 	set v7[2]=GetRectCenter(le)
 	set v7[3]=GetRectCenter(Je)
@@ -1404,7 +1404,7 @@ function Zw takes nothing returns nothing
 	call CreateTimerDialogBJ(bj_lastStartedTimer,"邪教进攻倒计时：")
 	call TimerDialogDisplay(bj_lastCreatedTimerDialog,true)
 	set z7[3]=bj_lastCreatedTimerDialog
-	call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,30,"|cfffff000欢迎来到|cffff00de金庸群侠传之决战江湖1.64|r")
+	call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,30,"|cfffff000欢迎来到|cffff00de金庸群侠传之决战江湖1.66|r")
 	// 获取服务器全局存档，信息提示
 	set info = DzAPI_Map_GetMapConfig("info")
 	if info != "无" then

@@ -1570,7 +1570,7 @@ function Victory takes nothing returns nothing
 	// 获胜标识
 	set is_victory = true
 
-	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.64的游戏总评分："+(I2S(ae)+"分（通关）")))
+	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.66的游戏总评分："+(I2S(ae)+"分（通关）")))
 	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFFFF00B2恭喜你们通关，游戏将在2分钟后结束\n游戏专区论坛：jzjhbbs.uuu9.com\n游戏交流QQ群：159030768  369925013  341305274\n关注武侠，让决战江湖走得更远，期待你的参与，详情请在专区论坛查询")
 	set de=true
 	call SaveReal(YDHT,id*cx,-$5E9EB4B3,40.)
@@ -1585,7 +1585,7 @@ function Victory takes nothing returns nothing
 	call TimerStart(ky,.04,true,function IsVictory)
 	call YDWEPolledWaitNull(60.)
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
-	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.64的游戏总评分："+(I2S(ae)+"分（通关）")))
+	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.66的游戏总评分："+(I2S(ae)+"分（通关）")))
 	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFFFF00B2恭喜你们通关，游戏将在1分钟后结束\n游戏专区论坛：jzjhbbs.uuu9.com\n游戏交流QQ群：159030768  369925013  341305274 \n关注武侠，让决战江湖走得更远，期待你的参与，详情请在专区论坛查询")
 	call YDWEPolledWaitNull(60.)
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
@@ -1600,7 +1600,7 @@ endfunction
 //失败动作
 function Lose takes nothing returns nothing
 	local integer i=0
-	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.64的游戏总评分："+(I2S(ae)+"分（战败）")))
+	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.66的游戏总评分："+(I2S(ae)+"分（战败）")))
 	set i = 1
 	loop
 		exitwhen i >= 6
@@ -2326,7 +2326,7 @@ function HeroLevel takes nothing returns nothing
 			call ModifyHeroStat(2, u, 0, GetRandomInt(4, 12))
 		endif
 		if (GetUnitLevel(u)==80) then
-			set juexuelingwu[i] = juexuelingwu[i]+10
+			set juexuelingwu[i] = juexuelingwu[i]+50
 			if udg_zhangmen[i]==true then
 			else
 				call SaveStr(YDHT, GetHandleId(p), GetHandleId(p),"〓练气大师〓"+LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -3084,6 +3084,7 @@ function CollectGuDong_Actions takes nothing returns nothing
     	endif
     endif
     if udg_jdds[i]>=10 and udg_jddsbool[i]==false and Ce[i]==4 then
+		set wuxing[i]=wuxing[i]+10 // 悟性加10
 	    set udg_jddsbool[i]=true
 	    if udg_zhangmen[i]==true then
 		else
@@ -4265,89 +4266,11 @@ function HeCheng_Actions takes nothing returns nothing
  //   endif
 endfunction
 
-//合成物品2
-function HeCheng2_Conditions takes nothing returns boolean
-    return (udg_runamen[1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]== 11 and GetUnitTypeId(GetTriggerUnit())=='nvul' )
-endfunction
-function HeCheng2_Actions takes nothing returns nothing
-	local unit u = GetTriggerUnit()
-	/**
-	 *  合成自由专属
-	 */
-	 	// 张无忌杀猪刀I0CI,郭靖环戒I0CH，乔峰草鞋I0DO，
-	 // 大侠套+琥珀项链合成游侠印记
-	if GetItemTypeId(GetManipulatedItem()) == 'I0CI' or GetItemTypeId(GetManipulatedItem()) == 'I0CH' or GetItemTypeId(GetManipulatedItem()) == 'I0DO' or GetItemTypeId(GetManipulatedItem()) == 'I01X' then
-		if UnitHaveItem(u,'I0CI') and UnitHaveItem(u,'I0CH') and UnitHaveItem(u,'I0DO') and UnitHaveItem(u,'I01X')  then
-			call RemoveItem(FetchUnitItem(u, 'I0CI'))
-			call RemoveItem(FetchUnitItem(u,'I0CH'))
-			call RemoveItem(FetchUnitItem(u,'I0DO'))
-			call RemoveItem(FetchUnitItem(u,'I01X'))
-			call unitadditembyidswapped('I0E8',u)
-		endif
-    	// call YDWENewItemsFormula( 'I0CI', 1, 'I0CH', 1, 'I0DO', 1, 'I01X', 1, 'ches', 0, 'ches', 0, 'I0E8' )
-	endif
-	// 游侠印记+七星戒指合成小侠印记
-	if GetItemTypeId(GetManipulatedItem()) == 'I0E8' or GetItemTypeId(GetManipulatedItem()) == 'I01P' then
-		if UnitHaveItem(u,'I0E8') and UnitHaveItem(u,'I01P')  then
-			call RemoveItem(FetchUnitItem(u, 'I0E8'))
-			call RemoveItem(FetchUnitItem(u,'I01P'))
-			call unitadditembyidswapped('I0E9',u)
-		endif
-    	// call YDWENewItemsFormula( 'I0E8', 1, 'I01P', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'ches', 0, 'I0E9' )
-	endif
-	// 小侠印记+梦蝶项链合成名侠印记
-	if GetItemTypeId(GetManipulatedItem()) == 'I0E9' or GetItemTypeId(GetManipulatedItem()) == 'I01C' then
-		if UnitHaveItem(u,'I0E9') and UnitHaveItem(u,'I01C')  then
-			call RemoveItem(FetchUnitItem(u, 'I0E9'))
-			call RemoveItem(FetchUnitItem(u,'I01C'))
-			call unitadditembyidswapped('I0EA',u)
-		endif
-    	// call YDWENewItemsFormula( 'I0E9', 1, 'I01C', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'ches', 0, 'I0EA' )
-	endif
-	// 名侠印记+云海链合成大侠印记
-	if GetItemTypeId(GetManipulatedItem()) == 'I0EA' or GetItemTypeId(GetManipulatedItem()) == 'I010' then
-		if UnitHaveItem(u,'I0EA') and UnitHaveItem(u,'I010')  then
-			call RemoveItem(FetchUnitItem(u, 'I0EA'))
-			call RemoveItem(FetchUnitItem(u,'I010'))
-			// call createitemloc('I0EB',loc)
-			call unitadditembyidswapped('I0EB',u)
-		endif
-    	// call YDWENewItemsFormula( 'I0EA', 1, 'I010', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'ches', 0, 'I0EB' )
-	endif
-	// 大侠印记+重生链合成巨侠印记
-	if GetItemTypeId(GetManipulatedItem()) == 'I0EB' or GetItemTypeId(GetManipulatedItem()) == 'I00W' then
-		if UnitHaveItem(u,'I0EB') and UnitHaveItem(u,'I00W')  then
-			call RemoveItem(FetchUnitItem(u, 'I0EB'))
-			call RemoveItem(FetchUnitItem(u,'I00W'))
-			// call createitemloc('I0EC',loc)
-			call unitadditembyidswapped('I0EC',u)
-		endif
-    	// call YDWENewItemsFormula( 'I0EB', 1, 'I00W', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'ches', 0, 'I0EC' )
-	endif
-	// 巨侠印记+号令天下+野球拳合成虾米印记
-	if GetItemTypeId(GetManipulatedItem()) == 'I0EC' or GetItemTypeId(GetManipulatedItem()) == 'I06F' or GetItemTypeId(GetManipulatedItem()) == 'I03A' then
-		if UnitHaveItem(u,'I0EC') and UnitHaveItem(u,'I06F') and UnitHaveItem(u,'I03A')  then
-			call RemoveItem(FetchUnitItem(u, 'I0EC'))
-			call RemoveItem(FetchUnitItem(u,'I06F'))
-			call RemoveItem(FetchUnitItem(u,'I03A'))
-			call unitadditembyidswapped('I0ED',u)
-			// call createitemloc('I0ED',loc)
-		endif
-    	// call YDWENewItemsFormula( 'I0EC', 1, 'I06F', 1, 'I03A', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'I0ED' )
-	endif
-	// 虾米印记+绿扳指+江湖情合成十四天书
-	if GetItemTypeId(GetManipulatedItem()) == 'I0ED' or GetItemTypeId(GetManipulatedItem()) == 'I00L' or GetItemTypeId(GetManipulatedItem()) == 'I08W' then
-		if UnitHaveItem(u,'I0ED') and UnitHaveItem(u,'I00L') and UnitHaveItem(u,'I08W')  then
-			call RemoveItem(FetchUnitItem(u, 'I0ED'))
-			call RemoveItem(FetchUnitItem(u,'I00L'))
-			call RemoveItem(FetchUnitItem(u,'I08W'))
-			// call createitemloc('I0EE',loc)
-			call unitadditembyidswapped('I0EE',u)
-		endif
-    	// call YDWENewItemsFormula( 'I0ED', 1, 'I00L', 1, 'I08W', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'I0EE' )
-	endif
-	set u = null
-endfunction
+globals
+	integer array duanZao_level  // 合成天书物品的等级，相同的合成
+endglobals
+
+
 
 //锻造大师补属性
 function DZDSBuShuXing takes unit u returns nothing
@@ -4432,6 +4355,119 @@ function WuPinHeCheng takes nothing returns nothing
 	    call SaveInteger(YDHT,GetHandleId(it),0,WeaponNaiJiu(it))
     endif
     set it=null
+endfunction
+
+/**
+ * 合成加锻造数量
+ */
+ function HeCheng2_Dzds takes integer i returns nothing 
+	if Ce[i] == 2 and udg_dzds[i]<=5 then
+		set udg_dzds[i] = udg_dzds[i] +1
+		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|CFF66FF00恭喜您锻造成功第"+I2S(udg_dzds[i])+"件装备，锻造成功5件装备可以获得锻造大师哦")
+	endif
+	if Ce[i]==2 and udg_dzds[i]>=5 and udg_dzdsbool[i]==false then
+		set udg_dzdsbool[i] = true
+		call DZDSBuShuXing(udg_hero[i])
+		if udg_zhangmen[i]==true then
+		else
+			call SaveStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit())),"〓锻造大师〓"+LoadStr(YDHT, GetHandleId(GetOwningPlayer(GetTriggerUnit())), GetHandleId(GetOwningPlayer(GetTriggerUnit()))))
+		endif
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFF66FF00恭喜"+GetPlayerName(GetOwningPlayer(GetTriggerUnit()))+"获得锻造大师")
+		call SetPlayerName(GetOwningPlayer(GetTriggerUnit()), "〓锻造大师〓"+GetPlayerName(GetOwningPlayer(GetTriggerUnit())))
+	endif
+ endfunction
+
+//合成物品2，自由或者副职锻造可以合成
+function HeCheng2_Conditions takes nothing returns boolean
+    return ((udg_runamen[1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]== 11 or Ce[1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]==2) and GetUnitTypeId(GetTriggerUnit())=='nvul' )
+endfunction
+function HeCheng2_Actions takes nothing returns nothing
+	local unit u = GetTriggerUnit()
+	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
+
+	/**
+	 *  合成自由专属
+	 */
+	 	// 张无忌杀猪刀I0CI,郭靖环戒I0CH，乔峰草鞋I0DO，
+	 // 大侠套+琥珀项链合成游侠印记
+	if GetItemTypeId(GetManipulatedItem()) == 'I0CI' or GetItemTypeId(GetManipulatedItem()) == 'I0CH' or GetItemTypeId(GetManipulatedItem()) == 'I0DO' or GetItemTypeId(GetManipulatedItem()) == 'I01X' then
+		if UnitHaveItem(u,'I0CI') and UnitHaveItem(u,'I0CH') and UnitHaveItem(u,'I0DO') and UnitHaveItem(u,'I01X')  then
+			call RemoveItem(FetchUnitItem(u, 'I0CI'))
+			call RemoveItem(FetchUnitItem(u,'I0CH'))
+			call RemoveItem(FetchUnitItem(u,'I0DO'))
+			call RemoveItem(FetchUnitItem(u,'I01X'))
+			call unitadditembyidswapped('I0E8',u)
+			call HeCheng2_Dzds(i)
+		endif
+    	// call YDWENewItemsFormula( 'I0CI', 1, 'I0CH', 1, 'I0DO', 1, 'I01X', 1, 'ches', 0, 'ches', 0, 'I0E8' )
+	endif
+	// 游侠印记+七星戒指合成小侠印记
+	if GetItemTypeId(GetManipulatedItem()) == 'I0E8' or GetItemTypeId(GetManipulatedItem()) == 'I01P' then
+		if UnitHaveItem(u,'I0E8') and UnitHaveItem(u,'I01P')  then
+			call RemoveItem(FetchUnitItem(u, 'I0E8'))
+			call RemoveItem(FetchUnitItem(u,'I01P'))
+			call unitadditembyidswapped('I0E9',u)
+			call HeCheng2_Dzds(i)
+		endif
+    	// call YDWENewItemsFormula( 'I0E8', 1, 'I01P', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'ches', 0, 'I0E9' )
+	endif
+	// 小侠印记+梦蝶项链合成名侠印记
+	if GetItemTypeId(GetManipulatedItem()) == 'I0E9' or GetItemTypeId(GetManipulatedItem()) == 'I01C' then
+		if UnitHaveItem(u,'I0E9') and UnitHaveItem(u,'I01C')  then
+			call RemoveItem(FetchUnitItem(u, 'I0E9'))
+			call RemoveItem(FetchUnitItem(u,'I01C'))
+			call unitadditembyidswapped('I0EA',u)
+			call HeCheng2_Dzds(i)
+		endif
+    	// call YDWENewItemsFormula( 'I0E9', 1, 'I01C', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'ches', 0, 'I0EA' )
+	endif
+	// 名侠印记+云海链合成大侠印记
+	if GetItemTypeId(GetManipulatedItem()) == 'I0EA' or GetItemTypeId(GetManipulatedItem()) == 'I010' then
+		if UnitHaveItem(u,'I0EA') and UnitHaveItem(u,'I010')  then
+			call RemoveItem(FetchUnitItem(u, 'I0EA'))
+			call RemoveItem(FetchUnitItem(u,'I010'))
+			// call createitemloc('I0EB',loc)
+			call unitadditembyidswapped('I0EB',u)
+			call HeCheng2_Dzds(i)
+		endif
+    	// call YDWENewItemsFormula( 'I0EA', 1, 'I010', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'ches', 0, 'I0EB' )
+	endif
+	// 大侠印记+重生链合成巨侠印记
+	if GetItemTypeId(GetManipulatedItem()) == 'I0EB' or GetItemTypeId(GetManipulatedItem()) == 'I00W' then
+		if UnitHaveItem(u,'I0EB') and UnitHaveItem(u,'I00W')  then
+			call RemoveItem(FetchUnitItem(u, 'I0EB'))
+			call RemoveItem(FetchUnitItem(u,'I00W'))
+			// call createitemloc('I0EC',loc)
+			call unitadditembyidswapped('I0EC',u)
+			call HeCheng2_Dzds(i)
+		endif
+    	// call YDWENewItemsFormula( 'I0EB', 1, 'I00W', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'ches', 0, 'I0EC' )
+	endif
+	// 巨侠印记+号令天下+野球拳合成虾米印记
+	if GetItemTypeId(GetManipulatedItem()) == 'I0EC' or GetItemTypeId(GetManipulatedItem()) == 'I06F' or GetItemTypeId(GetManipulatedItem()) == 'I03A' then
+		if UnitHaveItem(u,'I0EC') and UnitHaveItem(u,'I06F') and UnitHaveItem(u,'I03A')  then
+			call RemoveItem(FetchUnitItem(u, 'I0EC'))
+			call RemoveItem(FetchUnitItem(u,'I06F'))
+			call RemoveItem(FetchUnitItem(u,'I03A'))
+			call unitadditembyidswapped('I0ED',u)
+			call HeCheng2_Dzds(i)
+			// call createitemloc('I0ED',loc)
+		endif
+    	// call YDWENewItemsFormula( 'I0EC', 1, 'I06F', 1, 'I03A', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'I0ED' )
+	endif
+	// 虾米印记+绿扳指+江湖情合成十四天书
+	if GetItemTypeId(GetManipulatedItem()) == 'I0ED' or GetItemTypeId(GetManipulatedItem()) == 'I00L' or GetItemTypeId(GetManipulatedItem()) == 'I08W' then
+		if UnitHaveItem(u,'I0ED') and UnitHaveItem(u,'I00L') and UnitHaveItem(u,'I08W')  then
+			call RemoveItem(FetchUnitItem(u, 'I0ED'))
+			call RemoveItem(FetchUnitItem(u,'I00L'))
+			call RemoveItem(FetchUnitItem(u,'I08W'))
+			// call createitemloc('I0EE',loc)
+			call unitadditembyidswapped('I0EE',u)
+			call HeCheng2_Dzds(i)
+		endif
+    	// call YDWENewItemsFormula( 'I0ED', 1, 'I00L', 1, 'I08W', 1, 'ches', 0, 'ches', 0, 'ches', 0, 'I0EE' )
+	endif
+	set u = null
 endfunction
 
 /*

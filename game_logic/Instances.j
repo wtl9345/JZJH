@@ -888,8 +888,8 @@ function eJ takes nothing returns nothing
 		else
 			call createitemloc('I00T',LoadLocationHandle(YDHT,id*cx,$1769D332))
 		endif
-		// 10%爆玉扳指
-		if (GetRandomInt(0,100) <= 10) then
+		// 20%爆玉扳指
+		if (GetRandomInt(0,100) <= 20) then
 			call createitemloc('I0DT',LoadLocationHandle(YDHT,id*cx,$1769D332))
 		endif 
 		call SaveInteger(YDHT,id*cx,-$5E9EB4B3,0)
@@ -1352,8 +1352,13 @@ function KK takes nothing returns nothing
 				call DisplayTextToPlayer(p,0,0,("哑仆："+I2S(LoadInteger(YDHT,StringHash("哑仆"),i))+" / 10"))
 			endif
 		endif
-		if GetRandomReal(1, 100) <=5 then
+		// 寻宝大师摧心掌爆率翻倍
+		if GetRandomInt(1, 100) <=5 or (udg_xbdsbool[i] and GetRandomInt(1,100) <= 10) then
 			call unitadditembyidswapped('I09K',u)
+		endif
+		// 寻宝大师新手神器爆率翻倍
+		if GetRandomInt(1, 100) <=5 or (udg_xbdsbool[i] and GetRandomInt(1,100) <= 10) then
+			call unitadditembyidswapped('I0DJ',u)
 		endif
 	elseif GetUnitTypeId(uc)=='nlv3' then
 		if GetRandomInt(0,100)<=100-GetNumPlayer()*10 then
@@ -2702,7 +2707,6 @@ function stealJiuYang takes nothing returns nothing
 	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 0, ykx)
 	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 1, xxz)
 	call TimerStart(jiuyangTimer1, GetRandomInt(600, 1500),false, function stealSuccess)
-	//call TimerStart(jiuyangTimer1, 60,false, function stealSuccess)
 	set jiuyangTimerDialog1 = createTimerDialog(jiuyangTimer1, "二杰盗经书")
 endfunction
 //击杀尹克西和潇湘子后几率获得奇武：潇湘子的《寿木长生功》或尹克西的《黄沙万里鞭法》，江湖声望+1000
@@ -2726,11 +2730,14 @@ function baiYuanDeath takes nothing returns nothing
 endfunction
 //不击杀尹克西和潇湘子的话二人将经书偷走，觉远大师和张君宝去追经书，若不打败觉远大师和张君宝，经书将被二人追回，经书重回少林寺藏经阁中
 function seekSuccess takes nothing returns nothing
-	local unit jyds = LoadUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 0)
-	local unit zjb = LoadUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 1)
-	local integer i = GetRandomInt(1200, 3000)
+	local unit jyds = LoadUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 0)
+	local unit zjb = LoadUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 1)
+	// local integer i = GetRandomInt(1200, 3000)
+	local integer i = GetRandomInt(600, 1800)
 	if(IsUnitAliveBJ(jyds) or IsUnitAliveBJ(zjb)) then
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：觉远和张君宝已成功缉拿潇湘子和尹克西并夺回九阳真经，九阳真经现已归还藏经阁！")
+		// 少林寺出现觉远卖九阳真经残卷，300木头，九阳散篇100木头
+		call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'o02V', 2844, - 1500,300)
 	else
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：觉远和张君宝被不知名江湖人士打败，潇湘子和尹克西逃跑！")
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：潇湘子和尹克西互殴而死，九阳真经不知所终！传闻潇湘子和尹克西将窃走的九阳真经藏入白猿腹中！")
@@ -2746,9 +2753,6 @@ function seekSuccess takes nothing returns nothing
 	call RemoveUnit(jyds)
 	call RemoveUnit(zjb)
 	call DestroyQuest(defeatSeeker)
-
-
-
 endfunction
 
 
@@ -2777,7 +2781,6 @@ function seekStealers takes nothing returns nothing
 	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 0, jyds)
 	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 1, zjb)
 	call TimerStart(jiuyangTimer2, GetRandomInt(600, 1500),false, function seekSuccess)
-	//call TimerStart(jiuyangTimer2, 60,false, function seekSuccess)
 	set jiuyangTimerDialog2 = createTimerDialog(jiuyangTimer2, "追回经书")
 
 endfunction

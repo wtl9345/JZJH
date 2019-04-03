@@ -149,7 +149,7 @@ function KeyInput takes nothing returns nothing
 
 	// 查看专属
 	if s == "ckzs" then
-		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF灵鹫：玉扳指，天山童姥10%爆，八荒加属性概率增加")
+		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF灵鹫：玉扳指，天山童姥20%爆，八荒加属性概率增加")
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF峨眉：倚天剑，灭绝师太接任务，打死副本3张无忌；或者副本6东方不败爆")
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF明教：屠龙刀，副本6东方不败爆")
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF武当：真武剑，90级去挑战场挑战张三丰,太极拳主动使用永久加1绝学领悟，被动使用概率加绝学领悟")
@@ -254,7 +254,7 @@ function KeyInput takes nothing returns nothing
 			set loc = null
 		endif
 	endif
-	if s=="11" and GetUnitAbilityLevel(udg_hero[i],'A07W')>6 and IsUnitAliveBJ(udg_hero[i]) then
+	if s=="11" and GetUnitAbilityLevel(udg_hero[i],'A07W')>3 and IsUnitAliveBJ(udg_hero[i]) then
 		if RectContainsUnit(lh_r,udg_hero[i]) then
 			call DisplayTextToPlayer(p,0,0,"桃花岛不能创建飞行点")
 		else
@@ -267,7 +267,7 @@ function KeyInput takes nothing returns nothing
 			set loc = null
 		endif
 	endif
-	if s=="22" and GetUnitAbilityLevel(udg_hero[i],'A07W')>6 and IsUnitAliveBJ(udg_hero[i]) then
+	if s=="22" and GetUnitAbilityLevel(udg_hero[i],'A07W')>3 and IsUnitAliveBJ(udg_hero[i]) then
 		if qiankun2hao[i]==null then
 			call DisplayTextToPlayer(p,0,0,"你还没有设置飞行点，请输入聊天信息“11”来设置")
 		else
@@ -353,13 +353,13 @@ function KeyInput takes nothing returns nothing
 			set jingmai[i]=(jingmai[i]+2)
 			set fuyuan[i]=(fuyuan[i]+2)
 	    elseif udg_runamen[i]==16 then
-	        call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓神龙教〓|r")
+	        call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓神龙教-英雄三招〓|r")
 	        call SetPlayerName(p,"〓神龙教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 	        set gengu[i]=gengu[i]+2
 	    	set fuyuan[i] = fuyuan[i] + 2
 	    	set danpo[i] = danpo[i] + 1
 	    elseif udg_runamen[i]==17 then
-	        call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓神龙教〓|r")
+	        call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓神龙教-美人三招〓|r")
 	        call SetPlayerName(p,"〓神龙教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 	        set gengu[i]=gengu[i]+2
 	    	set fuyuan[i] = fuyuan[i] + 2
@@ -730,47 +730,47 @@ function KeyInput takes nothing returns nothing
 		set udg_shuxing[i]=udg_shuxing[i]+3000
 		set shoujiajf[i]=shoujiajf[i]+1000
 	endif
-	// if s=="ts" and testVersion then
-	// 	call unitadditembyidswapped('I0CI',udg_hero[i])
-	// 	call unitadditembyidswapped('I0CH',udg_hero[i])
-	// 	call unitadditembyidswapped('I0DO',udg_hero[i])
-	// 	call unitadditembyidswapped('I01X',udg_hero[i])
-	// 	call unitadditembyidswapped('I01P',udg_hero[i])
-	// 	call unitadditembyidswapped('I01C',udg_hero[i])
-	// 	call unitadditembyidswapped('I010',udg_hero[i])
-	// 	call unitadditembyidswapped('I00W',udg_hero[i])
-	// 	call unitadditembyidswapped('I06F',udg_hero[i])
-	// 	call unitadditembyidswapped('I03A',udg_hero[i])
-	// 	call unitadditembyidswapped('I00L',udg_hero[i])
-	// 	call unitadditembyidswapped('I08W',udg_hero[i])
-	// endif
-	// if s=="贼哥牛逼" and testVersion then
-	// 	if UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO) then
-	// 		call ModifyHeroStat(0, GetTriggerUnit(), 0, 100000)
-    //         call ModifyHeroStat(1, GetTriggerUnit(), 0, 100000)
-    //         call ModifyHeroStat(2, GetTriggerUnit(), 0, 100000)
-	// 	endif
-	// 	call AdjustPlayerStateBJ(1000000, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励金钱
-	// 	call AdjustPlayerStateBJ(1000000,p,PLAYER_STATE_RESOURCE_LUMBER) // 木头
-	// 	call SetHeroLevel(udg_hero[i],GetHeroLevel(udg_hero[i])+5,true)
-	// 	set wuxuedian[i] = wuxuedian[i] + 500
-	// 	call unitadditembyidswapped(1227895642,udg_hero[i])
-	// 	call unitadditembyidswapped('I08V',udg_hero[i])
-	// 	call unitadditembyidswapped('I08W',udg_hero[i])
-	// 	call unitadditembyidswapped('I08X',udg_hero[i])
-	// 	call unitadditembyidswapped('I08Y',udg_hero[i])
-	// 	call unitadditembyidswapped('I08Z',udg_hero[i])
-	// 	call unitadditembyidswapped('I090',udg_hero[i])
-	// 	set shengwang[i]=shengwang[i]+50000
-	// 	set xiuxing[i] = 5
-	// 	set udg_lilianxishu[i]=udg_lilianxishu[i]+3
-	// 	set udg_shuxing[i]=udg_shuxing[i]+30000
-	// 	set shoujiajf[i]=shoujiajf[i]+10000
-	// endif
-	// if s == "next" and testVersion then
-	// 	set udg_boshu=udg_boshu+1
-	// 	call DisplayTextToPlayer(p,0,0,"|cFFFF0000已跳转至下一波")
-	// endif 
+	if s=="ts" and testVersion then
+		call unitadditembyidswapped('I0CI',udg_hero[i])
+		call unitadditembyidswapped('I0CH',udg_hero[i])
+		call unitadditembyidswapped('I0DO',udg_hero[i])
+		call unitadditembyidswapped('I01X',udg_hero[i])
+		call unitadditembyidswapped('I01P',udg_hero[i])
+		call unitadditembyidswapped('I01C',udg_hero[i])
+		call unitadditembyidswapped('I010',udg_hero[i])
+		call unitadditembyidswapped('I00W',udg_hero[i])
+		call unitadditembyidswapped('I06F',udg_hero[i])
+		call unitadditembyidswapped('I03A',udg_hero[i])
+		call unitadditembyidswapped('I00L',udg_hero[i])
+		call unitadditembyidswapped('I08W',udg_hero[i])
+	endif
+	if s=="贼哥牛逼" and testVersion then
+		if UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO) then
+			call ModifyHeroStat(0, GetTriggerUnit(), 0, 100000)
+            call ModifyHeroStat(1, GetTriggerUnit(), 0, 100000)
+            call ModifyHeroStat(2, GetTriggerUnit(), 0, 100000)
+		endif
+		call AdjustPlayerStateBJ(1000000, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励金钱
+		call AdjustPlayerStateBJ(1000000,p,PLAYER_STATE_RESOURCE_LUMBER) // 木头
+		call SetHeroLevel(udg_hero[i],GetHeroLevel(udg_hero[i])+5,true)
+		set wuxuedian[i] = wuxuedian[i] + 500
+		call unitadditembyidswapped(1227895642,udg_hero[i])
+		call unitadditembyidswapped('I08V',udg_hero[i])
+		call unitadditembyidswapped('I08W',udg_hero[i])
+		call unitadditembyidswapped('I08X',udg_hero[i])
+		call unitadditembyidswapped('I08Y',udg_hero[i])
+		call unitadditembyidswapped('I08Z',udg_hero[i])
+		call unitadditembyidswapped('I090',udg_hero[i])
+		set shengwang[i]=shengwang[i]+50000
+		set xiuxing[i] = 5
+		set udg_lilianxishu[i]=udg_lilianxishu[i]+3
+		set udg_shuxing[i]=udg_shuxing[i]+30000
+		set shoujiajf[i]=shoujiajf[i]+10000
+	endif
+	if s == "next" and testVersion then
+		set udg_boshu=udg_boshu+1
+		call DisplayTextToPlayer(p,0,0,"|cFFFF0000已跳转至下一波")
+	endif 
 	if s=="撸下一波" and udg_isTest[GetPlayerId(p)] then
 		set udg_boshu=udg_boshu+1
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000已跳转至下一波")

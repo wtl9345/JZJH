@@ -76,7 +76,7 @@ struct ShopWeapon
 
 		if xiuxing[1+GetPlayerId(GetOwningPlayer(u))]<min_xiuxing and this.zhuanshu == false and Ce[1+GetPlayerId(GetOwningPlayer(u))]!=3 then
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "需历练"+I2S(min_xiuxing)+"以上方可冶炼该武器")
-			call AdjustPlayerStateBJ(60000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+			call AdjustPlayerStateBJ(30000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 			return false
 		endif
 		return true
@@ -144,7 +144,7 @@ function IsYeLianWuQi takes nothing returns boolean
 	if GetItemTypeId(GetManipulatedItem())=='I0BG' then
 		if (GetItemType(UnitItemInSlotBJ(GetTriggerUnit(), 1))!=ITEM_TYPE_ARTIFACT) then
 			call DisplayTimedTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,10,"|cffff0000装备栏第一格不是武器")
-			call AdjustPlayerStateBJ(60000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+			call AdjustPlayerStateBJ(30000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 			return false
 		else
 			loop
@@ -188,13 +188,13 @@ function YeLianWuQi takes nothing returns nothing
 	local real flhf=LoadReal(YDHT,id,StringHash("法力回复"))
 	local real sjgl=LoadReal(YDHT,id,StringHash("升级概率"))+LoadReal(YDHT,GetHandleId(it),StringHash("升级概率"))
 	//local real wdxx=LoadReal(YDHT,id,StringHash("吸血"))
-	//local real gjsd=LoadReal(YDHT,id,StringHash("攻击速度"))
+	// local real gjsd=LoadReal(YDHT,id,StringHash("攻击速度"))
 	if shengwang[i]<=2000 then
 		call DisplayTimedTextToPlayer(p,0,0,30,"|cffff0000声望不足2000不可以冶炼武器")
-		call AdjustPlayerStateBJ(60000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+		call AdjustPlayerStateBJ(30000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 	elseif sjgl <= 0. then
 		call DisplayTimedTextToPlayer(p,0,0,30,"|cffff0000该武器已不可继续冶炼")
-		call AdjustPlayerStateBJ(60000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+		call AdjustPlayerStateBJ(30000, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 	else
 		if GetRandomReal(0., 100.)<sjgl then
 			call DisplayTimedTextToPlayer(p,0,0,30,"|cffff0000恭喜你，冶炼成功")
@@ -232,7 +232,7 @@ function YeLianWuQi takes nothing returns nothing
 				set smhf=LoadReal(YDHT,GetHandleId(it),StringHash("生命回复"))
 				set flhf=LoadReal(YDHT,GetHandleId(it),StringHash("法力回复"))
 				//set wdxx=LoadReal(YDHT,GetHandleId(it),StringHash("吸血"))
-				//set gjsd=LoadReal(YDHT,GetHandleId(it),StringHash("攻击速度"))
+				// set gjsd=LoadReal(YDHT,GetHandleId(it),StringHash("攻击速度"))
 			endif
 			if udg_bqdsbool[i] then
 				set sjgl = sjgl * GetGeoNormRandomReal(0.78, 0.95)
@@ -264,7 +264,7 @@ function YeLianWuQi takes nothing returns nothing
 			call SaveReal(YDHT, GetHandleId(it), StringHash("生命回复"), smhf*GetGeoNormRandomReal(1.0, 1.3))
 			call SaveReal(YDHT, GetHandleId(it), StringHash("法力回复"), flhf*GetGeoNormRandomReal(1.0, 1.3))
 		//call SaveReal(YDHT, GetHandleId(it), StringHash("吸血"), I2R(wdxx)*GetRandomReal(1.0, 1.5)))
-		//call SaveReal(YDHT, GetHandleId(it), StringHash("攻击速度"), I2R(gjsd)*GetRandomReal(1.0, 1.5)))
+		// call SaveReal(YDHT, GetHandleId(it), StringHash("攻击速度"), gjsd*GetRandomReal(1.0, 1.5))
 		else
 			call DisplayTimedTextToPlayer(p,0,0,30,"|cffff0000很遗憾，冶炼失败")
 			set sjgl = sjgl * GetGeoNormRandomReal(0.95, 0.99)
