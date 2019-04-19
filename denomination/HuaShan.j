@@ -44,6 +44,11 @@ function TD takes nothing returns nothing
     local real shxishu=1.+GetUnitState(u,UNIT_STATE_MAX_MANA)/200.
     local real shanghai=0.
     local location loc=GetUnitLoc(uc)
+    if GetUnitState(u,UNIT_STATE_MAX_MANA) >= 500 and GetUnitState(u,UNIT_STATE_MAX_MANA) < 1000 then
+        set shxishu=1.+GetUnitState(u,UNIT_STATE_MAX_MANA)/100.
+    elseif GetUnitState(u,UNIT_STATE_MAX_MANA)>= 1000 then
+        set shxishu=GetUnitState(u,UNIT_STATE_MAX_MANA)/2.
+    endif
     if((GetUnitAbilityLevel(u,'A06J')!=0))then
         set shxishu=shxishu+.6
     endif

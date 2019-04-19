@@ -931,9 +931,10 @@ call createitemloc('I00P',LoadLocationHandle(YDHT,id*cx,$1769D332))
 else
 call createitemloc('I00O',LoadLocationHandle(YDHT,id*cx,$1769D332))
 endif
-if GetRandomReal(1, 100)<=3. or (GetRandomReal(1, 100)<=6. and Ce[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]==8) then
-	call createitemloc('I0CA',LoadLocationHandle(YDHT,id*cx,$1769D332))
-endif
+// 掉落珍珑棋局
+// if GetRandomReal(1, 100)<=3. or (GetRandomReal(1, 100)<=6. and Ce[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]==8) then
+// 	call createitemloc('I0CA',LoadLocationHandle(YDHT,id*cx,$1769D332))
+// endif
 call SaveInteger(YDHT,id*cx,-$5E9EB4B3,0)
 call SaveInteger(YDHT,id*cx,$648579A8,GetRandomInt(1,5))
 call SaveInteger(YDHT,id*cx,-$180E5D51,GetRandomInt(1,7))
@@ -1352,12 +1353,12 @@ function KK takes nothing returns nothing
 				call DisplayTextToPlayer(p,0,0,("哑仆："+I2S(LoadInteger(YDHT,StringHash("哑仆"),i))+" / 10"))
 			endif
 		endif
-		// 寻宝大师摧心掌爆率翻倍
-		if GetRandomInt(1, 100) <=5 or (udg_xbdsbool[i] and GetRandomInt(1,100) <= 10) then
+		// 寻宝摧心掌爆率翻倍
+		if GetRandomInt(1, 100) <=10 or (Ce[i]==6 and GetRandomInt(1,100) <= 20) then
 			call unitadditembyidswapped('I09K',u)
 		endif
-		// 寻宝大师新手神器爆率翻倍
-		if GetRandomInt(1, 100) <=5 or (udg_xbdsbool[i] and GetRandomInt(1,100) <= 10) then
+		// 寻宝新手神器爆率翻倍
+		if GetRandomInt(1, 100) <=10 or (Ce[i]==6 and GetRandomInt(1,100) <= 20) then
 			call unitadditembyidswapped('I0DJ',u)
 		endif
 	elseif GetUnitTypeId(uc)=='nlv3' then
@@ -2651,10 +2652,10 @@ endfunction
 //------------------九阳真经系统----------------------------
 
 //特殊事件：九阳真经系统
-//事件1：1~30分钟内的随机时间少林藏经阁出现尹克西和潇湘子（夜间隐身）   击杀尹克西和潇湘子: 两本奇武——潇湘子的《寿木长生功》或尹克西的《黄沙万里鞭法》 全击杀事件结束
+//事件1：开局5分钟少林藏经阁出现尹克西和潇湘子（夜间隐身）   击杀尹克西和潇湘子: 两本奇武——潇湘子的《寿木长生功》或尹克西的《黄沙万里鞭法》 全击杀事件结束
 //事件2：事件1后10~25分钟内的随机时间，若尹克西和潇湘子未全死，九阳真经被二人偷走，觉远大师和张君宝去追  击杀觉远大师和张君宝：几率获得奇武《九阳真经散篇》 不击杀事件结束，少林高价卖《九阳真经残卷》
 //事件3：事件2后10~25分钟内的随机时间，如果觉远大师和张君宝都被击杀，则尹克西和潇湘子逃走并将经书藏入白猿腹中，二人斗殴而死   击杀白猿——得到伴侣白猿 事件结束
-//事件4：事件3后20~50分钟内的随机时， 若白猿存活，发生曾阿牛剖腹取书事件，白猿死亡，FB BOSS 替换为曾阿牛——此后可以重复刷新，击杀后获得《九阳真经残卷》
+//事件4：事件3后10~30分钟内的随机时， 若白猿存活，发生曾阿牛剖腹取书事件，白猿死亡，FB BOSS 替换为曾阿牛——此后可以重复刷新，击杀后获得《九阳真经残卷》
 
 
 

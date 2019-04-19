@@ -13,117 +13,117 @@ globals
 	constant integer MAX_BAN_LV_NUM = 14
 endglobals
 
-native DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
-native DzAPI_Map_GetServerValue takes player whichPlayer, string key returns string
-native DzAPI_Map_Ladder_SetStat takes player whichPlayer, string key, string value returns nothing
-native DzAPI_Map_IsRPGLadder takes nothing returns boolean
-native DzAPI_Map_GetGameStartTime takes nothing returns integer
-native DzAPI_Map_Stat_SetStat takes player whichPlayer, string key, string value returns nothing
-native DzAPI_Map_GetMatchType takes nothing returns integer
-native DzAPI_Map_Ladder_SetPlayerStat takes player whichPlayer, string key, string value returns nothing
-native DzAPI_Map_GetServerValueErrorCode takes player whichPlayer returns integer
-native DzAPI_Map_GetLadderLevel takes player whichPlayer returns integer
-native DzAPI_Map_IsRedVIP takes player whichPlayer returns boolean
-native DzAPI_Map_IsBlueVIP takes player whichPlayer returns boolean
-native DzAPI_Map_GetLadderRank takes player whichPlayer returns integer
-native DzAPI_Map_GetMapLevelRank takes player whichPlayer returns integer
-native DzAPI_Map_GetGuildName takes player whichPlayer returns string
-native DzAPI_Map_GetGuildRole takes player whichPlayer returns integer
-native DzAPI_Map_IsRPGLobby takes nothing returns boolean
-native DzAPI_Map_GetMapLevel takes player whichPlayer returns integer
-native DzAPI_Map_MissionComplete takes player whichPlayer, string key, string value returns nothing
-native DzAPI_Map_GetActivityData takes nothing returns string
-native DzAPI_Map_GetMapConfig takes string key returns string
+// native DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
+// native DzAPI_Map_GetServerValue takes player whichPlayer, string key returns string
+// native DzAPI_Map_Ladder_SetStat takes player whichPlayer, string key, string value returns nothing
+// native DzAPI_Map_IsRPGLadder takes nothing returns boolean
+// native DzAPI_Map_GetGameStartTime takes nothing returns integer
+// native DzAPI_Map_Stat_SetStat takes player whichPlayer, string key, string value returns nothing
+// native DzAPI_Map_GetMatchType takes nothing returns integer
+// native DzAPI_Map_Ladder_SetPlayerStat takes player whichPlayer, string key, string value returns nothing
+// native DzAPI_Map_GetServerValueErrorCode takes player whichPlayer returns integer
+// native DzAPI_Map_GetLadderLevel takes player whichPlayer returns integer
+// native DzAPI_Map_IsRedVIP takes player whichPlayer returns boolean
+// native DzAPI_Map_IsBlueVIP takes player whichPlayer returns boolean
+// native DzAPI_Map_GetLadderRank takes player whichPlayer returns integer
+// native DzAPI_Map_GetMapLevelRank takes player whichPlayer returns integer
+// native DzAPI_Map_GetGuildName takes player whichPlayer returns string
+// native DzAPI_Map_GetGuildRole takes player whichPlayer returns integer
+// native DzAPI_Map_IsRPGLobby takes nothing returns boolean
+// native DzAPI_Map_GetMapLevel takes player whichPlayer returns integer
+// native DzAPI_Map_MissionComplete takes player whichPlayer, string key, string value returns nothing
+// native DzAPI_Map_GetActivityData takes nothing returns string
+// native DzAPI_Map_GetMapConfig takes string key returns string
 
-// function DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_SaveServerValue takes player whichPlayer, string key, string value returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_GetServerValue takes player whichPlayer, string key returns string
-// 	return ""
-// endfunction
+function DzAPI_Map_GetServerValue takes player whichPlayer, string key returns string
+	return ""
+endfunction
 
-// function DzAPI_Map_Ladder_SetStat takes player whichPlayer, string key, string value returns nothing
-// endfunction
+function DzAPI_Map_Ladder_SetStat takes player whichPlayer, string key, string value returns nothing
+endfunction
 
-// function DzAPI_Map_IsRPGLadder takes nothing returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_IsRPGLadder takes nothing returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_GetGameStartTime takes nothing returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetGameStartTime takes nothing returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_Stat_SetStat takes player whichPlayer, string key, string value returns nothing
-// endfunction
+function DzAPI_Map_Stat_SetStat takes player whichPlayer, string key, string value returns nothing
+endfunction
 
-// function DzAPI_Map_GetMatchType takes nothing returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetMatchType takes nothing returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_Ladder_SetPlayerStat takes player whichPlayer, string key, string value returns nothing
-// endfunction
+function DzAPI_Map_Ladder_SetPlayerStat takes player whichPlayer, string key, string value returns nothing
+endfunction
 
-// function DzAPI_Map_GetServerValueErrorCode takes player whichPlayer returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetServerValueErrorCode takes player whichPlayer returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_GetLadderLevel takes player whichPlayer returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetLadderLevel takes player whichPlayer returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_IsRedVIP takes player whichPlayer returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_IsRedVIP takes player whichPlayer returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_IsBlueVIP takes player whichPlayer returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_IsBlueVIP takes player whichPlayer returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_GetLadderRank takes player whichPlayer returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetLadderRank takes player whichPlayer returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_GetMapLevelRank takes player whichPlayer returns integer
-// 	return 1
-// endfunction
+function DzAPI_Map_GetMapLevelRank takes player whichPlayer returns integer
+	return 1
+endfunction
 
-// function DzAPI_Map_GetGuildName takes player whichPlayer returns string
-// 	return ""
-// endfunction
+function DzAPI_Map_GetGuildName takes player whichPlayer returns string
+	return ""
+endfunction
 
-// function DzAPI_Map_GetGuildRole takes player whichPlayer returns integer
-// 	return 1
+function DzAPI_Map_GetGuildRole takes player whichPlayer returns integer
+	return 1
 
-// endfunction
+endfunction
 
-// function DzAPI_Map_IsRPGLobby takes nothing returns boolean
-// 	return true
-// endfunction
+function DzAPI_Map_IsRPGLobby takes nothing returns boolean
+	return true
+endfunction
 
-// function DzAPI_Map_GetMapLevel takes player whichPlayer returns integer
-// 	return 30
-// endfunction
+function DzAPI_Map_GetMapLevel takes player whichPlayer returns integer
+	return 100
+endfunction
 
-// function DzAPI_Map_MissionComplete takes player whichPlayer, string key, string value returns nothing
-// endfunction
+function DzAPI_Map_MissionComplete takes player whichPlayer, string key, string value returns nothing
+endfunction
 
-// function DzAPI_Map_GetActivityData takes nothing returns string
-// 	return ""
-// endfunction
+function DzAPI_Map_GetActivityData takes nothing returns string
+	return ""
+endfunction
 
-// function DzAPI_Map_GetMapConfig takes string key returns string
-// 	if key == "admin" then
-// 		return "0"
-// 	endif
-// 	if key == "info" then
-// 		return "无"
-// 	endif
-// 	if key == "jfBeishu" then
-// 		return "哈哈哈"
-// 	endif
-// 	return ""
-// endfunction
+function DzAPI_Map_GetMapConfig takes string key returns string
+	if key == "admin" then
+		return "0"
+	endif
+	if key == "info" then
+		return "无"
+	endif
+	if key == "jfBeishu" then
+		return "哈哈哈"
+	endif
+	return ""
+endfunction
 
 //library DzAPI:
 function GetPlayerServerValueSuccess takes player whichPlayer returns boolean
@@ -1983,17 +1983,28 @@ endfunction
 
 function QiJueCoefficient takes unit u returns integer
 	// 是否激活九阳真经残卷
-	local integer i = JYd[1+GetPlayerId(GetOwningPlayer(u))]
-	// 九阳残卷和七绝200%升重
-	if (UnitHaveItem(u, 'I01J') or UnitHaveItem(u, 'I0DB')) and i == 1 then
+	local integer jyd = JYd[1+GetPlayerId(GetOwningPlayer(u))]
+	// 是否有王语嫣称号
+	local boolean wyy =  LoadBoolean(YDHT,GetHandleId(u),StringHash("神仙姐姐"))
+
+	// 九阳残卷、七绝、王语嫣400%升重
+	if (UnitHaveItem(u, 'I01J') or UnitHaveItem(u, 'I0DB')) and jyd == 1 and wyy then
+		return 8
+	endif
+	// 九阳残卷、王语嫣300%升重
+	if jyd == 1 and wyy then
+		return 6
+	endif
+	// 九阳残卷和七绝200%升重，王语嫣和七绝200%升重
+	if (UnitHaveItem(u, 'I01J') or UnitHaveItem(u, 'I0DB')) and (jyd == 1 or wyy) then
 		return 4
 	endif
-	// 九阳残卷100%升重
-	if i == 1 then
+	// 九阳残卷100%升重，王语嫣100%升重
+	if jyd == 1 or wyy then
 		return 2
 	endif
 	// 七绝或新手神器50%升重
-	if UnitHaveItem(u, 'I01J') or UnitHaveItem(u, 'I0DB') or i == 1 then
+	if UnitHaveItem(u, 'I01J') or UnitHaveItem(u, 'I0DB') or jyd == 1 then
 		return 1
 	endif
 	return 0
@@ -2005,7 +2016,9 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
  local player p=GetOwningPlayer(u)
  local integer idd= 0
  local integer i=1 + GetPlayerId(p)
+ local integer jingyan = 0
 	if level > 0 and level < 7 then
+		set jingyan = ( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 4 + 2 * udg_jwjs[i] ) * ( 2 + QiJueCoefficient(u) ) / 40
 		// 慕容家训
 		if UnitHasBuffBJ(u, 'B010') then
 			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id, LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), id) + ( 3 + udg_xinggeA[i] ) * ( wuxing[i] + 5 + GetRandomInt(0, R2I(r / 60)) ) * ( 5 + GetUnitAbilityLevel(u, 'A02V') / 2 + 2 * udg_jwjs[i] ) * ( 2 + QiJueCoefficient(u) ) / 40)
@@ -2095,11 +2108,13 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
                 call SetUnitAbilityLevel(u, 'A07N', IMinBJ(GetUnitAbilityLevel(u, 'A07N') + 2, 9))
                 call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A07N' * 5, GetUnitAbilityLevel(u, 'A07N'))
             	call SetPlayerName(p, "〓芷若〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				set zhiruo[i] = true
         	endif
         	if GetUnitAbilityLevel(u, 'A0C6') >= 1 and UnitHaveItem(u , 'I09D') then
 	            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：小东邪")
             	call ModifyHeroStat(1, u, 0, 360)
             	call SetPlayerName(p, "〓小东邪〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("小东邪"),true)
         	endif
         elseif GetUnitAbilityLevel(u, 'A0C9') >= 6 and GetUnitAbilityLevel(u, 'A0CB') >= 6 and GetUnitAbilityLevel(u, 'A0C8') >= 6 and ( GetUnitAbilityLevel(u, 'A0CA') >= 6 or GetUnitAbilityLevel(u, 'A0DI') >= 6 ) then
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：丐帮帮主")
@@ -2146,7 +2161,9 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
         	endif
         	if GetUnitAbilityLevel(u, 'A06P') >= 1 and GetUnitAbilityLevel(u, 'A07S') >= 1 and GetUnitAbilityLevel(u, 'A0CH') >= 1 then
 	            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：中神通")
+            	call ModifyHeroStat(0, u, 0, 300)
             	call ModifyHeroStat(1, u, 0, 300)
+            	call ModifyHeroStat(2, u, 0, 300)
             	call SetUnitAbilityLevel(u, 'A0CH', 9)
             	call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A0CH' * 5, GetUnitAbilityLevel(u, 'A0CH'))
             	call SetPlayerName(p, "〓中神通〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -2169,8 +2186,12 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
         	endif
         	if GetUnitAbilityLevel(u, 'A07X') >= 1 and GetUnitAbilityLevel(u, 'A06J') >= 1 and GetUnitAbilityLevel(u, 'A071') >= 1 then
 	            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：空心菜")
-            	call ModifyHeroStat(1, u, 0, 360)
+            	call ModifyHeroStat(0, u, 0, 200)
+            	call ModifyHeroStat(1, u, 0, 200)
+            	call ModifyHeroStat(2, u, 0, 360)
             	call SetPlayerName(p, "〓空心菜〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				// 爆伤+100%
+				set	udg_baojishanghai[i] = udg_baojishanghai[i] + 5.0
         	endif
         elseif GetUnitAbilityLevel(u, 'A09E') >= 6 and GetUnitAbilityLevel(u, 'A09J') >= 6 and GetUnitAbilityLevel(u, 'A09M') >= 6 and ( GetUnitAbilityLevel(u, 'A09T') >= 6 or GetUnitAbilityLevel(u, 'A09U') >= 6 ) then
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：古墓掌门")
@@ -2198,6 +2219,8 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
             	call SetUnitAbilityLevel(u, 'A07G', IMinBJ(GetUnitAbilityLevel(u, 'A07G') + 6, 9))
             	call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A07G' * 5, GetUnitAbilityLevel(u, 'A07G'))
             	call SetPlayerName(p, "〓神雕侠侣〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				// 送神雕
+				call unitadditembyidswapped('I04A' , u) 
         	endif
         	if GetUnitAbilityLevel(u, 'A07A') >= 6 then
 	        	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：赤炼仙子")
@@ -2218,6 +2241,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 	            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：扫地神僧")
             	call ModifyHeroStat(1, u, 0, 720)
             	call SetPlayerName(p, "〓扫地神僧〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("扫地神僧"),true)
         	endif
             // 拥有易筋A09D或洗髓A080，称号达摩，毕业技能到9级
             if GetUnitAbilityLevel(u, 'A09D') >= 1 or GetUnitAbilityLevel(u, 'A080') >= 1 then
@@ -2231,6 +2255,25 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
         		elseif ( GetUnitAbilityLevel(u, 'S000') >= 6 ) then
             		call SetUnitAbilityLevel(u, 'S000', 9)
         		endif
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("达摩祖师"),true)
+            endif
+            // 小无相、无相劫指、悟性31以上
+            if GetUnitAbilityLevel(u, 'A083') >= 1 or GetUnitAbilityLevel(u, 'A03P') >= 1 and wuxing[i] >= 31 then
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：大轮明王")
+            	call SetPlayerName(p, "〓大轮明王〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+                call ModifyHeroStat(0, u, 0, 200)
+                call ModifyHeroStat(1, u, 0, 200)
+                call ModifyHeroStat(2, u, 0, 200)
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("大轮明王"),true)
+            endif
+            // 龙象，根骨31
+            if GetUnitAbilityLevel(u, 'S002') >= 1 and gengu[i] >= 31 then
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：金轮法王")
+            	call SetPlayerName(p, "〓金轮法王〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+                call ModifyHeroStat(0, u, 0, 200)
+                call ModifyHeroStat(1, u, 0, 200)
+                call ModifyHeroStat(2, u, 0, 200)
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("金轮法王"),true)
             endif
         elseif GetUnitAbilityLevel(u, 'A04D') >= 6 and GetUnitAbilityLevel(u, 'A08S') >= 6 and GetUnitAbilityLevel(u, 'A08R') >= 6 and ( GetUnitAbilityLevel(u, 'A08Q') >= 6 or GetUnitAbilityLevel(u, 'A08V') >= 6 ) then
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：武当掌门")
@@ -2242,10 +2285,19 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
             if GetUnitAbilityLevel(u, 'A0DN') >= 1 and GetUnitAbilityLevel(u, 'A09D') >= 1 then
 	            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：邋遢仙人")
 				call ModifyHeroStat(1, u, 0, 420)
-				// 蓝量加300
-				call YDWEGeneralBounsSystemUnitSetBonus(u,1,0,300)
-				call DisplayTextToPlayer(p,0,0,"魔法上限+300")
+				// 蓝量加500
+				call YDWEGeneralBounsSystemUnitSetBonus(u,1,0,500)
+				call DisplayTextToPlayer(p,0,0,"魔法上限+500")
             	call SetPlayerName(p, "〓邋遢仙人〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+        	endif
+			// 太极拳9级，带真武剑
+            if GetUnitAbilityLevel(u, 'A08R') >= 9 and UnitHaveItem(u , 'I0DK') then
+	            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：张三丰")
+				call ModifyHeroStat(0, u, 0, 300)
+				call ModifyHeroStat(1, u, 0, 300)
+				call ModifyHeroStat(2, u, 0, 300)
+            	call SetPlayerName(p, "〓张三丰〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("张三丰"),true)
         	endif
         elseif GetUnitAbilityLevel(u, 'A0BP') >= 6 and GetUnitAbilityLevel(u, 'A0BS') >= 6 and GetUnitAbilityLevel(u, 'A0BQ') >= 6 and ( GetUnitAbilityLevel(u, 'A0BT') >= 6 or GetUnitAbilityLevel(u, 'A0BV') >= 6 ) then
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：星宿掌门")
@@ -2257,6 +2309,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
             if GetUnitAbilityLevel(u, 'A07P') >= 1 and GetUnitAbilityLevel(u, 'A083') >= 1 then
 	            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：星宿老仙")
             	call ModifyHeroStat(1, u, 0, 600)
+            	call ModifyHeroStat(2, u, 0, 300)
             	if ( GetUnitAbilityLevel(u, 'A0BT') >= 6 ) then
             		call SetUnitAbilityLevel(u, 'A0BT', 9)
         		elseif ( GetUnitAbilityLevel(u, 'A0BV') >= 6 ) then
@@ -2278,6 +2331,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
                 call SetUnitAbilityLevel(u, 'A07J', 9) // 辟邪剑法9级
 				call unitadditembyidswapped('I069' , u) // 送辟邪残章
             	call SetPlayerName(p, "〓君子剑〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("君子剑岳不群"),true)
             endif
             // 风清扬，学会5级独孤九剑
             if GetUnitAbilityLevel(u, 'A07F') >= 5 then 
@@ -2289,6 +2343,8 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 				call unitadditembyidswapped('I066' , u) // 送独孤残章
                 call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A07F' * 5, GetUnitAbilityLevel(u, 'A07F'))
                 call SetPlayerName(p, "〓风清扬〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				// 送仙鹤
+				call unitadditembyidswapped('I04B' , u) 
             endif
         elseif GetUnitAbilityLevel(u, 'A01Z') >= 6 and GetUnitAbilityLevel(u, 'A021') >= 6 and GetUnitAbilityLevel(u, 'A0CD') >= 6 and ( GetUnitAbilityLevel(u, 'A023') >= 6 or GetUnitAbilityLevel(u, 'A024') >= 6 ) then
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：恒山掌门")
@@ -2305,6 +2361,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
                 call SetUnitAbilityLevel(u, 'A01Z', 9)
                 call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A01Z' * 5, GetUnitAbilityLevel(u, 'A01Z'))
                 call SetPlayerName(p, "〓仪琳〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("仪琳"),true)
             endif
         elseif GetUnitAbilityLevel(u, 'A02B') >= 6 and GetUnitAbilityLevel(u, 'A02C') >= 6 and GetUnitAbilityLevel(u, 'A02F') >= 6 and ( GetUnitAbilityLevel(u, 'A02G') >= 6 or GetUnitAbilityLevel(u, 'A02H') >= 6 ) then
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：灵鹫宫主")
@@ -2320,10 +2377,22 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
                 call ModifyHeroStat(0, u, 0, 280)
                 call ModifyHeroStat(1, u, 0, 280)
                 call ModifyHeroStat(2, u, 0, 320)
-                // 八荒奖励到9级
-                call SetUnitAbilityLevel(u, 'A02G', 9)
+                // 八荒奖励2级
+				call SetUnitAbilityLevel(u, 'A02G', IMinBJ(GetUnitAbilityLevel(u, 'A02G') + 2, 9))
+				// 如意加2级
+				call SetUnitAbilityLevel(u, 'A02F', IMinBJ(GetUnitAbilityLevel(u, 'A02F') + 2, 9))
                 call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A02G' * 5, GetUnitAbilityLevel(u, 'A02G'))
+                call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A02F' * 5, GetUnitAbilityLevel(u, 'A02F'))
                 call SetPlayerName(p, "〓天山童姥〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+            endif
+            // 虚竹：北冥，冰魄，玉扳指，罗汉
+            if GetUnitAbilityLevel(u, 'A07A') >= 1 and GetUnitAbilityLevel(u, 'A082') >= 1 and GetUnitAbilityLevel(u, 'A07O') >= 1 and UnitHaveItem(u , 'I0DT') then
+                call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：虚竹子")
+                call ModifyHeroStat(0, u, 0, 100)
+                call ModifyHeroStat(1, u, 0, 500)
+                call ModifyHeroStat(2, u, 0, 100)
+                call SetPlayerName(p, "〓虚竹子〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("虚竹子"),true)
             endif
 		elseif GetUnitAbilityLevel(u, 'A08A') >= 6 and GetUnitAbilityLevel(u, 'A08B') >= 6 and GetUnitAbilityLevel(u, 'A08E') >= 6 and ( GetUnitAbilityLevel(u, 'A08G') >= 6 or GetUnitAbilityLevel(u, 'A08H') >= 6 ) then
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：泰山掌门")
@@ -2339,6 +2408,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
             	call ModifyHeroStat(0, u, 0, 300)
 				call ModifyHeroStat(1, u, 0, 600)
             	call SetPlayerName(p, "〓天门道长〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("天门道长"),true)
         	endif
 
         elseif GetUnitAbilityLevel(u, 'A02K') >= 6 and GetUnitAbilityLevel(u, 'A0CC') >= 6 and GetUnitAbilityLevel(u, 'A02M') >= 6 and ( GetUnitAbilityLevel(u, 'A02R') >= 6 or GetUnitAbilityLevel(u, 'A02V') >= 6 ) then
@@ -2409,6 +2479,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 				call ModifyHeroStat(1, u, 0, 400)
 				call ModifyHeroStat(2, u, 0, 300)
             	call SetPlayerName(p, "〓神龙教主〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("神龙教主"),true)
         	endif
         elseif GetUnitAbilityLevel(u, 'A056') >= 6 and GetUnitAbilityLevel(u, 'A054') >= 6 and GetUnitAbilityLevel(u, 'A04X') >= 6 and ( GetUnitAbilityLevel(u, 'A057') >= 6 or GetUnitAbilityLevel(u, 'A059') >= 6 ) then
         	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：女神龙")
@@ -2424,6 +2495,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
 				call ModifyHeroStat(1, u, 0, 200)
 				call ModifyHeroStat(2, u, 0, 300)
             	call SetPlayerName(p, "〓教主夫人〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+				call SaveBoolean(YDHT,GetHandleId(u),StringHash("教主夫人"),true)
         	endif
         elseif GetUnitAbilityLevel(u, 'A030') >= 6 and GetUnitAbilityLevel(u, 'A032') >= 6 and GetUnitAbilityLevel(u, 'A06R') >= 6 and ( GetUnitAbilityLevel(u, 'A034') >= 6 or GetUnitAbilityLevel(u, 'A07W') >= 4 ) then
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：明教教主")
@@ -2459,6 +2531,8 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
             	call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A08R' * 5, GetUnitAbilityLevel(u, 'A08R'))
 	            call ModifyHeroStat(1, u, 0, 1000)
 	            call ModifyHeroStat(2, u, 0, 500)
+				// 送白猿
+				call unitadditembyidswapped('I0CS' , u) 
             endif
         elseif GetUnitAbilityLevel(u, 'A07S') >= 1 and GetUnitAbilityLevel(u, 'A0D2') >= 1 and GetUnitAbilityLevel(u, 'A0D6') >= 1 and GetUnitAbilityLevel(u, 'A0D4') >= 1 and GetUnitAbilityLevel(u, 'A07N') >= 4 and GetUnitAbilityLevel(u, 'A0D3') >= 4 and GetUnitAbilityLevel(u, 'A0D1') >= 4 then
             call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：真·九阴真人")
@@ -2482,6 +2556,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
             call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A089' * 5, GetUnitAbilityLevel(u, 'A089'))
             set udg_zhangmen[i]=true
             set udg_whichzhangmen[i]=19
+			call SaveBoolean(YDHT,GetHandleId(u),StringHash("西毒"),true)
 		elseif GetUnitAbilityLevel(u, 'A06H') >= 5 and GetUnitAbilityLevel(u, 'A018') >= 5 and UnitHaveItem(u , 'I09D') then
         	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：东邪")
             call SetPlayerName(p, "〓东邪〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -2529,12 +2604,43 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
             call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A07I' * 5, GetUnitAbilityLevel(u, 'A07I'))
             set udg_zhangmen[i]=true
             set udg_whichzhangmen[i]=21
+			call SaveBoolean(YDHT,GetHandleId(u),StringHash("小虾米"),true)
+		elseif GetUnitAbilityLevel(u, 'A07E') >= 5 and GetUnitAbilityLevel(u, 'A017') >= 5 and GetUnitAbilityLevel(u, 'A07S') >= 1 and GetUnitAbilityLevel(u, 'A07U') >= 1 and udg_runamen[i] != 3 then
+			// 不能是丐帮，降龙5级、空明拳5级、九阴真经、双手互博
+			// 奖励招式300、内力500、真实300，降龙加3级，空明加3级
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：郭大侠")
+			call SetPlayerName(p, "〓郭大侠〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call ModifyHeroStat(0, u, 0, 300)
+			call ModifyHeroStat(2, u, 0, 500)
+			call ModifyHeroStat(2, u, 0, 300)
+			call SetUnitAbilityLevel(u, 'A07E', IMinBJ(GetUnitAbilityLevel(u, 'A07E') + 3, 9)) 
+			call SetUnitAbilityLevel(u, 'A017', IMinBJ(GetUnitAbilityLevel(u, 'A017') + 3, 9)) 
+			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A07E' * 5, GetUnitAbilityLevel(u, 'A07E'))
+			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A017' * 5, GetUnitAbilityLevel(u, 'A017'))
+			set udg_zhangmen[i]=true
+			set udg_whichzhangmen[i]=25
+			set beixia[i] = true // 北侠
+		elseif GetUnitAbilityLevel(u, 'A07S') >= 1 and GetUnitAbilityLevel(u, 'A0DN') >= 1 and GetUnitAbilityLevel(u, 'A07O') >= 1 and GetUnitAbilityLevel(u, 'A07R') >= 1 and GetUnitAbilityLevel(u, 'A07T') >= 1  and GetUnitAbilityLevel(u, 'A07Q') >= 1 and GetUnitAbilityLevel(u, 'A07W') >= 1 and GetUnitAbilityLevel(u, 'A07U') >= 1 then
+			// 王语嫣：九阴、九阳、罗汉、吸星、葵花、斗转、乾坤、双手
+			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：神仙姐姐")
+			call SetPlayerName(p, "〓神仙姐姐〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+			call ModifyHeroStat(0, u, 0, 300)
+			call ModifyHeroStat(2, u, 0, 500)
+			call ModifyHeroStat(2, u, 0, 300)
+			call SetUnitAbilityLevel(u, 'A07E', IMinBJ(GetUnitAbilityLevel(u, 'A07E') + 3, 9)) 
+			call SetUnitAbilityLevel(u, 'A017', IMinBJ(GetUnitAbilityLevel(u, 'A017') + 3, 9)) 
+			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A07E' * 5, GetUnitAbilityLevel(u, 'A07E'))
+			call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A017' * 5, GetUnitAbilityLevel(u, 'A017'))
+			set udg_zhangmen[i]=true
+			set udg_whichzhangmen[i]=26
+			call SaveBoolean(YDHT,GetHandleId(u),StringHash("神仙姐姐"),true)
         endif
     endif
     if (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null) and udg_whichzhangmen[i] == 10 and GetUnitAbilityLevel(u, 'A07F') >= 1 and GetUnitAbilityLevel(u, 'A09D') >= 1 and GetUnitAbilityLevel(u, 'A07R') >= 1 and GetUnitAbilityLevel(u, 'A08W') >= 1 then // INLINED!!
     	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：笑傲江湖")
         call SetPlayerName(p, "〓笑傲江湖〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
         call ModifyHeroStat(0, u, 0, 480)
+        call ModifyHeroStat(0, u, 0, 500)
         call ModifyHeroStat(2, u, 0, 600)
         call SetUnitAbilityLevel(u, 'A07F', 9)
         call SetUnitAbilityLevel(u, 'A08W', IMinBJ(GetUnitAbilityLevel(u, 'A08W') + 5, 9))
@@ -2544,6 +2650,227 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
     endif
     set p=null
 endfunction
+
+
+/**	
+ * 重随机门派后调整属性点（原先的属性点加成去掉）
+ * @param i 玩家角标
+ * @param last_i 上一个门派的id
+ */
+function jianShuXingDian takes integer i, integer last_i returns nothing 
+	if last_i==11 then
+		set udg_shuxing[i]=udg_shuxing[i]-5
+	elseif last_i==14 then
+		set wuxing[i]=(wuxing[i]-3)
+		set jingmai[i]=(jingmai[i]-2)
+		set fuyuan[i]=(fuyuan[i]-2)
+	elseif last_i==16 then
+		set gengu[i]=gengu[i]-2
+		set fuyuan[i] = fuyuan[i] - 2
+		set danpo[i] = danpo[i] - 1
+	elseif last_i==17 then
+		set gengu[i]=gengu[i]-2
+		set fuyuan[i] = fuyuan[i] - 2
+		set danpo[i] = danpo[i] - 1
+	elseif last_i==18 then
+		set gengu[i] = gengu[i] - 3
+		set wuxing[i] = wuxing[i] - 1
+		set yishu[i] = yishu[i] - 1
+	elseif last_i==12 then
+		set danpo[i]=(danpo[i]-2)
+		set jingmai[i]=(jingmai[i]-2)
+		set fuyuan[i]=(fuyuan[i]-1)
+	elseif last_i==13 then
+		set udg_shuxing[i]=udg_shuxing[i]-5
+	elseif last_i==1 then
+		set gengu[i]=(gengu[i]-3)
+		set jingmai[i]=(jingmai[i]-2)
+	elseif last_i==3 then
+		set danpo[i]=(danpo[i]-3)
+		set jingmai[i]=(jingmai[i]-2)
+	elseif last_i==4 then
+		set wuxing[i]=(wuxing[i]-3)
+		set danpo[i]=(danpo[i]-2)
+	elseif last_i==5 then
+		set jingmai[i]=(jingmai[i]-3)
+		set fuyuan[i]=(fuyuan[i]-2)
+	elseif last_i==6 then
+		set gengu[i]=(gengu[i]-2)
+		set danpo[i]=(danpo[i]-3)
+	elseif last_i==7 then
+		set yishu[i]=(yishu[i]-3)
+		set fuyuan[i]=(fuyuan[i]-2)
+	elseif last_i==8 then
+		set yishu[i]=(yishu[i]-1)
+		set jingmai[i]=(jingmai[i]-1)
+		set fuyuan[i]=(fuyuan[i]-3)
+	elseif last_i==10 then
+		set danpo[i]=(danpo[i]-2)
+		set yishu[i]=(yishu[i]-1)
+		set jingmai[i]=(jingmai[i]-2)
+	elseif last_i==9 then
+		set gengu[i]=(gengu[i]-1)
+		set jingmai[i]=(jingmai[i]-2)
+		set fuyuan[i]=(fuyuan[i]-2)
+	elseif last_i==2 then
+		set wuxing[i]=(wuxing[i]-2)
+		set jingmai[i]=(jingmai[i]-1)
+		set fuyuan[i]=(fuyuan[i]-2)
+	elseif last_i==15 then
+		set wuxing[i]=(wuxing[i]-3)
+		set yishu[i]=(yishu[i]-2)
+	endif
+endfunction
+
+
+/**
+ * 随机或重选门派方法
+ * @param p 触发的玩家player
+ * @param status 1：输入-random，2：积分重随门派
+ */
+function randomMenpai takes player p,integer status returns nothing
+	local integer i=GetPlayerId(p)+1
+	local integer last_i = 0
+	// 保存上一个门派id
+	set last_i = udg_runamen[i]
+	if GetRandomInt(1, 100)<=90 then
+		if GetRandomInt(1, 15)<=11 then
+			set udg_runamen[i]=GetRandomInt(1,11)
+		else
+			// 衡山，男神龙，女神龙，泰山
+			set udg_runamen[i]=GetRandomInt(15,18)
+		endif
+	else
+		// 灵鹫、慕容、明教
+		set udg_runamen[i]=GetRandomInt(12,14)
+	endif
+	if udg_runamen[i]==11 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓自由门派〓|r")
+		call SetPlayerName(p,"〓自由门派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call AdjustPlayerStateBJ(60,p,PLAYER_STATE_RESOURCE_LUMBER)
+		set udg_shuxing[i]=udg_shuxing[i]+5
+	elseif udg_runamen[i]==14 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓明教〓|r")
+		call SetPlayerName(p,"〓明教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set wuxing[i]=(wuxing[i]+3)
+		set jingmai[i]=(jingmai[i]+2)
+		set fuyuan[i]=(fuyuan[i]+2)
+	elseif udg_runamen[i]==16 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓神龙教-英雄三招〓|r")
+		call SetPlayerName(p,"〓神龙教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set gengu[i]=gengu[i]+2
+		set fuyuan[i] = fuyuan[i] + 2
+		set danpo[i] = danpo[i] + 1
+	elseif udg_runamen[i]==17 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓神龙教-美人三招〓|r")
+		call SetPlayerName(p,"〓神龙教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set gengu[i]=gengu[i]+2
+		set fuyuan[i] = fuyuan[i] + 2
+		set danpo[i] = danpo[i] + 1
+	elseif udg_runamen[i]==18 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓泰山派〓|r")
+		call SetPlayerName(p,"〓泰山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set gengu[i] = gengu[i] + 3
+		set wuxing[i] = wuxing[i] + 1
+		set yishu[i] = yishu[i] + 1
+	elseif udg_runamen[i]==12 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓灵鹫宫〓|r")
+		call SetPlayerName(p,"〓灵鹫宫〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set danpo[i]=(danpo[i]+2)
+		set jingmai[i]=(jingmai[i]+2)
+		set fuyuan[i]=(fuyuan[i]+1)
+	elseif udg_runamen[i]==13 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓姑苏慕容〓|r")
+		call SetPlayerName(p,"〓姑苏慕容〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set udg_shuxing[i]=udg_shuxing[i]+5
+	elseif udg_runamen[i]==1 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓少林派〓|r")
+		call SetPlayerName(p,"〓少林派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set gengu[i]=(gengu[i]+3)
+		set jingmai[i]=(jingmai[i]+2)
+	elseif udg_runamen[i]==3 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓丐帮〓|r")
+		call SetPlayerName(p,"〓丐帮〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set danpo[i]=(danpo[i]+3)
+		set jingmai[i]=(jingmai[i]+2)
+	elseif udg_runamen[i]==4 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓华山派〓|r")
+		call SetPlayerName(p,"〓华山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set wuxing[i]=(wuxing[i]+3)
+		set danpo[i]=(danpo[i]+2)
+	elseif udg_runamen[i]==5 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓全真教〓|r")
+		call SetPlayerName(p,"〓全真教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set jingmai[i]=(jingmai[i]+3)
+		set fuyuan[i]=(fuyuan[i]+2)
+	elseif udg_runamen[i]==6 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓血刀门〓|r")
+		call SetPlayerName(p,"〓血刀门〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set gengu[i]=(gengu[i]+2)
+		set danpo[i]=(danpo[i]+3)
+	elseif udg_runamen[i]==7 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓恒山派〓|r")
+		call SetPlayerName(p,"〓恒山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set yishu[i]=(yishu[i]+3)
+		set fuyuan[i]=(fuyuan[i]+2)
+	elseif udg_runamen[i]==8 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓峨眉派〓|r")
+		call SetPlayerName(p,"〓峨眉派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set yishu[i]=(yishu[i]+1)
+		set jingmai[i]=(jingmai[i]+1)
+		set fuyuan[i]=(fuyuan[i]+3)
+	elseif udg_runamen[i]==10 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓星宿派〓|r")
+		call SetPlayerName(p,"〓星宿派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set danpo[i]=(danpo[i]+2)
+		set yishu[i]=(yishu[i]+1)
+		set jingmai[i]=(jingmai[i]+2)
+	elseif udg_runamen[i]==9 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓武当派〓|r")
+		call SetPlayerName(p,"〓武当派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set gengu[i]=(gengu[i]+1)
+		set jingmai[i]=(jingmai[i]+2)
+		set fuyuan[i]=(fuyuan[i]+2)
+	elseif udg_runamen[i]==2 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓古墓派〓|r")
+		call SetPlayerName(p,"〓古墓派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set wuxing[i]=(wuxing[i]+2)
+		set jingmai[i]=(jingmai[i]+1)
+		set fuyuan[i]=(fuyuan[i]+2)
+	elseif udg_runamen[i]==15 then
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓衡山派〓|r")
+		call SetPlayerName(p,"〓衡山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		set wuxing[i]=(wuxing[i]+3)
+		set yishu[i]=(yishu[i]+2)
+	endif
+	if status == 1 then
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步，你可以在主城和传送石之间任意传送了，请在NPC郭靖处选择副职")
+		call UnitAddAbility(udg_hero[i],'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(udg_hero[i],'A040')
+			call UnitAddAbility(udg_hero[i],'A041')
+			call UnitAddAbility(udg_hero[i],'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(udg_hero[i],'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(udg_hero[i],Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call CreateNUnitsAtLoc(1,'nvul',p,Q4,bj_UNIT_FACING)
+		call AdjustPlayerStateBJ(50,p,PLAYER_STATE_RESOURCE_LUMBER)
+		set P4[i]=bj_lastCreatedUnit
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,udg_hero[i])
+	endif
+	// 扣除原来的属性
+	if status == 2 then
+		call jianShuXingDian(i,last_i)
+	endif
+ endfunction
+
+
 //击退系统
 function knock_back_condition takes nothing returns boolean
     local unit u=LoadUnitHandle(YDHT,StringHash("击退"),0)

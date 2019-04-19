@@ -123,7 +123,8 @@ function XiuZhongZhi takes nothing returns nothing
 		call WuGongShengChong(u, 'A0CC', 600)
 		call SetUnitAnimation(u, "attack, slam")
 		call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
-		if GetUnitAbilityLevel(u, 'A02R') >= 1 then
+		// 真斗转加内力改成慕容龙城称号加内力
+		if muronglc[i] then
 			call ModifyHeroStat(1, u, 0, 20 * GetUnitAbilityLevel(u, 'A0CC'))
 			call YDWEPolledWaitNull(15. + 2 * GetUnitAbilityLevel(u, 'A0CC'))
 			call ModifyHeroStat(1, u, 1, 20 * GetUnitAbilityLevel(u, 'A0CC'))
@@ -275,7 +276,8 @@ function XingYiDouZhuan_2 takes nothing returns nothing
 	call SaveBoolean(YDHT, GetHandleId(GetTriggerUnit()), 10002, false)
 endfunction
 function IsXingYiBeiDong takes nothing returns boolean
-	return LoadBoolean(YDHT, GetHandleId(GetTriggerUnit()), 10002)
+	// 使用真斗转反伤，或者挨打反伤
+	return LoadBoolean(YDHT, GetHandleId(GetTriggerUnit()), 10002) or ((IsUnitEnemy(GetAttacker(),GetOwningPlayer(GetTriggerUnit()))) and GetUnitAbilityLevel(GetTriggerUnit(),'A02R')>=1)
 endfunction
 function XingYiBeiDong takes nothing returns nothing
 	local unit u = GetTriggerUnit()
@@ -283,7 +285,7 @@ function XingYiBeiDong takes nothing returns nothing
 	local location loc = GetUnitLoc(uc)
 	local real shxishu = 1.
 	local real shanghai = 0.
-	if GetUnitAbilityLevel(u, 'A07W') >= 1 then
+	if GetUnitAbilityLevel(u, 'A07W') >= 1 or muronglc[1 + GetPlayerId(GetOwningPlayer(u))] then
 		call AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
 		call DestroyEffect(bj_lastCreatedEffect)
 		set shanghai=ShangHaiGongShi(u,uc,50.,50.,shxishu,'A02R')

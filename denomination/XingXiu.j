@@ -185,7 +185,7 @@ function y3 takes nothing returns nothing
 	    	set shxishu = shxishu * 1.8
     	endif
         if xingxiulaoxian[i] then
-	    	set shxishu = shxishu * 3
+	    	set shxishu = shxishu * 4
     	endif
         set shanghai=ShangHaiGongShi(u,uc,16.,16.,shxishu,'A0BQ')
         call SetUnitLifePercentBJ(uc, GetUnitLifePercent(uc)*0.7)
@@ -200,7 +200,7 @@ function y3 takes nothing returns nothing
 	    		set shxishu = shxishu * 1.8
     		endif
             if xingxiulaoxian[i] then
-	    	    set shxishu = shxishu * 3
+	    	    set shxishu = shxishu * 4
     	    endif
             set shanghai=ShangHaiGongShi(u,uc,20.,20.,shxishu,'A0BQ')
       	    call WuGongShangHai(u,uc,shanghai)
@@ -445,49 +445,57 @@ function L3 takes nothing returns nothing
     if UnitHaveItem(u, 'I0AM') then
 	    set shxishu = shxishu * 1.8
     endif
+    if xingxiulaoxian[i] then
+        set shxishu = shxishu * 4
+    endif
     set shanghai=ShangHaiGongShi(u,uc,60.,60.,shxishu,'A0BV')
   	call WuGongShangHai(u,uc,shanghai)
   	set u=null
     set uc=null
 endfunction
 function MM3 takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT,id,-$3021938A)
-set cx=cx+3
-call SaveInteger(YDHT,id,-$3021938A,cx)
-call SaveInteger(YDHT,id,-$1317DA19,cx)
-call GroupRemoveUnit(Fe,GetTriggerUnit())
-call SaveUnitHandle(YDHT,id*cx,$59BEA0CB,udg_hero[(1+GetPlayerId(GetOwningPlayer(GetTriggerUnit())))])
-call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,GetTriggerUnit())
-call SaveLocationHandle(YDHT,id*cx,-$72C3E060,GetUnitLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0)))
-call SaveInteger(YDHT,id*cx,-$2A41B3A3,'A0BV')
-call SaveReal(YDHT,id*cx,-$2CEF3086,((.8+(I2R(GetUnitAbilityLevel(LoadUnitHandle(YDHT,id*cx,$59BEA0CB),LoadInteger(YDHT,id*cx,-$2A41B3A3)))/2.))+1.))
-call SaveReal(YDHT,id*cx,$1968F401,(1.5+udg_shanghaijiacheng[(1+GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))))]))
-call AddSpecialEffectLocBJ(LoadLocationHandle(YDHT,id*cx,-$72C3E060),"war3mapImported\\DivineRing.mdx")
-call DestroyEffect(bj_lastCreatedEffect)
-call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(350.,LoadLocationHandle(YDHT,id*cx,-$72C3E060),Condition(function K3)),function L3)
-if((GetUnitAbilityLevel(LoadUnitHandle(YDHT,id*cx,$59BEA0CB),'A083')!=0)and(GetRandomInt(1,100)<=80))then
-if((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O004'))then
-call SaveInteger(YDHT,id*cx,-$2A11C165,1747988533)
-elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O001'))then
-call SaveInteger(YDHT,id*cx,-$2A11C165,1747988535)
-elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O002'))then
-call SaveInteger(YDHT,id*cx,-$2A11C165,1747988536)
-elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O003'))then
-call SaveInteger(YDHT,id*cx,-$2A11C165,1747988537)
-elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O000'))then
-call SaveInteger(YDHT,id*cx,-$2A11C165,1747988534)
-elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O023') or (GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O02H') or (GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O02I'))then
-call SaveInteger(YDHT,id*cx,-$2A11C165,'h00I')
-elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O02J'))then
-call SaveInteger(YDHT,id*cx,-$2A11C165,'h00K')
-endif
-call CreateNUnitsAtLoc(1,LoadInteger(YDHT,id*cx,-$2A11C165),GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,-$72C3E060),bj_UNIT_FACING)
-call GroupAddUnit(Fe,bj_lastCreatedUnit)
-call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',5.)
-endif
-call RemoveLocation(LoadLocationHandle(YDHT,id*cx,-$72C3E060))
-call FlushChildHashtable(YDHT,id*cx)
+    local integer id=GetHandleId(GetTriggeringTrigger())
+    local integer cx=LoadInteger(YDHT,id,-$3021938A)
+    local integer gailv = 80 // 分身死亡重生概率
+    // 星宿老仙，心法90%概率重生
+    if xingxiulaoxian[1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))] then
+        set gailv = 90
+    endif
+    set cx=cx+3
+    call SaveInteger(YDHT,id,-$3021938A,cx)
+    call SaveInteger(YDHT,id,-$1317DA19,cx)
+    call GroupRemoveUnit(Fe,GetTriggerUnit())
+    call SaveUnitHandle(YDHT,id*cx,$59BEA0CB,udg_hero[(1+GetPlayerId(GetOwningPlayer(GetTriggerUnit())))])
+    call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,GetTriggerUnit())
+    call SaveLocationHandle(YDHT,id*cx,-$72C3E060,GetUnitLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0)))
+    call SaveInteger(YDHT,id*cx,-$2A41B3A3,'A0BV')
+    call SaveReal(YDHT,id*cx,-$2CEF3086,((.8+(I2R(GetUnitAbilityLevel(LoadUnitHandle(YDHT,id*cx,$59BEA0CB),LoadInteger(YDHT,id*cx,-$2A41B3A3)))/2.))+1.))
+    call SaveReal(YDHT,id*cx,$1968F401,(1.5+udg_shanghaijiacheng[(1+GetPlayerId(GetOwningPlayer(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))))]))
+    call AddSpecialEffectLocBJ(LoadLocationHandle(YDHT,id*cx,-$72C3E060),"war3mapImported\\DivineRing.mdx")
+    call DestroyEffect(bj_lastCreatedEffect)
+    call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(350.,LoadLocationHandle(YDHT,id*cx,-$72C3E060),Condition(function K3)),function L3)
+    if((GetUnitAbilityLevel(LoadUnitHandle(YDHT,id*cx,$59BEA0CB),'A083')!=0)and(GetRandomInt(1,100)<=gailv))then
+    if((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O004'))then
+    call SaveInteger(YDHT,id*cx,-$2A11C165,1747988533)
+    elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O001'))then
+    call SaveInteger(YDHT,id*cx,-$2A11C165,1747988535)
+    elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O002'))then
+    call SaveInteger(YDHT,id*cx,-$2A11C165,1747988536)
+    elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O003'))then
+    call SaveInteger(YDHT,id*cx,-$2A11C165,1747988537)
+    elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O000'))then
+    call SaveInteger(YDHT,id*cx,-$2A11C165,1747988534)
+    elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O023') or (GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O02H') or (GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O02I'))then
+    call SaveInteger(YDHT,id*cx,-$2A11C165,'h00I')
+    elseif((GetUnitTypeId(LoadUnitHandle(YDHT,id*cx,$59BEA0CB))=='O02J'))then
+    call SaveInteger(YDHT,id*cx,-$2A11C165,'h00K')
+    endif
+    call CreateNUnitsAtLoc(1,LoadInteger(YDHT,id*cx,-$2A11C165),GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,-$72C3E060),bj_UNIT_FACING)
+    call GroupAddUnit(Fe,bj_lastCreatedUnit)
+    call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',5.)
+    endif
+    call RemoveLocation(LoadLocationHandle(YDHT,id*cx,-$72C3E060))
+    call FlushChildHashtable(YDHT,id*cx)
 endfunction
 //--------星宿结束--------//
 function XingXiu_Trigger takes nothing returns nothing

@@ -530,6 +530,9 @@ function CreateUnitsForPlayer_15 takes nothing returns nothing
 	set vipbanlv[4] = CreateUnit(Player(3),'n00G',1860,-4140,254.7)
 	set vipbanlv[5] = CreateUnit(Player(4),'n00G',1860,-4140,254.7)
 	set Rs=CreateUnit(p,'o005',1620,-4050,255)
+	// set SuiFeng=CreateUnit(p,'N007',488,-597,135) // 随风
+	// set CangQiong=CreateUnit(p,'N00F',-1412,-113,300) // 苍穹
+	// set FengLing=CreateUnit(p,'N00P',-1411,-1344,0) // 风陵
 	set ut=CreateUnit(p,1865429060,-5498.1,-3020.3,60.353)
 	set ft=CreateUnit(p,1865429046,-5503.8,5213.9,156.857)
 	set gt=CreateUnit(p,1865429046,-5538.1,5186.3,209.428)

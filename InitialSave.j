@@ -54,9 +54,9 @@ function CunWuGongS takes nothing returns nothing
 	call CunWuGong(36, 'I03R', 'A09D', "绝世内功", 0, 30, 0, 27, 34, 23)
 	call CunWuGong(37, 'I09G', 'A0D2', "九阴内功", 0, 17, 17, 17, 20, 0)
 	call CunWuGong(38, 'I09H', 'A0D4', "九阴内功", 0, 17, 17, 17, 20, 0)
-	call CunWuGong(39, 'I09I', 'A0D6', "九阴内功", 0, 17, 17, 17, 20, 0)
-	call CunWuGong(40, 'I09J', 'A0D1', "九阴武学", 13, 0, 12, 12, 16, 0)
-	call CunWuGong(41, 'I09K', 'A0D3', "九阴武学", 13, 0, 12, 12, 16, 0)
+	call CunWuGong(39, 'I09I', 'A0D6', "九阴内功", 0, 17, 17, 17, 20, 0) // 易筋断骨篇
+	call CunWuGong(40, 'I09J', 'A0D1', "九阴武学", 13, 0, 12, 12, 16, 0) // 摧坚
+	call CunWuGong(41, 'I09K', 'A0D3', "九阴武学", 13, 0, 12, 12, 16, 0) // 摧心掌
 	call CunWuGong(42, 'I0C2', 'A03N', "奇武", 0, 0, 0, 15, 14, 16)
 	call CunWuGong(43, 'I0C3', 'A03P', "奇武", 0, 18, 26, 0, 0, 16)
 	call CunWuGong(44, 'I0C4', 'A03L', "奇武", 12, 14, 16, 0, 0, 0)
@@ -165,7 +165,7 @@ function Cuns takes nothing returns nothing
 	call Cun('I00T',"神行鞋","防御",200,"招式伤害",0,"内力",0,"真实伤害",0)
 	call Cun('I00N',"踏风靴","防御",200,"招式伤害",0,"内力",0,"真实伤害",0)
 	call Cun('I08Y',"决战·魁",null,0,"招式伤害",0,"内力",0,"真实伤害",500)
-	// call Cun('I0AM',"神木王鼎",null,0,"招式伤害",150,"内力",150,"真实伤害",150)
+	call Cun('I0AM',"神木王鼎",null,0,"招式伤害",100,"内力",100,"真实伤害",100)
 	call Cun('I0DS',"玉扳指",null,0,"招式伤害",150,"内力",150,"真实伤害",150)
 	call Cun('I0DT',"燕国玉玺",null,0,"招式伤害",150,"内力",150,"真实伤害",150)
 	call Cun('I01V',"苍蟒护腕","攻击力",0,"招式伤害",0,"内力",0,"真实伤害",10)

@@ -165,6 +165,13 @@ function jD takes nothing returns nothing
 		set juexuelingwu[i]=juexuelingwu[i]+ 1
 		call DisplayTextToPlayer(p,0,0,"绝学领悟力+1")
     endif
+	// 张三丰称号
+	if LoadBoolean(YDHT,GetHandleId(u),StringHash("张三丰")) then
+	    // 每次触发太极拳，绝学加1
+		set juexuelingwu[i]=juexuelingwu[i]+ 1
+		call DisplayTextToPlayer(p,0,0,"绝学领悟力+1")
+    endif
+	
 	
     set u=null
 	set p = null

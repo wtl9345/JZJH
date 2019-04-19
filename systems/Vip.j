@@ -7,19 +7,6 @@ function CunVIP takes integer num, string s1, string s2 returns nothing
 	call SaveStr(YDHT, i+num, 0, s1)
 	call SaveStr(YDHT, i+num, 1, s2)
 endfunction
-function CunVIPNum takes nothing returns nothing
-	
-	// local player p = GetOwningPlayer(GetTriggerUnit())
-	// local integer i = 1 + GetPlayerId(p)
-	
-	// set jingmai[i]=jingmai[i] + 100
-	// set wuxing[i]=wuxing[i] + 999
-	// set fuyuan[i]=fuyuan[i] + 100
-	// set danpo[i]=danpo[i] + 100
-	// set gengu[i]=gengu[i] + 100
-	// set yishu[i]=yishu[i] + 100
-	// call BJDebugMsg("开启测试属性")
-endfunction
 function GetVIPNum_1 takes string s returns string
 	local string str
 	local integer i = StringHash("VIP")

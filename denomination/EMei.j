@@ -343,9 +343,14 @@ function EMeiJiuYang_Action2 takes nothing returns nothing
 	local unit u=LoadUnitHandle(YDHT,p,0)
 	local unit uc=LoadUnitHandle(YDHT,p,1)
 	local real shanghai=0.
-	local real shxishu=1.
+	local real shxishu=1.+GetUnitState(u,UNIT_STATE_MAX_MANA)/200
 	local unit ut=null
 	local location loc=GetUnitLoc(u)
+    // local real 
+    // 倚天剑加成
+    if UnitHaveItem(u, 'I00B') then
+		set shxishu=shxishu * 4
+	endif
 	set shanghai=ShangHaiGongShi(u,uc,45.,45.,shxishu,'A0C6')
 	if uc!=null and IsUnitEnemy(uc,GetOwningPlayer(u))==true and IsUnitAliveBJ(uc) then
 		call WuGongShangHai(u,uc,shanghai)
@@ -355,6 +360,8 @@ function EMeiJiuYang_Action2 takes nothing returns nothing
 		call UnitAddAbility(ut,'ACcr')
 		call IssueTargetOrderById(ut,$D00DD,uc)
         call UnitApplyTimedLife(ut,'BHwe',3.)
+        // 封穴
+        call WanBuff(u,uc,11)
 	else
 	    call SetUnitState(uc,UNIT_STATE_MANA,GetUnitState(uc,UNIT_STATE_MANA)+20)
     endif
@@ -399,6 +406,10 @@ function EMeiJiuYang takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A083')>=1 then
 		call YDWEGeneralBounsSystemUnitSetBonus(u,1,0,20)
 	endif
+    if LoadBoolean(YDHT,GetHandleId(u),StringHash("小东邪")) then
+        call YDWEGeneralBounsSystemUnitSetBonus(u,1,0,20)
+        set r=r+500.
+    endif
     call GroupEnumUnitsInRange(g,x,y,r,Condition(function EMeiJiuYang_Condition))
     call ForGroupBJ(g,function EMeiJiuYang_Action)
     call GroupClear(g)

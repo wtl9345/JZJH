@@ -118,6 +118,10 @@ function FuChenMaJia takes nothing returns nothing
 	if UnitHaveItem(u, 'I0DU') then
 	    set shxishu = shxishu * 2
     endif
+	// 仪琳，拂尘功附带封穴
+	if LoadBoolean(YDHT,GetHandleId(u),StringHash("仪琳")) then
+		call WanBuff(u,uc,11)
+	endif
     set shanghai=ShangHaiGongShi(u,uc,r1,r1,shxishu,'A01Z')
     call WuGongShangHai(u,uc,shanghai)
     set u=null

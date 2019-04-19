@@ -168,6 +168,11 @@ function DI takes nothing returns nothing
     local integer id=GetHandleId(GetTriggeringTrigger())
     local integer cx=LoadInteger(YDHT,id,-$3021938A)
     local integer i=1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))
+	local integer beishu = 1 // 内功加成倍数
+	// 九阴真人称号
+	if udg_whichzhangmen[i]==11 then
+		set beishu = 2
+	endif
     set cx=cx+3
     call SaveInteger(YDHT,id,-$3021938A,cx)
     call SaveInteger(YDHT,id,-$1317DA19,cx)
@@ -176,59 +181,59 @@ function DI takes nothing returns nothing
     if((I9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=100))then
         set I9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
         if GetUnitAbilityLevel(GetKillingUnit(),'A07S')>0 then
-            call ModifyHeroStat(0,GetKillingUnit(),0,$A)
-            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"招式伤害+10")
+            call ModifyHeroStat(0,GetKillingUnit(),0,10*beishu)
+            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"招式伤害+"+I2S(10*beishu))
         endif
         if GetUnitAbilityLevel(GetKillingUnit(),'A0D2')>0 then
 	        if GetRandomInt(1,2)==1 then
-            	call ModifyHeroStat(0,GetKillingUnit(),1,$A)
-            	call ModifyHeroStat(1,GetKillingUnit(),0,30)
-            	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"招式伤害-10")
-            	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"内力+30")
+            	call ModifyHeroStat(0,GetKillingUnit(),1,10*beishu)
+            	call ModifyHeroStat(1,GetKillingUnit(),0,30*beishu)
+            	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"招式伤害-"+I2S(10*beishu))
+            	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"内力+"+I2S(30*beishu))
             else
-            	call ModifyHeroStat(2,GetKillingUnit(),0,$A)
-            	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"真实伤害+10")
+            	call ModifyHeroStat(2,GetKillingUnit(),0,10*beishu)
+            	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"真实伤害+"+I2S(10*beishu))
         	endif
         endif
         if GetUnitAbilityLevel(GetKillingUnit(),'A0D6')>0 then
             if GetRandomInt(1,6)==1 then
-	            set wuxing[i]=wuxing[i]+1
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"悟性+1")
+	            set wuxing[i]=wuxing[i]+beishu
+	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"悟性+"+I2S(beishu))
 	        elseif GetRandomInt(1,5)==1 then
-	            set gengu[i]=gengu[i]+1
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"根骨+1")
+	            set gengu[i]=gengu[i]+beishu
+	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"根骨+"+I2S(beishu))
 	        elseif GetRandomInt(1,4)==1 then
-	            set danpo[i]=danpo[i]+1
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"胆魄+1")
+	            set danpo[i]=danpo[i]+beishu
+	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"胆魄+"+I2S(beishu))
 	        elseif GetRandomInt(1,3)==1 then
-	            set yishu[i]=yishu[i]+1
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"医术+1")
+	            set yishu[i]=yishu[i]+beishu
+	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"医术+"+I2S(beishu))
 	        elseif GetRandomInt(1,2)==1 then
-	            set jingmai[i]=jingmai[i]+1
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"经脉+1")
+	            set jingmai[i]=jingmai[i]+beishu
+	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"经脉+"+I2S(beishu))
 	        else
-	            set fuyuan[i]=fuyuan[i]+1
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"福缘+1")
+	            set fuyuan[i]=fuyuan[i]+beishu
+	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"福缘+"+I2S(beishu))
             endif
             if GetRandomInt(1,5)<=3 then
                 if GetRandomInt(1,6)==1 then
-	                set wuxing[i]=wuxing[i]-1
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"悟性-1")
+	                set wuxing[i]=wuxing[i]-beishu
+	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"悟性-"+I2S(beishu))
 	            elseif GetRandomInt(1,5)==1 then
-	                set gengu[i]=gengu[i]-1
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"根骨-1")
+	                set gengu[i]=gengu[i]-beishu
+	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"根骨-"+I2S(beishu))
 	            elseif GetRandomInt(1,4)==1 then
-	                set danpo[i]=danpo[i]-1
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"胆魄-1")
+	                set danpo[i]=danpo[i]-beishu
+	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"胆魄-"+I2S(beishu))
 	            elseif GetRandomInt(1,3)==1 then
-	                set yishu[i]=yishu[i]-1
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"医术-1")
+	                set yishu[i]=yishu[i]-beishu
+	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"医术-"+I2S(beishu))
 	            elseif GetRandomInt(1,2)==1 then
-	                set jingmai[i]=jingmai[i]-1
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"经脉-1")
+	                set jingmai[i]=jingmai[i]-beishu
+	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"经脉-"+I2S(beishu))
 	            else
-	                set fuyuan[i]=fuyuan[i]-1
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"福缘-1")
+	                set fuyuan[i]=fuyuan[i]-beishu
+	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"福缘-"+I2S(beishu))
                 endif
             endif
 
@@ -240,11 +245,28 @@ endfunction
 //==================九阴真经系统结束==================//
 //双手互搏
 function FI takes nothing returns boolean
-return((GetSpellAbilityId()=='A07U')and(UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO)))
+	return((GetSpellAbilityId()=='A07U')and(UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO)))
 endfunction
 function GI takes nothing returns nothing
-call UnitResetCooldown(GetTriggerUnit())
+	call UnitResetCooldown(GetTriggerUnit())
 endfunction
+function isShuangShouBeiDong takes nothing returns boolean
+	// 学会双手，老顽童或郭大侠称号
+	return GetUnitAbilityLevel(GetAttacker(),'A07U') >= 1 and (laowantong[1+GetPlayerId(GetOwningPlayer(GetAttacker()))] or beixia[1+GetPlayerId(GetOwningPlayer(GetAttacker()))])
+endfunction
+function shuangShouBeiDong takes nothing returns nothing
+	local unit u=GetAttacker()
+	local player p = GetOwningPlayer(u)
+	local integer i=1+GetPlayerId(p)
+	// 被动双手刷新概率
+	if GetRandomReal(1.,300)<=fuyuan[i] then
+		call DisplayTextToPlayer(p,0,0,"|cff00FF66双手被动刷新")
+		call UnitResetCooldown(u)
+	endif
+	set u = null
+	set p = null
+endfunction
+
 //使用九阳神功
 function II takes nothing returns boolean
 return GetKillingUnit()!=null and ((GetUnitAbilityLevel(GetKillingUnit(),'A0DN')>0))
@@ -379,6 +401,11 @@ function JiangHuNeiGong_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(En,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(En,Condition(function FI))
 	call TriggerAddAction(En,function GI)
+	// 双手被动
+	set t=CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
+	call TriggerAddCondition(t,Condition(function isShuangShouBeiDong))
+	call TriggerAddAction(t,function shuangShouBeiDong)
 	set Fn=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(Fn,EVENT_PLAYER_UNIT_DEATH)
 	call TriggerAddCondition(Fn,Condition(function II))

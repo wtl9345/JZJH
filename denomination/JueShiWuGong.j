@@ -31,14 +31,19 @@ function eG takes nothing returns nothing
 	local unit uc=GetEnumUnit()
 	local location loc=GetUnitLoc(uc)
 	local integer i=1+GetPlayerId(GetOwningPlayer(u))
-	local real shxishu=jueXueXiShu(i)
 	local real shanghai=0.
-	call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl"))
-    set shanghai=ShangHaiGongShi(u,uc,60.,60.,shxishu,'A07E')
+	local real shxishu=jueXueXiShu(i)
 	// 北乔峰称号加强降龙伤害
 	if beiqiaofeng[i] then
-		set shanghai = shanghai * 3
+		set shxishu = shxishu * 5
 	endif
+	// 北丐或北侠称号加强降龙伤害
+	if beigai[i] or beixia[i] then
+		set shxishu = shxishu * 3
+	endif
+	call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\MarkOfChaos\\MarkOfChaosTarget.mdl"))
+    set shanghai=ShangHaiGongShi(u,uc,60.,60.,shxishu,'A07E')
+	
   	call WuGongShangHai(u,uc,shanghai)
   	call RemoveLocation(loc)
     set u=null
@@ -267,6 +272,9 @@ function GG takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(u))
 	local real shxishu=jueXueXiShu(i)
 	local real shanghai=0.
+	if LoadBoolean(YDHT,GetHandleId(u),StringHash("小虾米")) then
+		set shxishu = shxishu * 3
+	endif
 	call DestroyEffect(AddSpecialEffectLocBJ(loc,"war3mapImported\\CrimsonWake.mdx"))
     set shanghai=ShangHaiGongShi(u,uc,30,30,shxishu,'A07I')
   	call WuGongShangHai(u,uc,shanghai)
@@ -469,6 +477,10 @@ function i6 takes nothing returns nothing
     if UnitHaveItem(u,'I09B') then
 	    set shxishu=shxishu*8
     endif
+	// 西毒称号加成
+	if LoadBoolean(YDHT,GetHandleId(u),StringHash("西毒")) then
+		set shxishu = shxishu * 3
+	endif
     set shanghai=ShangHaiGongShi(u,uc,45.,45.,shxishu,'A089')
     call WuGongShangHai(u,uc,shanghai)
     set u=null
@@ -571,6 +583,10 @@ function Q6 takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(u))
 	local real shxishu=jueXueXiShu(i)
 	local real shanghai=0.
+	// 北丐打狗5倍
+	if beigai[i] then
+		set shxishu = shxishu * 5
+	endif
 	if UnitHaveItem(u,'I097') then
 	    set shxishu=shxishu*8
     endif
@@ -890,6 +906,10 @@ function rH takes nothing returns nothing
     local unit uc=GetTriggerUnit()
     local real shxishu=jueXueXiShu(i)
     local real shanghai=0.
+	// 北丐打狗5倍
+	if beigai[i] then
+		set shxishu = shxishu * 5
+	endif
     set shanghai=ShangHaiGongShi(u,uc,35.,35.,shxishu,'A07L')
     call WuGongShangHai(u,uc,shanghai)
     set u=null
@@ -906,8 +926,16 @@ function vH takes nothing returns nothing
 	local unit u=LoadUnitHandle(YDHT,GetHandleId(GetExpiredTimer()),$59BEA0CB)
 	local unit uc=GetEnumUnit()
 	local integer i=1+GetPlayerId(GetOwningPlayer(u))
-	local real shxishu=jueXueXiShu(i)
 	local real shanghai=0.
+	local real shxishu=jueXueXiShu(i)
+	// 北乔峰称号加强降龙伤害
+	if beiqiaofeng[i] then
+		set shxishu = shxishu * 5
+	endif
+	// 北丐或北侠称号加强降龙伤害
+	if beigai[i] or beixia[i] then
+		set shxishu = shxishu * 3
+	endif
     set shanghai=ShangHaiGongShi(u,uc,70.,70.,shxishu,'A07E')
 	call WuGongShangHai(u,uc,shanghai)
 	set u=null
@@ -942,8 +970,16 @@ function XLES_Action takes nothing returns nothing
 	local unit u=LoadUnitHandle(YDHT,GetHandleId(GetExpiredTimer()),0)
 	local unit uc=GetEnumUnit()
 	local integer i=1+GetPlayerId(GetOwningPlayer(u))
-	local real shxishu=jueXueXiShu(i)
 	local real shanghai=0.
+	local real shxishu=jueXueXiShu(i)
+	// 北乔峰称号加强降龙伤害
+	if beiqiaofeng[i] then
+		set shxishu = shxishu * 5
+	endif
+	// 北丐或北侠称号加强降龙伤害
+	if beigai[i] or beixia[i] then
+		set shxishu = shxishu * 3
+	endif
     set shanghai=ShangHaiGongShi(u,uc,80.,80.,shxishu,'A07E')
 	call WuGongShangHai(u,uc,shanghai)
 	set u=null
@@ -1099,6 +1135,10 @@ function GH takes nothing returns nothing
     local unit uc=GetTriggerUnit()
     local real shxishu=jueXueXiShu(i)
     local real shanghai=0.
+	// 西毒称号加成
+	if LoadBoolean(YDHT,GetHandleId(u),StringHash("西毒")) then
+		set shxishu = shxishu * 3
+	endif
     set shanghai=ShangHaiGongShi(u,uc,42.,42.,shxishu,'A089')
     call WuGongShangHai(u,uc,shanghai)
     set u=null
@@ -1348,6 +1388,9 @@ function qI takes nothing returns nothing
 	local integer i=1+GetPlayerId(GetOwningPlayer(u))
 	local real shxishu=jueXueXiShu(i)
 	local real shanghai=0.
+	if LoadBoolean(YDHT,GetHandleId(u),StringHash("小虾米")) then
+		set shxishu = shxishu * 3
+	endif
 	call  DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl"))
 	set shanghai=ShangHaiGongShi(u,uc,44.,44.,shxishu,'A07I')
 	call WuGongShangHai(u,uc,shanghai)

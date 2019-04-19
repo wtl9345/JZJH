@@ -393,7 +393,7 @@ function ox takes nothing returns boolean
 		or(GetItemTypeId(GetManipulatedItem())==1227894838)or(GetItemTypeId(GetManipulatedItem())==1227894839)or(GetItemTypeId(GetManipulatedItem())==1227894840)	 	\
 		or(GetItemTypeId(GetManipulatedItem())==1227894841)or (GetItemTypeId(GetManipulatedItem())=='I09E') or(GetItemTypeId(GetManipulatedItem())==1227894849)		 	\
 		or (GetItemTypeId(GetManipulatedItem())=='I09N') or (GetItemTypeId(GetManipulatedItem())=='I0A2')  or (GetItemTypeId(GetManipulatedItem())=='I0CK')				\
-		or (GetItemTypeId(GetManipulatedItem())=='I0CX') or (GetItemTypeId(GetManipulatedItem())=='I0E1')))
+		or (GetItemTypeId(GetManipulatedItem())=='I0CX') or (GetItemTypeId(GetManipulatedItem())=='I0E1') or (GetItemTypeId(GetManipulatedItem())=='I0EH')))
 endfunction
 function JiaRuMenPai takes nothing returns nothing
 	local unit u=GetTriggerUnit()
@@ -412,6 +412,10 @@ function JiaRuMenPai takes nothing returns nothing
 			if GetItemTypeId(GetManipulatedItem())=='I09N' then
 				if udg_jf[i-1] >= 20 then
 					if  (jf_useMax[i-1]+20) <= jf_max then
+						set udg_shuxing[i]=udg_shuxing[i]-5
+						set wuxing[i]=(wuxing[i]+3)
+						set jingmai[i]=(jingmai[i]+2)
+						set fuyuan[i]=(fuyuan[i]+2)
 						set udg_runamen[i]=14
 						call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"改拜入了〓明教〓，大家一起膜拜他|r")
 						call SetPlayerName(p,"〓明教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
@@ -429,8 +433,32 @@ function JiaRuMenPai takes nothing returns nothing
 				else
 					call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00积分不足20，不能选择明教")
 				endif
-				
-				
+			endif
+			// 自由改投灵鹫
+			if GetItemTypeId(GetManipulatedItem())=='I0EH' then
+				if udg_jf[i-1] >= 10 then
+					if  (jf_useMax[i-1]+10) <= jf_max then
+						set udg_shuxing[i]=udg_shuxing[i]-5
+						set danpo[i]=(danpo[i]+2)
+						set jingmai[i]=(jingmai[i]+2)
+						set fuyuan[i]=(fuyuan[i]+1)
+						set udg_runamen[i]=12
+						call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"改拜入了〓灵鹫宫〓，大家一起膜拜他|r")
+						call SetPlayerName(p,"〓灵鹫宫〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+						call AdjustPlayerStateBJ(-60, p, PLAYER_STATE_RESOURCE_LUMBER)
+						// 累加本局可用积分
+						set jf_useMax[i-1] = jf_useMax[i-1] + 10
+						// 扣除对应的积分
+						set udg_jf[i-1] = udg_jf[i-1] -10
+						// 保存到服务器
+						call DzAPI_Map_StoreInteger(Player(i-1),"jf",udg_jf[i-1])
+						call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00扣除10积分选择灵鹫宫")
+					else
+						call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00不能选择灵鹫宫，本局可用积分达到上限50")
+					endif
+				else
+					call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00积分不足10，不能选择灵鹫宫")
+				endif
 			endif
 		else
 			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你已经加过门派了|r")
@@ -1179,14 +1207,7 @@ function ChooseNanDu_Action takes nothing returns nothing
 	endif
 	
 endfunction
-//试玩模式
-function BeforeAttack takes nothing returns boolean
-	return(hd==false)
-endfunction
-function SetShiWan takes nothing returns nothing
-	set ShiFouShuaGuai=false
-	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFF00FF00玩家一选择了试玩模式，怪物不会进攻主城，大家可以尽情的去体验玩法了")
-endfunction
+
 /*
  * 4. 游戏界面显示相关
  */
@@ -1377,18 +1398,20 @@ function PlayerLeave takes nothing returns nothing
 endfunction
 //F9显示
 function Qx takes nothing returns nothing
-	call CreateQuestBJ(0,"|cFFFF00001.53版本更新内容","|cff00ff00新增元素|n|r|cffffff00开放新门派|r：泰山派|n|cffffff00装备调整|r：七绝护符、天璇护腕、神行鞋和神迹戒变更为神器|n|cff00ff00平衡性调整|n|r|cffffff00门派调整|r：全面平衡各门派伤害和升重速度|n|cffffff00删除了救火任务和青龙团队副本。|n积分兑换金钱和珍稀币随难度不同而不同。|n历练3的声望要求降至3200，十恶不赦基础血量降至30000。|n杀矮子王爆江湖忠，杀南海神尼爆九阴锻骨篇。|n大量游戏细节优化调整。|r|cff00ff00|nBUG修复|n|r|cffffff00修复部分装备不能正确加攻速和移速的BUG。|n修复部分武功属性要求显示不正确的BUG。|r","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
-	call CreateQuestBJ(0,"|cFFFF00001.54版本更新内容","|cff00ff00平衡性调整|n|r|cffffff00降低天柱云气触发概率。|n略微提升泰山十八盘的升重速度和触发概率。|n降低号令天下令的声望加成。|n缩小独孤九剑范围、减少时间、提升伤害。|n泰山派岱宗如何触发概率由100%改为15%。|n略微提高神行鞋爆率。|n其他细节优化。|r|cff00ff00|nBUG修复|n|r|cffffff00修复泰山十八盘+小无相无效的BUG。|n修正剑意和新手帮助的描述错误。|n修复神行鞋无CD的BUG。|r","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
+	// call CreateQuestBJ(0,"|cFFFF00001.53版本更新内容","|cff00ff00新增元素|n|r|cffffff00开放新门派|r：泰山派|n|cffffff00装备调整|r：七绝护符、天璇护腕、神行鞋和神迹戒变更为神器|n|cff00ff00平衡性调整|n|r|cffffff00门派调整|r：全面平衡各门派伤害和升重速度|n|cffffff00删除了救火任务和青龙团队副本。|n积分兑换金钱和珍稀币随难度不同而不同。|n历练3的声望要求降至3200，十恶不赦基础血量降至30000。|n杀矮子王爆江湖忠，杀南海神尼爆九阴锻骨篇。|n大量游戏细节优化调整。|r|cff00ff00|nBUG修复|n|r|cffffff00修复部分装备不能正确加攻速和移速的BUG。|n修复部分武功属性要求显示不正确的BUG。|r","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
+	// call CreateQuestBJ(0,"|cFFFF00001.54版本更新内容","|cff00ff00平衡性调整|n|r|cffffff00降低天柱云气触发概率。|n略微提升泰山十八盘的升重速度和触发概率。|n降低号令天下令的声望加成。|n缩小独孤九剑范围、减少时间、提升伤害。|n泰山派岱宗如何触发概率由100%改为15%。|n略微提高神行鞋爆率。|n其他细节优化。|r|cff00ff00|nBUG修复|n|r|cffffff00修复泰山十八盘+小无相无效的BUG。|n修正剑意和新手帮助的描述错误。|n修复神行鞋无CD的BUG。|r","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
 	call CreateQuestBJ(0,"|cFFFF0000人物属性","招式伤害：影响人物的所有武功的威力，中后期影响较大\n内力：加成武功伤害百分比，中后期影响较大\n真实伤害：造成不受内力影响的实际伤害，前期影响较大\n绝学领悟力：影响绝学的发挥效果和威力\n根骨：影响任务和武功学习条件，同时提高技能暴击力\n悟性：影响任务和武功学习条件，同时决定技能升级的概率\n经脉：影响任务和武功学习条件，同时提高法力回复速度\n福缘：影响任务和武功学习条件，同时提高被动武学触发概率\n胆魄：影响任务和武功学习条件，同时提高杀怪回复能力\n医术：影响任务和武功学习条件，同时提高自然生命回复速度","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
 	call CreateQuestBJ(0,"|cFFFF6600人物武功","门派武功：加入门派后每个英雄都会有3个武功，分别在3、8、15级时自动领悟\n门派心法：每个门派都有两种心法，可以在完成历练2后二选其一修习\n江湖武功：分为武功和心法两大类，需要通过使用武功秘籍获得\n绝学和绝内：后期厉害的大招，也需要通过使用武功秘籍获得\n绝阵：开放部分门派绝阵，请到聚贤庄寻找","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
-	call CreateQuestBJ(0,"|cFF00FF00游戏指令","按键Esc：|cFFCCFF33查看人物属性|r\n输入“sj”：|cFFCCFF33恢复视角|r\n输入“bl”：|cFFCCFF33查看伴侣属性|r\n输入“jy”：|cFFCCFF33将剑意转化为性格属性|r\n输入“up”：|cFFCCFF33非特殊事件模式下提高难度（只能提不能降）|r\n输入“fb”：|cFFCCFF33查询副本重置时间|r\n输入“yx”：|cFFCCFF33查询宝宝携带草药的总药性|r\n游戏开始2分钟内输入“sw”：|cFFCCFF33试玩模式|r\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
-	call CreateQuestBJ(0,"|cFF0000FF游戏指令2","输入“cksx”：|cFFCCFF33查看剩余自由属性点数|r\n输入属性拼音首字母如“gg”：|cFFCCFF33根骨+1|r\n输入属性拼音首字母加数值如“fy5”：|cFFCCFF33福缘+5|r\n输入“ckwq”：|cFFCCFF33查询自制武器属性|r\n输入“ckwg”：|cFFCCFF33查询自创武功|r\n输入“ckjn”：|cFFCCFF33查询人物性格和技能升重进度|r\n输入“ck”：|cFFCCFF33查询技能伤害|r\n输入“ckjf”：|cFFCCFF33查询守家积分|r\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
+	call CreateQuestBJ(0,"|cFF00FF00游戏指令1","输入“hg/hc”：|cFFCCFF33回程|r\n输入“q”：|cFFCCFF33传送到基地上方|r\n输入“3”：|cFFCCFF33传送到基地下方|r\n输入“4”：|cFFCCFF33传送到监狱|r\n输入“1”：|cFFCCFF33定点（学乾坤大挪移）|r\n输入“2”：|cFFCCFF33传送到乾坤定点地方|r\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
+	call CreateQuestBJ(0,"|cFF00FF00游戏指令2","按键Esc：|cFFCCFF33查看人物属性|r\n输入“sj”：|cFFCCFF33恢复视角|r\n输入“bl”：|cFFCCFF33查看伴侣属性|r\n输入“jy”：|cFFCCFF33将剑意转化为性格属性|r\n输入“up”：|cFFCCFF33非特殊事件模式下提高难度（只能提不能降）|r\n输入“fb”：|cFFCCFF33查询副本重置时间|r\n输入“yx”：|cFFCCFF33查询宝宝携带草药的总药性|r\n游戏开始2分钟内输入“sw”：|cFFCCFF33试玩模式|r\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
+	call CreateQuestBJ(0,"|cFF0000FF游戏指令3","输入“cksx”：|cFFCCFF33查看剩余自由属性点数|r\n输入属性拼音首字母如“gg”：|cFFCCFF33根骨+1|r\n输入属性拼音首字母加数值如“fy5”：|cFFCCFF33福缘+5|r\n输入“ckwq”：|cFFCCFF33查询自制武器属性|r\n输入“ckwg”：|cFFCCFF33查询自创武功|r\n输入“ckjn”：|cFFCCFF33查询人物性格和技能升重进度|r\n输入“ck”：|cFFCCFF33查询技能伤害|r\n输入“ckjf”：|cFFCCFF33查询守家积分|r\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
+	call CreateQuestBJ(0,"|cFF0000FF游戏指令4","输入“cx”：|cFFCCFF33查看存档|r\n输入“ckzs”：|cFFCCFF33查看专属获取方式及效果|r\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
 	call CreateQuestBJ(2,"|cFFFF00CC称号系统","在游戏中，可以获得两种称号：门派称号和副职称号\n门派称号：如果你的所有门派武学和门派内功均达到6级，可以获得各门派的掌门称号；在获得掌门之前达成一定的条件，获得掌门称号时还可以获得额外的门派称号，具体门派称号的获得方法可以参考论坛的攻略。注意获得门派称号的契机只有一次。\n副职称号：游戏中的七种副职达到一定条件时，可以分别获得相应的副职大师称号，增加与该副职相关的额外能力，具体副职大师称号的获得方法可以参考论坛的攻略","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
 	//call CreateQuestBJ(2,"|cFFFFFF00武器系统","在游戏中，每一把武器都有自己的耐久度，每击杀一个单位耐久度减1，耐久度为0后武器破损消失\n如果副职选择兵器师，则武器不减少耐久度。\n每个玩家对每一种武器有一定的熟练度，每击杀一个单位增加一定熟练度，不同武器熟练度上限不同，熟练度上升武功的伤害将随之上升\n副职选择兵器师大幅提升武器的熟练度上限\n对某种武器极不熟练时伤害要低于不拿武器时的伤害","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
 	call CreateQuestBJ(2,"|cFFFF0000副职玩法","玩家可在NPC郭靖处选择自己的副职，加入副职后会获得一些独特的能力\n副职满足一定条件后，可以获得相应的大师称号，获得大师后会额外获得一些能力\n炼丹师：可使用炼丹系统并可多服食五颗丹药\n锻造师：可使用镶嵌和锻造系统\n兵器师：镇妖死亡不掉落，拾取和冶炼兵器不受历练限制\n练气师：每提升一次等级增加4-12点招式伤害或内力或真实伤害\n寻宝师：副本双倍掉落\n鉴定师：爆双倍古董，可以使用古董换书，古董以最高价卖出\n丫鬟：携带两把武器及两件衣服\n精武师：技能升级到九重获得额外自创武学点，可以打出奇武\n更多大师获得方式和作用请到NPC随风而逝de风处查看","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
-	call CreateQuestBJ(2,"|cFFFF6600称号系统","玩家4个门派武功全部达到6级可获得掌门称号\n在获得掌门称号时若达到一定条件，可同时获得其他称号\n有一些称号与掌门无关，具体可参考网站或论坛的攻略\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
-	call CreateQuestBJ(2,"|cFF00FF00隐藏门派","游戏中有两个隐藏门派：姑苏慕容和灵鹫宫\n隐藏门派的选择方式:灵鹫宫选人后输入www.juezhanjianghu.com，慕容世家选人后输入jzjh.uuu9.com或3级前去找慕容复\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
-	call CreateQuestBJ(2,"|cFF0000FF游戏网站","17玩吧：|cFFCCFF33www.17wanba.cc|r\n专区论坛：|cFFCCFF33jzjhbbs.uuu9.com|r\n游戏作者：|cFFCCFF33云杨 Zei_kale|r\n游戏QQ群：|cFFCCFF33159030768, 369925013\n\n关注武侠，支持作者，详情请在网站和论坛查询","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
+	call CreateQuestBJ(2,"|cFFFF6600称号系统","玩家4个门派武功全部达到6级可获得掌门称号\n在获得掌门称号时若达到一定条件，可同时获得其他称号\n有一些称号与掌门无关，具体可参考基地右边新手教官\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
+	call CreateQuestBJ(2,"|cFF00FF00隐藏门派","游戏中有两个隐藏门派：姑苏慕容和灵鹫宫\n隐藏门派的选择方式:自由3级前基地左下角积分兑换加入灵鹫宫，慕容世家选人后输入jzjh.uuu9.com或3级前去找慕容复\n","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
+	call CreateQuestBJ(2,"|cFF0000FF游戏网站","专区论坛：|cFFCCFF33jzjhbbs.uuu9.com|r\n游戏作者：|cFFCCFF33云杨 Zei_kale|r\n游戏QQ群：|cFFCCFF33159030768, 369925013\n\n关注武侠，支持作者，详情请在网站和论坛查询","ReplaceableTextures\\CommandButtons\\BTNAmbush.blp")
 endfunction
 
 //ESC查看人物属性
@@ -1891,6 +1914,13 @@ endfunction
 function HA takes nothing returns nothing
 	local timer t=CreateTimer()
 	local integer i = 0
+	// 试玩结束
+	if ShiFouShuaGuai == false then
+		call PauseTimer(shiWanTimer)
+		call DestroyTimer(shiWanTimer)
+		call DestroyTimerDialog(shiWanTimerDialog)
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF0033试玩结束，开始刷怪"))
+	endif
 	if udg_boshu==5 and udg_teshushijian==true then
 		call ChooseNanDu() // 第二次选择难度
 	endif
@@ -2045,6 +2075,22 @@ function HA takes nothing returns nothing
 	    endif
 	endif
 	set t=null
+endfunction
+//试玩模式
+globals
+	timer shiWanTimer = null
+	timerdialog shiWanTimerDialog = null
+endglobals
+function BeforeAttack takes nothing returns boolean
+	return(hd==false)
+endfunction
+function SetShiWan takes nothing returns nothing
+	set ShiFouShuaGuai=false
+	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFF00FF00玩家一选择了试玩模式，1小时内怪物不会进攻主城，大家可以尽情的去体验玩法了")
+	// 30分钟后刷怪，避免挂机
+	set shiWanTimer = CreateTimer()
+	call TimerStart(shiWanTimer, 3600,false, function HA)
+	set shiWanTimerDialog = createTimerDialog(shiWanTimer, "试玩倒计时")
 endfunction
 function JiaJiNeng takes unit u returns nothing
     if udg_boshu>=8 then
@@ -2357,17 +2403,12 @@ function HeroLevel takes nothing returns nothing
 		loop
 			exitwhen d8[i]>20 //门派数
 			if (udg_runamen[i]==d8[i]) then
-
 				// 自由3级自动学技能begin
 				if d8[i]==11 then
-					if GetRandomInt(1,100)<=60 then
+					if GetRandomInt(1,100)<=50 then
 						set X7[d8[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(1,18), 2)
 					else
-						if GetRandomInt(1,100) <= 50 then
-							set X7[d8[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(29,36), 2) // 37逆九阴和38医疗篇去除
-						else
-							set X7[d8[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(39,41), 2) 
-						endif
+						set X7[d8[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(39,41), 2) 
 					endif
 					call UnitAddAbility(u,X7[d8[i]])
 					call DisplayTextToPlayer(p,0,0,"|cff00FF66恭喜领悟技能："+GetObjectName(X7[d8[i]]))
@@ -2395,22 +2436,23 @@ function HeroLevel takes nothing returns nothing
 					// endif
 					//======送技能书end
 
-				// 自由自动学的技能补属性begin
-				set S9=1
-               	loop
-               	    exitwhen S9>20
-               	    if (X7[d8[i]]==MM9[S9]) then
-               	        set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
-               	        call ModifyHeroStat(1,u,0,udg_jueneiminjie[S9])
-               	        set udg_baojilv[i] = udg_baojilv[i] + udg_jueneibaojilv[S9]
-							set juexuelingwu[i] = juexuelingwu[i] + udg_jueneijxlw[S9]
-							set udg_shanghaixishou[i] = udg_shanghaixishou[i] + udg_jueneishxs[S9]
-               	    endif
-               	    set S9=S9+1
-               	endloop
-				// 自由自动学的技能补属性end
-
+					// 自由自动学的技能补属性begin
+					set S9=1
+					loop
+						exitwhen S9>20
+						if (X7[d8[i]]==MM9[S9]) then
+							set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
+							call ModifyHeroStat(1,u,0,udg_jueneiminjie[S9])
+							set udg_baojilv[i] = udg_baojilv[i] + udg_jueneibaojilv[S9]
+								set juexuelingwu[i] = juexuelingwu[i] + udg_jueneijxlw[S9]
+								set udg_shanghaixishou[i] = udg_shanghaixishou[i] + udg_jueneishxs[S9]
+						endif
+						set S9=S9+1
+					endloop
+					// 自由自动学的技能补属性end
 				endif
+
+				// 填充技能格子
 				set L7[i]=1
 				loop
 					exitwhen L7[i]>wugongshu[i]
@@ -2480,6 +2522,37 @@ function HeroLevel takes nothing returns nothing
 		endloop
 	endif
 	if((GetUnitLevel(u)==10))then
+		// 自由10级自动学绝内
+		if udg_runamen[i]==11 then
+			set Z7[udg_runamen[i]] = LoadInteger(YDHT, StringHash("武学")+GetRandomInt(29,36), 2) // 37逆九阴和38医疗篇去除
+			call UnitAddAbility(u,Z7[udg_runamen[i]])
+			call DisplayTextToPlayer(p,0,0,"|cff00FF66恭喜领悟技能："+GetObjectName(Z7[udg_runamen[i]]))
+			// 自由自动学的技能补属性begin
+			set S9=1
+			loop
+				exitwhen S9>20
+				if (Z7[udg_runamen[i]]==MM9[S9]) then
+					set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
+					call ModifyHeroStat(1,u,0,udg_jueneiminjie[S9])
+					set udg_baojilv[i] = udg_baojilv[i] + udg_jueneibaojilv[S9]
+					set juexuelingwu[i] = juexuelingwu[i] + udg_jueneijxlw[S9]
+					set udg_shanghaixishou[i] = udg_shanghaixishou[i] + udg_jueneishxs[S9]
+				endif
+				set S9=S9+1
+			endloop
+		// 自由自动学的技能补属性end
+			set L7[i]=1
+			loop
+				exitwhen L7[i]>wugongshu[i]
+				if((I7[((GetPlayerId(p)*20)+L7[i])]!='AEfk'))then
+				else
+					set I7[(((i-1)*20)+L7[i])]=Z7[udg_runamen[i]]
+					exitwhen true
+				endif
+				set L7[i]=L7[i]+1
+			endloop
+		endif
+
 		call DisplayTimedTextToPlayer(p,0,0,30.,"|cff66ff00恭喜你升到了10级，你可以前往全真教（小地图指示点）完成历练1任务（大战江南七怪）了，完成历练任务可以提升修行，对人物的武功伤害占有重要影响，切记切记！！")
 		set loc = GetRectCenter(Te)
 		call PingMinimapLocForForce(ov(p),loc,5.)
@@ -4007,6 +4080,7 @@ function LearnNeiGong takes nothing returns nothing
             set L7[i]=L7[i]+1
         endloop
     elseif b==LoadButtonHandle(YDHT,StringHash("门派内功"),2) then
+		// 明教乾坤
     	if P8[id] == 'A07W' then
 	    	if GetUnitAbilityLevel(u, 'A07W') >= 1 then
 	        	call IncUnitAbilityLevel(u, P8[id])

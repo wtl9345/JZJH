@@ -51,7 +51,9 @@ function WeiTuoGun takes nothing returns nothing
 	        if((GetUnitAbilityLevel(u,'A0DN')!=0))then
 	            call SetWidgetLife(u,(GetUnitState(u,UNIT_STATE_LIFE)+(.02*GetUnitState(u,UNIT_STATE_MAX_LIFE))))
 	        endif
-	        if((GetUnitAbilityLevel(u,'A07U')!=0)and(GetRandomReal(.0,100.)<=15.))then
+			// 概率狂暴
+			if GetRandomReal(0,100) <= 15 + GetUnitAbilityLevel(u,'A07U')*20 then
+	        // if((GetUnitAbilityLevel(u,'A07U')!=0)and(GetRandomReal(.0,100.)<=15.))then
 	            call CreateNUnitsAtLoc(1,'e000',GetOwningPlayer(u),loc1,bj_UNIT_FACING)
 	            call ShowUnitHide(bj_lastCreatedUnit)
 	            call UnitAddAbility(bj_lastCreatedUnit,1093681496)
@@ -244,7 +246,12 @@ function cc takes nothing returns nothing
 	set ce[i]=(70*GetUnitAbilityLevel(u,'A05O'))
 	call YDWEGeneralBounsSystemUnitSetBonus(u,2,0,(70*GetUnitAbilityLevel(u,'A05O')))
 	if((gengu[i]>=20))then
-		set D7[i]=(D7[i]*2.)
+		// 金钟罩效果4倍
+		if LoadBoolean(YDHT, GetHandleId(u), StringHash("扫地神僧")) or LoadBoolean(YDHT,GetHandleId(u),StringHash("达摩祖师")) then
+			set D7[i]=(D7[i]*4.)
+		else
+			set D7[i]=(D7[i]*2.)
+		endif
 	endif
 	call AddSpecialEffectTargetUnitBJ("chest",u,"war3mapImported\\DefensiveBarrierBig.mdx")
 	call DisplayTextToPlayer(GetOwningPlayer(u),0,0,("|cff00ccff金钟罩效果总值："+I2S(R2I(D7[i]))))
@@ -297,6 +304,9 @@ function Hc takes nothing returns nothing
 	        call AddSpecialEffectLocBJ(loc2,"Abilities\\Spells\\Demon\\DarkPortal\\DarkPortalTarget.mdl")
 	        call DestroyEffect(bj_lastCreatedEffect)
 	        call RemoveLocation(loc2)
+			if LoadBoolean(YDHT, GetHandleId(u), StringHash("扫地神僧")) then
+				set shxishu=shxishu*10
+			endif
 	        set shanghai=ShangHaiGongShi(u,uc,20.,20.,shxishu,'A05O')
 	        call WuGongShangHai(u,uc,shanghai)
 	    endif
@@ -313,7 +323,12 @@ function Hc takes nothing returns nothing
 	        set ce[i]=70*GetUnitAbilityLevel(u,'A05O')
 	        call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit(),2,0,(70*GetUnitAbilityLevel(u,'A05O')))
 	        if((gengu[(1+GetPlayerId(GetOwningPlayer(u)))]>=20))then
-	            set D7[i]=(D7[i]*2.)
+	            // 金钟罩效果4倍
+				if LoadBoolean(YDHT, GetHandleId(u), StringHash("扫地神僧")) or LoadBoolean(YDHT,GetHandleId(u),StringHash("达摩祖师")) then
+					set D7[i]=(D7[i]*4.)
+				else
+					set D7[i]=(D7[i]*2.)
+				endif
 	        endif
 	        call AddSpecialEffectTargetUnitBJ("chest",GetTriggerUnit(),"war3mapImported\\DefensiveBarrierBig.mdx")
 	        call DisplayTextToPlayer(p,0,0,("|cff00ccff小无相重启金钟罩，效果总值："+I2S(R2I(D7[i]))))
@@ -339,7 +354,13 @@ function Jc takes nothing returns nothing
 	    set F7[i]=(F7[i]+1)
 	    if((F7[i]>=10))then
 	        set F7[i]=(F7[i]-10)
-	        call ModifyHeroStat(1,GetKillingUnit(),0,1)
+			if LoadBoolean(YDHT,GetHandleId(GetKillingUnit()),StringHash("达摩祖师")) then
+	        	call ModifyHeroStat(0,GetKillingUnit(),0,1)
+	        	call ModifyHeroStat(1,GetKillingUnit(),0,1)
+	        	call ModifyHeroStat(2,GetKillingUnit(),0,1)
+			else
+				call ModifyHeroStat(1,GetKillingUnit(),0,1)
+			endif
 	    endif
 	endif
 endfunction
@@ -416,6 +437,24 @@ function Sc takes nothing returns nothing
 	set u=null
 	set uc=null
 endfunction
+
+//金轮法王龙象效果
+function isJinLunLongXiang takes nothing returns boolean
+	return GetUnitAbilityLevel(GetAttacker(),'S002')>=1 and LoadBoolean(YDHT,GetHandleId(GetAttacker()),StringHash("金轮法王"))
+endfunction
+function jinLunLongXiang takes nothing returns nothing
+	local unit u = GetAttacker()
+	local player p = GetOwningPlayer(u)
+	local integer i = 1 + GetPlayerId(p)
+	local integer gailv = 30 
+	if GetRandomInt(1, 100) <= gailv + fuyuan[i]/6  then
+		call ModifyHeroStat(0, u, 0, 200)
+		call YDWEPolledWaitNull(35)
+		call ModifyHeroStat(0, u, 1, 200)
+	endif
+	set u = null
+	set p = null
+endfunction
 //--------少林结束--------//
 function ShaoLin_Trigger takes nothing returns nothing
 	local trigger t = CreateTrigger()
@@ -467,4 +506,11 @@ function ShaoLin_Trigger takes nothing returns nothing
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function Rc))
 	call TriggerAddAction(t,function Sc)
+
+	set t=CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
+	call TriggerAddCondition(t,Condition(function isJinLunLongXiang))
+	call TriggerAddAction(t,function jinLunLongXiang)
+
+	set t = null 
 endfunction

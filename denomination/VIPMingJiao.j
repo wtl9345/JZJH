@@ -175,7 +175,7 @@ library MaxSpeed /* v1.2
          private constant boolean TEST_MODE = false
          private constant real PERIOD = 0.03125
         //  private constant real MAX_SPEED = 2088.0
-		private constant real MAX_SPEED = 522.0
+		private constant real MAX_SPEED = 1400.0
          // 最大速度限定，超出视为传送。
         private constant real MIN_SPEED = 500.0
          // 判定的最小距离，此项过小或速度过大会使原地打转几率增加，超出则没有加速效果。

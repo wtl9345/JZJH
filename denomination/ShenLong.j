@@ -80,6 +80,10 @@ function XiaoLian_Action takes nothing returns nothing
 	if UnitHaveItem(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
+    // 教主夫人加成
+    if LoadBoolean(YDHT,GetHandleId(u),StringHash("教主夫人")) then
+        set shxishu = shxishu * 2
+    endif
 	call DestroyEffect(AddSpecialEffect("Abilities\\Spells\\Human\\Polymorph\\PolyMorphDoneGround.mdl", x, y))
 	set shanghai=ShangHaiGongShi(u,uc,8,11,shxishu,'A056')
 	if GetUnitAbilityLevel(u, 'A059')!=0 and GetRandomReal(1, 100)<=30 then //加神龙心法
@@ -104,12 +108,13 @@ function XiaoLianHengChen takes nothing returns nothing
 	local location loc1=GetUnitLoc(u)
 	local location loc2=GetUnitLoc(uc)
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
-	if (GetRandomReal(.0,100.) <= 22. + fuyuan[i]/3 )then
-		//加双手加范围
-	    call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(500+500*(GetUnitAbilityLevel(u,'A07U')),loc1,Condition(function XiaoLian_Condition)),function XiaoLian_Action)
+	if (GetRandomReal(.0,100.) <= 30. + fuyuan[i]/3 + GetUnitAbilityLevel(u, 'A056')*4 )then
+		//加爪子加范围
+	    call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(800+600*(GetUnitAbilityLevel(u,'A07N')),loc1,Condition(function XiaoLian_Condition)),function XiaoLian_Action)
+	    // call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(500+500*(GetUnitAbilityLevel(u,'A07U')),loc1,Condition(function XiaoLian_Condition)),function XiaoLian_Action)
 	    call WuGongShengChong(u,'A056',900.)
 	    call WuGongShengChong(u,'A059',2500.)
-	    if((GetUnitAbilityLevel(u,'A07N')!=0))then//加九爪
+	    if((GetUnitAbilityLevel(u,'A07U')!=0))then//加双手回复20%内功
 		    call SetUnitState(u, UNIT_STATE_MANA, (GetUnitState(u,UNIT_STATE_MANA)+(.2*GetUnitState(u,UNIT_STATE_MAX_MANA))))
 		endif
 	endif
@@ -139,6 +144,10 @@ function XiaoLian_Action_1 takes nothing returns nothing
     // 专属加成
 	if UnitHaveItem(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
+    endif
+    // 教主夫人加成
+    if LoadBoolean(YDHT,GetHandleId(u),StringHash("教主夫人")) then
+        set shxishu = shxishu * 2
     endif
 	set shanghai=ShangHaiGongShi(u,uc,8,11,shxishu,'A056')
 	if GetUnitAbilityLevel(u, 'A059')!=0 and GetRandomReal(1, 100)<=30 then //加神龙心法
@@ -185,17 +194,21 @@ function GuiFeiHuiMouSH takes nothing returns nothing
     local real shanghai=0.
     call WuGongShengChong(u,'A04X',500.)
     call WuGongShengChong(u,'A059',2500.)
+    // 加弹指概率穴位全封
+    if (GetUnitAbilityLevel(u,'A06H')!=0) and GetRandomInt(1,100) <= 40+ GetUnitAbilityLevel(u,'A07N')*4 then 
+        call WanBuff(u, uc, 12)
+    endif
     if (GetUnitAbilityLevel(u,'A03V')!=0) then //加擒龙
 	    set shxishu= RMinBJ(DistanceBetweenPoints(loc, loc2)/300, 10)
     endif
     if (GetUnitAbilityLevel(u,'A07S')!=0) then //加九阴真经
 	    set shxishu= shxishu + 1
     endif
-    if (GetUnitAbilityLevel(u,'A083')!=0) then //加小无相
-	    set shxishu= shxishu + 1.2
-    endif
-	if (GetUnitAbilityLevel(u,'A056')!=0) and (GetRandomReal(.0,100.) <= 22. + fuyuan[i]/3 ) then //加小怜横陈
-	    call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(500+300*(GetUnitAbilityLevel(u,'A07U')),loc,Condition(function XiaoLian_Condition_1)),function XiaoLian_Action_1)
+    // if (GetUnitAbilityLevel(u,'A083')!=0) then //加小无相
+	//     set shxishu= shxishu + 1.2
+    // endif
+	if (GetUnitAbilityLevel(u,'A056')!=0) and (GetRandomReal(.0,100.) <= 30. + fuyuan[i]/3 + GetUnitAbilityLevel(u, 'A04X')*5 ) then //加小怜横陈
+	    call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(800+600*(GetUnitAbilityLevel(u,'A07N')),loc,Condition(function XiaoLian_Condition_1)),function XiaoLian_Action_1)
 	    call WuGongShengChong(u,'A056',900.)
 	    call WuGongShengChong(u,'A059',2500.)
 	    if((GetUnitAbilityLevel(u,'A07N')!=0))then//加九爪
@@ -312,6 +325,11 @@ function DiQingXiangLong takes nothing returns nothing
 	    set beishu = beishu *5
         set gailv = gailv + 40
     endif
+    // 神龙教主加成
+    if LoadBoolean(YDHT,GetHandleId(u),StringHash("神龙教主")) then
+        set beishu = beishu *2
+        set gailv = gailv + 10
+    endif
 	if GetUnitAbilityLevel(u, 'A03O')!=0 and GetRandomInt(1, 100) <= gailv+GetUnitLevel(ut)/2 then //妙手空空偷珍稀币
 		call AdjustPlayerStateBJ(beishu*GetRandomInt(1, 5),GetOwningPlayer(u),PLAYER_STATE_RESOURCE_LUMBER)
 	endif
@@ -414,6 +432,10 @@ function Trig_Wild_Axes_aFunc026Func025A takes nothing returns nothing
 	if UnitHaveItem(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
+    // 教主夫人加成
+    if LoadBoolean(YDHT,GetHandleId(u),StringHash("教主夫人")) then
+        set shxishu = shxishu * 2
+    endif
     set shanghai=ShangHaiGongShi(u,ut,60,40,shxishu,'A054')
     call WuGongShangHai(u,ut,shanghai)
 
@@ -498,11 +520,13 @@ function Trig_Wild_Axes_aFunc026T takes nothing returns nothing
     call DestroyGroup( YDWEGetLocalVariableGroup("L1") )
     call DestroyGroup( YDWEGetLocalVariableGroup("L2") )
     if ((YDTriggerGetEx(boolean, YDTriggerH2I(GetExpiredTimer()), 0xA32DA6CF) == true)) then
-        call YDTriggerSetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3, ( YDTriggerGetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3) - 0.02 ))
+        // call YDTriggerSetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3, ( YDTriggerGetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3) - 0.02 ))
+        call YDTriggerSetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3, ( YDTriggerGetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3) - 0.05 ))
     else
         call YDWESetLocalVariableRealArray( "x", 0, GetUnitX(YDTriggerGetEx(unit, YDTriggerH2I(GetExpiredTimer()), 0xB95F828C)) )
         call YDWESetLocalVariableRealArray( "y", 0, GetUnitY(YDTriggerGetEx(unit, YDTriggerH2I(GetExpiredTimer()), 0xB95F828C)) )
-        call YDTriggerSetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3, ( YDTriggerGetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3) + 0.02 ))
+        // call YDTriggerSetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3, ( YDTriggerGetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3) + 0.02 ))
+        call YDTriggerSetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3, ( YDTriggerGetEx(real, YDTriggerH2I(GetExpiredTimer()), 0xD5CF2EF3) + 0.05 ))
         call YDTriggerSetEx(real, YDTriggerH2I(GetExpiredTimer()), 0x324AE96A, GetUnitX(YDTriggerGetEx(unit, YDTriggerH2I(GetExpiredTimer()), 0xB95F828C)))
         call YDTriggerSetEx(real, YDTriggerH2I(GetExpiredTimer()), 0x058682B9, GetUnitY(YDTriggerGetEx(unit, YDTriggerH2I(GetExpiredTimer()), 0xB95F828C)))
         call YDWESetLocalVariableReal( "comp", Atan2(( YDWEGetLocalVariableRealArray("y", 1) - YDWEGetLocalVariableRealArray("y", 0) ), ( YDWEGetLocalVariableRealArray("x", 1) - YDWEGetLocalVariableRealArray("x", 0) )) )
@@ -586,7 +610,8 @@ function FeiYanHuiXiang takes nothing returns nothing
     call YDTriggerSetEx(real, YDTriggerH2I(ydl_timer), 0xB0897302, YDTriggerGetEx(real, YDTriggerH2I(GetTriggeringTrigger())*ydl_localvar_step, 0xB0897302))
     call YDTriggerSetEx(real, YDTriggerH2I(ydl_timer), 0x71CA3531, YDTriggerGetEx(real, YDTriggerH2I(GetTriggeringTrigger())*ydl_localvar_step, 0x71CA3531))
     call YDTriggerSetEx(real, YDTriggerH2I(ydl_timer), 0x7D73FF94, YDTriggerGetEx(real, YDTriggerH2I(GetTriggeringTrigger())*ydl_localvar_step, 0x7D73FF94))
-    call TimerStart(ydl_timer, ( 0.25 / 10.00 ), true, function Trig_Wild_Axes_aFunc026T)
+    // call TimerStart(ydl_timer, ( 0.25 / 10.00 ), true, function Trig_Wild_Axes_aFunc026T)
+    call TimerStart(ydl_timer, 0.25/10.00, true, function Trig_Wild_Axes_aFunc026T)
     call YDTriggerClearTable(YDTriggerH2I(GetTriggeringTrigger())*ydl_localvar_step)
     set ydl_timer = null
 endfunction
@@ -646,6 +671,14 @@ function Trig_ciZhenSaoSheFunc007Conditions takes nothing returns boolean
     // 专属加成
 	if UnitHaveItem(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
+    endif
+    // 神龙教主加成
+    if LoadBoolean(YDHT,GetHandleId(u),StringHash("神龙教主")) then
+        set shxishu = shxishu * 2
+    endif
+    // 教主夫人加成
+    if LoadBoolean(YDHT,GetHandleId(u),StringHash("教主夫人")) then
+        set shxishu = shxishu * 2
     endif
     set ydl_timer = null
     return false

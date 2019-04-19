@@ -447,6 +447,23 @@ function LiuYangBeiDong takes nothing returns nothing
 	set u = null
 	set loc = null
 endfunction
+
+globals
+	integer array beiMingShaGuai // 北冥杀怪数
+endglobals
+// 虚竹，北冥杀怪加内力
+function isXuZhuBeiMing takes nothing returns boolean
+	return((GetUnitAbilityLevel(GetKillingUnit(),'A082')!=0)) and LoadBoolean(YDHT,GetHandleId(GetKillingUnit()),StringHash("虚竹子"))
+endfunction
+function xuZhuBeiMing takes nothing returns nothing
+	local unit u = GetKillingUnit()
+	local integer i=GetPlayerId(GetOwningPlayer(GetKillingUnit()))
+	set beiMingShaGuai[i]=beiMingShaGuai[i]+1
+	if((beiMingShaGuai[i]>=100))then
+		set beiMingShaGuai[i]=beiMingShaGuai[i]-100
+		call ModifyHeroStat(1,GetKillingUnit(),0,20)
+	endif
+endfunction
 function LingJiuGong_Trigger takes nothing returns nothing
 	local trigger t=CreateTrigger()
 	call TriggerRegisterTimerEventPeriodic(t, 1.)
@@ -492,5 +509,10 @@ function LingJiuGong_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function IsRuYiBeiDong))
 	call TriggerAddAction(t,function RuYiBeiDong)
+	// 虚竹北冥杀怪加内力
+	set t=CreateTrigger()
+	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_DEATH)
+	call TriggerAddCondition(t,Condition(function isXuZhuBeiMing))
+	call TriggerAddAction(t,function xuZhuBeiMing)
 	set t =null
 endfunction

@@ -192,6 +192,9 @@ function DaiZongRuHe takes nothing returns nothing
 	if UnitHaveItem(GetTriggerUnit(), 'I0E2') then
 	    set extraHit = extraHit * 3
   endif
+	if LoadBoolean(YDHT,GetHandleId(GetTriggerUnit()),StringHash("天门道长")) then
+			set extraHit = extraHit * 2
+	endif
 	call WuGongShengChong(GetTriggerUnit(), 'A08B', 100) //武功升重
 	if GetUnitAbilityLevel(GetTriggerUnit(), 'A083') >= 1 then // 小无相功
 		call issueTargetDaiZong(udg_hero[1], 1, CreateTimer(), extraHit)

@@ -61,6 +61,9 @@ function WuXiangShangHai takes nothing returns nothing
 	if UnitHasBuffBJ(uc, 'Bfro') then
 		set shxishu = shxishu * 3
 	endif
+	if LoadBoolean(YDHT,GetHandleId(u),StringHash("大轮明王")) then
+		set shxishu = shxishu * 5
+	endif
 	set shxishu = shxishu * (1. + I2R(danpo[i])/20 + I2R(juexuelingwu[i]))
 	set shanghai=ShangHaiGongShi(u,uc,14., 19.,shxishu,'A03P')
 	call WuGongShangHai(u,uc,shanghai)

@@ -492,6 +492,7 @@ function XueDaoJing_Action2 takes nothing returns nothing
 	if UnitHasItemOfTypeBJ(u,'I098') then
 	    set shxishu=shxishu*4
     endif
+	// 一刀绝空2倍
 	if xuedaolaozu[i] then
 		set shxishu = shxishu*2
 	endif

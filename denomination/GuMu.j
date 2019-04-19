@@ -11,9 +11,9 @@ function FE takes nothing returns nothing
 	local real shxishu=1.
 	local real shanghai=0.
     if(u==udg_hero[i])then
+		// 双手加概率
         if((GetUnitAbilityLevel(u,'A07U')!=0))then
-            if((GetRandomReal(.0,100.)>=45.))then
-            else
+            if((GetRandomReal(.0,100.)<=70.))then
                 if((GetUnitAbilityLevel(u,'A07S')!=0))then
                     set shxishu=shxishu+.6
                 endif
@@ -33,8 +33,7 @@ function FE takes nothing returns nothing
             endif
 
         else
-            if((GetRandomReal(.0,100.)>=30.))then
-            else
+            if((GetRandomReal(.0,100.)<=50.))then
                 if((GetUnitAbilityLevel(u,'A07S')!=0))then
                     set shxishu=shxishu+.6
                 endif
@@ -120,9 +119,9 @@ function LE takes nothing returns nothing
 	local location loc = GetUnitLoc(ut)
 	local real range = 0.
 	if (GetUnitAbilityLevel(u,'A07S')!=0) then
-		set range = 500
+		set range = 800
 	else
-		set range = 300
+		set range = 500
 	endif
 	if (GetUnitAbilityLevel(u,'A06L')!=0) then
 	call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(range,loc,Condition(function IE)),function KE)

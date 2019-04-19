@@ -85,6 +85,7 @@ globals
 	boolean array udg_zhangmen
 
 	boolean array chilian
+	boolean array zhiruo // 是否获得芷若
 	// 是否获得老顽童称号
 	boolean array  laowantong
 	// 是否获得中神通称号
@@ -97,24 +98,14 @@ globals
 	boolean array  dongxie
 	// 是否获得瑶琴称号
 	boolean array  yaoqin
+	// 是否获得北丐称号
+	boolean array beigai
 	// 是否获得北乔峰称号
 	boolean array beiqiaofeng
+	// 是否获得北侠称号
+	boolean array beixia
 	// 是否获得慕容龙城称号
 	boolean array muronglc
-	// 是否获得3级福利
-	boolean array threereward
-	// 是否获得5级福利
-	boolean array fivereward
-	// 是否获得10级福利
-	boolean array tenreward
-	// 是否获得15级福利
-	boolean array fifteenreward
-	// 是否获得20级福利
-	boolean array twentyreward
-	// 是否获得25级福利
-	boolean array twentyfivereward
-	// 是否获得30级福利
-	boolean array thirtyreward
 	// 战斗力数组，每位玩家的战斗力
 	integer array udg_zdl
 	// 积分数组
@@ -1361,6 +1352,10 @@ function Zw takes nothing returns nothing
 	call AddSpecialEffectTargetUnitBJ("overhead",Bt,"Objects\\RandomObject\\RandomObject.mdl")
 	call AddSpecialEffectTargetUnitBJ("overhead",gg_unit_N007_0055,"Abilities\\Spells\\Other\\TalkToMe\\TalkToMe.mdl")
 	call CreateTextTagUnitBJ("点我加门派后可离开此地",Rs,.0,15.,100.,100.,.0,50.)
+	// call CreateTextTagUnitBJ("新手教官",SuiFeng,.0,15.,100.,100.,.0,50.)
+	// call CreateTextTagLocBJ("新手教官",Location(420,-597),100.0,15.,100.,100.,.0,50.)
+	// call CreateTextTagLocBJ("地图等级福利",Location(-1500,-113),100.0,15.,100.,100.,.0,50.)
+	// call CreateTextTagLocBJ("积分商店",Location(-1500,-1344),120.0,15.,100.,100.,.0,50.)
 	call CreateTextTagLocBJ("决战江湖1.66名人榜",GetRectCenter(uh),100.,$A,100,100,.0,50.)
 	set v7[1]=GetRectCenter(Ie)
 	set v7[2]=GetRectCenter(le)
@@ -1517,12 +1512,12 @@ endfunction
 
 function InitEquipments takes nothing returns nothing
 	//衣服清单
-	set ZhuangBei[1]='I022'
-	set ZhuangBei[2]='I01T'
-	set ZhuangBei[3]='I01H'
-	set ZhuangBei[4]='I01G'
-	set ZhuangBei[5]='I017'
-	set ZhuangBei[6]='I014'
+	set ZhuangBei[1]='I022' // 布衣
+	set ZhuangBei[2]='I01T' // 彩衣
+	set ZhuangBei[3]='I01H' // 虎皮衣
+	set ZhuangBei[4]='I01G' // 蛇皮裘
+	set ZhuangBei[5]='I017' // 开阳衣
+	set ZhuangBei[6]='I014' // 烈火衣
 	set ZhuangBei[7]='I01O'
 	set ZhuangBei[8]='I04E'
 	set ZhuangBei[9]='I09Z'
@@ -1841,7 +1836,7 @@ function InitPriv takes nothing returns nothing
 	local integer i = 0
 	loop
 		exitwhen i>4
-			if GetPlayerName(Player(i))=="WorldEdit" or GetPlayerName(Player(i))=="zeikale" or GetPlayerName(Player(i))=="风陵夜梦长" or GetPlayerName(Player(i))=="非我莫属xq" or GetPlayerName(Player(i))=="苍穹而降" or GetPlayerName(Player(i))=="晓窗临风"  then
+			if GetPlayerName(Player(i))=="WorldEdit" or GetPlayerName(Player(i))=="zeikale" or GetPlayerName(Player(i))=="风陵夜梦长" or GetPlayerName(Player(i))=="非我莫属xq" or GetPlayerName(Player(i))=="苍穹而降" or GetPlayerName(Player(i))=="晓窗临风" or GetPlayerName(Player(i))=="沫Mu"  then
 				if admin == "0" then
 					set udg_isTest[i] = true
 				endif
@@ -2066,33 +2061,6 @@ function main1 takes nothing returns nothing
 		// 是否是测试人员
 		set udg_isTest[i] = false
 		
-		// 是否获得赤练仙子称号
-		set chilian[i] = false
-		// 是否获得老顽童称号
-		set laowantong[i] = false
-		// 是否获得中神通称号
-		set zhongshentong[i] = false
-		// 是否获得血刀老祖称号
-		set xuedaolaozu[i] = false
-		// 是否获得星宿老仙称号
-		set xingxiulaoxian[i] = false
-		// 是否获得东邪称号
-		set dongxie[i] = false
-		// 是否获得瑶琴称号
-		set yaoqin[i] = false
-		// 是否获得北乔峰称号
-		set beiqiaofeng[i] = false
-		// 是否获得慕容龙城称号
-		set muronglc[i] = false
-		
-		// 是否获得等级福利
-		set threereward[i] = false
-		set fivereward[i] = false
-		set tenreward[i] = false
-		set fifteenreward[i] = false
-		set twentyreward[i] = false
-		set twentyfivereward[i] = false
-		set thirtyreward[i] = false
 		set saveFlag[i] = false // 默认未保存存档
 		// 初始奖励
 		set bonus_wugong[i] = 0
@@ -2333,7 +2301,6 @@ function main1 takes nothing returns nothing
 	call MonsterCome() //决战江湖1.52之圣兽来了
 	call CreateDestructables() //创建可破坏物
 	call Cuns() //存储装备属性
-	call CunVIPNum()
 	call CunWuGongS() //存储武功
 	call najitest() //纳吉的测试代码
 endfunction
@@ -2341,7 +2308,7 @@ endfunction
 function main2 takes nothing returns nothing
 	call GameLogic_Trigger() // 游戏逻辑触发器
 	call GameDetail_Trigger() // 游戏细节处理
-	call VIP_Trigger() // VIP系统
+	// call VIP_Trigger() // VIP系统
 	
 	call InitTrig_ZhangMenSkill()
 	
