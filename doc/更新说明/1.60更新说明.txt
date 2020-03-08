@@ -1,0 +1,11 @@
+取消新年快乐活动
+增加地图等级奖励，基地右边领取
+开局礼包添加萌新专属（地图等级不超过5级）
+战斗力存档还未进测试服测试，暂时不启用
+
+<span style="color:#FF00FF">由于本人技术有限，上班也忙，续更此图只是因为热爱决战，有些bug和优化无能为力，对此造成的不好体验只能深感抱歉</span>
+玩家群：
+<a onclick="javascript:platform.external_open('https://jq.qq.com/?_wv=1027&k=523f1E2')" style="text-decoration:underline;color:#0af5ff; cursor: pointer;" >点击加入QQ群：341305274</a>
+
+
+

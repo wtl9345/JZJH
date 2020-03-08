@@ -1,0 +1,8 @@
+1.火龙图标制作，模式B就可以，下方勾选btn和dis-3x，只要一张亮的和一张暗的即可。
+2.ydwe输入管理器导入图标
+    亮图标路径：replaceabletextures\commandbuttons\a.blp
+    暗图标路径：replaceabletextures\commandbuttonsdisabled\DISa.blp
+
+
+
+

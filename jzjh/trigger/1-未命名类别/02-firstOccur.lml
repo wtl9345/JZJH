@@ -1,0 +1,30 @@
+事件
+条件
+动作
+    ShowUnit
+        变量: gg_unit_N007_0055
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N012_0095
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N00F_0085
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N008_0054
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N00P_0084
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N00U_0092
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_o02D_0069
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_o00K_0126
+        预设: ShowHideShow
+    ShowUnit
+        变量: gg_unit_N00B_0086
+        预设: ShowHideShow
