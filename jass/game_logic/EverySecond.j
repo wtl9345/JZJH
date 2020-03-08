@@ -37,10 +37,10 @@ function EverySecond_Conditions takes nothing returns boolean
         call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r历练5后可以到NPC|CFF00EE00游坦之|r处自创武功")
         call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, -9000, -13169, 5)
     endif
-    // 每3秒为最终boss清除一次负面状态，有问题暂时不用
-    // if ModuloInteger(passed_time, 3) == 0 and udg_boss[7] != null then
-    //     call UnitRemoveBuffs( udg_boss[7], true, true )
-    // endif
+    // 每3秒为最终boss清除一次负面状态
+    if ModuloInteger(passed_time, 1) == 0 and udg_boss[7] != null then
+        call UnitRemoveBuffs( udg_boss[7], true, true )
+    endif
 	return false
 endfunction
 

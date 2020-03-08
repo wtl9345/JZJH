@@ -672,6 +672,10 @@ function KeyInput takes nothing returns nothing
 		set udg_boshu=udg_boshu+1
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000已跳转至下一波")
 	endif
+	if s == "next28" and udg_isTest[GetPlayerId(p)] then
+		set udg_boshu=28
+		call DisplayTextToPlayer(p,0,0,"|cFFFF0000已跳转至28波")
+	endif
 	if s == "n7" then
 	    call setDifficultyAndExpRate(6)
 	    call SetPlayerTechResearched(Player(12),'R001',50)

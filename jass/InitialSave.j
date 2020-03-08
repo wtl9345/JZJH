@@ -70,7 +70,7 @@ function CunWuGongS takes nothing returns nothing
 	call CunWuGong(52, 'I0CD', 'A03Z', "奇武", 13, 17, 16, 0, 0, 0)
 	call CunWuGong(53, 'I0CJ', 'A04V', "奇武", 15, 0, 16, 0, 17, 0)
 	call CunWuGong(54, 'I0CT', 'A06A', "奇武", 15, 0, 15, 15, 15, 0) //《寿木长生功》
-	call CunWuGong(55, 'I0CU', 'A06B', "奇武", 20, 20, 0, 18, 0, 0) //《黄沙万里鞭法》
+	call CunWuGong(55, 'I0CU', 'A06B', "奇武", 20, 20, 0, 25, 20, 0) //《黄沙万里鞭法》
 	call CunWuGong(56, 'I0CV', 'A06S', "奇武", 0, 0, 0, 25, 0, 25) //《九阳真经散篇》
 endfunction
 
