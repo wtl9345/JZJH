@@ -251,6 +251,7 @@ function KeyInput takes nothing returns nothing
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF铁掌：铁掌令，周伯通处任务")
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF唐门：子午砂，副本2唐文亮几率掉落；观音泪，副本4南海神尼几率掉落")
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF五毒：选择门派时赠送")
+		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF桃花岛：桃花岛玉箫任务")
 	endif
 
 	// 手动整理物品
@@ -645,7 +646,7 @@ function KeyInput takes nothing returns nothing
 		call unitadditembyidswapped('I09J',udg_hero[i])
 		call unitadditembyidswapped('I09K',udg_hero[i])
 	endif
-	if s=="贼哥牛逼" and udg_isTest[GetPlayerId(p)] then
+	if (s == "贼哥牛逼" or s == "zgnb") and udg_isTest[GetPlayerId(p)] then
 		if UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO) then
 			call ModifyHeroStat(0, GetTriggerUnit(), 0, 100000)
             call ModifyHeroStat(1, GetTriggerUnit(), 0, 100000)
@@ -683,11 +684,11 @@ function KeyInput takes nothing returns nothing
         call SetPlayerTechResearched(Player(6),'R001',50)
         call SetPlayerTechResearched(Player(15),'R001',50)
 	endif
-	if s=="撸下一波" and udg_isTest[GetPlayerId(p)] then
+	if (s=="撸下一波" or s == "lxyb") and udg_isTest[GetPlayerId(p)] then
 		set udg_boshu=udg_boshu+1
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000已跳转至下一波")
 	endif
-	if s == "撸Boss8" or s=="撸boss8" and udg_isTest[GetPlayerId(p)] then 
+	if s == "撸Boss8" or s=="lboss8" and udg_isTest[GetPlayerId(p)] then 
 		call CreateNUnitsAtLocFacingLocBJ(1,u7[8],Player(6),v7[6],v7[4])
 	endif
 	// if s == "撸Boss" or s=="撸boss" and udg_isTest[GetPlayerId(p)] then 

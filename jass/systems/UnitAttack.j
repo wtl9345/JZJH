@@ -47,8 +47,17 @@ function UnitAttack_Conditions takes nothing returns boolean
     // 驭蛇奇术
     if PassiveWuGongCondition(u, ut, YU_SHE_SHU) then
         call yuSheShu()
-    endif
-
+	endif
+	
+	// 落英剑法
+	if PassiveWuGongCondition(u, ut, LUO_YING_JIAN) and GetRandomReal(1, 100) <= 18 + fuyuan[i] * 0.2 then
+		call luoYingJian(u, ut)
+	endif
+	
+	// 旋风扫叶腿
+	if PassiveWuGongCondition(u, ut, XUAN_FENG_TUI) and GetRandomReal(1, 100) <= 18 + fuyuan[i] * 0.2 then
+		call xuanFengTui(u, ut)
+	endif
 
 	call RemoveLocation(loc)
 	call RemoveLocation(loc2)

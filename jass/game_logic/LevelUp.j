@@ -54,6 +54,7 @@ endfunction
  * 43 郭大侠
  * 44 神仙姐姐
  * 45 婆婆姊姊
+ * 46 女中诸葛
  */
 function setTitleNumber takes integer i, integer title returns nothing
     if title <= 30 then
@@ -90,6 +91,7 @@ endfunction
  * 19 铁掌
  * 20 唐门
  * 21 五毒
+ * 22 桃花岛
  */
 function setChiefNumber takes integer i, integer denomination returns nothing
     set chief[i] = YDWEBitwise_OR(chief[i], YDWEBitwise_LShift(1, denomination - 1))
@@ -793,6 +795,62 @@ function determineWuDuTitle takes unit u returns nothing
     set p = null
 endfunction
 
+function determineTaoHuaDaoTitle takes unit u returns nothing
+    local player p = GetOwningPlayer(u)
+    local integer i = 1 + GetPlayerId(p)
+    local integer idd
+    if isChief(i, 22) then
+        // 学九阴内功+打狗棒法，女中诸葛
+        if GetUnitAbilityLevel(u, JIU_YIN) >= 1 and GetUnitAbilityLevel(u, DA_GOU) >= 1 and not isTitle(i, 46) then
+            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：女中诸葛")
+            set wuxing[i] = wuxing[i] + 50
+            set L7[i]=1
+            loop
+                exitwhen L7[i] > wugongshu[i]
+                if ( I7[20 * ( i - 1 ) + L7[i]] != 'AEfk' ) then
+                    if ( ( L7[i] == wugongshu[i] ) ) then
+                        call SetUnitAbilityLevel(u, 'A0EE', 9)
+                        call SetUnitAbilityLevel(u, 'A0EG', 9)
+                        call SetUnitAbilityLevel(u, 'A0EI', 9)
+                        call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A0EE' * 5, 9)
+                        call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A0EG' * 5, 9)
+                        call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A0EI' * 5, 9)
+                    endif
+                else
+                    if GetUnitAbilityLevel(u, 'A0EK') >= 6 then
+                        set idd='A0EL'
+                    else
+                        set idd='A0EK'
+                    endif
+                    call UnitAddAbility(u, idd)
+                    call UnitMakeAbilityPermanent(u, true, idd)
+                    set I7[20 * ( i - 1 ) + L7[i]] = idd
+                    exitwhen true
+                endif
+                set L7[i]=L7[i] + 1
+            endloop
+            call SetPlayerName(p, "〓女中诸葛〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+            call setTitleNumber(i, 46)
+        endif
+        if GetUnitAbilityLevel(u, 'A06H') >= 3 and GetUnitAbilityLevel(u, 'A018') >= 3 and UnitHaveItem(u , 'I09D') and not isTitle(i, 39) then
+            call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：东邪")
+            call SetPlayerName(p, "〓东邪〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+            call ModifyHeroStat(1, u, 0, 240)
+            call ModifyHeroStat(2, u, 0, 300)
+            call SetUnitAbilityLevel(u, 'A06H', 9)
+            call SetUnitAbilityLevel(u, 'A018', 9)
+            call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A06H' * 5, GetUnitAbilityLevel(u, 'A06H'))
+            call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A018' * 5, GetUnitAbilityLevel(u, 'A018'))
+            call unitadditembyidswapped('I04Q' , u)
+            call unitadditembyidswapped('I04Q' , u)
+            call setTitleNumber(i, 39)
+        endif
+    endif
+    set p = null
+endfunction
+
+
+
 function determineJiangHuTitle takes unit u returns nothing
     local player p = GetOwningPlayer(u)
     local integer i = 1 + GetPlayerId(p)
@@ -820,18 +878,7 @@ function determineJiangHuTitle takes unit u returns nothing
         call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A089' * 5, GetUnitAbilityLevel(u, 'A089'))
         call setTitleNumber(i, 38)
     endif
-    if GetUnitAbilityLevel(u, 'A06H') >= 5 and GetUnitAbilityLevel(u, 'A018') >= 5 and UnitHaveItem(u , 'I09D') and not isTitle(i, 39) then
-        call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：东邪")
-        call SetPlayerName(p, "〓东邪〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-        call ModifyHeroStat(1, u, 0, 240)
-        call ModifyHeroStat(2, u, 0, 300)
-        call SetUnitAbilityLevel(u, 'A06H', 9)
-        call SetUnitAbilityLevel(u, 'A018', 9)
-        call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A06H' * 5, GetUnitAbilityLevel(u, 'A06H'))
-        call SaveInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 'A018' * 5, GetUnitAbilityLevel(u, 'A018'))
-        call unitadditembyidswapped('I04Q' , u)
-        call setTitleNumber(i, 39)
-    endif
+    
     if GetUnitAbilityLevel(u, 'A06P') >= 5 and GetUnitAbilityLevel(u, 'A0CH') >= 3 and udg_runamen[i] != 5 and not isTitle(i, 40) then
         call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cff66ff00恭喜玩家" + I2S(i) + "获得了称号：南帝")
         call SetPlayerName(p, "〓南帝〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
@@ -911,7 +958,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
     call kungfuLevelUp(u, id, r)
 
     //掌门系统
-    if (IsUnitType((u ), ( UNIT_TYPE_HERO)) != null)  then
+    if (IsUnitType(u, UNIT_TYPE_HERO) != null)  then
         call becomeChief(u, 1, "少林方丈", 170, 190, 480)
         call becomeChief(u, 2, "古墓掌门", 240, 240, 0)
         call becomeChief(u, 3, "丐帮帮主", 480, 0, 0)
@@ -932,6 +979,7 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
         call becomeChief(u, 19, "铁掌帮主", 300, 0, 225)
         call becomeChief(u, 20, "唐门门主", 0, 225, 300)
         call becomeChief(u, 21, "五毒教主", 300, 225, 0)
+        call becomeChief(u, 22, "桃花岛主", 225, 0, 300)
 
         call determineShaoLinTitle(u)
         call determineGuMuTitle(u)
@@ -952,9 +1000,8 @@ function WuGongShengChong takes unit u,integer id,real r returns nothing
         call determineTieZhangTitle(u)
         call determineTangMenTitle(u)
         call determineWuDuTitle(u)
+        call determineTaoHuaDaoTitle(u)
         call determineJiangHuTitle(u)
-
-
 
     endif
 

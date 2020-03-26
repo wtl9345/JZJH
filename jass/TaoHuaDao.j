@@ -3,8 +3,9 @@ function IsTaoHua takes nothing returns boolean
 	return (GetItemTypeId(GetManipulatedItem())=='I09S' or GetItemTypeId(GetManipulatedItem())=='I0A3')
 endfunction
 function TaoHuaDao takes nothing returns nothing
+	local integer i = 1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
 	if (GetItemTypeId(GetManipulatedItem())=='I09S') then
-		if taohuakai==true or Deputy_isMaster(1+GetPlayerId(GetOwningPlayer(GetTriggerUnit())), XUN_BAO) or udg_runamen[1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))]==3 then
+		if taohuakai or Deputy_isMaster(i, XUN_BAO) or udg_runamen[i]==22 or udg_runamen[i]==3 then
 			if((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO)))then
 				call SetUnitPosition(GetTriggerUnit(),9631,1139)
 				call PanCameraToTimedForPlayer(GetOwningPlayer(GetTriggerUnit()),9631,1139,0)

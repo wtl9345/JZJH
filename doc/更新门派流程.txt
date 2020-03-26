@@ -4,9 +4,12 @@
     - 在jass/denomination目录下新建门派的jass文件
     - 在jass文件中编写门派的代码
 3. 在触发器中调用该门派的Trigger函数
-4. 在myjass****文件最前端引入该门派的jass文件
+- 主动技能 UseAbility.j
+- 被动技能 UnitAttack.j
+- 技能伤害（小伤害法） UnitDamage.j
+4. 在main.j文件最前端引入该门派的jass文件
 5. 在main.j的InitDenominationSkills函数中加入新门派的名称和技能清单
-6. 在选择门派的逻辑中加入新门派的选择逻辑
+6. 创建拜入门派的物品，在选择门派的逻辑中加入新门派的选择逻辑
 7. 修改门派数变量DENOMINATION_NUMBER，在文件GameLogic.j中
 8. 增加掌门和称号的逻辑
 9. 增加专属逻辑，注意专属的属性需要在jass中进行相关配置

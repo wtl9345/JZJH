@@ -24,7 +24,7 @@
 
 
 globals
-    constant integer DENOMINATION_NUMBER = 21
+    constant integer DENOMINATION_NUMBER = 22
 
     boolean firstTime = true // 是否第一次选择难度
 endglobals
@@ -319,7 +319,8 @@ function ox takes nothing returns boolean
 		or(GetItemTypeId(GetManipulatedItem())==1227894841)or (GetItemTypeId(GetManipulatedItem())=='I09E') or(GetItemTypeId(GetManipulatedItem())==1227894849)		 	\
 		or (GetItemTypeId(GetManipulatedItem())=='I09N') or (GetItemTypeId(GetManipulatedItem())=='I0A2')  or (GetItemTypeId(GetManipulatedItem())=='I0CK')				\
 		or (GetItemTypeId(GetManipulatedItem())=='I0CX') or (GetItemTypeId(GetManipulatedItem())=='I0E1') or (GetItemTypeId(GetManipulatedItem())=='I0EH')\
-		or (GetItemTypeId(GetManipulatedItem())=='I0EO') or (GetItemTypeId(GetManipulatedItem())=='I0AA') or (GetItemTypeId(GetManipulatedItem())=='I0AG') ))
+		or (GetItemTypeId(GetManipulatedItem())=='I0EO') or (GetItemTypeId(GetManipulatedItem())=='I0AA') or (GetItemTypeId(GetManipulatedItem())=='I0AG') \
+		or (GetItemTypeId(GetManipulatedItem())=='I0ET')  ))
 endfunction
 function JiaRuMenPai takes nothing returns nothing
 	local unit u=GetTriggerUnit()
@@ -434,6 +435,25 @@ function JiaRuMenPai takes nothing returns nothing
                     call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00选择五毒教")
                 else
                     call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00尚未解锁，不能选择五毒教")
+                endif
+			endif
+			// 自由改投桃花岛
+            if GetItemTypeId(GetManipulatedItem())=='I0ET' then
+                if taohua_flag[i] == 1 then
+                    call addAllAttrs(i, 1)
+                    set udg_runamen[i] = 22
+                    call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"改拜入了〓桃花岛〓，大家一起膜拜他|r")
+                    call SetPlayerName(p,"〓桃花岛〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+
+					call SaveInteger(YDHT, GetHandleId(udg_hero[i]), BI_BO_POINT, 50)
+					if Player(i - 1) == GetLocalPlayer() then
+						call bibo_image.show()					
+					endif
+                    set udg_shuxing[i]=udg_shuxing[i]-5
+                    call AdjustPlayerStateBJ(-60, p, PLAYER_STATE_RESOURCE_LUMBER)
+                    call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00选择桃花岛")
+                else
+                    call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00尚未解锁，不能选择桃花岛")
                 endif
             endif
 		else
@@ -3846,10 +3866,10 @@ function aC takes nothing returns nothing
 	endif
 
 	if((UnitHasBuffBJ(GetEnumUnit(),'B003')))then
-		if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.002*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
+		if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.005*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
 			call SetWidgetLife(GetEnumUnit(),1.)
 		else
-			call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.002*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
+			call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.005*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
 		endif
 	endif
 	if((UnitHasBuffBJ(GetEnumUnit(),'Bcri')))then
@@ -3858,10 +3878,10 @@ function aC takes nothing returns nothing
 		call RemoveLocation(loc2)
 	endif
 	if((UnitHasBuffBJ(GetEnumUnit(),1110454324)))then
-		if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.003*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
+		if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.01*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
 			call SetWidgetLife(GetEnumUnit(),1.)
 		else
-			call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.003*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
+			call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.01*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
 		endif
 	endif
 	if((UnitHasBuffBJ(GetEnumUnit(),1110454342)))then

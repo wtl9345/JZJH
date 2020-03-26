@@ -21,13 +21,25 @@ globals
     constant integer WU_DU_ZHOU = 'A0DU' // 五毒笛咒
     constant integer YU_SHE_SHU = 'A0DT' // 驭蛇奇术
     constant integer BU_TIAN_JING = 'A0DS' // 补天心经
-    constant integer WAN_CHU_SHI_XIN = 'A0DR' // 万蜍噬心
-
+	constant integer WAN_CHU_SHI_XIN = 'A0DR' // 万蜍噬心
+	
+	constant integer LUO_YING_ZHANG = 'A0EE' // 落英神剑掌
+	constant integer LUO_YING_JIAN = 'A0EG' // 落英剑法
+	constant integer XUAN_FENG_TUI = 'A0EI' // 旋风扫叶腿
+	constant integer BI_BO_XIN_JING = 'A0EK' // 碧波心经
+	constant integer QI_MEN_SHU_SHU = 'A0EL' // 奇门术数
+	
     constant integer SHUANG_SHOU = 'A07U' // 双手互搏
     constant integer KUI_HUA = 'A07T' // 葵花宝典
     constant integer HUA_GU = 'A06L' // 化骨绵掌
     constant integer XI_XING = 'A07R' // 吸星大法
     constant integer HUA_GONG = 'A07R' // 化功大法
+    constant integer TAN_ZHI = 'A06H' // 弹指神通
+    constant integer BI_HAI = 'A018' // 碧海潮生曲
+    constant integer JIU_YIN = 'A07S' // 九阴真经内功
+	constant integer JIU_ZHAO = 'A07N' // 九阴白骨爪
+	
+    constant integer DA_GOU = 'A07L' // 打狗棒法
 
     constant integer LONG_XIANG = 'S002' // 龙象般若功
     constant integer XIAO_WU_XIANG = 'A083' // 小无相功
@@ -36,6 +48,7 @@ globals
     constant integer DEEP_POISONED_BUFF = 'B01J' // 深度中毒buff
 
     constant integer ITEM_SHE_ZHANG = 'I09B' // 蛇杖物品
+    constant integer ITEM_YU_XIAO = 'I09D' // 玉箫物品
     constant integer ITEM_HAN_SHA = 'I0AE' // 含沙射影
 
 
@@ -1800,7 +1813,15 @@ function randomMenpai takes player p,integer status returns nothing
     elseif udg_runamen[i] == 21 then
         call addAllAttrs(i, 1)
         call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓五毒教〓|r")
-        call SetPlayerName(p,"〓五毒教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call SetPlayerName(p,"〓五毒教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+	elseif udg_runamen[i] == 22 then
+        call addAllAttrs(i, 1)
+        call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"随机选择了〓桃花岛〓|r")
+		call SetPlayerName(p,"〓桃花岛〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call SaveInteger(YDHT, GetHandleId(udg_hero[i]), BI_BO_POINT, 20)
+		if Player(i - 1) == GetLocalPlayer() then
+			call bibo_image.show()					
+		endif
 	endif
 	if status == 1 then
 		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFF00FFFF提示：|r请在NPC|CFF00EE00郭靖|r处选择副职")
@@ -1984,6 +2005,17 @@ endfunction
  */
 function DamageFilter takes unit playerControllingUnit, unit filtered returns boolean
 	return IsUnitAliveBJ(filtered) and IsUnitEnemy(filtered, GetOwningPlayer(playerControllingUnit))
+endfunction
+
+
+// 是否为进攻者的敌人
+function isAttackerEnemy takes nothing returns boolean
+	return IsUnitEnemy(GetFilterUnit(), GetOwningPlayer(GetAttacker())) and IsUnitAliveBJ(GetFilterUnit())
+endfunction
+
+// 是否为触发单位的敌人
+function isTriggerEnemy takes nothing returns boolean
+	return IsUnitEnemy(GetFilterUnit(), GetOwningPlayer(GetTriggerUnit())) and IsUnitAliveBJ(GetFilterUnit())
 endfunction
 
 /*

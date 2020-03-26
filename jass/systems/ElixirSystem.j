@@ -464,6 +464,11 @@ function P0 takes nothing returns nothing
 		call PlaySoundOnUnitBJ(Eh,100,u)
 		set juexuelingwu[i]=(juexuelingwu[i]+1)
 		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00使用成功|r|cFF99FFCC绝学领悟力+1|r")
+		// 碧波心经+九花玉露丸 碧波点数+10
+		if GetUnitAbilityLevel(udg_hero[i], BI_BO_XIN_JING) >= 1 then
+			call SaveInteger(YDHT, GetHandleId(udg_hero[i]), BI_BO_POINT, LoadInteger(YDHT, GetHandleId(udg_hero[i]), BI_BO_POINT) + 10)
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00使用九花玉露丸|r|cFF99FFCC碧波心经点数+10|r")
+		endif
 	else
 		call unitadditembyidswapped(GetItemTypeId(GetManipulatedItem()),u)
 		call PlaySoundOnUnitBJ(Gh,100,u)

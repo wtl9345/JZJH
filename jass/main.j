@@ -55,6 +55,7 @@
 #include "denomination/TaiShan.j"
 #include "denomination/SongShan.j"
 #include "denomination/WuDu.j"
+#include "denomination/TaoHua.j" // 桃花岛武功
 
 #include "denomination/JiangHuWuGong.j"
 #include "denomination/JueShiWuGong.j"
@@ -74,6 +75,7 @@
 #include "systems/UnitAttack.j"
 #include "systems/UseAbility.j"
 #include "systems/UnitDamage.j"
+#include "systems/UnitDeath.j"
 
 
 #include "InitialSave.j"
@@ -1740,7 +1742,13 @@ function InitDenominationSkills takes nothing returns nothing
     set Z7[21]='A0DU'
     set Y7[21]='A0DT'
     set Q8[21]='A0DS'
-    set P8[21]='A0DR'
+	set P8[21]='A0DR'
+	set udg_menpainame[22]="桃花岛"
+    set X7[22]='A0EE'
+    set Z7[22]='A0EG'
+    set Y7[22]='A0EI'
+    set Q8[22]='A0EK'
+    set P8[22]='A0EL'
 endfunction
 
 function InitSkillBooks takes nothing returns nothing
@@ -2135,6 +2143,7 @@ function main1 takes nothing returns nothing
 		set linganran[i]=0
 		set touxiao[i]=0
 		set bihai[i]=0
+		set bibo_kill[i]=0
 		set aidacishu[i]=0
 		set udg_wuqishu[i]=0
 		set udg_yifushu[i]=0
@@ -2236,6 +2245,8 @@ function main1 takes nothing returns nothing
 		set udg_hashero[i]=false
 		set udg_baoji[i]=false
 		set udg_yiwang[i]=false
+
+		set tide_rising[i] = false
 		set R4[i]=DialogCreate()
 		set Y4[i]=1
 		set udg_xinggeA[i]=0
@@ -2532,5 +2543,6 @@ function main2 takes nothing returns nothing
 	call UnitAttack() // 注册单位攻击事件
 	call UseAbility() // 注册使用技能事件
 	call UnitDamage() // 注册任意单位伤害事件
+	call UnitDeath() // 注册任意单位死亡事件
 
 endfunction
