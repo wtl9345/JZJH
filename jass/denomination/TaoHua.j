@@ -54,7 +54,7 @@ function luoYingZhangDamage takes unit u, unit ut returns nothing
 		set shxishu = shxishu * 3
 	endif
 	
-	set shanghai=ShangHaiGongShi(u, ut, 10, 10, shxishu, LUO_YING_ZHANG)
+	set shanghai=ShangHaiGongShi(u, ut, 15, 15, shxishu, LUO_YING_ZHANG)
 	call WuGongShangHai(u, ut, shanghai)
 	
 	set u=null
@@ -116,6 +116,7 @@ function luoYingJianDamage takes unit u, unit ut returns nothing
 	local real shxishu = 1.
 	local real shanghai = 0.
 	local integer biBoPoint = LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT)
+	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
 	// +弹指神通：伤害+80%
 	if GetUnitAbilityLevel(u, TAN_ZHI) != 0 then
 		set shxishu = shxishu + 0.8
@@ -123,6 +124,10 @@ function luoYingJianDamage takes unit u, unit ut returns nothing
 	// 碧波心经点数：伤害
 	if biBoPoint > 0 then
 		set shxishu = shxishu + biBoPoint * 0.02
+	endif
+	// 根骨和胆魄：增加伤害
+	if gengu[i] >= 20 and danpo[i] >= 20 then
+		set shxishu = shxishu + 0.03 * (gengu[i] - 20) + 0.03 * (danpo[i] - 20)
 	endif
 	// +打狗棒法：造成流血
 	if GetUnitAbilityLevel(u, DA_GOU) != 0 then
@@ -134,7 +139,7 @@ function luoYingJianDamage takes unit u, unit ut returns nothing
 		set shxishu = shxishu * 3
 	endif
 	
-	set shanghai=ShangHaiGongShi(u, ut, 80, 80, shxishu, LUO_YING_JIAN)
+	set shanghai = ShangHaiGongShi(u, ut, 80, 80, shxishu, LUO_YING_JIAN)
 	call WuGongShangHai(u, ut, shanghai)
 	
 endfunction
@@ -251,7 +256,7 @@ function qiMenShuShu takes unit u returns nothing
 			set currentUnit = FirstOfGroup(g)
 			
 			call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\huoqie.mdx" , currentUnit, "origin"))
-			set damage = ShangHaiGongShi(u, currentUnit, 100, 100, param, QI_MEN_SHU_SHU)
+			set damage = ShangHaiGongShi(u, currentUnit, 200, 200, param, QI_MEN_SHU_SHU)
 			call WuGongShangHai(u, currentUnit, damage)
 			
 			set count = count - 1
@@ -259,26 +264,34 @@ function qiMenShuShu takes unit u returns nothing
         endloop
         call DestroyGroup(g)
 	elseif rand == 2 then
-        // 效果2 捆绑
-        set g = CreateGroup()
-		call GroupEnumUnitsInRange(g, GetUnitX(u), GetUnitY(u), 2000, Condition(function isTriggerEnemy))
-		loop
-		exitwhen count <= 0 or CountUnitsInGroup(g) <= 0
-			set currentUnit = FirstOfGroup(g)
-			
-			set dummy = CreateUnit(GetOwningPlayer(u), 'e000', GetUnitX(u), GetUnitY(u), bj_UNIT_FACING)
-            call ShowUnitHide(dummy)
-            call UnitAddAbility(dummy, 'A0EM') // 马甲技能
-            call IssueTargetOrderById(dummy, $D0200, currentUnit)
-            call UnitApplyTimedLife(dummy, 'BHwe', 4.2)
-			
-			set count = count - 1
-			call GroupRemoveUnit(g, currentUnit)
-        endloop
-        call DestroyGroup(g)
+		// 效果2 随机加六围
+		call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\lifebreak.mdx", u, "overhead"))
+        call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
+		if GetRandomInt(1, 6) == 1 then
+			set wuxing[i] = wuxing[i] + count
+			set s = "悟性+" + I2S(count)
+		elseif GetRandomInt(1, 5) == 1 then
+			set gengu[i] = gengu[i] + count
+			set s = "根骨+" + I2S(count)
+		elseif GetRandomInt(1, 4) == 1 then
+			set fuyuan[i] = fuyuan[i] + count
+			set s = "福缘+" + I2S(count)
+		elseif GetRandomInt(1, 3) == 1 then
+			set danpo[i] = danpo[i] + count
+			set s = "胆魄+" + I2S(count)
+		elseif GetRandomInt(1, 2) == 1 then
+			set jingmai[i] = jingmai[i] + count
+			set s = "经脉" + I2S(count)
+		else
+			set yishu[i] = yishu[i] + count
+			set s = "医术+" + I2S(count)
+		endif
+		call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
+		call Nw(3,bj_lastCreatedTextTag)
+		call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(70, 110))
 	elseif rand == 3 then
         // 效果3 大球
-        call YDWECreateEwsp( u, 'e01J', 1, 450, count, 0.03, 3.6 )
+        call YDWECreateEwsp( u, 'e01J', 2, 450, count, 0.03, 3.6 )
 	endif
 	
     call RemoveLocation(loc)
@@ -297,7 +310,7 @@ function qiMenShuShuDamage takes unit u, unit ut returns nothing
 		set shxishu = shxishu * 3
 	endif
 	
-	set shanghai = ShangHaiGongShi(u, ut, 40, 40, shxishu, QI_MEN_SHU_SHU)
+	set shanghai = ShangHaiGongShi(u, ut, 90, 90, shxishu, QI_MEN_SHU_SHU)
 	call WuGongShangHai(u, ut, shanghai)
 	
 endfunction
@@ -353,7 +366,15 @@ function biBoXinJing takes unit u returns nothing
 			call ModifyHeroStat(2, u, 0, 30 * level)
 			
 			set loc = GetUnitLoc(u)
-			set s = "三围+" + I2S(30 * level)
+			set s = "招式伤害+" + I2S(30 * level)
+			call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
+			call Nw(3,bj_lastCreatedTextTag)
+			call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(70, 110))
+			set s = "内力+" + I2S(30 * level)
+			call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
+			call Nw(3,bj_lastCreatedTextTag)
+			call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(70, 110))
+			set s = "真实伤害+" + I2S(30 * level)
 			call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
 			call Nw(3,bj_lastCreatedTextTag)
 			call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(70, 110))

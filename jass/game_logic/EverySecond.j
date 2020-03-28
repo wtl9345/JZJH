@@ -57,13 +57,14 @@ function EverySecond_Conditions takes nothing returns boolean
 		if GetUnitAbilityLevel(udg_hero[i], BI_BO_XIN_JING) >= 1 then
 			set s = "|cffffff00桃花岛心法|r|n"
 			set s = s + "黄药师纪念亡妻所创的碧海潮生曲谱中演变而来,“大海浩淼,万里无波,洪涛汹涌,白浪连山,极尽变幻,隐伏凶险”。|n"
-			set s = s + "每隔30秒切换一次潮起和潮落状态：潮起时使用，消耗5点心经点数，永久增加招式伤害、内力和真实伤害，潮落时使用，消耗3点心经点数，暂时提升攻速和移速。（剩余点数见小地图左上角）|n|n"
+			set s = s + "每隔30秒切换一次潮起和潮落状态：潮起时使用，消耗5点心经点数，永久增加招式伤害、内力和真实伤害，潮落时使用，消耗3点心经点数，暂时提升攻速和移速。（剩余点数见小地图左上角）|n"
+			set s = s + "每击杀N个敌人获得1点心经点数，N等于当前心经点数（最小为10）|n|n"
 			if tide_rising[i] then
 				set s = s + "当前状态：|cffdddd00潮起|r|n"
 			else
 				set s = s + "当前状态：|cff00dd00潮落|r|n"
 			endif
-			set s = s + "|cff808080|n|r|cffadff2f服用九花玉露丸：|r心经点数+10|n|cffadff2f+奇门术数：|r每击杀N个敌人获得1点心经点数，N等于当前心经点数（最小为10）|n|cffadff2f+打狗棒法：|rCD减半|n"
+			set s = s + "|cff808080|n|r|cffadff2f服用九花玉露丸：|r心经点数+10|n|cffadff2f+奇门术数：|r击杀敌人获得心经点数翻倍|n|cffadff2f+打狗棒法：|rCD减半|n"
 			call YDWESetUnitAbilityDataString( udg_hero[i], BI_BO_XIN_JING, 1, 218, s )
 		endif
 		set i = i + 1
