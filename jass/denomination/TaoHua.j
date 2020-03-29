@@ -266,7 +266,10 @@ function qiMenShuShu takes unit u returns nothing
 	elseif rand == 2 then
 		// 效果2 随机加六围
 		call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\lifebreak.mdx", u, "overhead"))
-        call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
+		call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
+		if count > 50 then
+			set count = 50
+		endif
 		if GetRandomInt(1, 6) == 1 then
 			set wuxing[i] = wuxing[i] + count
 			set s = "悟性+" + I2S(count)
