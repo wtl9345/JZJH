@@ -142,7 +142,7 @@ function doToggleQimenStatus takes integer i returns nothing
 endfunction
 
 function toggleQimenStatus takes nothing returns nothing
-	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
+	local integer i = 1 + GetPlayerId(GetTriggerPlayer())
 	call BJDebugMsg("到这里了")
 	call doToggleQimenStatus(i)
 endfunction

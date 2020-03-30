@@ -71,7 +71,6 @@ function EverySecond_Conditions takes nothing returns boolean
 		call SaveInteger(YDHT, GetHandleId(endless_timer), 0, endless_count)
 		call SaveTimerDialogHandle(YDHT, GetHandleId(endless_timer), 1, tg)
 		call TimerStart(endless_timer, 300, false, function endlessFail)
-		// TODO 加一个timerdialog
 		
 		call GroupAddUnit(w7, bj_lastCreatedUnit)
 		call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])

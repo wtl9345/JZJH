@@ -208,7 +208,7 @@ function qimenCd takes nothing returns nothing
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
 	local real cdPercent = LoadReal(YDHT, GetHandleId(t), 1)
 	
-	call EXSetAbilityState(EXGetUnitAbility(u, BI_BO_XIN_JING), 1, EXGetAbilityState(EXGetUnitAbility(u, BI_BO_XIN_JING), 1) * cdPercent)
+	call EXSetAbilityState(EXGetUnitAbility(u, QI_MEN_SHU_SHU), 1, EXGetAbilityState(EXGetUnitAbility(u, QI_MEN_SHU_SHU), 1) * cdPercent)
 	
 	call FlushChildHashtable(YDHT, GetHandleId(t))
 	call PauseTimer(t)
