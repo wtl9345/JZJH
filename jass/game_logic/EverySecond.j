@@ -1,10 +1,17 @@
 globals
 	integer passed_time = 0 // 游戏时间
+	integer next_endless_time = 3600 // 下一次无尽BOSS进攻的时间
+	integer endless_count = 0 // 已经成功挑战的无尽BOSS次数
+	timer endless_timer
 endglobals
+
+
 
 function EverySecond_Conditions takes nothing returns boolean
 	local integer i = 1
 	local string s = ""
+	local timer t 
+	local timerdialog tg
 	set passed_time = passed_time + 1
 	if passed_time == 40 then
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,20,"|cfffff000欢迎来到|cffff00de决战江湖|r")
@@ -38,15 +45,52 @@ function EverySecond_Conditions takes nothing returns boolean
 	elseif passed_time == 320 then
 		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r历练5后可以到NPC|CFF00EE00游坦之|r处自创武功")
 		call PingMinimapForForce(bj_FORCE_ALL_PLAYERS, -9000, -13169, 5)
+		if tiaoZhanIndex == 3 then
+			set udg_boshu = 28
+			call SetPlayerTechResearched(Player(12),'R001',50)
+			call SetPlayerTechResearched(Player(6),'R001',50)
+			call SetPlayerTechResearched(Player(15),'R001',50)
+			call setDifficultyAndExpRate(6)	
+			call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 20, "|CFF00FFFF提示：|r已自动提升至最高难度")
+		endif
 	endif
 	// 每秒为最终boss清除一次负面状态
 	if ModuloInteger(passed_time, 1) == 0 and udg_boss[7] != null then
 		call UnitRemoveBuffs( udg_boss[7], true, true )
 	endif
 	
+	if tiaoZhanIndex == 3 and passed_time == next_endless_time then
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFFFF0033无尽BOSS即将发起进攻，请作好防守准备")
+		call CreateNUnitsAtLocFacingLocBJ(1,u7[8],Player(6),v7[6],v7[4])
+		set udg_boss[7] = bj_lastCreatedUnit
+		set t = CreateTimer()
+		call TimerStart(t,20,true,function BOSSChengZhang)
+		set endless_timer = CreateTimer()
+		set tg = CreateTimerDialogBJ(endless_timer, "|CFF00FFFF无尽BOSS时间：")
+		call TimerDialogDisplay(tg, true)
+		call SaveInteger(YDHT, GetHandleId(endless_timer), 0, endless_count)
+		call SaveTimerDialogHandle(YDHT, GetHandleId(endless_timer), 1, tg)
+		call TimerStart(endless_timer, 300, false, function endlessFail)
+		// TODO 加一个timerdialog
+		
+		call GroupAddUnit(w7, bj_lastCreatedUnit)
+		call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
+		set next_endless_time = passed_time + 600
+	endif
 	
 	loop
 	exitwhen i > 5
+		// 宠物技能 账号信息
+		if P4[i] != null and IsUnitAliveBJ(P4[i]) then
+			set s = "地图等级：|cff00ff00"+ I2S(DzAPI_Map_GetMapLevel(Player(i - 1))) +"|r"
+			set s = s + "｜排名：|cff00ff00"+ I2S(DzAPI_Map_GetMapLevelRank(Player(i-1))) + "|r|n"
+			set s = s + "单通门派：|cff00ff00" + I2S(LoadInteger(YDHT, i, StringHash("单通门派数量"))) + "|r"
+			set s = s + "｜多通门派：|cff00ff00" + I2S(LoadInteger(YDHT, i, StringHash("多通门派数量"))) + "|r|n"
+			set s = s + "最大无尽BOSS数：|cff00ff00" + I2S(DzAPI_Map_GetStoredInteger(Player(i - 1),"endless")) + "|r"
+			call YDWESetUnitAbilityDataString( P4[i], 'A0EO', 1, 218, s )
+		endif
+		
+		// 碧波心经点数
 		if Player(i - 1) == GetLocalPlayer() then
 			call bibo_text.setText(I2S(LoadInteger(YDHT, GetHandleId(udg_hero[i]), BI_BO_POINT)))
 		endif
@@ -69,7 +113,7 @@ function EverySecond_Conditions takes nothing returns boolean
 		endif
 		set i = i + 1
 	endloop
-	
+	set t = null
 	return false
 endfunction
 

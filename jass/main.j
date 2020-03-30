@@ -182,6 +182,7 @@ globals
 	dialog udg_tiaoZhan = null
 	button udg_tiaoZhan0 = null // 速通模式按钮
 	button udg_tiaoZhan1 = null // 无技能商店按钮
+	button udg_tiaoZhan2 = null // 无尽BOSS战按钮
 
 	integer udg_gudongA=0
 	integer udg_gudongB=0

@@ -1550,6 +1550,11 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 	set random = GetRandomReal(0.95, 0.95 + I2R(udg_xinggeB[i]) / 20)
 	// 伤害 = 攻击因子 * 敌方防御因子 * 随机因子 * 特防
 	set basic_damage = attack * target_def * random * special_def
+
+	// 无尽BOSS战模式第N个BOSS
+	if uc == udg_boss[7] and tiaoZhanIndex == 3 then
+		set basic_damage = basic_damage / Pow(10, endless_count)
+	endif
 	
 	// 先天功不会miss
 	if GetUnitAbilityLevel(u,'A0CH')>=1 then
@@ -1561,6 +1566,7 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 	else
 		set shanghai = basic_damage
 	endif
+	
     set p=null
     set it=null
     call SaveReal(YDHT,1+GetPlayerId(GetOwningPlayer(u)),id*3,basic_damage)
