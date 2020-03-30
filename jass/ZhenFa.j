@@ -110,9 +110,9 @@ function FuMoBuNengChu takes nothing returns nothing
 			call SetUnitX(u, GetLocationX(loc)+GetRandomReal(-250., 250.)*CosBJ(AngleBetweenPoints(loc, loc2)))
 			call SetUnitY(u, GetLocationY(loc)+GetRandomReal(-250., 250.)*SinBJ(AngleBetweenPoints(loc, loc2)))
 			if (ModuloInteger(GetUnitPointValue(u),100)==0) then
-				call SetWidgetLife(u, GetWidgetLife(u)*0.5)
+				call percentDamage(GetEnumUnit(), 50, false)
 			else
-				call SetWidgetLife(u, GetWidgetLife(u)*0.85)
+				call percentDamage(GetEnumUnit(), 15, false)
 			endif
 		endif
 		call SaveInteger(YDHT, GetHandleId(t), 2, i+1)
@@ -214,12 +214,8 @@ function IsFuMoShangHai takes nothing returns boolean
 endfunction
 function FuMoShangHai takes nothing returns nothing
 	local unit uc = GetTriggerUnit()
-	if GetUnitState(uc,UNIT_STATE_LIFE)<=0.10*GetUnitState(uc,UNIT_STATE_MAX_LIFE)then
-	    call WuDi(uc)
-        call SetWidgetLife(uc,1.)
-    else
-        call SetWidgetLife(uc,GetUnitState(uc,UNIT_STATE_LIFE)-0.10*GetUnitState(uc,UNIT_STATE_MAX_LIFE))
-    endif
+	call percentDamage(uc, 10, true)
+	
     set uc = null
 endfunction
 

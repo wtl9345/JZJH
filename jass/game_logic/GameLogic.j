@@ -3885,11 +3885,7 @@ function uC takes nothing returns boolean
 endfunction
 function vC takes nothing returns nothing
 	local unit u = GetAttacker()
-	if (GetUnitState(u,UNIT_STATE_LIFE)<=0.001*GetUnitState(u,UNIT_STATE_MAX_LIFE)) then
-		call SetWidgetLife(u,1.)
-	else
-		call SetWidgetLife(u,GetUnitState(u,UNIT_STATE_LIFE)-0.001*GetUnitState(u,UNIT_STATE_MAX_LIFE))
-	endif
+	call percentDamage(u, 0.1, true)
 	set u = null
 endfunction
 function xC takes nothing returns boolean
@@ -3897,11 +3893,7 @@ function xC takes nothing returns boolean
 endfunction
 function yC takes nothing returns nothing
 	local unit u = GetAttacker()
-	if (GetUnitState(u,UNIT_STATE_LIFE)<=0.003*GetUnitState(u,UNIT_STATE_MAX_LIFE)) then
-		call SetWidgetLife(u,1.)
-	else
-		call SetWidgetLife(u,GetUnitState(u,UNIT_STATE_LIFE)-0.003*GetUnitState(u,UNIT_STATE_MAX_LIFE))
-	endif
+	call percentDamage(u, 0.3, true)
 	set u = null
 endfunction
 function AC takes nothing returns boolean
@@ -3911,27 +3903,15 @@ function aC takes nothing returns nothing
 	local location loc = GetUnitLoc(GetEnumUnit())
 	local location loc2 = null
 	if((UnitHasBuffBJ(GetEnumUnit(),'BEsh')))then
-		if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.001*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
-			call SetWidgetLife(GetEnumUnit(),1.)
-		else
-			call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.001*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
-		endif
+		call percentDamage(GetEnumUnit(), 0.1, true)
 	endif
 	
 	if((UnitHasBuffBJ(GetEnumUnit(),'B01J')))then
-		if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.003*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
-			call SetWidgetLife(GetEnumUnit(),1.)
-		else
-			call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.003*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
-		endif
+		call percentDamage(GetEnumUnit(), 0.3, true)
 	endif
 	
 	if((UnitHasBuffBJ(GetEnumUnit(),'B003')))then
-		if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.005*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
-			call SetWidgetLife(GetEnumUnit(),1.)
-		else
-			call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.005*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
-		endif
+		call percentDamage(GetEnumUnit(), 0.5, true)
 	endif
 	if((UnitHasBuffBJ(GetEnumUnit(),'Bcri')))then
 		set loc2 = pu(loc,256.,GetRandomReal(0,360.))
@@ -3939,25 +3919,13 @@ function aC takes nothing returns nothing
 		call RemoveLocation(loc2)
 	endif
 	if((UnitHasBuffBJ(GetEnumUnit(),1110454324)))then
-		if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.01*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
-			call SetWidgetLife(GetEnumUnit(),1.)
-		else
-			call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.01*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
-		endif
+		call percentDamage(GetEnumUnit(), 1, true)
 	endif
 	if((UnitHasBuffBJ(GetEnumUnit(),1110454342)))then
 		if((ModuloInteger(GetUnitPointValue(GetEnumUnit()),10)!=0))then
-			if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.01*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
-				call SetWidgetLife(GetEnumUnit(),1.)
-			else
-				call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.01*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
-			endif
+			call percentDamage(GetEnumUnit(), 1, true)
 		else
-			if(GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)<=0.03*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))then
-				call SetWidgetLife(GetEnumUnit(),1.)
-			else
-				call SetUnitState(GetEnumUnit(),UNIT_STATE_LIFE,GetUnitState(GetEnumUnit(),UNIT_STATE_LIFE)-0.03*GetUnitState(GetEnumUnit(),UNIT_STATE_MAX_LIFE))
-			endif
+			call percentDamage(GetEnumUnit(), 3, true)
 		endif
 		call CreateTextTagLocBJ("脑神丹效果",loc,60.,12.,65.,55.,42.,0)
 		call Nw(3.,bj_lastCreatedTextTag)

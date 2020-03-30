@@ -787,7 +787,7 @@ endfunction
 function bP takes nothing returns nothing
 	local unit u = GetSpellTargetUnit()
 	call YDWEPolledWaitNull(.3)
-	call SetWidgetLife(u,.7*GetUnitState(u,UNIT_STATE_LIFE))
+	call percentDamage(u, 30, false)
 	set u = null
 endfunction
 //-------各种丹药结束-------//

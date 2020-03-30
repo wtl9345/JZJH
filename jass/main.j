@@ -110,6 +110,7 @@ globals
 	integer array title1 // 称号标识，使用2进制的方式标注获得了哪个称号 31-60
 	integer array deputy // 副职标识
 	integer array master // 大师标识
+	integer array qimen_status // 奇门术数标识
 
 	// 多通速17门派数组，每位玩家的通关门派
 	string array manySuccess
@@ -2275,6 +2276,8 @@ function main1 takes nothing returns nothing
 		set title1[i]=0 // 称号2 31-60
 		set deputy[i] = 0 // 副职
 		set master[i] = 0 // 大师
+
+		set qimen_status[i] = 0 // 奇门术数标识
 
 		set wuxing[i] = 9
 		set jingmai[i] = 9

@@ -151,7 +151,7 @@ function TianShanZhang takes nothing returns nothing
 	call GroupEnumUnitsInRangeOfLoc(g,loc,700,function TianShan_Condition)
 	set uc=GroupPickRandomUnit(g)
 	if uc!=null then
-		call SetWidgetLife(uc,GetWidgetLife(uc)*(0.9 - 0.02*GetUnitAbilityLevel(u,'A0CD')*r))
+		call percentDamage(uc, 10 + 2 * GetUnitAbilityLevel(u,'A0CD') * r, false)
 		call DestroyEffect(AddSpecialEffectTargetUnitBJ( "overhead", uc,"Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
 		set loc2=GetUnitLoc(uc)
 		if GetUnitAbilityLevel(u,'A07T')>=1 then
@@ -182,7 +182,7 @@ function TianShanZhang takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A09D')>=1 then
 		set uc=GroupPickRandomUnit(g)
 		if uc!=null then
-			call SetWidgetLife(uc,GetWidgetLife(uc)*(0.9 - 0.02*GetUnitAbilityLevel(u,'A0CD')*r))
+			call percentDamage(uc, 10 + 2 * GetUnitAbilityLevel(u,'A0CD') * r, false)
 			call DestroyEffect(AddSpecialEffectTargetUnitBJ( "overhead", uc,"Abilities\\Spells\\Other\\Monsoon\\MonsoonBoltTarget.mdl"))
 		endif
 	endif

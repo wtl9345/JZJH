@@ -636,12 +636,7 @@ function JF takes nothing returns nothing
 	call WuGongShangHai(u,uc,shanghai)
 	// 一阳指+双手 对最终BOSS无效
 	if GetUnitAbilityLevel(u,'A07U')!=0 and UnitTypeNotNull(u,UNIT_TYPE_HERO) and GetUnitTypeId(uc) != 'nbds' then
-		if((GetUnitState(uc,UNIT_STATE_LIFE)<=(.05*(1.*GetUnitState(uc,UNIT_STATE_MAX_LIFE)))))then
-			call WuDi(uc)
-			call SetWidgetLife(uc,1.)
-		else
-			call SetWidgetLife(uc,(GetUnitState(uc,UNIT_STATE_LIFE)-(.05*(1.*GetUnitState(uc,UNIT_STATE_MAX_LIFE)))))
-		endif
+		call percentDamage(uc, 5, true)
 	endif
 	if((gengu[(1+GetPlayerId(GetOwningPlayer(u)))]>=30)and(UnitTypeNotNull(GetEventDamageSource(),UNIT_TYPE_HERO)))then
 		call WanBuff(u, uc, 12)

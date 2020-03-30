@@ -188,7 +188,7 @@ function y3 takes nothing returns nothing
 	    	set shxishu = shxishu * 4
     	endif
         set shanghai=ShangHaiGongShi(u,uc,16.,16.,shxishu,'A0BQ')
-        call SetUnitLifePercentBJ(uc, GetUnitLifePercent(uc)*0.7)
+        call percentDamage(uc, 30, false)
       	call WuGongShangHai(u,uc,shanghai)
         call KillUnit(GetAttacker())
     else

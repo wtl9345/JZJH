@@ -414,11 +414,7 @@ function Pc takes nothing returns nothing
 		call RemoveLocation(loc)
 	endif
 	if((GetUnitAbilityLevel(u,1395666994)!=0))then
-		if (GetUnitState(ut,UNIT_STATE_LIFE)<=0.01*GetUnitState(ut,UNIT_STATE_MAX_LIFE)) then
-			call SetWidgetLife(ut,1.)
-		else
-			call SetWidgetLife(ut,GetUnitState(ut,UNIT_STATE_LIFE)-0.01*GetUnitState(ut,UNIT_STATE_MAX_LIFE))
-		endif
+		call percentDamage(ut, 1, true)
 	endif
 	set u = null
 	set ut = null

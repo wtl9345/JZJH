@@ -203,6 +203,20 @@ function xuanFengTuiDamage takes unit u, unit ut returns nothing
 endfunction
 
 // 奇门术数
+function qimenCd takes nothing returns nothing
+	local timer t = GetExpiredTimer()
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
+	local real cdPercent = LoadReal(YDHT, GetHandleId(t), 1)
+	
+	call EXSetAbilityState(EXGetUnitAbility(u, BI_BO_XIN_JING), 1, EXGetAbilityState(EXGetUnitAbility(u, BI_BO_XIN_JING), 1) * cdPercent)
+	
+	call FlushChildHashtable(YDHT, GetHandleId(t))
+	call PauseTimer(t)
+	call DestroyTimer(t)
+	set t = null
+	set u = null
+endfunction
+
 function qiMenShuShu takes unit u returns nothing
 	local integer base = 10
 	local integer num0
@@ -217,7 +231,9 @@ function qiMenShuShu takes unit u returns nothing
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
     local real damage
     local unit dummy
-    local real param = 1
+	local real param = 1
+	local timer t
+	local real cdPercent = 1
     // 专属加成
 	if UnitHaveItem(u, ITEM_YU_XIAO) then
 		set param = param * 3
@@ -247,7 +263,7 @@ function qiMenShuShu takes unit u returns nothing
 	call Nw(3,bj_lastCreatedTextTag)
 	call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(70, 110))
 	
-	if rand == 1 then
+	if qimen_status[i] == 0 then
 		// 效果1 火切
 		set g = CreateGroup()
 		call GroupEnumUnitsInRange(g, GetUnitX(u), GetUnitY(u), 2000, Condition(function isTriggerEnemy))
@@ -256,14 +272,15 @@ function qiMenShuShu takes unit u returns nothing
 			set currentUnit = FirstOfGroup(g)
 			
 			call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\huoqie.mdx" , currentUnit, "origin"))
-			set damage = ShangHaiGongShi(u, currentUnit, 200, 200, param, QI_MEN_SHU_SHU)
+			set damage = ShangHaiGongShi(u, currentUnit, 800, 800, param, QI_MEN_SHU_SHU)
 			call WuGongShangHai(u, currentUnit, damage)
 			
 			set count = count - 1
 			call GroupRemoveUnit(g, currentUnit)
         endloop
-        call DestroyGroup(g)
-	elseif rand == 2 then
+		call DestroyGroup(g)
+		set cdPercent = 0.2
+	elseif qimen_status[i] == 1 then
 		// 效果2 随机加六围
 		call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\lifebreak.mdx", u, "overhead"))
 		call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
@@ -292,16 +309,22 @@ function qiMenShuShu takes unit u returns nothing
 		call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
 		call Nw(3,bj_lastCreatedTextTag)
 		call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(70, 110))
-	elseif rand == 3 then
+		set cdPercent = 0.8
+	elseif qimen_status[i] == 2 then
         // 效果3 大球
-        call YDWECreateEwsp( u, 'e01J', 2, 450, count, 0.03, 3.6 )
+		call YDWECreateEwsp( u, 'e01J', 2, 450, count, 0.03, 3.6 )
+		set cdPercent = 0.5
 	endif
-	
+	set t = CreateTimer()
+	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
+	call SaveReal(YDHT, GetHandleId(t), 1, cdPercent)
+	call TimerStart(t, 0.2, false, function qimenCd)
     call RemoveLocation(loc)
     set dummy = null
 	set currentUnit = null
 	set g = null
 	set loc = null
+	set t = null
 endfunction
 
 function qiMenShuShuDamage takes unit u, unit ut returns nothing

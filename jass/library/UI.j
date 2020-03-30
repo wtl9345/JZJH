@@ -150,13 +150,13 @@ library FrameLibrary initializer init
             call DzFrameClearAllPoints(id)
         endmethod
         method regEvent takes integer i, code func returns nothing
-            call DzFrameSetScriptByCode(id, i, func, false)
+            call DzFrameSetScriptByCode(id, i, func, true)
         endmethod
         method regWheelEvent takes code func returns nothing
-            call DzFrameSetScriptByCode(id, 6, func, false)
+            call DzFrameSetScriptByCode(id, 6, func, true)
         endmethod
         method regClickEvent takes code func returns nothing
-            call DzFrameSetScriptByCode(id, 1, func, false)
+            call DzFrameSetScriptByCode(id, 1, func, true)
         endmethod
         method hide takes nothing returns nothing
             call DzFrameShow(id, false)

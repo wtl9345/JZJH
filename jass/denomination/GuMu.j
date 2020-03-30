@@ -225,7 +225,7 @@ function TE takes nothing returns nothing
 				if (GetUnitAbilityLevel(u,'A03F')!=0) and GetRandomInt(1,3)==1 then
 					set ut = GroupPickRandomUnit(g)
 					set loc3 = GetUnitLoc(ut)
-					call SetWidgetLife(ut, GetWidgetLife(ut)*0.8)
+					call percentDamage(ut, 20, false)
 					call DestroyEffect(AddSpecialEffectLocBJ(loc3, "war3mapImported\\blue quick.mdx"))
 					call CreateNUnitsAtLoc(1,'o02E',GetOwningPlayer(u),loc2,bj_UNIT_FACING)
 					call UnitAddAbility(bj_lastCreatedUnit, 'A03D')

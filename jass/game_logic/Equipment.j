@@ -861,17 +861,9 @@ endfunction
 function JueZhanBaXiaoGuo takes nothing returns nothing
 	local unit u = GetTriggerUnit()
 	if((ModuloInteger(GetUnitPointValue(u),100)==0))then
-		if (GetUnitState(u,UNIT_STATE_LIFE)<= 0.1*GetUnitState(u,UNIT_STATE_MAX_LIFE))then
-			call SetWidgetLife(u,1.)
-		else
-			call SetWidgetLife(u,GetWidgetLife(u)-0.05*GetUnitState(u,UNIT_STATE_MAX_LIFE))
-		endif
+		call percentDamage(u, 5, true) 
 	else
-		if (GetUnitState(u,UNIT_STATE_LIFE)<= 0.01*GetUnitState(u,UNIT_STATE_MAX_LIFE))then
-			call SetWidgetLife(u,1.)
-		else
-			call SetWidgetLife(u,GetWidgetLife(u)-0.01*GetUnitState(u,UNIT_STATE_MAX_LIFE))
-		endif
+		call percentDamage(u, 1, true)
 	endif
 	set u = null
 endfunction
@@ -882,17 +874,9 @@ endfunction
 function JiangHuZhongXiaoGuo takes nothing returns nothing
 local unit u = GetAttacker()
 	if((ModuloInteger(GetUnitPointValue(u),100)==0))then
-		if (GetUnitState(u,UNIT_STATE_LIFE)<= 0.1*GetUnitState(u,UNIT_STATE_MAX_LIFE))then
-			call SetWidgetLife(u,1.)
-		else
-			call SetWidgetLife(u,GetWidgetLife(u)-0.05*GetUnitState(u,UNIT_STATE_MAX_LIFE))
-		endif
+		call percentDamage(u, 5, true) 
 	else
-		if (GetUnitState(u,UNIT_STATE_LIFE)<= 0.01*GetUnitState(u,UNIT_STATE_MAX_LIFE))then
-			call SetWidgetLife(u,1.)
-		else
-			call SetWidgetLife(u,GetWidgetLife(u)-0.01*GetUnitState(u,UNIT_STATE_MAX_LIFE))
-		endif
+		call percentDamage(u, 1, true)
 	endif
 	set u = null
 endfunction
