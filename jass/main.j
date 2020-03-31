@@ -7,6 +7,7 @@
 #include "game_logic/LevelUp.j"
 #include "library/buff.j"
 #include "library/UniMissileSystem.j"
+#include "library/encrypt.j"
 
 #include "game_logic/Mall.j"
 #include "game_logic/GameLogic.j"
@@ -1963,6 +1964,8 @@ function InitGlobalSave takes nothing returns nothing
 	// 积分倍数全局存档
 	set jfBeishu = DzAPI_Map_GetMapConfig("jfBeishu")
 
+	set priKey = DzAPI_Map_GetMapConfig("priKey")
+	
 	loop
 		exitwhen i>4
 		set extraDoubleJf[i] = 1 // 无额外双倍积分

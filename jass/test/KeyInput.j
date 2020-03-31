@@ -125,6 +125,8 @@ function KeyInput takes nothing returns nothing
         set s = s + getChiefString(i, 18, "泰山掌门 ")
         set s = s + getChiefString(i, 19, "铁掌帮主 ")
         set s = s + getChiefString(i, 20, "唐门门主 ")
+        set s = s + getChiefString(i, 21, "五毒教主 ")
+        set s = s + getChiefString(i, 22, "桃花岛主 ")
         call DisplayTextToPlayer(p,0,0,"|cFF00FF00当前已获得掌门：" + s)
 
         set s = ""
@@ -172,6 +174,8 @@ function KeyInput takes nothing returns nothing
         set s = s + getTitleString(i, 42, "小虾米 ")
         set s = s + getTitleString(i, 43, "郭大侠 ")
         set s = s + getTitleString(i, 44, "神仙姐姐 ")
+        set s = s + getTitleString(i, 45, "婆婆姊姊 ")
+        set s = s + getTitleString(i, 45, "女中诸葛 ")
 	    call DisplayTextToPlayer(p,0,0,"|cFFFFFF00当前已获得称号：" + s)
 	endif
 	if s=="ckwg" or s=="CKWG" then

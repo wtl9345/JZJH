@@ -85,7 +85,7 @@ function EverySecond_Conditions takes nothing returns boolean
 			set s = s + "｜排名：|cff00ff00"+ I2S(DzAPI_Map_GetMapLevelRank(Player(i-1))) + "|r|n"
 			set s = s + "单通门派：|cff00ff00" + I2S(LoadInteger(YDHT, i, StringHash("单通门派数量"))) + "|r"
 			set s = s + "｜多通门派：|cff00ff00" + I2S(LoadInteger(YDHT, i, StringHash("多通门派数量"))) + "|r|n"
-			set s = s + "最大无尽BOSS数：|cff00ff00" + I2S(DzAPI_Map_GetStoredInteger(Player(i - 1),"endless")) + "|r"
+			set s = s + "最大无尽BOSS数：|cff00ff00" + I2S(decryptInt(DzAPI_Map_GetStoredString(Player(i - 1),"endless"), Player(i - 1))) + "|r"
 			call YDWESetUnitAbilityDataString( P4[i], 'A0EO', 1, 218, s )
 		endif
 		
