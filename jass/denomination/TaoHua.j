@@ -155,14 +155,16 @@ function xuanFengTui takes unit u, unit ut returns nothing
 	
 	// 碧波心经点数：持续时间
 	if biBoPoint > 0 then
-		set level = IMinBJ(9, R2I(level + biBoPoint * 0.2))
+		set level = IMaxBJ(9, R2I(level + biBoPoint * 0.2))
 	endif
 	
 	// +双手互搏：额外形成一阵旋风
 	set dummy = CreateUnit(GetOwningPlayer(u), 'e000', GetUnitX(u), GetUnitY(u), bj_UNIT_FACING)
 	call ShowUnitHide(dummy)
 	call UnitAddAbility(dummy, 'A0EJ') // 马甲技能
-	call SetUnitAbilityLevel(dummy, 'A0EJ', level)
+	if level <= 9 then
+		call SetUnitAbilityLevel(dummy, 'A0EJ', level)
+	endif
 	call IssueTargetOrderById(dummy, $D0275, ut)
 	call UnitApplyTimedLife(dummy, 'BHwe', 3)
 	

@@ -823,6 +823,9 @@ function determineTaoHuaDaoTitle takes unit u returns nothing
                         set idd='A0EK'
                     endif
                     call UnitAddAbility(u, idd)
+                    if Player(i - 1) == GetLocalPlayer() and idd == 'A0EL' then
+                        call qimen_widget.show()
+                    endif
                     call UnitMakeAbilityPermanent(u, true, idd)
                     set I7[20 * ( i - 1 ) + L7[i]] = idd
                     exitwhen true

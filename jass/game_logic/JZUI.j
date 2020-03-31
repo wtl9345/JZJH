@@ -144,7 +144,7 @@ function doToggleQimenStatus takes nothing returns nothing
 endfunction
 
 function toggleQimenStatus takes nothing returns nothing
-	local integer i = 1 + GetPlayerId(GetTriggerPlayer())
+	local integer i = 1 + GetPlayerId(DzGetTriggerUIEventPlayer())
 	// call doToggleQimenStatus(i)
 	call DzSyncData("qimen", I2S(i))
 endfunction
