@@ -472,7 +472,7 @@ function wanChuEffect takes nothing returns nothing
     // 葵花搭配：增加百分比伤害
     local real coeff = 0.77 - 0.03 * GetUnitAbilityLevel(u, WAN_CHU_SHI_XIN) * (1 + GetUnitAbilityLevel(u, KUI_HUA))
 
-    call SetUnitState(target, UNIT_STATE_LIFE, GetUnitState(target, UNIT_STATE_LIFE) * coeff)
+    call percentDamage(target, 100 - 100 * coeff , false)
     call WanBuff(u, target, 14)
 
     set u = null

@@ -670,6 +670,11 @@ function QiuJiao takes player p, integer num returns nothing
 			call UnitMakeAbilityPermanent(udg_hero[i], true, I7[te[i]*20+num])
 			set I7[(((i-1)*20)+L7[i])]=I7[te[i]*20+num]
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF0033传闻"+(GetPlayerName(p)+(("向"+(GetPlayerName(Player(-1+((te[i]+1))))+"虚心求教，成功的学会了"))+GetObjectName(I7[te[i]*20+num])))))
+			if I7[te[i]*20+num] == QI_MEN_SHU_SHU then
+				if p == GetLocalPlayer() then
+					call qimen_widget.show()
+				endif
+			endif
 			set S9=1
 			loop
 				exitwhen S9>20

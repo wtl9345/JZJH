@@ -123,28 +123,30 @@ function toggleWidget12 takes nothing returns nothing
 	endif
 endfunction
 
-function doToggleQimenStatus takes integer i returns nothing
-	// local integer i = S2I(DzGetTriggerSyncData())
-	call BJDebugMsg("到这里了2")
+function doToggleQimenStatus takes nothing returns nothing
+	local integer i = S2I(DzGetTriggerSyncData())
 	set qimen_status[i] = qimen_status[i] + 1
 	if qimen_status[i] == 3 then
 		set qimen_status[i] = 0
 	endif
 	if Player(i - 1) == GetLocalPlayer() then
 		if qimen_status[i] == 0 then
-			call qimen_button.setText("伤害")
+			// call qimen_button.setText("伤害")
+			call qimen_widget.setTexture("war3mapImported\\qm_sh.tga")
 		elseif qimen_status[i] == 1 then
-			call qimen_button.setText("六围")
+			// call qimen_button.setText("六围")
+			call qimen_widget.setTexture("war3mapImported\\qm_lw.tga")
 		elseif qimen_status[i] == 2 then
-			call qimen_button.setText("护体")
+			// call qimen_button.setText("护体")
+			call qimen_widget.setTexture("war3mapImported\\qm_ht.tga")
 		endif
 	endif
 endfunction
 
 function toggleQimenStatus takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(GetTriggerPlayer())
-	call BJDebugMsg("到这里了")
-	call doToggleQimenStatus(i)
+	// call doToggleQimenStatus(i)
+	call DzSyncData("qimen", I2S(i))
 endfunction
 
 
@@ -441,12 +443,12 @@ function drawUI_Conditions takes nothing returns boolean
 	call bibo_text.setPoint(TOPRIGHT,bibo_image, TOPRIGHT, 0, 0)
 	call bibo_text.setColor255(255, 255, 0)
 	
-	set qimen_widget = Frame.newImage1(GUI, "war3mapImported\\non_open01.tga", 0.04, 0.015)
+	set qimen_widget = Frame.newImage1(GUI, "war3mapImported\\qm_sh.tga", 0.04, 0.02)
 	call qimen_widget.setPoint(TOPLEFT, zwidget[12], BOTTOM,  0.065,  -0.08)
+	call qimen_widget.hide()
 	
 	set qimen_button = Frame.newTextButton(qimen_widget)
 	call qimen_button.setAllPoints(qimen_widget)
-	call qimen_button.setText("伤害")
 	call qimen_button.regEvent(FRAME_EVENT_PRESSED, function toggleQimenStatus)
 	
 	// set qimen_text = Frame.newText1(qimen_button, "伤害", "TXA12")
@@ -471,8 +473,8 @@ function initUI takes nothing returns nothing
 	call TriggerRegisterTimerEventSingle(t, 1.)
 	call TriggerAddCondition(t,Condition(function drawUI_Conditions))
 	
-	// set t = CreateTrigger()
-	// call DzTriggerRegisterSyncData(t, "qimen", false)
-	// call TriggerAddAction(t, function doToggleQimenStatus)
+	set t = CreateTrigger()
+	call DzTriggerRegisterSyncData(t, "qimen", false)
+	call TriggerAddAction(t, function doToggleQimenStatus)
 	set t = null
 endfunction

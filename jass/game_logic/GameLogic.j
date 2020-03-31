@@ -1520,7 +1520,7 @@ endglobals
 //失败动作
 function Lose takes nothing returns nothing
 	local integer i=0
-	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.6.34的游戏总评分："+(I2S(ae)+"分（战败）")))
+	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.6.35的游戏总评分："+(I2S(ae)+"分（战败）")))
 	set i = 1
 	loop
 	exitwhen i >= 6
@@ -1665,7 +1665,7 @@ function Victory takes nothing returns nothing
 		// 获胜标识
 		set is_victory = true
 		
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.6.34的游戏总评分："+(I2S(ae)+"分（通关）")))
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.6.35的游戏总评分："+(I2S(ae)+"分（通关）")))
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFFFF00B2恭喜你们通关，游戏将在2分钟后结束\n游戏专区论坛：jzjhbbs.uuu9.com\n游戏交流QQ群：159030768  369925013  341305274\n关注武侠，让决战江湖走得更远，期待你的参与，详情请在专区论坛查询")
 		set de=true
 		call SaveReal(YDHT,id*cx,-$5E9EB4B3,40.)
@@ -1680,7 +1680,7 @@ function Victory takes nothing returns nothing
 		call TimerStart(ky,.04,true,function IsVictory)
 		call YDWEPolledWaitNull(60.)
 		call SaveInteger(YDHT,id,-$1317DA19,cx)
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.6.34的游戏总评分："+(I2S(ae)+"分（通关）")))
+		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF00B2决战江湖1.6.35的游戏总评分："+(I2S(ae)+"分（通关）")))
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"|CFFFF00B2恭喜你们通关，游戏将在1分钟后结束\n游戏专区论坛：jzjhbbs.uuu9.com\n游戏交流QQ群：159030768  369925013  341305274 \n关注武侠，让决战江湖走得更远，期待你的参与，详情请在专区论坛查询")
 		call YDWEPolledWaitNull(60.)
 		call SaveInteger(YDHT,id,-$1317DA19,cx)
@@ -2288,14 +2288,19 @@ function na takes nothing returns boolean
 	return(((GetOwningPlayer(GetFilterUnit())==Player(7))and(IsUnitAliveBJ(GetFilterUnit()))))
 endfunction
 function qa takes nothing returns nothing
+	local integer j = IMinBJ(IMaxBJ(udg_boshu,1),28)
+	// 无尽BOSS模式永远刷第1、2波怪
+	if tiaoZhanIndex == 3 then
+		set j = GetRandomInt(1, 2)
+	endif
 	if((CountUnitsInGroup(wv(Ie,Condition(function na)))<=3))then
-		call CreateNUnitsAtLoc(12,y7[IMinBJ(IMaxBJ(udg_boshu,1),28)],Player(7),v7[1],bj_UNIT_FACING)
+		call CreateNUnitsAtLoc(12,y7[j],Player(7),v7[1],bj_UNIT_FACING)
 	endif
 	if((CountUnitsInGroup(wv(Re,Condition(function na)))<=3))then
-		call CreateNUnitsAtLoc(12,y7[IMinBJ(IMaxBJ(udg_boshu,1),28)],Player(7),v7[$A],bj_UNIT_FACING)
+		call CreateNUnitsAtLoc(12,y7[j],Player(7),v7[$A],bj_UNIT_FACING)
 	endif
 	if((CountUnitsInGroup(wv(le,Condition(function na)))<=3))then
-		call CreateNUnitsAtLoc(12,y7[IMinBJ(IMaxBJ(udg_boshu,1),28)],Player(7),v7[2],bj_UNIT_FACING)
+		call CreateNUnitsAtLoc(12,y7[j],Player(7),v7[2],bj_UNIT_FACING)
 	endif
 endfunction
 //练功房
@@ -3687,6 +3692,11 @@ function Forget takes player p, integer num returns nothing
 		if I7[20*(i-1)+num] == 'A02B' then
 			set udg_zhemei[i] = 0
 		endif
+		if I7[(i-1)*20+num] == QI_MEN_SHU_SHU then
+			if Player(i - 1) == GetLocalPlayer() then
+				call qimen_widget.hide()
+			endif
+		endif
 		if I7[(i-1)*20+num]=='A0B6' then // 六合经
 			call UnitRemoveAbility(udg_hero[i], 'A0B5')
 			set liuHeFlag[i] = 0
@@ -4205,6 +4215,11 @@ function LearnNeiGong takes nothing returns nothing
 				set jingmai[i] = jingmai[i] + 2
 				set danpo[i] = danpo[i] + 2
 				set yishu[i] = yishu[i] + 2
+			endif
+			if P8[id] == QI_MEN_SHU_SHU then
+				if Player(i - 1) == GetLocalPlayer() then
+					call qimen_widget.show()
+				endif
 			endif
 			call UnitMakeAbilityPermanent(u, true, P8[id])
 			set L7[i]=1
