@@ -1,4 +1,3 @@
-#include "../library/common_func.j"
 
 //--------血刀开始--------//
 //血斩千刀

@@ -24,7 +24,7 @@
 
 
 globals
-	constant integer DENOMINATION_NUMBER = 22
+	constant integer DENOMINATION_NUMBER = 23
 	
 	boolean firstTime = true // 是否第一次选择难度
 endglobals
@@ -320,7 +320,7 @@ function ox takes nothing returns boolean
 	or (GetItemTypeId(GetManipulatedItem())=='I09N') or (GetItemTypeId(GetManipulatedItem())=='I0A2')  or (GetItemTypeId(GetManipulatedItem())=='I0CK')				\
 	or (GetItemTypeId(GetManipulatedItem())=='I0CX') or (GetItemTypeId(GetManipulatedItem())=='I0E1') or (GetItemTypeId(GetManipulatedItem())=='I0EH')\
 	or (GetItemTypeId(GetManipulatedItem())=='I0EO') or (GetItemTypeId(GetManipulatedItem())=='I0AA') or (GetItemTypeId(GetManipulatedItem())=='I0AG') \
-	or (GetItemTypeId(GetManipulatedItem())=='I0ET')  ))
+	or (GetItemTypeId(GetManipulatedItem())=='I0ET') or (GetItemTypeId(GetManipulatedItem())=='I0EV')  ))
 endfunction
 function JiaRuMenPai takes nothing returns nothing
 	local unit u=GetTriggerUnit()
@@ -839,6 +839,28 @@ function JiaRuMenPai takes nothing returns nothing
 		else
 			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
 		endif
+	elseif((GetItemTypeId(GetManipulatedItem())=='I0EV'))then
+		set udg_runamen[i]=23
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓野螺派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓野螺派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set danpo[i] = danpo[i] + 5
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
 	elseif((GetItemTypeId(GetManipulatedItem())=='I0AG'))then
 		call randomMenpai(p,1)
 	endif
@@ -1708,11 +1730,14 @@ function PlayerDeath takes nothing returns nothing
 	local unit u=GetTriggerUnit()
 	local player p=GetOwningPlayer(u)
 	local integer i=1+GetPlayerId(p)
+	local real time = 15
 	if (ge[i]) then
-		call StartTimerBJ(udg_revivetimer[i],false,7.)
-	else
-		call StartTimerBJ(udg_revivetimer[i],false,15.)
+		set time = 7
 	endif
+	if GetUnitAbilityLevel(u, DA_GONG_GAO_CHENG) >= 1 and GetUnitAbilityLevel(u, SHEN_XING_BAI_BIAN) >= 1 then
+		set time = time / 2
+	endif
+	call StartTimerBJ(udg_revivetimer[i], false, time)
 	call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,p)
 	call CreateTimerDialogBJ(bj_lastStartedTimer,"复活倒计时:")
 	set R7[i]=bj_lastCreatedTimerDialog
@@ -1732,10 +1757,19 @@ function PlayerDeath takes nothing returns nothing
 endfunction
 //五个玩家复活
 function PlayerReviveA takes nothing returns nothing
+	local real x = GetUnitX(udg_hero[1])
+	local real y = GetUnitY(udg_hero[1])
+	
+	
 	call DestroyTimerDialog(R7[1])
 	set Q4=GetRectCenter(He)
-	call ReviveHeroLoc(udg_hero[1],Q4,true)
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[1]),Q4,0)
+	if GetUnitAbilityLevel(udg_hero[1], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[1], DA_GONG_GAO_CHENG) >= 1 then
+		call ReviveHero(udg_hero[1], x, y, true)
+	else
+		call ReviveHeroLoc(udg_hero[1],Q4,true)
+		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[1]),Q4,0)
+	endif
+	
 	call RemoveLocation(Q4)
 	set he[1]=false
 	if(((UnitHaveItem(udg_hero[1],'I02S'))or(UnitHaveItem(udg_hero[1],1227895373))or(UnitHaveItem(udg_hero[1],1227895377))or(UnitHaveItem(udg_hero[1],1227895378))or(UnitHaveItem(udg_hero[1],1227895376))))then
@@ -1756,10 +1790,16 @@ function PlayerReviveA takes nothing returns nothing
 	call AddCharacterBBuff(udg_hero[1], udg_xinggeB[1])
 endfunction
 function PlayerReviveB takes nothing returns nothing
+	local real x = GetUnitX(udg_hero[2])
+	local real y = GetUnitY(udg_hero[2])
 	call DestroyTimerDialog(R7[2])
 	set Q4=GetRectCenter(He)
-	call ReviveHeroLoc(udg_hero[2],Q4,true)
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[2]),Q4,0)
+	if GetUnitAbilityLevel(udg_hero[2], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[2], DA_GONG_GAO_CHENG) >= 1 then
+		call ReviveHero(udg_hero[2], x, y, true)
+	else
+		call ReviveHeroLoc(udg_hero[2],Q4,true)
+		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[2]),Q4,0)
+	endif
 	call RemoveLocation(Q4)
 	set he[2]=false
 	if(((UnitHaveItem(udg_hero[2],'I02S'))or(UnitHaveItem(udg_hero[2],1227895373))or(UnitHaveItem(udg_hero[2],1227895377))or(UnitHaveItem(udg_hero[2],1227895378))or(UnitHaveItem(udg_hero[2],1227895376))))then
@@ -1780,10 +1820,16 @@ function PlayerReviveB takes nothing returns nothing
 	call AddCharacterBBuff(udg_hero[2], udg_xinggeB[2])
 endfunction
 function PlayerReviveC takes nothing returns nothing
+	local real x = GetUnitX(udg_hero[3])
+	local real y = GetUnitY(udg_hero[3])
 	call DestroyTimerDialog(R7[3])
 	set Q4=GetRectCenter(He)
-	call ReviveHeroLoc(udg_hero[3],Q4,true)
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[3]),Q4,0)
+	if GetUnitAbilityLevel(udg_hero[3], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[3], DA_GONG_GAO_CHENG) >= 1 then
+		call ReviveHero(udg_hero[3], x, y, true)
+	else
+		call ReviveHeroLoc(udg_hero[3],Q4,true)
+		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[3]),Q4,0)
+	endif
 	call RemoveLocation(Q4)
 	set he[3]=false
 	if(((UnitHaveItem(udg_hero[3],'I02S'))or(UnitHaveItem(udg_hero[3],1227895373))or(UnitHaveItem(udg_hero[3],1227895377))or(UnitHaveItem(udg_hero[3],1227895378))or(UnitHaveItem(udg_hero[3],1227895376))))then
@@ -1804,10 +1850,16 @@ function PlayerReviveC takes nothing returns nothing
 	call AddCharacterBBuff(udg_hero[3], udg_xinggeB[3])
 endfunction
 function PlayerReviveD takes nothing returns nothing
+	local real x = GetUnitX(udg_hero[4])
+	local real y = GetUnitY(udg_hero[4])
 	call DestroyTimerDialog(R7[4])
 	set Q4=GetRectCenter(He)
-	call ReviveHeroLoc(udg_hero[4],Q4,true)
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[4]),Q4,0)
+	if GetUnitAbilityLevel(udg_hero[4], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[4], DA_GONG_GAO_CHENG) >= 1 then
+		call ReviveHero(udg_hero[4], x, y, true)
+	else
+		call ReviveHeroLoc(udg_hero[4],Q4,true)
+		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[4]),Q4,0)
+	endif
 	call RemoveLocation(Q4)
 	set he[4]=false
 	if(((UnitHaveItem(udg_hero[4],'I02S'))or(UnitHaveItem(udg_hero[4],1227895373))or(UnitHaveItem(udg_hero[4],1227895377))or(UnitHaveItem(udg_hero[4],1227895378))or(UnitHaveItem(udg_hero[4],1227895376))))then
@@ -1828,10 +1880,16 @@ function PlayerReviveD takes nothing returns nothing
 	call AddCharacterBBuff(udg_hero[4], udg_xinggeB[4])
 endfunction
 function PlayerReviveE takes nothing returns nothing
+	local real x = GetUnitX(udg_hero[5])
+	local real y = GetUnitY(udg_hero[5])
 	call DestroyTimerDialog(R7[5])
 	set Q4=GetRectCenter(He)
-	call ReviveHeroLoc(udg_hero[5],Q4,true)
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[5]),Q4,0)
+	if GetUnitAbilityLevel(udg_hero[5], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[5], DA_GONG_GAO_CHENG) >= 1 then
+		call ReviveHero(udg_hero[15], x, y, true)
+	else
+		call ReviveHeroLoc(udg_hero[5],Q4,true)
+		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[5]),Q4,0)
+	endif
 	call RemoveLocation(Q4)
 	set he[5]=false
 	if(((UnitHaveItem(udg_hero[5],'I02S'))or(UnitHaveItem(udg_hero[5],1227895373))or(UnitHaveItem(udg_hero[5],1227895377))or(UnitHaveItem(udg_hero[5],1227895378))or(UnitHaveItem(udg_hero[5],1227895376))))then
@@ -2805,10 +2863,10 @@ function HQ takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1+GetPlayerId(p)
 	local location loc = null
-	if (GetUnitLevel(u)<$A) then
+	if (GetUnitLevel(u)<$A) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足10级无法传送")
 	else
-		if (shengwang[i]<500) then
+		if (shengwang[i]<500) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足500无法传送")
 		else
 			set loc = GetRectCenter(Te)
@@ -2831,10 +2889,10 @@ function JQ takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1+GetPlayerId(p)
 	local location loc = null
-	if(GetUnitLevel(u)<25)then
+	if(GetUnitLevel(u)<25) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足25级无法传送")
 	else
-		if((shengwang[i]<$5DC))then
+		if((shengwang[i]<$5DC)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足1500无法传送")
 		else
 			set loc = GetRectCenter(ag)
@@ -2857,10 +2915,10 @@ function MQ takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1+GetPlayerId(p)
 	local location loc = null
-	if(GetUnitLevel(u)<40)then
+	if(GetUnitLevel(u)<40) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足40级无法传送")
 	else
-		if((shengwang[i]<$9C4))then
+		if((shengwang[i]<$9C4)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足2500无法传送")
 		else
 			set loc = GetRectCenter(Bg)
@@ -2883,10 +2941,10 @@ function PQ takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1+GetPlayerId(p)
 	local location loc = null
-	if(GetUnitLevel(u)<55)then
+	if(GetUnitLevel(u)<55) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足55级无法传送")
 	else
-		if((shengwang[i]<$FA0))then
+		if((shengwang[i]<$FA0)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足4000无法传送")
 		else
 			set loc = GetRectCenter(Lg)
@@ -2909,10 +2967,10 @@ function SQ takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1+GetPlayerId(p)
 	local location loc = null
-	if(GetUnitLevel(u)<70)then
+	if(GetUnitLevel(u)<70) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足70级无法传送")
 	else
-		if((shengwang[i]<6000))then
+		if((shengwang[i]<6000)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足6000无法传送")
 		else
 			set loc = GetRectCenter(Rg)
@@ -2935,10 +2993,10 @@ function VQ takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1+GetPlayerId(p)
 	local location loc = null
-	if(GetUnitLevel(u)<100)then
+	if(GetUnitLevel(u)<100) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足100级无法传送")
 	else
-		if((shengwang[i]<9000))then
+		if((shengwang[i]<9000)) and GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) == 0 then
 			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足9000无法传送")
 		else
 			set loc = GetRectCenter(Zg)

@@ -57,6 +57,7 @@
 #include "denomination/SongShan.j"
 #include "denomination/WuDu.j"
 #include "denomination/TaoHua.j" // 桃花岛武功
+#include "denomination/YeLuo.j" // 野螺派武功
 
 #include "denomination/JiangHuWuGong.j"
 #include "denomination/JueShiWuGong.j"
@@ -77,6 +78,7 @@
 #include "systems/UseAbility.j"
 #include "systems/UnitDamage.j"
 #include "systems/UnitDeath.j"
+#include "systems/ItemEvent.j"
 
 
 #include "InitialSave.j"
@@ -96,7 +98,7 @@ globals
 	real I=0
 	real l=0
 	real J=0
-
+	
 	unit udg_sixiangdanwei=null
 	unit udg_xuezhandanwei=null
 	unit udg_fanweidanwei=null
@@ -105,31 +107,31 @@ globals
 	unit udg_miejuedanwei=null
 	integer array wugongshu
 	integer array udg_zhemei
-
+	
 	integer array chief // 掌门标识，使用2进制的方式标注获得了哪个门派的掌门
 	integer array title0 // 称号标识，使用2进制的方式标注获得了哪个称号 1-30
 	integer array title1 // 称号标识，使用2进制的方式标注获得了哪个称号 31-60
 	integer array deputy // 副职标识
 	integer array master // 大师标识
 	integer array qimen_status // 奇门术数标识
-
+	
 	// 多通速17门派数组，每位玩家的通关门派
 	string array manySuccess
 	// 单通速17门派数组，每位玩家的通关门派
 	string array singleSuccess
 	string initMpSaveStr = "000000000000000000"
 	string fullMpSaveStr = "111111111111111111"
-
+	
 	// 是否第一次难度为最高
 	boolean topDegreeFlag = false
 	// 多通难7奖励额外双倍积分，和商城的叠加
 	integer array extraDoubleJf 
 	// 多通奖励移速100
 	integer array extraSpeed
-
+	
 	integer array jfQiWu // 玩家已经兑换奇武次数
 	integer array jfQiWuLimit // 玩家兑换奇武限定次数，默认3次，单通8门派奖励1次
-
+	
 	// 战斗力数组，每位玩家的战斗力
 	integer array udg_zdl
 	// 积分数组
@@ -156,10 +158,10 @@ globals
 	real array max_damage
 	// 卖技能书的少林高僧
 	unit array udg_sellSkillBook
-
+	
 	integer udg_tiebushancengshu=0
 	integer udg_nandu=0
-
+	
 	boolean udg_shifoufomie=false
 	boolean udg_teshushijian = false
 	boolean udg_yanglao = false
@@ -185,7 +187,7 @@ globals
 	button udg_tiaoZhan0 = null // 速通模式按钮
 	button udg_tiaoZhan1 = null // 无技能商店按钮
 	button udg_tiaoZhan2 = null // 无尽BOSS战按钮
-
+	
 	integer udg_gudongA=0
 	integer udg_gudongB=0
 	integer udg_gudongC=0
@@ -209,6 +211,8 @@ globals
 	integer array udg_canzhang
 	integer array udg_diershi
 	integer array udg_qiwu
+	integer array udg_dan
+	integer array udg_weapon
 	integer array aidacishu
 	integer array udg_wuqishu
 	integer array udg_yifushu
@@ -1406,11 +1410,11 @@ function Zw takes nothing returns nothing
 	call TaoHuaDaoKaiFang()
 	set bj_forLoopAIndex = 0
 	loop
-		exitwhen bj_forLoopAIndex >= 5
+	exitwhen bj_forLoopAIndex >= 5
 		if GetPlayerController(Player(bj_forLoopAIndex))==MAP_CONTROL_USER and GetPlayerSlotState(Player(bj_forLoopAIndex))==PLAYER_SLOT_STATE_PLAYING then
-	        call SaveStr(YDHT,GetHandleId(Player(bj_forLoopAIndex)),GetHandleId(Player(bj_forLoopAIndex)),GetPlayerName(Player(bj_forLoopAIndex)))
-	        call SaveStr(YDHT,GetHandleId(Player(bj_forLoopAIndex)),GetHandleId(Player(bj_forLoopAIndex))*2,GetPlayerName(Player(bj_forLoopAIndex)))
-	    endif
+			call SaveStr(YDHT,GetHandleId(Player(bj_forLoopAIndex)),GetHandleId(Player(bj_forLoopAIndex)),GetPlayerName(Player(bj_forLoopAIndex)))
+			call SaveStr(YDHT,GetHandleId(Player(bj_forLoopAIndex)),GetHandleId(Player(bj_forLoopAIndex))*2,GetPlayerName(Player(bj_forLoopAIndex)))
+		endif
 		set bj_forLoopAIndex = bj_forLoopAIndex + 1
 	endloop
 	call YDWEPolledWaitNull(40.)
@@ -1581,8 +1585,8 @@ function InitEquipments takes nothing returns nothing
 	set ShiPin[42]='I08X'
 	set ShiPin[43]='I08Y'
 	set ShiPin[44]='I08Z'
-
-
+	
+	
 	// 地图等级奖励物品id
 	// 3级奖励
 	set mapLevelReward[1] = 'I06H' 
@@ -1735,23 +1739,29 @@ function InitDenominationSkills takes nothing returns nothing
 	set Q8[19]='A070'
 	set P8[19]='A0DP'
 	set udg_menpainame[20]="唐门"
-    set X7[20]='A098'
-    set Z7[20]='A09A'
-    set Y7[20]='A0B0'
-    set Q8[20]='A0B6'
-    set P8[20]='A0B1'
-    set udg_menpainame[21]="五毒教"
-    set X7[21]='A0BL'
-    set Z7[21]='A0DU'
-    set Y7[21]='A0DT'
-    set Q8[21]='A0DS'
+	set X7[20]='A098'
+	set Z7[20]='A09A'
+	set Y7[20]='A0B0'
+	set Q8[20]='A0B6'
+	set P8[20]='A0B1'
+	set udg_menpainame[21]="五毒教"
+	set X7[21]='A0BL'
+	set Z7[21]='A0DU'
+	set Y7[21]='A0DT'
+	set Q8[21]='A0DS'
 	set P8[21]='A0DR'
 	set udg_menpainame[22]="桃花岛"
-    set X7[22]='A0EE'
-    set Z7[22]='A0EG'
-    set Y7[22]='A0EI'
-    set Q8[22]='A0EK'
-    set P8[22]='A0EL'
+	set X7[22]='A0EE'
+	set Z7[22]='A0EG'
+	set Y7[22]='A0EI'
+	set Q8[22]='A0EK'
+	set P8[22]='A0EL'
+	set udg_menpainame[23]="野螺派"
+	set X7[23]= ZAO_LEI_PI
+	set Z7[23]= BA_MIAN_LING_LONG
+	set Y7[23]= FAN_SHOU_QIAN_ZHU
+	set Q8[23]= QIAN_KUN_YI_ZHI
+	set P8[23]= DA_GONG_GAO_CHENG
 endfunction
 
 function InitSkillBooks takes nothing returns nothing
@@ -1773,7 +1783,7 @@ function InitSkillBooks takes nothing returns nothing
 	set udg_jianghu[16]='I033'
 	set udg_jianghu[17]='I02W'
 	set udg_jianghu[18]='I03F'
-
+	
 	set udg_juexue[1]='I039'
 	set udg_juexue[2]='I034'
 	set udg_juexue[3]='I038'
@@ -1792,7 +1802,7 @@ function InitSkillBooks takes nothing returns nothing
 	set udg_juenei[6]='I03P'
 	set udg_juenei[7]='I03U'
 	set udg_juenei[8]='I03R'
-
+	
 	set udg_canzhang[1]='I065'
 	set udg_canzhang[2]='I061'
 	set udg_canzhang[3]='I066'
@@ -1804,7 +1814,7 @@ function InitSkillBooks takes nothing returns nothing
 	set udg_canzhang[9]='I068'
 	set udg_canzhang[10]='I063'
 	set udg_canzhang[11]='I0CW'
-
+	
 	set udg_diershi[1]='I09E'
 	set udg_diershi[2]='I09F'
 	set udg_diershi[3]='I09G'
@@ -1815,7 +1825,7 @@ function InitSkillBooks takes nothing returns nothing
 	set udg_diershi[8]='I09L'
 	set udg_diershi[9]='I09M'
 	set udg_diershi[10]='I09N'
-
+	
 	set udg_qiwu[1] = 'I0C2'
 	set udg_qiwu[2] = 'I0C3'
 	set udg_qiwu[3] = 'I0C4'
@@ -1831,7 +1841,49 @@ function InitSkillBooks takes nothing returns nothing
 	set udg_qiwu[13] = 'I0CT'
 	set udg_qiwu[14] = 'I0CU'
 	set udg_qiwu[15] = 'I0CV' 
+	
+	set	udg_dan[1] = 'I06Y'
+	set	udg_dan[2] = 'I071'
+	set	udg_dan[3] = 'I06W'
+	set	udg_dan[4] = 'I074'
+	set	udg_dan[5] = 'I06V'
+	set	udg_dan[6] = 'I075'
+	set	udg_dan[7] = 'I073'
+	set	udg_dan[8] = 'I072'
+	set	udg_dan[9] = 'I070'
+	set	udg_dan[10] = 'I06X'
+	set	udg_dan[11] = 'I06Z'
 
+	set udg_weapon[1] = 'I04F'
+	set udg_weapon[2] = 'I00P'
+	set udg_weapon[3] = 'I00Q'
+	set udg_weapon[4] = 'I01L'
+	set udg_weapon[5] = 'I01N'
+	set udg_weapon[6] = 'I00X'
+	set udg_weapon[7] = 'I00C'
+	set udg_weapon[8] = 'I00D'
+	set udg_weapon[9] = 'I00B'
+	set udg_weapon[10] = 'I01F'
+	set udg_weapon[11] = 'I01S'
+	set udg_weapon[12] = 'I020'
+	set udg_weapon[13] = 'I01E'
+	set udg_weapon[14] = 'I021'
+	set udg_weapon[15] = 'I016'
+	set udg_weapon[16] = 'I013'
+	set udg_weapon[17] = 'I08V'
+	set udg_weapon[18] = 'I097'
+	set udg_weapon[19] = 'I098'
+	set udg_weapon[20] = 'I099'
+	set udg_weapon[21] = 'I09A'
+	set udg_weapon[22] = 'I09B'
+	set udg_weapon[23] = 'I09C'
+	set udg_weapon[24] = 'I09D'
+	set udg_weapon[25] = 'I0DK'
+	set udg_weapon[26] = 'I0DU'
+	set udg_weapon[27] = 'I0DY'
+	set udg_weapon[28] = 'I0DZ'
+	set udg_weapon[29] = 'I0E0'
+	set udg_weapon[30] = 'I0E2'
 endfunction
 
 function InitKillingTaskCreatures takes nothing returns nothing
@@ -1863,7 +1915,7 @@ endfunction
 function replenishSaveStr takes string oldSaveStr returns string newSaveStr
 	if StringLength(oldSaveStr) < 18 then
 		loop
-			exitwhen StringLength(oldSaveStr) == 18
+		exitwhen StringLength(oldSaveStr) == 18
 			// body
 			set oldSaveStr = oldSaveStr + "0"
 		endloop
@@ -1882,19 +1934,19 @@ function calMpCount takes integer i returns nothing
 	local integer parentId = 1 + GetPlayerId(Player(i))
 	// 截取存档，相加
 	loop
-		exitwhen j > 17
+	exitwhen j > 17
 		// body
 		set msCount = msCount + S2I(SubString(manySuccess[i],j,j+1))
 		set j = j + 1
 	endloop
 	set j = 0
 	loop
-		exitwhen j > 17
+	exitwhen j > 17
 		// body
 		set ssCount = ssCount + S2I(SubString(singleSuccess[i],j,j+1))
 		set j = j + 1
 	endloop
-
+	
 	
 	// 单通奖励
 	if ssCount >= 1 then
@@ -1916,7 +1968,7 @@ function calMpCount takes integer i returns nothing
 	if ssCount >= 18 then
 		call SetPlayerTechResearched(Player(i),'R00B',1)
 	endif
-
+	
 	// 多通奖励
 	if msCount >= 2 then
 		// 1w金币
@@ -1946,8 +1998,8 @@ function calMpCount takes integer i returns nothing
 	// 通关门派存到哈希表，parentId从1开始
 	call SaveInteger(YDHT, parentId, StringHash("多通门派数量"), msCount)
 	call SaveInteger(YDHT, parentId, StringHash("单通门派数量"), ssCount)
-
-
+	
+	
 endfunction
 
 // 初始化服务器存档
@@ -1963,11 +2015,11 @@ function InitGlobalSave takes nothing returns nothing
 	endif
 	// 积分倍数全局存档
 	set jfBeishu = DzAPI_Map_GetMapConfig("jfBeishu")
-
+	
 	set priKey = DzAPI_Map_GetMapConfig("priKey")
 	
 	loop
-		exitwhen i>4
+	exitwhen i>4
 		set extraDoubleJf[i] = 1 // 无额外双倍积分
 		// set extraSpeed[i] = 0 // 无额外移速
 		set manySuccess[i]=DzAPI_Map_GetStoredString(Player(i),"manySuccess") // 获取多通门派存档
@@ -1983,9 +2035,9 @@ function InitGlobalSave takes nothing returns nothing
 		set bonus_baoshang[i]=DzAPI_Map_GetStoredReal(Player(i),"baoshang") // 获取爆伤加成
 		// 积分大于战斗力视为作弊，积分清零
 		if udg_jf[i] > udg_zdl[i] or udg_jf[i] > 326 * udg_success[i] then
-		    call DisplayTextToPlayer(Player(i), 0, 0, "系统检测到你作弊，积分清零")
-		    set udg_jf[i] = 0
-		    call DzAPI_Map_StoreInteger(Player(i),"jf",0)
+			call DisplayTextToPlayer(Player(i), 0, 0, "系统检测到你作弊，积分清零")
+			set udg_jf[i] = 0
+			call DzAPI_Map_StoreInteger(Player(i),"jf",0)
 		endif
 		// 积分购买武功加成和爆伤上限30%，超过视为作弊，不加伤害
 		if bonus_wugong[i] > 0.3 then
@@ -2004,47 +2056,47 @@ function InitGlobalSave takes nothing returns nothing
 			set udg_jf[i] = udg_jf[i] +1000
 		endif
 		set jf_useMax[i] = 0 // 每局已用积分
-
+		
 		// 计算通关门派及奖励
 		call calMpCount(i)	
 		
 		set i=i+1
 	endloop
-
+	
 endfunction
 // 初始化测试人员的权限
 function InitPriv takes nothing returns nothing
 	local integer i = 0
 	loop
-		exitwhen i>4
-			if GetPlayerName(Player(i))=="WorldEdit" or GetPlayerName(Player(i))=="zeikale" or GetPlayerName(Player(i))=="zeikala" or GetPlayerName(Player(i))=="非我莫属xq" or GetPlayerName(Player(i))=="苍穹而降" or GetPlayerName(Player(i))=="晓窗临风" or GetPlayerName(Player(i))=="沫Mu" or GetPlayerName(Player(i))=="虞姬" then
-				if admin == "0" or testVersion then
-					set udg_isTest[i] = true
-					set talent_flag[i + 1] = 1
-					set tiezhang_flag[i + 1] = 1
-					set tangmen_flag[i + 1] = 1
-					set mall_addition[i + 1] = 1
-					set level_award[i + 1] = 1
-					// set extraDoubleJf[i] = 2 // 额外双倍积分
-					call DisplayTextToPlayer(Player(i), 0, 0, "|Cff008C00开|r|Cff088f00启|r|Cff119300了|r|Cff1a9700天|r|Cff239b00赋|r|Cff2b9f00、|r|Cff34a300铁|r|Cff3da700掌|r|Cff46ab00帮|r|Cff4faf00和|r|Cff57b300唐|r|Cff60b700门|r|Cff69bb00的|r|Cff72bf00权|r|Cff7bc300限|r|Cff83c700，|r|Cff8ccb00开|r|Cff95cf00启|r|Cff9ed300双|r|Cffa7d700倍|r|Cffafdb00积|r|Cffb8df00分|r|Cffc1e300和|r|Cffcae700萌|r|Cffd3eb00新|r|Cffdbef00礼|r|Cffe4f300包|r|Cffedf700权|r|Cfff6fb00限|r")
-				endif
+	exitwhen i>4
+		if GetPlayerName(Player(i))=="WorldEdit" or GetPlayerName(Player(i))=="zeikale" or GetPlayerName(Player(i))=="zeikala" or GetPlayerName(Player(i))=="非我莫属xq" or GetPlayerName(Player(i))=="苍穹而降" or GetPlayerName(Player(i))=="晓窗临风" or GetPlayerName(Player(i))=="沫Mu" or GetPlayerName(Player(i))=="虞姬" then
+			if admin == "0" or testVersion then
+				set udg_isTest[i] = true
+				set talent_flag[i + 1] = 1
+				set tiezhang_flag[i + 1] = 1
+				set tangmen_flag[i + 1] = 1
+				set mall_addition[i + 1] = 1
+				set level_award[i + 1] = 1
+				// set extraDoubleJf[i] = 2 // 额外双倍积分
+				call DisplayTextToPlayer(Player(i), 0, 0, "|Cff008C00开|r|Cff088f00启|r|Cff119300了|r|Cff1a9700天|r|Cff239b00赋|r|Cff2b9f00、|r|Cff34a300铁|r|Cff3da700掌|r|Cff46ab00帮|r|Cff4faf00和|r|Cff57b300唐|r|Cff60b700门|r|Cff69bb00的|r|Cff72bf00权|r|Cff7bc300限|r|Cff83c700，|r|Cff8ccb00开|r|Cff95cf00启|r|Cff9ed300双|r|Cffa7d700倍|r|Cffafdb00积|r|Cffb8df00分|r|Cffc1e300和|r|Cffcae700萌|r|Cffd3eb00新|r|Cffdbef00礼|r|Cffe4f300包|r|Cffedf700权|r|Cfff6fb00限|r")
 			endif
+		endif
 		set i=i+1
 	endloop
 endfunction
 
 // 初始化玩家数量
 function initPlayerCount takes nothing returns nothing
-    local integer i = 1 
-    loop
-        exitwhen i>12
-        // body
-         if GetPlayerController(ConvertedPlayer(i)) == MAP_CONTROL_USER and GetPlayerSlotState(ConvertedPlayer(i)) == PLAYER_SLOT_STATE_PLAYING then
-            set udg_wanjiashu = udg_wanjiashu + 1
-         endif
-         set i = i +1
-    endloop
-    call BJDebugMsg("|CffFF0000玩家数量|r："+I2S(udg_wanjiashu))
+	local integer i = 1 
+	loop
+	exitwhen i>12
+		// body
+		if GetPlayerController(ConvertedPlayer(i)) == MAP_CONTROL_USER and GetPlayerSlotState(ConvertedPlayer(i)) == PLAYER_SLOT_STATE_PLAYING then
+			set udg_wanjiashu = udg_wanjiashu + 1
+		endif
+		set i = i +1
+	endloop
+	call BJDebugMsg("|CffFF0000玩家数量|r："+I2S(udg_wanjiashu))
 endfunction
 
 function InitGlobalVariables takes nothing returns nothing
@@ -2064,23 +2116,23 @@ endfunction
 
 
 /*
- * 门派触发器
- */
+* 门派触发器
+*/
 function MenPai_Trigger takes nothing returns nothing
 	call EMei_Trigger() //峨眉武功触发
 	call GaiBang_Trigger() //丐帮武功触发
 	call GuMu_Trigger() //古墓武功触发
 	call HuaShan_Trigger() //华山武功触发
-	 call HengShan_Trigger() //恒山武功触发
-    call HengShan2_Trigger() //衡山武功触发
-    call LingJiuGong_Trigger() //灵鹫宫武功触发
-    call MuRongJia_Trigger() //慕容世家武功触发
+	call HengShan_Trigger() //恒山武功触发
+	call HengShan2_Trigger() //衡山武功触发
+	call LingJiuGong_Trigger() //灵鹫宫武功触发
+	call MuRongJia_Trigger() //慕容世家武功触发
 	call QuanZhen_Trigger() //全真武功触发
 	call ShaoLin_Trigger() //少林武功触发
 	call ShenLong_Trigger() //神龙教武功触发
-    call TieZhang_Trigger() //铁掌帮武功触发
+	call TieZhang_Trigger() //铁掌帮武功触发
 	call tangMenTrigger() //唐门武功触发
-    call TaiShan_Trigger() //泰山派武功触发
+	call TaiShan_Trigger() //泰山派武功触发
 	call VIPMingJiao_Trigger() //明教武功触发
 	call WuDang_Trigger() //武当武功触发
 	call XueDao_Trigger() //血刀门武功触发
@@ -2093,8 +2145,8 @@ endfunction
 
 //地图初始化
 function main1 takes nothing returns nothing
-
-
+	
+	
 	local trigger t
 	local real life
 	local integer itemID
@@ -2138,10 +2190,10 @@ function main1 takes nothing returns nothing
 	set udg_baolv[22]=33
 	set udg_baolv[23]=33
 	set udg_baolv[24]=34
-
+	
 	set i=1
 	loop
-		exitwhen i>=6
+	exitwhen i>=6
 		set udg_shuxing[i]=10
 		set qiuhun[i]=0
 		set zhaoyangguo[i]=0
@@ -2158,9 +2210,9 @@ function main1 takes nothing returns nothing
 	// FIXME
 	loop
 	exitwhen cu==16
-	set bj_FORCE_PLAYER[cu]=CreateForce()
-	call ForceAddPlayer(bj_FORCE_PLAYER[cu],Player(cu))
-	set cu=cu+1
+		set bj_FORCE_PLAYER[cu]=CreateForce()
+		call ForceAddPlayer(bj_FORCE_PLAYER[cu],Player(cu))
+		set cu=cu+1
 	endloop
 	set bj_FORCE_ALL_PLAYERS=CreateForce()
 	call ForceEnumPlayers(bj_FORCE_ALL_PLAYERS,null)
@@ -2171,19 +2223,19 @@ function main1 takes nothing returns nothing
 	// FIXME
 	loop
 	exitwhen cu>=bj_MAX_QUEUED_TRIGGERS
-	set bj_queuedExecTriggers[cu]=null
-	set bj_queuedExecUseConds[cu]=false
-	set cu=cu+1
+		set bj_queuedExecTriggers[cu]=null
+		set bj_queuedExecUseConds[cu]=false
+		set cu=cu+1
 	endloop
 	set bj_isSinglePlayer=false
 	set Du=0
 	set cu=0
 	loop
 	exitwhen cu>=12
-	if(GetPlayerController(Player(cu))==MAP_CONTROL_USER and GetPlayerSlotState(Player(cu))==PLAYER_SLOT_STATE_PLAYING)then
-	set Du=Du+1
-	endif
-	set cu=cu+1
+		if(GetPlayerController(Player(cu))==MAP_CONTROL_USER and GetPlayerSlotState(Player(cu))==PLAYER_SLOT_STATE_PLAYING)then
+			set Du=Du+1
+		endif
+		set cu=cu+1
 	endloop
 	set bj_isSinglePlayer=(Du==1)
 	set bj_rescueSound=CreateSoundFromLabel("Rescue",false,false,false,$2710,$2710)
@@ -2200,9 +2252,9 @@ function main1 takes nothing returns nothing
 	call DelayedSuspendDecayCreate()
 	set v=VersionGet()
 	if(v==VERSION_REIGN_OF_CHAOS)then
-	set bj_MELEE_MAX_TWINKED_HEROES=bj_MELEE_MAX_TWINKED_HEROES_V0
+		set bj_MELEE_MAX_TWINKED_HEROES=bj_MELEE_MAX_TWINKED_HEROES_V0
 	else
-	set bj_MELEE_MAX_TWINKED_HEROES=bj_MELEE_MAX_TWINKED_HEROES_V1
+		set bj_MELEE_MAX_TWINKED_HEROES=bj_MELEE_MAX_TWINKED_HEROES_V1
 	endif
 	call InitQueuedTriggers()
 	call YDWEInitRescuableBehaviorBJNull()
@@ -2211,10 +2263,10 @@ function main1 takes nothing returns nothing
 	call InitSummonableCaps()
 	set wu=0
 	loop
-	set bj_stockAllowedPermanent[wu]=false
-	set bj_stockAllowedCharged[wu]=false
-	set bj_stockAllowedArtifact[wu]=false
-	set wu=wu+1
+		set bj_stockAllowedPermanent[wu]=false
+		set bj_stockAllowedCharged[wu]=false
+		set bj_stockAllowedArtifact[wu]=false
+		set wu=wu+1
 	exitwhen wu>$A
 	endloop
 	call SetAllItemTypeSlots($B)
@@ -2232,7 +2284,7 @@ function main1 takes nothing returns nothing
 	set i=0
 	set i=0
 	loop
-		exitwhen(i>16)
+	exitwhen(i>16)
 		set udg_jdds[i] = 0
 		set udg_ldds[i] = 0
 		set udg_xbds[i] = 0
@@ -2250,7 +2302,7 @@ function main1 takes nothing returns nothing
 		set udg_hashero[i]=false
 		set udg_baoji[i]=false
 		set udg_yiwang[i]=false
-
+		
 		set tide_rising[i] = false
 		set R4[i]=DialogCreate()
 		set Y4[i]=1
@@ -2271,17 +2323,17 @@ function main1 takes nothing returns nothing
 		set max_damage[i] = 0
 		set wugongshu[i]=11 // 11格
 		set udg_zhemei[i]=0
-
+		
 		set jfQiWuLimit[i] = 3 // 积分奇武限定兑换3次
-
+		
 		set chief[i]=0 // 掌门称号
 		set title0[i]=0 // 称号1 1-30
 		set title1[i]=0 // 称号2 31-60
 		set deputy[i] = 0 // 副职
 		set master[i] = 0 // 大师
-
+		
 		set qimen_status[i] = 0 // 奇门术数标识
-
+		
 		set wuxing[i] = 9
 		set jingmai[i] = 9
 		set gengu[i] = 9
@@ -2414,20 +2466,20 @@ function main1 takes nothing returns nothing
 	set w7=CreateGroup()
 	set i=0
 	loop
-		exitwhen(i>5)
+	exitwhen(i>5)
 		set A7[i]=CreateTimer()
 		set i=i+1
 	endloop
 	set ShiFouShuaGuai=true
 	set i=0
 	loop
-		exitwhen(i>100)
+	exitwhen(i>100)
 		set I7[i]='AEfk'
 		set i=i+1
 	endloop
 	set i=0
 	loop
-		exitwhen(i>20)
+	exitwhen(i>20)
 		set udg_menpainame[i]="未加入"
 		set X7[i]='AEfk'
 		set Y7[i]='AEfk'
@@ -2448,10 +2500,10 @@ function main1 takes nothing returns nothing
 	set pd[8] = 15000
 	set pd[9] = 15000
 	set pd[10] = 500000
-
+	
 	set i=0
 	loop
-		exitwhen(i>$A)
+	exitwhen(i>$A)
 		set m8[i]=false
 		set q8[i]='crys'
 		set yongdanshu[i]=0
@@ -2459,7 +2511,7 @@ function main1 takes nothing returns nothing
 	endloop
 	set i=0
 	loop
-		exitwhen(i>$D)
+	exitwhen(i>$D)
 		set udg_blgg[i]=0
 		set udg_blwx[i]=0
 		set udg_bljm[i]=0
@@ -2474,7 +2526,7 @@ function main1 takes nothing returns nothing
 	set s9=CreateGroup()
 	set i=0
 	loop
-		exitwhen(i>20)
+	exitwhen(i>20)
 		set udg_jueneishxs[i]=0
 		set udg_jueneishjc[i]=0
 		set udg_jueneiminjie[i]=0
@@ -2484,13 +2536,13 @@ function main1 takes nothing returns nothing
 	endloop
 	set i=0
 	loop
-		exitwhen(i>7)
+	exitwhen(i>7)
 		set Hd[i]=CreateTimer()
 		set i=i+1
 	endloop
 	set i=0
 	loop
-		exitwhen(i>15)
+	exitwhen(i>15)
 		set xe[i]=0
 		set ye[i]=0
 		set ze[i]=0
@@ -2501,7 +2553,7 @@ function main1 takes nothing returns nothing
 	set lh=CreateTrigger()
 	call TriggerRegisterTimerEventSingle(lh,.1)
 	call TriggerAddAction(lh,function Zw)
-		
+	
 	call InitGlobalVariables() //初始化全局变量
 	
 	call KeyInputSystem() //键盘输入系统
@@ -2511,13 +2563,13 @@ function main1 takes nothing returns nothing
 	call Cuns() //存储装备属性
 	call CunWuGongS() //存储武功
 	call najitest() //纳吉的测试代码
-
+	
 	set t = null
 	set v = null
 endfunction
 
 function main2 takes nothing returns nothing
-    call mallInit() // 商城逻辑初始化
+	call mallInit() // 商城逻辑初始化
 	call GameLogic_Trigger() // 游戏逻辑触发器
 	call GameDetail_Trigger() // 游戏细节处理
 	// call VIP_Trigger() // VIP系统
@@ -2526,18 +2578,18 @@ function main2 takes nothing returns nothing
 	
 	call Equipment_Trigger() //装备属性触发器
 	call MenPai_Trigger() //门派触发器
-    call ZiZhi_Trigger() //自制武器触发器
-    call ZhenFa_Trigger() //阵法触发器
+	call ZiZhi_Trigger() //自制武器触发器
+	call ZhenFa_Trigger() //阵法触发器
 	call TiaoZhan_Trigger() //挑战场触发器
-    call QiWu_Trigger() //奇武触发器
+	call QiWu_Trigger() //奇武触发器
 	call TaoHuaDao_Trigger() //桃花岛触发器
 	call Instances_Trigger() //副本和任务系统
 	call Experiences_Trigger() //历练系统
 	call ElixirSystem_Trigger() //丹药系统
 	call Tasks_Trigger() //任务系统
 	call checkActivityAddition() // 判断是否在活动期间
-
-
+	
+	
 	call cleanItems() // 清除物品命令
 	call enhanceDefense() // 难度七提升防御
 	call npcHint() // NPC提示
@@ -2546,10 +2598,11 @@ function main2 takes nothing returns nothing
 	call EverySecond() // 记录游戏时间
 	call initPetSkill() // 宠物技能
 	call initUI() // 初始化UI
-
+	
 	call UnitAttack() // 注册单位攻击事件
 	call UseAbility() // 注册使用技能事件
 	call UnitDamage() // 注册任意单位伤害事件
 	call UnitDeath() // 注册任意单位死亡事件
-
+	call ItemEvent() // 注册物品相关事件
+	
 endfunction

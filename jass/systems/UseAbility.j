@@ -48,6 +48,16 @@ function UseAbility_Conditions takes nothing returns boolean
 	if id == QI_MEN_SHU_SHU then
 		call qiMenShuShu(u)
 	endif
+
+	// 野螺派：反手牵猪
+	if id == FAN_SHOU_QIAN_ZHU then
+		call fanShouQianZhu(u, ut)
+	endif
+
+	// 野螺派：乾坤一掷
+	if id == QIAN_KUN_YI_ZHI then
+		call qianKunYiZhi(u)
+	endif
  
 	set u = null
 	set ut = null

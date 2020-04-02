@@ -59,6 +59,11 @@ function UnitAttack_Conditions takes nothing returns boolean
 		call xuanFengTui(u, ut)
 	endif
 
+	// 遭雷劈
+	if PassiveWuGongCondition(u, ut, ZAO_LEI_PI) and GetRandomReal(1, 100) <= 16 + fuyuan[i] * 0.2 then
+		call zaoLeiPi(u, ut)
+	endif
+
 	call RemoveLocation(loc)
 	call RemoveLocation(loc2)
 	set u = null

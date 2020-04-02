@@ -28,6 +28,12 @@ globals
 	constant integer XUAN_FENG_TUI = 'A0EI' // 旋风扫叶腿
 	constant integer BI_BO_XIN_JING = 'A0EK' // 碧波心经
 	constant integer QI_MEN_SHU_SHU = 'A0EL' // 奇门术数
+
+	constant integer ZAO_LEI_PI = 'A0EP' // 遭雷劈
+	constant integer BA_MIAN_LING_LONG = 'A0EQ' // 八面玲珑
+	constant integer FAN_SHOU_QIAN_ZHU = 'A0ES' // 反手牵猪
+	constant integer QIAN_KUN_YI_ZHI = 'A0ET' // 乾坤一掷
+	constant integer DA_GONG_GAO_CHENG = 'A0ER' // 大功告成
 	
 	constant integer SHUANG_SHOU = 'A07U' // 双手互搏
 	constant integer KUI_HUA = 'A07T' // 葵花宝典
@@ -43,6 +49,12 @@ globals
 	
 	constant integer LONG_XIANG = 'S002' // 龙象般若功
 	constant integer XIAO_WU_XIANG = 'A083' // 小无相功
+
+	constant integer MIAO_SHOU_KONG_KONG = 'A03O' // 妙手空空
+	constant integer GUI_XI_GONG = 'A0CE' // 龟息功
+	constant integer SHEN_XING_BAI_BIAN = 'A03N' // 神行百变
+	
+	
 	
 	constant integer POISONED_BUFF = 'BEsh' // 中毒buff
 	constant integer DEEP_POISONED_BUFF = 'B01J' // 深度中毒buff
@@ -50,6 +62,7 @@ globals
 	constant integer ITEM_SHE_ZHANG = 'I09B' // 蛇杖物品
 	constant integer ITEM_YU_XIAO = 'I09D' // 玉箫物品
 	constant integer ITEM_HAN_SHA = 'I0AE' // 含沙射影
+	constant integer ITEM_YE_LUO = 'I0EU' // 野螺
 	
 	
 endglobals
@@ -2143,3 +2156,6 @@ function percentDamage takes unit uc, real percent, boolean max returns nothing
 endfunction
 
 #endif //CommonFuncIncluded
+function isPlayersEnemy takes nothing returns boolean
+	return IsUnitEnemy(GetFilterUnit(), Player(5)) and IsUnitAliveBJ(GetFilterUnit())
+endfunction

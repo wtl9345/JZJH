@@ -54,7 +54,7 @@ function luoYingZhangDamage takes unit u, unit ut returns nothing
 		set shxishu = shxishu * 3
 	endif
 	
-	set shanghai=ShangHaiGongShi(u, ut, 15, 15, shxishu, LUO_YING_ZHANG)
+	set shanghai=ShangHaiGongShi(u, ut, 25, 25, shxishu, LUO_YING_ZHANG)
 	call WuGongShangHai(u, ut, shanghai)
 	
 	set u=null
@@ -155,7 +155,7 @@ function xuanFengTui takes unit u, unit ut returns nothing
 	
 	// 碧波心经点数：持续时间
 	if biBoPoint > 0 then
-		set level = IMaxBJ(9, R2I(level + biBoPoint * 0.2))
+		set level = IMinBJ(9, R2I(level + biBoPoint * 0.2))
 	endif
 	
 	// +双手互搏：额外形成一阵旋风

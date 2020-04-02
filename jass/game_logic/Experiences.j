@@ -16,23 +16,40 @@ function YQ takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
 	local location loc = GetRectCenter(tf)
-	if (GetUnitLevel(u)<10) then
-		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足10级无法接取该任务")
-	else
-		if (shengwang[i]<500) then
-			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足500无法接取该任务")
+	if GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) >= 1 then
+		if (xiuxing[i]>=1) then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000你已经完成这个任务了")
 		else
-			if (xiuxing[i]>=1) then
-				call DisplayTextToPlayer(p,0,0,"|cFFFF0000你已经完成这个任务了")
+			if (J8[i]==0) then
+				set J8[i]=1
+				call PlaySoundOnUnitBJ(bh,100,u)
+				call AdjustPlayerStateBJ(-R2I(0.1 * GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD)), p, PLAYER_STATE_RESOURCE_GOLD )
+				call DisplayTextToPlayer(p,0,0,"|cFFFFCC00丘处机：|r |cFF99FFCC看在钱的面子上，我就通融通融你吧，请前往挑战|r|cFFADFF2F江南七怪|r\n")
+				call PingMinimapLocForForce(ov(p),loc,5.)
+				call RemoveLocation(loc)
 			else
-				if (J8[i]==0) then
-					set J8[i]=1
-					call PlaySoundOnUnitBJ(bh,100,u)
-					call DisplayTextToPlayer(p,0,0,"|cFFFFCC00丘处机：|r |cFF99FFCC请前往挑战|r|cFFADFF2F江南七怪|r\n")
-					call PingMinimapLocForForce(ov(p),loc,5.)
-					call RemoveLocation(loc)
+				call DisplayTextToPlayer(p,0,0,"|cFFFFCC00丘处机：|r |cFF99FFCC请前往挑战|r|cFFADFF2F江南七怪|r\n")
+			endif
+		endif
+	else
+		if (GetUnitLevel(u)<10) then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足10级无法接取该任务")
+		else
+			if (shengwang[i]<500) then
+				call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足500无法接取该任务")
+			else
+				if (xiuxing[i]>=1) then
+					call DisplayTextToPlayer(p,0,0,"|cFFFF0000你已经完成这个任务了")
 				else
-					call DisplayTextToPlayer(p,0,0,"|cFFFFCC00丘处机：|r |cFF99FFCC请前往挑战|r|cFFADFF2F江南七怪|r\n")
+					if (J8[i]==0) then
+						set J8[i]=1
+						call PlaySoundOnUnitBJ(bh,100,u)
+						call DisplayTextToPlayer(p,0,0,"|cFFFFCC00丘处机：|r |cFF99FFCC请前往挑战|r|cFFADFF2F江南七怪|r\n")
+						call PingMinimapLocForForce(ov(p),loc,5.)
+						call RemoveLocation(loc)
+					else
+						call DisplayTextToPlayer(p,0,0,"|cFFFFCC00丘处机：|r |cFF99FFCC请前往挑战|r|cFFADFF2F江南七怪|r\n")
+					endif
 				endif
 			endif
 		endif
@@ -132,100 +149,179 @@ endfunction
 function jR takes nothing returns nothing
 	local integer id=GetHandleId(GetTriggeringTrigger())
 	local integer cx=LoadInteger(YDHT,id,-$3021938A)
+	local unit u = GetTriggerUnit()
+	local player p = GetOwningPlayer(u)
 	set cx=cx+3
 	call SaveInteger(YDHT,id,-$3021938A,cx)
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))))
 	call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,GetTriggerUnit())
-	if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<25))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足25级无法接取该任务")
+	if GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) >= 1 then
+		if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=2))then
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
+		else
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Mf))
+			call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(1200.,LoadLocationHandle(YDHT,id*cx,$5E83114F),Condition(function hR)),function iR)
+			call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call AdjustPlayerStateBJ(-R2I(0.2 * GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD)), p, PLAYER_STATE_RESOURCE_GOLD )
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00戒律主持：|r |cFF99FFCC看在钱的面子上，我就通融通融你吧，想证明自己的能力就要通关少林|r|cFFADFF2F十八罗汉阵")
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call TriggerSleepAction(2)
+			call SaveInteger(YDHT,id,-$1317DA19,cx)
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call TriggerSleepAction(4.)
+			call SaveInteger(YDHT,id,-$1317DA19,cx)
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call TriggerSleepAction(6.)
+			call SaveInteger(YDHT,id,-$1317DA19,cx)
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+			call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		endif
+		
 	else
-	if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<1800))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足1800无法接取该任务")
-	else
-	if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<1))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练1任务")
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Te))
-	call PingMinimapLocForForce(ov(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3)))),LoadLocationHandle(YDHT,id*cx,$5E83114F),5.)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	else
-	if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=2))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
-	else
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Mf))
-	call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(1200.,LoadLocationHandle(YDHT,id*cx,$5E83114F),Condition(function hR)),function iR)
-	call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00戒律主持：|r |cFF99FFCC想证明自己的能力就要通关少林|r|cFFADFF2F十八罗汉阵")
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call TriggerSleepAction(2)
-	call SaveInteger(YDHT,id,-$1317DA19,cx)
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call TriggerSleepAction(4.)
-	call SaveInteger(YDHT,id,-$1317DA19,cx)
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call TriggerSleepAction(6.)
-	call SaveInteger(YDHT,id,-$1317DA19,cx)
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
-	call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	endif
-	endif
-	endif
+		if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<25))then
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足25级无法接取该任务")
+		else
+			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<1800))then
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足1800无法接取该任务")
+			else
+				if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<1))then
+					call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练1任务")
+					call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Te))
+					call PingMinimapLocForForce(ov(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3)))),LoadLocationHandle(YDHT,id*cx,$5E83114F),5.)
+					call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				else
+					if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=2))then
+						call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
+					else
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Mf))
+						call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(1200.,LoadLocationHandle(YDHT,id*cx,$5E83114F),Condition(function hR)),function iR)
+						call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+						call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00戒律主持：|r |cFF99FFCC想证明自己的能力就要通关少林|r|cFFADFF2F十八罗汉阵")
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call TriggerSleepAction(2)
+						call SaveInteger(YDHT,id,-$1317DA19,cx)
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call TriggerSleepAction(4.)
+						call SaveInteger(YDHT,id,-$1317DA19,cx)
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call TriggerSleepAction(6.)
+						call SaveInteger(YDHT,id,-$1317DA19,cx)
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRandomLocInRect(Mf))
+						call CreateNUnitsAtLoc(1,1852862003,Player(12),LoadLocationHandle(YDHT,id*cx,$5E83114F),bj_UNIT_FACING)
+						call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+					endif
+				endif
+			endif
+		endif
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
+	set u = null
+	set p = null
 endfunction
 function mR takes nothing returns boolean
-	return((GetUnitTypeId(GetTriggerUnit())==1852862003)and(xiuxing[(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())))]==1))
+	return((GetUnitTypeId(GetTriggerUnit())==1852862003)and(xiuxing[(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())))]<=1))
 endfunction
 function nR takes nothing returns nothing
 	local integer id=GetHandleId(GetTriggeringTrigger())
@@ -236,33 +332,33 @@ function nR takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	set N8[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(N8[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
 	if((N8[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=18))then
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=2
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',3)
-		call SetUnitAcquireRange(GetKillingUnit(), 800)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=2.6
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	if udg_runamen[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]!=11 then
-	    call unitadditembyidswapped(1227895642,GetKillingUnit())
-	    call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务十八罗汉阵，获得修行+1，全性格属性+1，门派毕业卷")
+		set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=2
+		if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+			call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',3)
+			call SetUnitAcquireRange(GetKillingUnit(), 800)
+		endif
+		set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=2.6
+		set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+		if udg_runamen[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))]!=11 then
+			call unitadditembyidswapped(1227895642,GetKillingUnit())
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务十八罗汉阵，获得修行+1，全性格属性+1，门派毕业卷")
+		else
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务十八罗汉阵，获得修行+1，全性格属性+1")
+		endif
+		// 单通5门派奖励
+		if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+			set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+		endif
+		
 	else
-	    call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务十八罗汉阵，获得修行+1，全性格属性+1")
-	endif
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-
-	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("十八罗汉："+(I2S(N8[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 18")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("十八罗汉："+(I2S(N8[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 18")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -273,50 +369,81 @@ endfunction
 function tR takes nothing returns nothing
 	local integer id=GetHandleId(GetTriggeringTrigger())
 	local integer cx=LoadInteger(YDHT,id,-$3021938A)
+	local unit u = GetTriggerUnit()
+	local player p = GetOwningPlayer(u)
 	set cx=cx+3
 	call SaveInteger(YDHT,id,-$3021938A,cx)
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))))
 	call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,GetTriggerUnit())
-	if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<40))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足40级无法接取该任务")
+	if GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) >= 1 then
+		if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=3))then
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
+		else
+			if((h9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]))then
+				call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))
+				call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F2分钟内|r|cFF99FFCC击杀超过100只，才能完成任务")
+				call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			else
+				call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))
+				call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+				call AdjustPlayerStateBJ(-R2I(0.3 * GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD)), p, PLAYER_STATE_RESOURCE_GOLD )
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F看在钱的面子上，我就通融通融你吧，十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F150秒内|r|cFF99FFCC击杀超过100只，才能完成任务")
+				call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				call StartTimerBJ(f9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],false,150.)
+				call CreateTimerDialogBJ(bj_lastStartedTimer,"闯关倒计时:")
+				call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
+				set g9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=bj_lastCreatedTimerDialog
+				set h9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=true
+				set i9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+			endif
+		endif
 	else
-	if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<3200))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足3200无法接取该任务")
-	else
-	if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<2))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练2任务")
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(ag))
-	call PingMinimapLocForForce(ov(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3)))),LoadLocationHandle(YDHT,id*cx,$5E83114F),5.)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	else
-	if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=3))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
-	else
-	if((h9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))
-	call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F2分钟内|r|cFF99FFCC击杀超过100只，才能完成任务")
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	else
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))
-	call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F150秒内|r|cFF99FFCC击杀超过100只，才能完成任务")
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call StartTimerBJ(f9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],false,150.)
-	call CreateTimerDialogBJ(bj_lastStartedTimer,"闯关倒计时:")
-	call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
-	set g9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=bj_lastCreatedTimerDialog
-	set h9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=true
-	set i9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
-	endif
-	endif
-	endif
-	endif
+		if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<40))then
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足40级无法接取该任务")
+		else
+			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<3200))then
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足3200无法接取该任务")
+			else
+				if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<2))then
+					call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练2任务")
+					call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(ag))
+					call PingMinimapLocForForce(ov(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3)))),LoadLocationHandle(YDHT,id*cx,$5E83114F),5.)
+					call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				else
+					if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=3))then
+						call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
+					else
+						if((h9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]))then
+							call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))
+							call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+							call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F2分钟内|r|cFF99FFCC击杀超过100只，才能完成任务")
+							call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						else
+							call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Ag))
+							call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+							call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00黄蓉：|r|cFFADFF2F十恶不赦 |r|cFF99FFCC危害武林江湖多年，你须在|r|cFFADFF2F150秒内|r|cFF99FFCC击杀超过100只，才能完成任务")
+							call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+							call StartTimerBJ(f9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],false,150.)
+							call CreateTimerDialogBJ(bj_lastStartedTimer,"闯关倒计时:")
+							call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
+							set g9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=bj_lastCreatedTimerDialog
+							set h9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=true
+							set i9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+						endif
+					endif
+				endif
+			endif
+		endif
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
+	set u = null
+	set p = null
 endfunction
 function vR takes nothing returns boolean
 	return((GetUnitTypeId(GetTriggerUnit())=='ndtb')and(h9[(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())))]))
@@ -330,35 +457,35 @@ function wR takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	set i9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(i9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
 	if((i9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=100))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',4)
-		call SetUnitAcquireRange(GetKillingUnit(), 900)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4.2
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set h9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯十恶不赦岛，获得修行+1，全性格属性+1，脱胎换骨丹1个，你可以前往藏经阁了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(g9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(f9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call unitadditembyidswapped(1227895374,GetKillingUnit())
+		call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+		set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
+		if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+			call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',4)
+			call SetUnitAcquireRange(GetKillingUnit(), 900)
+		endif
+		set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4.2
+		set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+		set h9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯十恶不赦岛，获得修行+1，全性格属性+1，脱胎换骨丹1个，你可以前往藏经阁了")
+		// 单通5门派奖励
+		if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+			set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+		endif
+		call DestroyTimerDialog(g9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+		call DestroyTimer(f9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call unitadditembyidswapped(1227895374,GetKillingUnit())
 	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("十恶不赦："+(I2S(i9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 100")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("十恶不赦："+(I2S(i9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 100")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -371,10 +498,10 @@ function yR takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,1)
 	call DestroyTimerDialog(g9[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(bg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set h9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -390,10 +517,10 @@ function AR takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,2)
 	call DestroyTimerDialog(g9[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(bg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set h9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -409,10 +536,10 @@ function BR takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,3)
 	call DestroyTimerDialog(g9[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(bg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set h9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -428,10 +555,10 @@ function CR takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,4)
 	call DestroyTimerDialog(g9[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(bg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set h9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -447,10 +574,10 @@ function DR takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,5)
 	call DestroyTimerDialog(g9[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(bg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set h9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -464,64 +591,110 @@ endfunction
 function GR takes nothing returns nothing
 	local integer id=GetHandleId(GetTriggeringTrigger())
 	local integer cx=LoadInteger(YDHT,id,-$3021938A)
+	local unit u = GetTriggerUnit()
+	local player p = GetOwningPlayer(u)
 	set cx=cx+3
 	call SaveInteger(YDHT,id,-$3021938A,cx)
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))))
 	call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,GetTriggerUnit())
-	if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<55))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足55级无法接取该任务")
+	if GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) >= 1 then
+		if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=4))then
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
+		else
+			if((T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]))then
+				call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Jg))
+				call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			else
+				call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Jg))
+				call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+				call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+				set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+				set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+				set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+				set LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+				call AdjustPlayerStateBJ(-R2I(0.4 * GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD)), p, PLAYER_STATE_RESOURCE_GOLD )
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00看在钱的面子上，我就通融通融你吧,当前进度：")
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+				call StartTimerBJ(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],false,240.)
+				call CreateTimerDialogBJ(bj_lastStartedTimer,"攻打光明顶倒计时:")
+				call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
+				set dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=bj_lastCreatedTimerDialog
+				set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=true
+			endif
+		endif
+		
 	else
-	if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<5500))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足5500无法接取该任务")
-	else
-	if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<3))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练3任务")
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
-	call PingMinimapLocForForce(ov(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3)))),LoadLocationHandle(YDHT,id*cx,$5E83114F),5.)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	else
-	if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=4))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
-	else
-	if((T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Jg))
-	call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	else
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Jg))
-	call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
-	set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
-	set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
-	set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
-	set LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call StartTimerBJ(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],false,240.)
-	call CreateTimerDialogBJ(bj_lastStartedTimer,"攻打光明顶倒计时:")
-	call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
-	set dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=bj_lastCreatedTimerDialog
-	set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=true
-	endif
-	endif
-	endif
-	endif
+		if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<55))then
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足55级无法接取该任务")
+		else
+			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<5500))then
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足5500无法接取该任务")
+			else
+				if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<3))then
+					call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练3任务")
+					call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Bg))
+					call PingMinimapLocForForce(ov(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3)))),LoadLocationHandle(YDHT,id*cx,$5E83114F),5.)
+					call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				else
+					if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=4))then
+						call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
+					else
+						if((T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]))then
+							call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Jg))
+							call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+							call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						else
+							call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Jg))
+							call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+							call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+							call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+							set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+							set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+							set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+							set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+							set LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=0
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+							call StartTimerBJ(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],false,240.)
+							call CreateTimerDialogBJ(bj_lastStartedTimer,"攻打光明顶倒计时:")
+							call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
+							set dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=bj_lastCreatedTimerDialog
+							set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=true
+						endif
+					endif
+				endif
+			endif
+		endif
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
+	set u = null
+	set p = null
 endfunction
 function IR takes nothing returns boolean
 	return((GetUnitTypeId(GetTriggerUnit())==1853056884)and(T9[(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())))]))
@@ -534,49 +707,49 @@ function lR takes nothing returns nothing
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==0))then
-	set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
-	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
-		call SetUnitAcquireRange(GetKillingUnit(), 1000)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
-	set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
+			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
+			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
+				call SetUnitAcquireRange(GetKillingUnit(), 1000)
+			endif
+			set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
+			set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+			set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
+			// 单通5门派奖励
+			if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+				set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+			endif
+			call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+			call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		else
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		endif
 	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	endif
-	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -591,49 +764,49 @@ function LR takes nothing returns nothing
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	if((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==0))then
-	set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
-	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
-		call SetUnitAcquireRange(GetKillingUnit(), 1000)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
-	set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
+			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
+			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
+				call SetUnitAcquireRange(GetKillingUnit(), 1000)
+			endif
+			set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
+			set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+			set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
+			// 单通5门派奖励
+			if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+				set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+			endif
+			call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+			call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		else
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		endif
 	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	endif
-	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -648,49 +821,49 @@ function OR takes nothing returns nothing
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	if((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==0))then
-	set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
-	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
-		call SetUnitAcquireRange(GetKillingUnit(), 1000)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
-	set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
+			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
+			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
+				call SetUnitAcquireRange(GetKillingUnit(), 1000)
+			endif
+			set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
+			set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+			set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
+			// 单通5门派奖励
+			if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+				set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+			endif
+			call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+			call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		else
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		endif
 	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	endif
-	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -705,49 +878,49 @@ function RR takes nothing returns nothing
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	if((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==0))then
-	set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
-	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
-		call SetUnitAcquireRange(GetKillingUnit(), 1000)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
-	set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
+			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
+			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
+				call SetUnitAcquireRange(GetKillingUnit(), 1000)
+			endif
+			set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
+			set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+			set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
+			// 单通5门派奖励
+			if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+				set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+			endif
+			call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+			call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		else
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		endif
 	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	endif
-	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -762,49 +935,49 @@ function UR takes nothing returns nothing
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	if((LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==0))then
-	set LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
-	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
-		call SetUnitAcquireRange(GetKillingUnit(), 1000)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
-	set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		set LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1)and(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==1))then
+			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=4
+			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',5)
+				call SetUnitAcquireRange(GetKillingUnit(), 1000)
+			endif
+			set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=7.
+			set T9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+			set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00完成任务勇闯光明顶，获得修行+1，全性格属性+1，你可以前往逍遥宫了")
+			// 单通5门派奖励
+			if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+				set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+			endif
+			call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call DestroyTimer(Z9[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+			call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		else
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		endif
 	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	endif
-	else
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00紫杉龙王："+(I2S(LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00青翼蝠王："+(I2S(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00金毛狮王："+(I2S(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00白眉鹰王："+(I2S(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
+		call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00阳顶天："+(I2S(LLguaiE[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])+" / 1")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -818,10 +991,10 @@ function WR takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,1)
 	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Kg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set T9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -837,10 +1010,10 @@ function YR takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,2)
 	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Kg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set T9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -856,10 +1029,10 @@ function dS takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,3)
 	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Kg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set T9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -875,10 +1048,10 @@ function fS takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,4)
 	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Kg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set T9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -894,10 +1067,10 @@ function hS takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,5)
 	call DestroyTimerDialog(dd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Kg,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set T9[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -911,60 +1084,103 @@ endfunction
 function kS takes nothing returns nothing
 	local integer id=GetHandleId(GetTriggeringTrigger())
 	local integer cx=LoadInteger(YDHT,id,-$3021938A)
+	local unit u = GetTriggerUnit()
+	local player p = GetOwningPlayer(u)
 	set cx=cx+3
 	call SaveInteger(YDHT,id,-$3021938A,cx)
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetTriggerUnit()))))
 	call SaveUnitHandle(YDHT,id*cx,-$2EC5CBA0,GetTriggerUnit())
-	if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<70))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足70级无法接取该任务")
+	if GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) >= 1 then
+		if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=5))then
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
+		else
+			if((ed[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]))then
+				call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Qg))
+				call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00黄药师："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00欧阳锋："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00一灯大师："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00洪七公："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+				call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			else
+				call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Qg))
+				call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+				call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+				set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+				set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+				set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+				call AdjustPlayerStateBJ(-R2I(0.5 * GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD)), p, PLAYER_STATE_RESOURCE_GOLD )
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00看在钱的面子上，我就通融通融你吧,当前进度：")
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00黄药师："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00欧阳锋："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00一灯大师："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00洪七公："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+				call StartTimerBJ(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],false,280.)
+				call CreateTimerDialogBJ(bj_lastStartedTimer,"华山论剑倒计时")
+				call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
+				set gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=bj_lastCreatedTimerDialog
+				set ed[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=true
+			endif
+		endif
+		
 	else
-	if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<7500))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足7500无法接取该任务")
-	else
-	if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<4))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练4任务")
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
-	call PingMinimapLocForForce(ov(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3)))),LoadLocationHandle(YDHT,id*cx,$5E83114F),5.)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	else
-	if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=5))then
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
-	else
-	if((ed[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Qg))
-	call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00黄药师："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00欧阳锋："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00一灯大师："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00洪七公："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	else
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Qg))
-	call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
-	set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
-	set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
-	set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00黄药师："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00欧阳锋："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00一灯大师："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00洪七公："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
-	call StartTimerBJ(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],false,280.)
-	call CreateTimerDialogBJ(bj_lastStartedTimer,"华山论剑倒计时")
-	call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
-	set gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=bj_lastCreatedTimerDialog
-	set ed[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=true
+		if((GetUnitLevel(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0))<70))then
+			call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000等级不足70级无法接取该任务")
+		else
+			if((shengwang[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<7500))then
+				call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000江湖声望不足7500无法接取该任务")
+			else
+				if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]<4))then
+					call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你必须先完成历练4任务")
+					call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Lg))
+					call PingMinimapLocForForce(ov(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3)))),LoadLocationHandle(YDHT,id*cx,$5E83114F),5.)
+					call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+				else
+					if((xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]>=5))then
+						call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFF0000你已经完成这个任务了")
+					else
+						if((ed[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]))then
+							call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Qg))
+							call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+							call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00黄药师："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00欧阳锋："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00一灯大师："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00洪七公："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+							call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+						else
+							call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Qg))
+							call SetUnitPositionLoc(LoadUnitHandle(YDHT,id*cx,-$2EC5CBA0),LoadLocationHandle(YDHT,id*cx,$5E83114F))
+							call PanCameraToTimedLocForPlayer(GetOwningPlayer(GetTriggerUnit()),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+							call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+							set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+							set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+							set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+							set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=1
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"|cFFFFCC00当前进度：")
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00黄药师："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00欧阳锋："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00一灯大师："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+							call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,("|cFFFFCC00洪七公："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-1))+" / 1")))
+							call StartTimerBJ(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],false,280.)
+							call CreateTimerDialogBJ(bj_lastStartedTimer,"华山论剑倒计时")
+							call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
+							set gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=bj_lastCreatedTimerDialog
+							set ed[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=true
+						endif
+					endif
+				endif
+			endif
+		endif
 	endif
-	endif
-	endif
-	endif
-	endif
+	set u = null
+	set p = null
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
 function nS takes nothing returns boolean
@@ -1079,7 +1295,7 @@ function tS takes nothing returns boolean
 	return((GetUnitTypeId(GetTriggerUnit())==1853323879)and(ed[(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())))]))
 endfunction
 function uS takes nothing returns nothing
-local unit u = GetKillingUnit()
+	local unit u = GetKillingUnit()
 	local player p = GetOwningPlayer(u)
 	local integer i=1+GetPlayerId(p)
 	local location loc = null
@@ -1133,7 +1349,7 @@ function wS takes nothing returns boolean
 	return((GetUnitTypeId(GetTriggerUnit())==1853320818)and(ed[(1+GetPlayerId(GetOwningPlayer(GetKillingUnit())))]))
 endfunction
 function xS takes nothing returns nothing
-local unit u = GetKillingUnit()
+	local unit u = GetKillingUnit()
 	local player p = GetOwningPlayer(u)
 	local integer i=1+GetPlayerId(p)
 	local location loc = null
@@ -1196,10 +1412,10 @@ function AS takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,1)
 	call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Rf,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set ed[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -1218,10 +1434,10 @@ function bS takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,2)
 	call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Rf,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set ed[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -1240,10 +1456,10 @@ function DS takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,3)
 	call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Rf,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set ed[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -1262,10 +1478,10 @@ function GS takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,4)
 	call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Rf,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set ed[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -1284,10 +1500,10 @@ function lS takes nothing returns nothing
 	call SaveInteger(YDHT,id*cx,-$63F0AAA2,5)
 	call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$63F0AAA2)])
 	if((RectContainsUnit(Rf,udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)])))then
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Rg))
+		call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$63F0AAA2)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		call PanCameraToTimedLocForPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+		call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
 	endif
 	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$63F0AAA2))),0,0,"|cFFFF0000时间到，任务失败了")
 	set ed[LoadInteger(YDHT,id*cx,-$63F0AAA2)]=false
@@ -1303,46 +1519,82 @@ function LS takes nothing returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
 	local location loc = null
-	if (GetUnitLevel(u)<100) then
-		call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足100级无法接取该任务")
-	elseif (shengwang[i]<11000) then
-		call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足11000无法接取该任务")
-	elseif (xiuxing[i]<5) then
-		call DisplayTextToPlayer(p,0,0,"|cFFFF0000你必须先完成历练5任务")
-		set loc = GetRectCenter(Rg)
-		call PingMinimapLocForForce(ov(p),loc,5.)
-		call RemoveLocation(loc)
-	elseif (xiuxing[i]>=6) then
-		call DisplayTextToPlayer(p,0,0,"|cFFFF0000你已经完成这个任务了")
-	elseif (Rd[i]) then
-		set loc = GetRectCenter(dh)
-		call SetUnitPositionLoc(u,loc)
-		call PanCameraToTimedLocForPlayer(p,loc,0)
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00当前进度：")
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00楚留香："+I2S(LLguaiA[i]-2)+" / 1")
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00叶孤城："+I2S(LLguaiB[i]-2)+" / 1")
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00西门吹雪："+I2S(LLguaiC[i]-2)+" / 1")
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00陆小凤："+I2S(LLguaiD[i]-2)+" / 1")
-		call RemoveLocation(loc)
+	if GetUnitAbilityLevel(u, BA_MIAN_LING_LONG) >= 1 then
+		if (xiuxing[i]>=6) then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000你已经完成这个任务了")
+		elseif (Rd[i]) then
+			set loc = GetRectCenter(dh)
+			call SetUnitPositionLoc(u,loc)
+			call PanCameraToTimedLocForPlayer(p,loc,0)
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00楚留香："+I2S(LLguaiA[i]-2)+" / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00叶孤城："+I2S(LLguaiB[i]-2)+" / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00西门吹雪："+I2S(LLguaiC[i]-2)+" / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00陆小凤："+I2S(LLguaiD[i]-2)+" / 1")
+			call RemoveLocation(loc)
+		else
+			set loc = GetRectCenter(dh)
+			call SetUnitPositionLoc(u,loc)
+			call PanCameraToTimedLocForPlayer(p, loc, 0)
+			call RemoveLocation(loc)
+			set LLguaiA[i]=2
+			set LLguaiB[i]=2
+			set LLguaiC[i]=2
+			set LLguaiD[i]=2
+			call AdjustPlayerStateBJ(-R2I(0.6 * GetPlayerState(p, PLAYER_STATE_RESOURCE_GOLD)), p, PLAYER_STATE_RESOURCE_GOLD )
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00看在钱的面子上，我就通融通融你吧，当前进度：")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00楚留香：0 / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00叶孤城：0 / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00西门吹雪： 0 / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00陆小凤： 0 / 1")
+			call StartTimerBJ(fd[i],false,120.)
+			call CreateTimerDialogBJ(bj_lastStartedTimer,"紫禁决战倒计时")
+			call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
+			set gd[i]=bj_lastCreatedTimerDialog
+			set Rd[i]=true
+		endif
 	else
-		set loc = GetRectCenter(dh)
-		call SetUnitPositionLoc(u,loc)
-		call PanCameraToTimedLocForPlayer(p, loc, 0)
-		call RemoveLocation(loc)
-		set LLguaiA[i]=2
-		set LLguaiB[i]=2
-		set LLguaiC[i]=2
-		set LLguaiD[i]=2
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00当前进度：")
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00楚留香：0 / 1")
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00叶孤城：0 / 1")
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00西门吹雪： 0 / 1")
-		call DisplayTextToPlayer(p,0,0,"|cFFFFCC00陆小凤： 0 / 1")
-		call StartTimerBJ(fd[i],false,120.)
-		call CreateTimerDialogBJ(bj_lastStartedTimer,"紫禁决战倒计时")
-		call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
-		set gd[i]=bj_lastCreatedTimerDialog
-		set Rd[i]=true
+		if (GetUnitLevel(u)<100) then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000等级不足100级无法接取该任务")
+		elseif (shengwang[i]<11000) then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000江湖声望不足11000无法接取该任务")
+		elseif (xiuxing[i]<5) then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000你必须先完成历练5任务")
+			set loc = GetRectCenter(Rg)
+			call PingMinimapLocForForce(ov(p),loc,5.)
+			call RemoveLocation(loc)
+		elseif (xiuxing[i]>=6) then
+			call DisplayTextToPlayer(p,0,0,"|cFFFF0000你已经完成这个任务了")
+		elseif (Rd[i]) then
+			set loc = GetRectCenter(dh)
+			call SetUnitPositionLoc(u,loc)
+			call PanCameraToTimedLocForPlayer(p,loc,0)
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00楚留香："+I2S(LLguaiA[i]-2)+" / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00叶孤城："+I2S(LLguaiB[i]-2)+" / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00西门吹雪："+I2S(LLguaiC[i]-2)+" / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00陆小凤："+I2S(LLguaiD[i]-2)+" / 1")
+			call RemoveLocation(loc)
+		else
+			set loc = GetRectCenter(dh)
+			call SetUnitPositionLoc(u,loc)
+			call PanCameraToTimedLocForPlayer(p, loc, 0)
+			call RemoveLocation(loc)
+			set LLguaiA[i]=2
+			set LLguaiB[i]=2
+			set LLguaiC[i]=2
+			set LLguaiD[i]=2
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00楚留香：0 / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00叶孤城：0 / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00西门吹雪： 0 / 1")
+			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00陆小凤： 0 / 1")
+			call StartTimerBJ(fd[i],false,120.)
+			call CreateTimerDialogBJ(bj_lastStartedTimer,"紫禁决战倒计时")
+			call TimerDialogDisplayForPlayerBJ(true,bj_lastCreatedTimerDialog,GetOwningPlayer(GetTriggerUnit()))
+			set gd[i]=bj_lastCreatedTimerDialog
+			set Rd[i]=true
+		endif
 	endif
 	set u = null
 	set p = null
@@ -1359,47 +1611,47 @@ function OS takes nothing returns nothing
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==2))then
-	set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
-	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
-		call SetUnitAcquireRange(GetKillingUnit(), 1200)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=20.
-	set Rd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00完成任务决战紫禁之巅，获得修行+1全性格属性+1，你可以前往一品居了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Zg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		set LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
+		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
+			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
+			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
+				call SetUnitAcquireRange(GetKillingUnit(), 1200)
+			endif
+			set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=20.
+			set Rd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+			set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00完成任务决战紫禁之巅，获得修行+1全性格属性+1，你可以前往一品居了")
+			// 单通5门派奖励
+			if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+				set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+				call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+			endif
+			call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call DestroyTimer(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Zg))
+			call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		else
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		endif
 	else
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	endif
-	else
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -1414,47 +1666,47 @@ function RS takes nothing returns nothing
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	if((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==2))then
-	set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
-	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
-		call SetUnitAcquireRange(GetKillingUnit(), 1200)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=20.
-	set Rd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00完成任务决战紫禁之巅，获得修行+1全性格属性+1，你可以前往一品居了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Zg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		set LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
+		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
+			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
+			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
+				call SetUnitAcquireRange(GetKillingUnit(), 1200)
+			endif
+			set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=20.
+			set Rd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+			set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00完成任务决战紫禁之巅，获得修行+1全性格属性+1，你可以前往一品居了")
+			// 单通5门派奖励
+			if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+				set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+				call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+			endif
+			call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call DestroyTimer(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Zg))
+			call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		else
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		endif
 	else
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	endif
-	else
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -1469,47 +1721,47 @@ function US takes nothing returns nothing
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	if((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==2))then
-	set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
-	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
-		call SetUnitAcquireRange(GetKillingUnit(), 1200)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=20.
-	set Rd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00完成任务决战紫禁之巅，获得修行+1全性格属性+1，你可以前往一品居了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Zg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		set LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
+		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
+			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
+			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
+				call SetUnitAcquireRange(GetKillingUnit(), 1200)
+			endif
+			set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=20.
+			set Rd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+			set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00完成任务决战紫禁之巅，获得修行+1全性格属性+1，你可以前往一品居了")
+			// 单通5门派奖励
+			if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+				set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+				call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+			endif
+			call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call DestroyTimer(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Zg))
+			call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		else
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		endif
 	else
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	endif
-	else
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -1524,47 +1776,47 @@ function XS takes nothing returns nothing
 	call SaveInteger(YDHT,id,-$1317DA19,cx)
 	call SaveInteger(YDHT,id*cx,-$5E9EB4B3,(1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))))
 	if((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==2))then
-	set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
-	if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
-	call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
-	set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
-	if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
-		call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
-		call SetUnitAcquireRange(GetKillingUnit(), 1200)
-	endif
-	set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=20.
-	set Rd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
-	set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00完成任务决战紫禁之巅，获得修行+1全性格属性+1，你可以前往一品居了")
-	// 单通5门派奖励
-	if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
-		set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
-		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
-	endif
-	call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call DestroyTimer(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
-	call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Zg))
-	call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
-	call PanCameraToTimedLocForPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
-	call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		set LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=3
+		if((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3)and(LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]==3))then
+			call PlaySoundOnUnitBJ(Hh,100,GetKillingUnit())
+			set xiuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=6
+			if GetUnitAbilityLevel(GetKillingUnit(), 'A03Q') !=0 then
+				call SetPlayerTechResearched(GetOwningPlayer(GetKillingUnit()),'Rhri',7)
+				call SetUnitAcquireRange(GetKillingUnit(), 1200)
+			endif
+			set udg_lilianxishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=20.
+			set Rd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=false
+			set danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(danpo[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(gengu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(fuyuan[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(jingmai[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(wuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			set yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]=(yishu[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]+1)
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00完成任务决战紫禁之巅，获得修行+1全性格属性+1，你可以前往一品居了")
+			// 单通5门派奖励
+			if LoadInteger(YDHT,LoadInteger(YDHT,id*cx,-$5E9EB4B3),StringHash("单通门派数量")) >= 5  then
+				set udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] = udg_shuxing[LoadInteger(YDHT,id*cx,-$5E9EB4B3)] + 1
+				call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|CFF34FF00单通5个门派，额外获得1自由属性")
+			endif
+			call DestroyTimerDialog(gd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call DestroyTimer(fd[LoadInteger(YDHT,id*cx,-$5E9EB4B3)])
+			call SaveLocationHandle(YDHT,id*cx,$5E83114F,GetRectCenter(Zg))
+			call SetUnitPositionLoc(udg_hero[LoadInteger(YDHT,id*cx,-$5E9EB4B3)],LoadLocationHandle(YDHT,id*cx,$5E83114F))
+			call PanCameraToTimedLocForPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),LoadLocationHandle(YDHT,id*cx,$5E83114F),0)
+			call RemoveLocation(LoadLocationHandle(YDHT,id*cx,$5E83114F))
+		else
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+			call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		endif
 	else
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	endif
-	else
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
-	call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,"|cFFFFCC00当前进度：")
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00楚留香："+(I2S((LLguaiA[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00叶孤城："+(I2S((LLguaiB[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00西门吹雪："+(I2S((LLguaiC[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
+		call DisplayTextToPlayer(Player(-1+LoadInteger(YDHT,id*cx,-$5E9EB4B3)),0,0,("|cFFFFCC00陆小凤："+(I2S((LLguaiD[LoadInteger(YDHT,id*cx,-$5E9EB4B3)]-2))+" / 1")))
 	endif
 	call FlushChildHashtable(YDHT,id*cx)
 endfunction
