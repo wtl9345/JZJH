@@ -653,11 +653,11 @@ function QiuJiao takes player p, integer num returns nothing
 	
 	// if I7[te[i]*20+num] == 'A0DP' or I7[te[i]*20+num] == 'A0B6' then
 	// 铁掌归元吐纳可以偷
-	if I7[te[i]*20+num] == 'A0B6' then
-	    call unitadditembyidswapped(1227896625,P4[i])
-    	call DisplayTextToPlayer(p,0,0,"|CFFFF0033这个武功太高深了，看起来学不会的样子")
-    	return
-	endif
+	// if I7[te[i]*20+num] == 'A0B6' then
+	//     call unitadditembyidswapped(1227896625,P4[i])
+    // 	call DisplayTextToPlayer(p,0,0,"|CFFFF0033这个武功太高深了，看起来学不会的样子")
+    // 	return
+	// endif
 	if (I7[(i-1)*20+L7[i]]!='AEfk') then
 		if (L7[i]==wugongshu[i])then
 			call unitadditembyidswapped(1227896625,P4[i])
@@ -670,11 +670,18 @@ function QiuJiao takes player p, integer num returns nothing
 			call UnitMakeAbilityPermanent(udg_hero[i], true, I7[te[i]*20+num])
 			set I7[(((i-1)*20)+L7[i])]=I7[te[i]*20+num]
 			call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,("|CFFFF0033传闻"+(GetPlayerName(p)+(("向"+(GetPlayerName(Player(-1+((te[i]+1))))+"虚心求教，成功的学会了"))+GetObjectName(I7[te[i]*20+num])))))
+			// 偷奇门术数和碧波心经显示UI
 			if I7[te[i]*20+num] == QI_MEN_SHU_SHU then
 				if p == GetLocalPlayer() then
 					call qimen_widget.show()
 				endif
 			endif
+			if I7[te[i]*20+num] == BI_BO_XIN_JING then
+				if p == GetLocalPlayer() then
+					call bibo_image.show()					
+				endif
+			endif
+			
 			set S9=1
 			loop
 				exitwhen S9>20

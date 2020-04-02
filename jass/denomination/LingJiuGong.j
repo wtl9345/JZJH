@@ -354,7 +354,7 @@ function BaHuangGong takes nothing returns nothing
 		set gailv = gailv + 20
     endif
 	// 随机数1-100 小于 （6+ 福缘/3 + 六脉等级*3）
-	if GetRandomInt(1,100)<gailv+fuyuan[i]/3+GetUnitAbilityLevel(u, 'A085')*3 then
+	if GetRandomInt(1,100) < IMaxBJ(30, gailv + fuyuan[i] / 5 + GetUnitAbilityLevel(u, 'A085') * 3) then
 		call WuGongShengChong(u, 'A02G', 500-50*GetUnitAbilityLevel(u, 'A089'))
 		if GetUnitAbilityLevel(u, 'A0D2')>=1 then
 			call ModifyHeroStat(j, u, 0, jishu*level*6)

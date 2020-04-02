@@ -81,12 +81,13 @@ function EverySecond_Conditions takes nothing returns boolean
 	exitwhen i > 5
 		// 宠物技能 账号信息
 		if P4[i] != null and IsUnitAliveBJ(P4[i]) then
+			call SetUnitAbilityLevel(P4[i], 'A0EO', i)
 			set s = "地图等级：|cff00ff00"+ I2S(DzAPI_Map_GetMapLevel(Player(i - 1))) +"|r"
 			set s = s + "｜排名：|cff00ff00"+ I2S(DzAPI_Map_GetMapLevelRank(Player(i-1))) + "|r|n"
 			set s = s + "单通门派：|cff00ff00" + I2S(LoadInteger(YDHT, i, StringHash("单通门派数量"))) + "|r"
 			set s = s + "｜多通门派：|cff00ff00" + I2S(LoadInteger(YDHT, i, StringHash("多通门派数量"))) + "|r|n"
 			set s = s + "最大无尽BOSS数：|cff00ff00" + I2S(decryptInt(DzAPI_Map_GetStoredString(Player(i - 1),"endless"), Player(i - 1))) + "|r"
-			call YDWESetUnitAbilityDataString( P4[i], 'A0EO', 1, 218, s )
+			call YDWESetUnitAbilityDataString( P4[i], 'A0EO', i, 218, s )
 		endif
 		
 		// 碧波心经点数
