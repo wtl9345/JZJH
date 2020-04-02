@@ -227,19 +227,19 @@ function XingYiDouZhuan_1 takes nothing returns nothing
 	if LoadBoolean(YDHT, GetHandleId(u), 10002) then
 		if GetUnitLifePercent(u) <= percent - r then
 			//call WuDi(uc)
-			call SetUnitLifePercentBJ(uc, percent - r)
+			call percentDamage(uc, 100 + r - percent, false)
 		else
 			if GetUnitLifePercent(u) <= percent then
 				//call WuDi(uc)
 				if percent > r/2 then
-					call SetUnitLifePercentBJ(uc, RMinBJ(GetUnitLifePercent(u), percent - r/2))
+					call percentDamage(uc, RMaxBJ(100 + r/2 - percent, 100 - GetUnitLifePercent(u)), false)
 				else
 					call SetWidgetLife(uc, 1.)
 				endif
 			else
 				//call WuDi(uc)
 				if percent > 2. then
-					call SetUnitLifePercentBJ(uc, percent - 2.)
+					call percentDamage(uc, 102 - percent, false)
 				else
 					call SetWidgetLife(uc, 1.)
 				endif
