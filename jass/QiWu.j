@@ -57,10 +57,10 @@ function WuXiangShangHai takes nothing returns nothing
 	local real shxishu= 1.
 	local real shanghai=0.
 	if GetUnitAbilityLevel(u,'A06H')>=1 then
-		set shxishu=shxishu+0.8
+		set shxishu=shxishu + 0.8
 	endif
 	if GetUnitAbilityLevel(u,'A07O')>=1 then
-		set shxishu=shxishu+0.6
+		set shxishu=shxishu + 0.6
 	endif
 	if UnitHasBuffBJ(uc, 'Bfro') then
 		set shxishu = shxishu * 3
@@ -69,7 +69,7 @@ function WuXiangShangHai takes nothing returns nothing
 		set shxishu = shxishu * 5
 	endif
 	set shxishu = shxishu * (1. + I2R(danpo[i])/20 + I2R(juexuelingwu[i]))
-	set shanghai=ShangHaiGongShi(u,uc,130, 150,shxishu,'A03P')
+	set shanghai = ShangHaiGongShi(u, uc, 60, 70,shxishu,'A03P')
 	call WuGongShangHai(u,uc,shanghai)
 	if GetUnitAbilityLevel(u,'A06P')>=1 and GetRandomInt(1, 100)<=8 then
 		call WanBuff(u, uc, 11)

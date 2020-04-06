@@ -23,8 +23,8 @@ function UseItem_Conditions takes nothing returns boolean
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
 	
 	if GetItemTypeId(it) == ITEM_YE_LUO then
-		call addAllAttrs(i, 3)
-		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFFDDFF00有玩家食用了野螺，获得全属性+3")
+		call addAllAttrs(i, 2)
+		call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15, "|CFFDDFF00有玩家食用了野螺，获得全属性+2")
 	endif
 	
 	set u = null

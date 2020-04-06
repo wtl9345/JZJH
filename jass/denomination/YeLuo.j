@@ -18,7 +18,6 @@ function zaoLeiPiAction takes nothing returns nothing
 	local real y = LoadReal(YDHT, GetHandleId(t), 2)
 	local unit dummy = CreateUnit(GetOwningPlayer(u), 'e01K', x, y, bj_UNIT_FACING)
 	local group g = CreateGroup()
-	call WuGongShengChong(u, ZAO_LEI_PI, 700)
 	call UnitAddAbility(dummy, 'A0EU') // 马甲技能
 	call UnitApplyTimedLife(dummy, 'BHwe', 2)
 	call GroupEnumUnitsInRange(g, GetUnitX(dummy), GetUnitY(dummy), 900, Condition(function isPlayersEnemy))
@@ -32,12 +31,31 @@ endfunction
 
 function zaoLeiPi takes unit u, unit ut returns nothing
 	local timer t = CreateTimer()
+	local location loc = null
+	local string s = ""
+	local integer rand = GetRandomInt(1, 100)
+
+	call WuGongShengChong(u, ZAO_LEI_PI, 700)
+	
+	
+	set loc = GetUnitLoc(u)
+	if rand < 50 then
+		set s = "20位伤害随便打"
+	else
+		set s = "单手快速一波七"
+	endif
+	call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
+	call Nw(3,bj_lastCreatedTextTag)
+	call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(50, 130))
+	call RemoveLocation(loc)
+	
 	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 	call SaveReal(YDHT, GetHandleId(t), 1, GetUnitX(ut))
 	call SaveReal(YDHT, GetHandleId(t), 2, GetUnitY(ut))
 	call TimerStart(t, 0.3, true, function zaoLeiPiAction)
 	call YDWETimerDestroyTimer(3.1, t)
 	set t = null
+	set loc = null
 endfunction
 
 function zaoLeiPiDamage takes unit u, unit ut returns nothing
@@ -58,11 +76,8 @@ function zaoLeiPiDamage takes unit u, unit ut returns nothing
 	// 胆魄加成伤害
 	set shxishu = shxishu + danpo[i] * 0.03
 	
-	set shanghai = ShangHaiGongShi(u, ut, 40, 40, shxishu, ZAO_LEI_PI)
+	set shanghai = ShangHaiGongShi(u, ut, 20, 20, shxishu, ZAO_LEI_PI)
 	call WuGongShangHai(u, ut, shanghai)
-	
-	set u=null
-	set ut=null
 endfunction
 
 function isShopDecoration takes integer id returns boolean
@@ -80,7 +95,7 @@ endfunction
 function isShopKungfu takes integer id returns boolean
 	local integer i = 1
 	loop
-		exitwhen i > 18
+	exitwhen i > 18
 		if id == udg_jianghu[i] then
 			return true
 		endif
@@ -88,7 +103,7 @@ function isShopKungfu takes integer id returns boolean
 	endloop
 	set i = 1
 	loop
-		exitwhen i > 10
+	exitwhen i > 10
 		if id == udg_juexue[i] then
 			return true
 		endif
@@ -96,7 +111,7 @@ function isShopKungfu takes integer id returns boolean
 	endloop
 	set i = 1
 	loop
-		exitwhen i > 8
+	exitwhen i > 8
 		if id == udg_juenei[i] then
 			return true
 		endif
@@ -106,18 +121,18 @@ function isShopKungfu takes integer id returns boolean
 endfunction
 
 function isShopOther takes integer id returns boolean
-	return id == 'I08W' or id == 'I0D1' or id == 'I05S' or id == 'I08U' or id == 'I00E' 
+	return id == 'I08W' or id == 'I0D1' or id == 'I00E' 
 endfunction
 
 
 // - 八面玲珑 被动
-//     - 讨价还价 买东西返利30% + 3*等级 +龙象 返利+30%
+//     - 讨价还价 买东西返利20% + 3*等级 +龙象 返利+30%
 //     - 通融通融 历练用钱不用声望 （10% * 历练数）金钱 
 function baMianLingLong takes unit u, item it returns nothing
 	local integer gold = S2I(EXExecuteScript("(require'jass.slk').item[" + I2S(GetItemTypeId(it)) + "].goldcost"))
 	local integer lumber = S2I(EXExecuteScript("(require'jass.slk').item[" + I2S(GetItemTypeId(it)) + "].lumbercost"))
 	local integer level = GetUnitAbilityLevel(u, BA_MIAN_LING_LONG)
-	local real rate = 0.01 * (30 + 3 * level)
+	local real rate = 0.01 * (20 + 3 * level)
 	local integer gold_return
 	local integer lumber_return
 	local integer id = GetItemTypeId(it)
@@ -163,8 +178,8 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 	call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", ut, "chest"))
 	// 判断目标是否为BOSS
 	if ModuloInteger(GetUnitPointValue(ut), 100)==1 or ModuloInteger(GetUnitPointValue(ut), 100)==2 then
-		set gold_num = R2I(1000 * RMaxBJ(10, GetUnitLevel(ut)) * addition)
-		set lumber_num = R2I(6 * RMaxBJ(10, GetUnitLevel(ut)) * addition)
+		set gold_num = R2I(1000 * GetRandomInt(2, 20) * addition)
+		set lumber_num = R2I(6 * GetRandomInt(2, 20) * addition)
 		call AdjustPlayerStateBJ(gold_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
@@ -205,8 +220,8 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 			call UnitAddItemById(u, item_id)
 		endif
 	else
-		set gold_num = R2I(500 * RMaxBJ(10, GetUnitLevel(ut)) * addition)
-		set lumber_num = R2I(3 * RMaxBJ(10, GetUnitLevel(ut)) * addition)
+		set gold_num = R2I(500 * GetRandomInt(2, 20) * addition)
+		set lumber_num = R2I(3 * GetRandomInt(2, 20) * addition)
 		call AdjustPlayerStateBJ(gold_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 		call AdjustPlayerStateBJ(lumber_num, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00偷取了金币+|r" + I2S(gold_num))
@@ -251,8 +266,8 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 endfunction
 
 // - 乾坤一掷  主动
-//     - 点数 * 1W金钱换 （1 ~ 点数*100点）三围
-//     - 点数 * 1K木换 （1 ~ 点数*10）绝学领悟
+//     - 点数 * 1W金钱换 （1 ~ 点数 * 50点）三围
+//     - 点数 * 1K木换 （1 ~ 点数 * 5）绝学领悟
 function qianKunYiZhi takes unit u returns nothing
 	local integer rand = GetRandomInt(1, 6)
 	local player p = GetOwningPlayer(u)
@@ -272,7 +287,7 @@ function qianKunYiZhi takes unit u returns nothing
 	call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00掷出了" + I2S(rand) + "点|r")
 	if GetRandomInt(1, 2) == 1 then
 		if gold > rand * 2000 then
-			set add = R2I(GetRandomInt(1, rand * 100) * addition)
+			set add = R2I(GetRandomInt(1, rand * 50) * addition)
 			call ModifyHeroStat(0, u, 0, add)
 			call ModifyHeroStat(1, u, 0, add)
 			call ModifyHeroStat(2, u, 0, add)
@@ -301,7 +316,7 @@ function qianKunYiZhi takes unit u returns nothing
 		endif
 	else
 		if lumber > rand * 100 then
-			set add = R2I(GetRandomInt(1, rand * 10) * addition)
+			set add = R2I(GetRandomInt(1, rand * 5) * addition)
 			set juexuelingwu[i] = juexuelingwu[i] + add
 			
 			set loc = GetUnitLoc(u)
