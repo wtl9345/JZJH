@@ -136,7 +136,7 @@ function baMianLingLong takes unit u, item it returns nothing
 	local integer gold_return
 	local integer lumber_return
 	local integer id = GetItemTypeId(it)
-	if isShopDecoration(id) or isShopWeapon(id) or isShopEuqip(id) or isShopKungfu(id) or isShopOther(id) then
+	if not IsUnitType(u, UNIT_TYPE_DEAD) and (isShopDecoration(id) or isShopWeapon(id) or isShopEuqip(id) or isShopKungfu(id) or isShopOther(id)) then
 		if GetUnitAbilityLevel(u, LONG_XIANG) >= 1 then
 			set rate = rate + 0.3
 		endif

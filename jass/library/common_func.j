@@ -1564,6 +1564,20 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 	// 伤害 = 攻击因子 * 敌方防御因子 * 随机因子 * 特防
 	set basic_damage = attack * target_def * random * special_def
 	
+
+	// 红怪
+	if LoadInteger(YDHT, GetHandleId(uc), StringHash("color")) == 1 then
+		set basic_damage = basic_damage / 100
+	endif
+	// 绿怪
+	if LoadInteger(YDHT, GetHandleId(uc), StringHash("color")) == 2 then
+		set basic_damage = basic_damage / 1000
+	endif
+	// 蓝怪
+	if LoadInteger(YDHT, GetHandleId(uc), StringHash("color")) == 3 then
+		set basic_damage = basic_damage / 10000
+	endif
+
 	// 无尽BOSS战模式第N个BOSS
 	if uc == udg_boss[7] and tiaoZhanIndex == 3 then
 		set basic_damage = basic_damage / Pow(10, endless_count)

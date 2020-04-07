@@ -1537,7 +1537,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.39"
+	constant string VERSION = "1.6.40"
 endglobals
 
 //失败动作
@@ -1764,7 +1764,7 @@ function PlayerReviveA takes nothing returns nothing
 	call DestroyTimerDialog(R7[1])
 	set Q4=GetRectCenter(He)
 	if GetUnitAbilityLevel(udg_hero[1], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[1], DA_GONG_GAO_CHENG) >= 1 then
-		call ReviveHero(udg_hero[1], x, y, true)
+		call ReviveHero(udg_hero[1], CheckX(x), CheckY(y), true)
 	else
 		call ReviveHeroLoc(udg_hero[1],Q4,true)
 		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[1]),Q4,0)
@@ -1795,7 +1795,7 @@ function PlayerReviveB takes nothing returns nothing
 	call DestroyTimerDialog(R7[2])
 	set Q4=GetRectCenter(He)
 	if GetUnitAbilityLevel(udg_hero[2], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[2], DA_GONG_GAO_CHENG) >= 1 then
-		call ReviveHero(udg_hero[2], x, y, true)
+		call ReviveHero(udg_hero[2], CheckX(x), CheckY(y), true)
 	else
 		call ReviveHeroLoc(udg_hero[2],Q4,true)
 		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[2]),Q4,0)
@@ -1825,7 +1825,7 @@ function PlayerReviveC takes nothing returns nothing
 	call DestroyTimerDialog(R7[3])
 	set Q4=GetRectCenter(He)
 	if GetUnitAbilityLevel(udg_hero[3], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[3], DA_GONG_GAO_CHENG) >= 1 then
-		call ReviveHero(udg_hero[3], x, y, true)
+		call ReviveHero(udg_hero[3], CheckX(x), CheckY(y), true)
 	else
 		call ReviveHeroLoc(udg_hero[3],Q4,true)
 		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[3]),Q4,0)
@@ -1855,7 +1855,7 @@ function PlayerReviveD takes nothing returns nothing
 	call DestroyTimerDialog(R7[4])
 	set Q4=GetRectCenter(He)
 	if GetUnitAbilityLevel(udg_hero[4], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[4], DA_GONG_GAO_CHENG) >= 1 then
-		call ReviveHero(udg_hero[4], x, y, true)
+		call ReviveHero(udg_hero[4], CheckX(x), CheckY(y), true)
 	else
 		call ReviveHeroLoc(udg_hero[4],Q4,true)
 		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[4]),Q4,0)
@@ -1885,7 +1885,7 @@ function PlayerReviveE takes nothing returns nothing
 	call DestroyTimerDialog(R7[5])
 	set Q4=GetRectCenter(He)
 	if GetUnitAbilityLevel(udg_hero[5], GUI_XI_GONG) >= 1 and GetUnitAbilityLevel(udg_hero[5], DA_GONG_GAO_CHENG) >= 1 then
-		call ReviveHero(udg_hero[15], x, y, true)
+		call ReviveHero(udg_hero[5], CheckX(x), CheckY(y), true)
 	else
 		call ReviveHeroLoc(udg_hero[5],Q4,true)
 		call PanCameraToTimedLocForPlayer(GetOwningPlayer(udg_hero[5]),Q4,0)
@@ -2212,16 +2212,48 @@ function JiaJiNeng takes unit u returns nothing
 		endif
 	endif
 endfunction
+
+function mutatedAttacker takes unit u returns nothing
+	local integer i = GetRandomInt(1, 100)
+	if udg_nandu == 6 then
+		if i <= 80 then
+			call SetUnitVertexColor(u, 225, 0, 0, 10)
+			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 1)
+			call SetUnitScalePercent(u, 1.3, 1.3, 1.3)
+		elseif i <= 95 then
+			call SetUnitVertexColor(u, 0, 225, 0, 10)
+			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 2)
+			call SetUnitScalePercent(u, 1.4, 1.4, 1.4)
+		else
+			call SetUnitVertexColor(u, 0, 0, 225, 10)
+			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 3)
+			call SetUnitScalePercent(u, 1.5, 1.5, 1.5)
+		endif
+	endif
+endfunction
+
 function lA takes nothing returns nothing
 	call CreateNUnitsAtLocFacingLocBJ(1,y7[udg_boshu],Player(6),v7[6],v7[4])
 	call GroupAddUnit(w7,bj_lastCreatedUnit)
+	if GetRandomInt(60, 100) == 87 then
+		call mutatedAttacker(bj_lastCreatedUnit)
+	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit,$D000F,v7[4])
+	
 	call CreateNUnitsAtLocFacingLocBJ(1,y7[udg_boshu],Player(6),v7[7],v7[4])
 	call GroupAddUnit(w7,bj_lastCreatedUnit)
+	if GetRandomInt(60, 100) == 87 then
+		call mutatedAttacker(bj_lastCreatedUnit)
+	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit,$D000F,v7[4])
+	
 	call CreateNUnitsAtLocFacingLocBJ(1,y7[udg_boshu],Player(6),v7[5],v7[4])
 	call GroupAddUnit(w7,bj_lastCreatedUnit)
+	if GetRandomInt(60, 100) == 87 then
+		call mutatedAttacker(bj_lastCreatedUnit)
+	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit,$D000F,v7[4])
+	
 	if LevelGuoGao() then
 		call CreateNUnitsAtLocFacingLocBJ(1,y7[udg_boshu],Player(6),v7[6],v7[4])
 		call GroupAddUnit(w7,bj_lastCreatedUnit)
@@ -2237,7 +2269,11 @@ endfunction
 function KA takes nothing returns nothing
 	call CreateNUnitsAtLocFacingLocBJ(1,y7[(udg_boshu+1)],Player(6),v7[8],v7[3])
 	call GroupAddUnit(w7,bj_lastCreatedUnit)
+	if GetRandomInt(60, 100) == 87 then
+		call mutatedAttacker(bj_lastCreatedUnit)
+	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit,$D000F,v7[3])
+	
 	if LevelGuoGao() then
 		call CreateNUnitsAtLocFacingLocBJ(1,y7[(udg_boshu+1)],Player(6),v7[8],v7[3])
 		call GroupAddUnit(w7,bj_lastCreatedUnit)

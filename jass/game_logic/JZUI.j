@@ -1,6 +1,10 @@
 globals
 	Frame array zwidget
 	Frame array zbutton
+	Frame avatar
+	Frame avatarBack
+	Frame closeBtn
+	Frame heroDiscription
 	Frame bibo_image
 	Frame bibo_text
 	
@@ -338,8 +342,8 @@ function drawUI_Conditions takes nothing returns boolean
 	
 	
 	// 属性界面
-	set zwidget[14] = Frame.newImage1(GUI, "war3mapImported\\blackback.tga", 0.3, 0.3)
-	call zwidget[14].setPoint(4, GUI, 4, 0.0, 0.08)
+	set zwidget[14] = Frame.newImage1(GUI, "war3mapImported\\blackback.tga", 0.3, 0.4)
+	call zwidget[14].setPoint(4, GUI, 4, 0.0, 0.03)
 	call zwidget[14].hide()
 	
 	// 显示属性
@@ -381,21 +385,29 @@ function drawUI_Conditions takes nothing returns boolean
 	set index = 101
 	loop
 	exitwhen index > 134
-		set zwidget[index]= Frame.newText1(zwidget[14], attrStr[index - 100], "TXA15")
+		// set avatarBack = Frame.newImage1(zwidget[14], null, 0.1, 0.09)
+		// call avatarBack.setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.04, -0.02)
+
+		// set avatar = Frame.newSprite(avatarBack, "war3mapImported\\lan10_hei.mdl")
+		// call avatar.setAllPoints(avatarBack)
+		set closeBtn = Frame.newCloseButton(zwidget[14])
+		call closeBtn.setPoint(TOPRIGHT, zwidget[14], TOPRIGHT, -0.01, -0.01)
+
+		set zwidget[index]= Frame.newText1(zwidget[14], attrStr[index - 100], "TXA12")
 		if ModuloInteger(index, 2) == 0 then
-			call zwidget[index].setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.01 + 0.07 * ModuloInteger(index - 101, 4) , (index - 97) / 4 * (-0.03))
+			call zwidget[index].setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.05 + 0.06 * ModuloInteger(index - 101, 4) , -0.097 + (index - 97) / 4 * (-0.029))
 		else
-			call zwidget[index].setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.01 + 0.075 * ModuloInteger(index - 101, 4) , (index - 97) / 4 * (-0.03))
+			call zwidget[index].setPoint(TOPLEFT, zwidget[14], TOPLEFT, 0.05 + 0.065 * ModuloInteger(index - 101, 4) , -0.097 +(index - 97) / 4 * (-0.029))
 		endif
 		if ModuloInteger(index, 2) == 0 then
-			call zwidget[index].setColor255(255, 255, 255)
+			call zwidget[index].setColor255(55, 39, 14)
 		else
 			if index <= 108 then
-				call zwidget[index].setColor255(0, 230, 230)
+				call zwidget[index].setColor255(0, 25, 200)
 			elseif index <= 120 then
-				call zwidget[index].setColor255(230, 230, 0)
+				call zwidget[index].setColor255(200, 25, 0)
 			else
-				call zwidget[index].setColor255(230, 0, 230)
+				call zwidget[index].setColor255(200, 0, 200)
 			endif
 		endif
 		set index = index + 1
