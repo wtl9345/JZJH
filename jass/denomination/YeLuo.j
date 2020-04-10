@@ -266,8 +266,8 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 endfunction
 
 // - 乾坤一掷  主动
-//     - 点数 * 1W金钱换 （1 ~ 点数 * 50点）三围
-//     - 点数 * 1K木换 （1 ~ 点数 * 5）绝学领悟
+//     - 点数 * 3000金钱换 （1 ~ 点数 * 30点）三围
+//     - 点数 * 100木换 （1 ~ 点数 * 5）绝学领悟
 function qianKunYiZhi takes unit u returns nothing
 	local integer rand = GetRandomInt(1, 6)
 	local player p = GetOwningPlayer(u)
@@ -278,6 +278,7 @@ function qianKunYiZhi takes unit u returns nothing
 	local location loc
 	local string s
 	local real addition = 1
+	local integer goldBase = 3000
 	
 	if UnitHaveItem(u, ITEM_YE_LUO) then
 		set addition = addition + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_YE_LUO))
@@ -286,15 +287,15 @@ function qianKunYiZhi takes unit u returns nothing
 	call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
 	call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00掷出了" + I2S(rand) + "点|r")
 	if GetRandomInt(1, 2) == 1 then
-		if gold > rand * 2000 then
-			set add = R2I(GetRandomInt(1, rand * 50) * addition)
+		if gold > rand * goldBase then
+			set add = R2I(GetRandomInt(1, rand * 30) * addition)
 			call ModifyHeroStat(0, u, 0, add)
 			call ModifyHeroStat(1, u, 0, add)
 			call ModifyHeroStat(2, u, 0, add)
 			
 			set loc = GetUnitLoc(u)
-			set s = "金币-" + I2S(rand * 2000)
-			call AdjustPlayerStateBJ( - rand * 2000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+			set s = "金币-" + I2S(rand * goldBase)
+			call AdjustPlayerStateBJ( - rand * goldBase, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 			call CreateTextTagLocBJ(s, loc, 0, 12., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
 			call Nw(3,bj_lastCreatedTextTag)
 			call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(50, 130))

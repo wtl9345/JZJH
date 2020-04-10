@@ -114,8 +114,6 @@ function ShengChengFang takes nothing returns nothing
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"升级城防，每位玩家守家积分+15")
 		// set shoujiajf[i] = shoujiajf[i] + $F
 		// call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,"|CFF34FF00守家积分+15")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS,"升级城防，每位玩家守家积分+15")
-		
 	else
 		call AdjustPlayerStateBJ($4E20,GetOwningPlayer(GetTriggerUnit()),PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,"|cFFFF0000城防已达最高，无法继续升级|r")
@@ -335,58 +333,7 @@ function JiaRuMenPai takes nothing returns nothing
 				call SetPlayerName(p,"〓姑苏慕容〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 				call AdjustPlayerStateBJ(-60, p, PLAYER_STATE_RESOURCE_LUMBER)
 			endif
-			// 自由改投明教
-			if GetItemTypeId(GetManipulatedItem())=='I09N' then
-				if udg_jf[i-1] >= 20 then
-					if  (jf_useMax[i-1]+20) <= jf_max then
-						set udg_shuxing[i]=udg_shuxing[i]-5
-						set wuxing[i]=(wuxing[i]+3)
-						set jingmai[i]=(jingmai[i]+2)
-						set fuyuan[i]=(fuyuan[i]+2)
-						set udg_runamen[i]=14
-						call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"改拜入了〓明教〓，大家一起膜拜他|r")
-						call SetPlayerName(p,"〓明教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-						call AdjustPlayerStateBJ(-60, p, PLAYER_STATE_RESOURCE_LUMBER)
-						// 累加本局可用积分
-						set jf_useMax[i-1] = jf_useMax[i-1] + 20
-						// 扣除对应的积分
-						set udg_jf[i-1] = udg_jf[i-1] -20
-						// 保存到服务器
-						call DzAPI_Map_StoreInteger(Player(i-1),"jf",udg_jf[i-1])
-						call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00扣除20积分选择明教")
-					else
-						call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00不能选择明教，本局可用积分达到上限50")
-					endif
-				else
-					call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00积分不足20，不能选择明教")
-				endif
-			endif
-			// 自由改投灵鹫
-			if GetItemTypeId(GetManipulatedItem())=='I0EH' then
-				if udg_jf[i-1] >= 20 then
-					if  (jf_useMax[i-1]+20) <= jf_max then
-						set udg_shuxing[i]=udg_shuxing[i]-5
-						set danpo[i]=(danpo[i]+2)
-						set jingmai[i]=(jingmai[i]+2)
-						set fuyuan[i]=(fuyuan[i]+1)
-						set udg_runamen[i]=12
-						call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS,15.,"|CFFff9933玩家"+GetPlayerName(p)+"改拜入了〓灵鹫宫〓，大家一起膜拜他|r")
-						call SetPlayerName(p,"〓灵鹫宫〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-						call AdjustPlayerStateBJ(-60, p, PLAYER_STATE_RESOURCE_LUMBER)
-						// 累加本局可用积分
-						set jf_useMax[i-1] = jf_useMax[i-1] + 20
-						// 扣除对应的积分
-						set udg_jf[i-1] = udg_jf[i-1] - 20
-						// 保存到服务器
-						call DzAPI_Map_StoreInteger(Player(i-1),"jf",udg_jf[i-1])
-						call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00扣除20积分选择灵鹫宫")
-					else
-						call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00不能选择灵鹫宫，本局可用积分达到上限50")
-					endif
-				else
-					call DisplayTimedTextToPlayer(p,0,0,5,"|cFF66CC00积分不足20，不能选择灵鹫宫")
-				endif
-			endif
+			
 			
 			// 自由改投铁掌帮
 			if GetItemTypeId(GetManipulatedItem())=='I0E1' then
@@ -567,282 +514,14 @@ function JiaRuMenPai takes nothing returns nothing
 		else
 			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
 		endif
-	elseif((GetItemTypeId(GetManipulatedItem())==1227894837))then
-		if((GetUnitTypeId(u)!='O001')and(GetUnitTypeId(u)!='O002'))then
-			set udg_runamen[i]=6
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓血刀门〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓血刀门〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			call UnitRemoveAbility(u,'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u,Q4)
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set gengu[i]=(gengu[i]+2)
-			set danpo[i]=(danpo[i]+3)
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		else
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif((GetItemTypeId(GetManipulatedItem())==1227894838))then
-		if((GetUnitTypeId(u)!='O004')and(GetUnitTypeId(u)!='O000')and(GetUnitTypeId(u)!='O001'))then
-			set udg_runamen[i]=7
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓恒山派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓恒山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			call UnitRemoveAbility(u,'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u,Q4)
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set yishu[i]=(yishu[i]+3)
-			set fuyuan[i]=(fuyuan[i]+2)
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		else
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif((GetItemTypeId(GetManipulatedItem())==1227894839))then
-		if((GetUnitTypeId(u)!='O004'))then
-			set udg_runamen[i]=8
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓峨眉派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓峨眉派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			call UnitRemoveAbility(u,'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u,Q4)
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set yishu[i]=(yishu[i]+1)
-			set jingmai[i]=(jingmai[i]+1)
-			set fuyuan[i]=(fuyuan[i]+3)
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		else
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif((GetItemTypeId(GetManipulatedItem())==1227894840))then
-		if((GetUnitTypeId(u)!='O001'))then
-			set udg_runamen[i]=$A
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓星宿派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓星宿派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			set Q4=GetRandomLocInRect(He)
-			call UnitRemoveAbility(u,'Avul')
-			call SetUnitPositionLoc(u,Q4)
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set danpo[i]=(danpo[i]+2)
-			set yishu[i]=(yishu[i]+1)
-			set jingmai[i]=(jingmai[i]+2)
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		else
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif((GetItemTypeId(GetManipulatedItem())==1227894841))then
-		if((GetUnitTypeId(u)!='O003'))then
-			set udg_runamen[i]=9
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓武当派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓武当派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u,Q4)
-			call UnitRemoveAbility(u,'Avul')
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set gengu[i]=(gengu[i]+1)
-			set jingmai[i]=(jingmai[i]+2)
-			set fuyuan[i]=(fuyuan[i]+2)
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		else
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif((GetItemTypeId(GetManipulatedItem())==1227894849))then
-		if((GetUnitTypeId(u)!='O000'))then
-			set udg_runamen[i]=2
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓古墓派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓古墓派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			call UnitRemoveAbility(u,'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u,Q4)
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set wuxing[i]=(wuxing[i]+2)
-			set jingmai[i]=(jingmai[i]+1)
-			set fuyuan[i]=(fuyuan[i]+2)
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		else
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif((GetItemTypeId(GetManipulatedItem())=='I0A2'))then
-		if((GetUnitTypeId(u)!='O002')and(GetUnitTypeId(u)!='O003'))then
-			set udg_runamen[i]=15
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓衡山派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓衡山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			call UnitRemoveAbility(u,'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u,Q4)
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set wuxing[i]=(wuxing[i]+3)
-			set yishu[i]=(yishu[i]+2)
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		else
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif((GetItemTypeId(GetManipulatedItem())=='I0CK'))then
-		if(GetUnitTypeId(u)=='O000' or GetUnitTypeId(u)=='O001' or GetUnitTypeId(u)=='O004' or GetUnitTypeId(u)=='O02J') then
-			set udg_runamen[i]=16
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓神龙教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			call UnitRemoveAbility(u,'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u,Q4)
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set gengu[i]=gengu[i]+2
-			set fuyuan[i] = fuyuan[i] + 2
-			set danpo[i] = danpo[i] + 1
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		else
-			set udg_runamen[i]=17
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓神龙教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			call UnitRemoveAbility(u,'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u,Q4)
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set gengu[i]=gengu[i]+2
-			set fuyuan[i] = fuyuan[i] + 2
-			set danpo[i] = danpo[i] + 1
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		endif
-	elseif((GetItemTypeId(GetManipulatedItem())=='I0CX'))then
-		if (GetUnitTypeId(u)!='O003') then
-			set udg_runamen[i]=18
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓泰山派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p,"〓泰山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u,'A05R')
-			call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
-			if udg_vip[i]<2 and udg_elevenvip[i]<1 then
-				call UnitAddAbility(u,'A040')
-				call UnitAddAbility(u,'A041')
-				call UnitAddAbility(u,'A042')
-			endif
-			set I7[(((i-1)*20)+8)]='A05R'
-			call UnitRemoveAbility(u,'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u,Q4)
-			call PanCameraToTimedLocForPlayer(p,Q4,0)
-			call createPartnerAndTownPortalDummy(i, Q4)
-			set gengu[i] = gengu[i] + 3
-			set wuxing[i] = wuxing[i] + 1
-			set yishu[i] = yishu[i] + 1
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394,u)
-		else
-			call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif((GetItemTypeId(GetManipulatedItem())=='I0EV'))then
-		set udg_runamen[i]=23
-		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓野螺派〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p,"〓野螺派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		// 明教
+	elseif GetItemTypeId(GetManipulatedItem())=='I09N' then
+		set udg_runamen[i]=14
+		set wuxing[i]=(wuxing[i]+3)
+		set jingmai[i]=(jingmai[i]+2)
+		set fuyuan[i]=(fuyuan[i]+2)
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓明教〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓明教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
 		call UnitAddAbility(u,'A05R')
 		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
@@ -858,11 +537,329 @@ function JiaRuMenPai takes nothing returns nothing
 		call SetUnitPositionLoc(u,Q4)
 		call PanCameraToTimedLocForPlayer(p,Q4,0)
 		call createPartnerAndTownPortalDummy(i, Q4)
-		set danpo[i] = danpo[i] + 5
 		call RemoveLocation(Q4)
 		call UnitAddItemByIdSwapped(1227896394,u)
+		// 灵鹫
+	elseif GetItemTypeId(GetManipulatedItem())=='I0EH' then
+		set udg_runamen[i]=12
+		set danpo[i]=(danpo[i]+2)
+		set jingmai[i]=(jingmai[i]+2)
+		set fuyuan[i]=(fuyuan[i]+1)
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓灵鹫宫〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓灵鹫宫〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	elseif((GetItemTypeId(GetManipulatedItem())==1227894837))then
+	if((GetUnitTypeId(u)!='O001')and(GetUnitTypeId(u)!='O002'))then
+		set udg_runamen[i]=6
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓血刀门〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓血刀门〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set gengu[i]=(gengu[i]+2)
+		set danpo[i]=(danpo[i]+3)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	else
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif((GetItemTypeId(GetManipulatedItem())==1227894838))then
+	if((GetUnitTypeId(u)!='O004')and(GetUnitTypeId(u)!='O000')and(GetUnitTypeId(u)!='O001'))then
+		set udg_runamen[i]=7
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓恒山派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓恒山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set yishu[i]=(yishu[i]+3)
+		set fuyuan[i]=(fuyuan[i]+2)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	else
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif((GetItemTypeId(GetManipulatedItem())==1227894839))then
+	if((GetUnitTypeId(u)!='O004'))then
+		set udg_runamen[i]=8
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓峨眉派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓峨眉派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set yishu[i]=(yishu[i]+1)
+		set jingmai[i]=(jingmai[i]+1)
+		set fuyuan[i]=(fuyuan[i]+3)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	else
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif((GetItemTypeId(GetManipulatedItem())==1227894840))then
+	if((GetUnitTypeId(u)!='O001'))then
+		set udg_runamen[i]=$A
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓星宿派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓星宿派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		set Q4=GetRandomLocInRect(He)
+		call UnitRemoveAbility(u,'Avul')
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set danpo[i]=(danpo[i]+2)
+		set yishu[i]=(yishu[i]+1)
+		set jingmai[i]=(jingmai[i]+2)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	else
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif((GetItemTypeId(GetManipulatedItem())==1227894841))then
+	if((GetUnitTypeId(u)!='O003'))then
+		set udg_runamen[i]=9
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓武当派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓武当派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call UnitRemoveAbility(u,'Avul')
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set gengu[i]=(gengu[i]+1)
+		set jingmai[i]=(jingmai[i]+2)
+		set fuyuan[i]=(fuyuan[i]+2)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	else
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif((GetItemTypeId(GetManipulatedItem())==1227894849))then
+	if((GetUnitTypeId(u)!='O000'))then
+		set udg_runamen[i]=2
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓古墓派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓古墓派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set wuxing[i]=(wuxing[i]+2)
+		set jingmai[i]=(jingmai[i]+1)
+		set fuyuan[i]=(fuyuan[i]+2)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	else
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif((GetItemTypeId(GetManipulatedItem())=='I0A2'))then
+	if((GetUnitTypeId(u)!='O002')and(GetUnitTypeId(u)!='O003'))then
+		set udg_runamen[i]=15
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓衡山派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓衡山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set wuxing[i]=(wuxing[i]+3)
+		set yishu[i]=(yishu[i]+2)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	else
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif((GetItemTypeId(GetManipulatedItem())=='I0CK'))then
+	if(GetUnitTypeId(u)=='O000' or GetUnitTypeId(u)=='O001' or GetUnitTypeId(u)=='O004' or GetUnitTypeId(u)=='O02J') then
+		set udg_runamen[i]=16
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓神龙教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set gengu[i]=gengu[i]+2
+		set fuyuan[i] = fuyuan[i] + 2
+		set danpo[i] = danpo[i] + 1
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	else
+		set udg_runamen[i]=17
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓神龙教〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set gengu[i]=gengu[i]+2
+		set fuyuan[i] = fuyuan[i] + 2
+		set danpo[i] = danpo[i] + 1
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	endif
+	elseif((GetItemTypeId(GetManipulatedItem())=='I0CX'))then
+	if (GetUnitTypeId(u)!='O003') then
+		set udg_runamen[i]=18
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓泰山派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p,"〓泰山派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u,'A05R')
+		call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+		if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+			call UnitAddAbility(u,'A040')
+			call UnitAddAbility(u,'A041')
+			call UnitAddAbility(u,'A042')
+		endif
+		set I7[(((i-1)*20)+8)]='A05R'
+		call UnitRemoveAbility(u,'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u,Q4)
+		call PanCameraToTimedLocForPlayer(p,Q4,0)
+		call createPartnerAndTownPortalDummy(i, Q4)
+		set gengu[i] = gengu[i] + 3
+		set wuxing[i] = wuxing[i] + 1
+		set yishu[i] = yishu[i] + 1
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394,u)
+	else
+		call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif((GetItemTypeId(GetManipulatedItem())=='I0EV'))then
+	set udg_runamen[i]=23
+	call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933恭喜加入〓野螺派〓，请在NPC郭靖处选择副职|r")
+	call SetPlayerName(p,"〓野螺派〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
+	call DisplayTimedTextToPlayer(p,0,0,15.,"|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+	call UnitAddAbility(u,'A05R')
+	call AddCharacterABuff(udg_hero[i], udg_xinggeA[i])
+	call AddCharacterBBuff(udg_hero[i], udg_xinggeB[i])
+	if udg_vip[i]<2 and udg_elevenvip[i]<1 then
+		call UnitAddAbility(u,'A040')
+		call UnitAddAbility(u,'A041')
+		call UnitAddAbility(u,'A042')
+	endif
+	set I7[(((i-1)*20)+8)]='A05R'
+	call UnitRemoveAbility(u,'Avul')
+	set Q4=GetRandomLocInRect(He)
+	call SetUnitPositionLoc(u,Q4)
+	call PanCameraToTimedLocForPlayer(p,Q4,0)
+	call createPartnerAndTownPortalDummy(i, Q4)
+	set danpo[i] = danpo[i] + 5
+	call RemoveLocation(Q4)
+	call UnitAddItemByIdSwapped(1227896394,u)
 	elseif((GetItemTypeId(GetManipulatedItem())=='I0AG'))then
-		call randomMenpai(p,1)
+	call randomMenpai(p,1)
 	endif
 	set p=null
 	set u=null
@@ -1537,7 +1534,7 @@ endfunction
 
 globals
 	boolean is_victory = false
-	constant string VERSION = "1.6.40"
+	constant string VERSION = "1.6.41"
 endglobals
 
 //失败动作
@@ -2217,17 +2214,17 @@ function mutatedAttacker takes unit u returns nothing
 	local integer i = GetRandomInt(1, 100)
 	if udg_nandu == 6 then
 		if i <= 80 then
-			call SetUnitVertexColor(u, 225, 0, 0, 10)
+			call SetUnitVertexColor(u, 225, 0, 0, 255)
 			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 1)
-			call SetUnitScalePercent(u, 1.3, 1.3, 1.3)
+			call SetUnitScale(u, 1.5, 1.5, 1.5)
 		elseif i <= 95 then
-			call SetUnitVertexColor(u, 0, 225, 0, 10)
+			call SetUnitVertexColor(u, 0, 225, 0, 255)
 			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 2)
-			call SetUnitScalePercent(u, 1.4, 1.4, 1.4)
+			call SetUnitScale(u, 1.7, 1.7, 1.7)
 		else
-			call SetUnitVertexColor(u, 0, 0, 225, 10)
+			call SetUnitVertexColor(u, 0, 0, 225, 255)
 			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 3)
-			call SetUnitScalePercent(u, 1.5, 1.5, 1.5)
+			call SetUnitScale(u, 1.9, 1.9, 1.9)
 		endif
 	endif
 endfunction
@@ -2235,21 +2232,21 @@ endfunction
 function lA takes nothing returns nothing
 	call CreateNUnitsAtLocFacingLocBJ(1,y7[udg_boshu],Player(6),v7[6],v7[4])
 	call GroupAddUnit(w7,bj_lastCreatedUnit)
-	if GetRandomInt(60, 100) == 87 then
+	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit,$D000F,v7[4])
 	
 	call CreateNUnitsAtLocFacingLocBJ(1,y7[udg_boshu],Player(6),v7[7],v7[4])
 	call GroupAddUnit(w7,bj_lastCreatedUnit)
-	if GetRandomInt(60, 100) == 87 then
+	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit,$D000F,v7[4])
 	
 	call CreateNUnitsAtLocFacingLocBJ(1,y7[udg_boshu],Player(6),v7[5],v7[4])
 	call GroupAddUnit(w7,bj_lastCreatedUnit)
-	if GetRandomInt(60, 100) == 87 then
+	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit,$D000F,v7[4])
@@ -2269,7 +2266,7 @@ endfunction
 function KA takes nothing returns nothing
 	call CreateNUnitsAtLocFacingLocBJ(1,y7[(udg_boshu+1)],Player(6),v7[8],v7[3])
 	call GroupAddUnit(w7,bj_lastCreatedUnit)
-	if GetRandomInt(60, 100) == 87 then
+	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit,$D000F,v7[3])

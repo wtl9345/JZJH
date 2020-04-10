@@ -78,47 +78,47 @@ hashtable YDLOC
 //endglobals from YDTriggerSaveLoadSystem
 //globals from YDWEAbilityState:
 constant boolean LIBRARY_YDWEAbilityState=true
-constant integer YDWEAbilityState___ABILITY_STATE_COOLDOWN= 1
-constant integer YDWEAbilityState___ABILITY_DATA_TARGS= 100
-constant integer YDWEAbilityState___ABILITY_DATA_CAST= 101
-constant integer YDWEAbilityState___ABILITY_DATA_DUR= 102
-constant integer YDWEAbilityState___ABILITY_DATA_HERODUR= 103
-constant integer YDWEAbilityState___ABILITY_DATA_COST= 104
-constant integer YDWEAbilityState___ABILITY_DATA_COOL= 105
-constant integer YDWEAbilityState___ABILITY_DATA_AREA= 106
-constant integer YDWEAbilityState___ABILITY_DATA_RNG= 107
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_A= 108
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_B= 109
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_C= 110
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_D= 111
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_E= 112
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_F= 113
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_G= 114
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_H= 115
-constant integer YDWEAbilityState___ABILITY_DATA_DATA_I= 116
-constant integer YDWEAbilityState___ABILITY_DATA_UNITID= 117
+constant integer YDWEAbilityState__ABILITY_STATE_COOLDOWN= 1
+constant integer YDWEAbilityState__ABILITY_DATA_TARGS= 100
+constant integer YDWEAbilityState__ABILITY_DATA_CAST= 101
+constant integer YDWEAbilityState__ABILITY_DATA_DUR= 102
+constant integer YDWEAbilityState__ABILITY_DATA_HERODUR= 103
+constant integer YDWEAbilityState__ABILITY_DATA_COST= 104
+constant integer YDWEAbilityState__ABILITY_DATA_COOL= 105
+constant integer YDWEAbilityState__ABILITY_DATA_AREA= 106
+constant integer YDWEAbilityState__ABILITY_DATA_RNG= 107
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_A= 108
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_B= 109
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_C= 110
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_D= 111
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_E= 112
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_F= 113
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_G= 114
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_H= 115
+constant integer YDWEAbilityState__ABILITY_DATA_DATA_I= 116
+constant integer YDWEAbilityState__ABILITY_DATA_UNITID= 117
 
-constant integer YDWEAbilityState___ABILITY_DATA_HOTKET= 200
-constant integer YDWEAbilityState___ABILITY_DATA_UNHOTKET= 201
-constant integer YDWEAbilityState___ABILITY_DATA_RESEARCH_HOTKEY= 202
-constant integer YDWEAbilityState___ABILITY_DATA_NAME= 203
-constant integer YDWEAbilityState___ABILITY_DATA_ART= 204
-constant integer YDWEAbilityState___ABILITY_DATA_TARGET_ART= 205
-constant integer YDWEAbilityState___ABILITY_DATA_CASTER_ART= 206
-constant integer YDWEAbilityState___ABILITY_DATA_EFFECT_ART= 207
-constant integer YDWEAbilityState___ABILITY_DATA_AREAEFFECT_ART= 208
-constant integer YDWEAbilityState___ABILITY_DATA_MISSILE_ART= 209
-constant integer YDWEAbilityState___ABILITY_DATA_SPECIAL_ART= 210
-constant integer YDWEAbilityState___ABILITY_DATA_LIGHTNING_EFFECT= 211
-constant integer YDWEAbilityState___ABILITY_DATA_BUFF_TIP= 212
-constant integer YDWEAbilityState___ABILITY_DATA_BUFF_UBERTIP= 213
-constant integer YDWEAbilityState___ABILITY_DATA_RESEARCH_TIP= 214
-constant integer YDWEAbilityState___ABILITY_DATA_TIP= 215
-constant integer YDWEAbilityState___ABILITY_DATA_UNTIP= 216
-constant integer YDWEAbilityState___ABILITY_DATA_RESEARCH_UBERTIP= 217
-constant integer YDWEAbilityState___ABILITY_DATA_UBERTIP= 218
-constant integer YDWEAbilityState___ABILITY_DATA_UNUBERTIP= 219
-constant integer YDWEAbilityState___ABILITY_DATA_UNART= 220
+constant integer YDWEAbilityState__ABILITY_DATA_HOTKET= 200
+constant integer YDWEAbilityState__ABILITY_DATA_UNHOTKET= 201
+constant integer YDWEAbilityState__ABILITY_DATA_RESEARCH_HOTKEY= 202
+constant integer YDWEAbilityState__ABILITY_DATA_NAME= 203
+constant integer YDWEAbilityState__ABILITY_DATA_ART= 204
+constant integer YDWEAbilityState__ABILITY_DATA_TARGET_ART= 205
+constant integer YDWEAbilityState__ABILITY_DATA_CASTER_ART= 206
+constant integer YDWEAbilityState__ABILITY_DATA_EFFECT_ART= 207
+constant integer YDWEAbilityState__ABILITY_DATA_AREAEFFECT_ART= 208
+constant integer YDWEAbilityState__ABILITY_DATA_MISSILE_ART= 209
+constant integer YDWEAbilityState__ABILITY_DATA_SPECIAL_ART= 210
+constant integer YDWEAbilityState__ABILITY_DATA_LIGHTNING_EFFECT= 211
+constant integer YDWEAbilityState__ABILITY_DATA_BUFF_TIP= 212
+constant integer YDWEAbilityState__ABILITY_DATA_BUFF_UBERTIP= 213
+constant integer YDWEAbilityState__ABILITY_DATA_RESEARCH_TIP= 214
+constant integer YDWEAbilityState__ABILITY_DATA_TIP= 215
+constant integer YDWEAbilityState__ABILITY_DATA_UNTIP= 216
+constant integer YDWEAbilityState__ABILITY_DATA_RESEARCH_UBERTIP= 217
+constant integer YDWEAbilityState__ABILITY_DATA_UBERTIP= 218
+constant integer YDWEAbilityState__ABILITY_DATA_UNUBERTIP= 219
+constant integer YDWEAbilityState__ABILITY_DATA_UNART= 220
 //endglobals from YDWEAbilityState
 //globals from YDWEBase:
 constant boolean LIBRARY_YDWEBase=true
@@ -138,10 +138,10 @@ real yd_MapMaxX= 0
 real yd_MapMinX= 0
 real yd_MapMaxY= 0
 real yd_MapMinY= 0
-string array YDWEBase___yd_PlayerColor
-trigger array YDWEBase___AbilityCastingOverEventQueue
-integer array YDWEBase___AbilityCastingOverEventType
-integer YDWEBase___AbilityCastingOverEventNumber= 0
+string array YDWEBase__yd_PlayerColor
+trigger array YDWEBase__AbilityCastingOverEventQueue
+integer array YDWEBase__AbilityCastingOverEventType
+integer YDWEBase__AbilityCastingOverEventNumber= 0
 //endglobals from YDWEBase
 //globals from YDWEBitwise:
 constant boolean LIBRARY_YDWEBitwise=true
@@ -150,18 +150,18 @@ constant string YDWEBitwise___hexstr= "0123456789ABCDEF"
 //endglobals from YDWEBitwise
 //globals from YDWEGeneralBounsSystem:
 constant boolean LIBRARY_YDWEGeneralBounsSystem=true
-integer array YDWEGeneralBounsSystem___ABILITY_COUNT
-integer array YDWEGeneralBounsSystem___ABILITY_NUM
-integer array YDWEGeneralBounsSystem___BonusAbilitys
-integer array YDWEGeneralBounsSystem___PowersOf2
-integer YDWEGeneralBounsSystem___PRELOAD_DUMMY_UNIT= 'hpea'
-integer array YDWEGeneralBounsSystem___YDWEBONUS_MyChar
-boolean YDWEGeneralBounsSystem___PRELOAD_ABILITYS= true
-constant integer YDWEGeneralBounsSystem___BONUS_TYPES= 4
-integer array YDWEGeneralBounsSystem___MaxBonus
-integer array YDWEGeneralBounsSystem___MinBonus
-unit array YDWEGeneralBounsSystem___Units
-integer YDWEGeneralBounsSystem___UnitCount= 0
+integer array YDWEGeneralBounsSystem__ABILITY_COUNT
+integer array YDWEGeneralBounsSystem__ABILITY_NUM
+integer array YDWEGeneralBounsSystem__BonusAbilitys
+integer array YDWEGeneralBounsSystem__PowersOf2
+integer YDWEGeneralBounsSystem__PRELOAD_DUMMY_UNIT= 'hpea'
+integer array YDWEGeneralBounsSystem__YDWEBONUS_MyChar
+boolean YDWEGeneralBounsSystem__PRELOAD_ABILITYS= true
+constant integer YDWEGeneralBounsSystem__BONUS_TYPES= 4
+integer array YDWEGeneralBounsSystem__MaxBonus
+integer array YDWEGeneralBounsSystem__MinBonus
+unit array YDWEGeneralBounsSystem__Units
+integer YDWEGeneralBounsSystem__UnitCount= 0
 //endglobals from YDWEGeneralBounsSystem
 //globals from YDWEGetUnitsInRangeOfLocMatchingNull:
 constant boolean LIBRARY_YDWEGetUnitsInRangeOfLocMatchingNull=true
@@ -169,7 +169,7 @@ group yd_NullTempGroup
 //endglobals from YDWEGetUnitsInRangeOfLocMatchingNull
 //globals from YDWELogarithm:
 constant boolean LIBRARY_YDWELogarithm=true
-real array YDWELogarithm___base
+real array YDWELogarithm__base
 //endglobals from YDWELogarithm
 //globals from YDWEPolledWaitNull:
 constant boolean LIBRARY_YDWEPolledWaitNull=true
@@ -179,20 +179,20 @@ constant boolean LIBRARY_YDWEStringHash=true
 //endglobals from YDWEStringHash
 //globals from YDWESync:
 constant boolean LIBRARY_YDWESync=true
-gamecache YDWESync___m_gc
-boolean YDWESync___m_mutex_state= false
+gamecache YDWESync__m_gc
+boolean YDWESync__m_mutex_state= false
 //endglobals from YDWESync
 //globals from YDWETriggerEvent:
 constant boolean LIBRARY_YDWETriggerEvent=true
 trigger yd_DamageEventTrigger= null
-trigger array YDWETriggerEvent___DamageEventQueue
-integer YDWETriggerEvent___DamageEventNumber= 0
+trigger array YDWETriggerEvent__DamageEventQueue
+integer YDWETriggerEvent__DamageEventNumber= 0
 	
 item bj_lastMovedItemInItemSlot= null
 	
-trigger YDWETriggerEvent___MoveItemEventTrigger= null
-trigger array YDWETriggerEvent___MoveItemEventQueue
-integer YDWETriggerEvent___MoveItemEventNumber= 0
+trigger YDWETriggerEvent__MoveItemEventTrigger= null
+trigger array YDWETriggerEvent__MoveItemEventQueue
+integer YDWETriggerEvent__MoveItemEventNumber= 0
 //endglobals from YDWETriggerEvent
 //globals from YDWETriggerRegisterLeaveRectSimpleNull:
 constant boolean LIBRARY_YDWETriggerRegisterLeaveRectSimpleNull=true
@@ -221,9 +221,9 @@ constant boolean LIBRARY_YDWEPreloadSL=true
     /// ÿ�����ռ�õĿռ�[500*id, 500*(id-1))
     /// �±�Խ��û�н��м�飬�ƺ�û�����Ҫ��˭Ҫ���ó���500...��ȥ����- -
     /// 
-integer array YDWEPreloadSL___Code
-integer array YDWEPreloadSL___CodeHI
-integer array YDWEPreloadSL___CodeLO
+integer array YDWEPreloadSL__Code
+integer array YDWEPreloadSL__CodeHI
+integer array YDWEPreloadSL__CodeLO
 boolean bj_lastLoadPreloadSLResult
 string array udg_YDWE_PreloadSL_List
 string udg_YDWE_PreloadSL_CurrentDir= ""
@@ -231,39 +231,39 @@ string udg_YDWE_PreloadSL_CurrentDir= ""
 //globals from YDWEStringFormula:
 constant boolean LIBRARY_YDWEStringFormula=true
 item bj_lastCombinedItem=null
-trigger array YDWEStringFormula___ItemCombineEventQueue
-integer YDWEStringFormula___ItemCombineEventNumber= 0
-constant integer YDWEStringFormula___MAX_INSTANCES= 8100
-constant integer YDWEStringFormula___SEGMENT_LENGTH= 4
-integer YDWEStringFormula___FormulaData= 0
+trigger array YDWEStringFormula__ItemCombineEventQueue
+integer YDWEStringFormula__ItemCombineEventNumber= 0
+constant integer YDWEStringFormula__MAX_INSTANCES= 8100
+constant integer YDWEStringFormula__SEGMENT_LENGTH= 4
+integer YDWEStringFormula__FormulaData= 0
 //endglobals from YDWEStringFormula
 //globals from YDWETimerPattern:
 constant boolean LIBRARY_YDWETimerPattern=true
-boolexpr YDWETimerPattern___Bexpr= null
-rect YDWETimerPattern___Area= null
-integer YDWETimerPattern___tmp_data
-location YDWETimerPattern___yd_loc= Location(0.0, 0.0)
+boolexpr YDWETimerPattern__Bexpr= null
+rect YDWETimerPattern__Area= null
+integer YDWETimerPattern__tmp_data
+location YDWETimerPattern__yd_loc= Location(0.0, 0.0)
 //endglobals from YDWETimerPattern
 //globals from YDWETimerSystem:
 constant boolean LIBRARY_YDWETimerSystem=true
-integer YDWETimerSystem___CurrentTime
-integer YDWETimerSystem___CurrentIndex
-integer YDWETimerSystem___TaskListHead
-integer YDWETimerSystem___TaskListIdleHead
-integer YDWETimerSystem___TaskListIdleMax
-integer array YDWETimerSystem___TaskListIdle
-integer array YDWETimerSystem___TaskListNext
-integer array YDWETimerSystem___TaskListTime
-trigger array YDWETimerSystem___TaskListProc
-trigger YDWETimerSystem___fnRemoveUnit
-trigger YDWETimerSystem___fnDestroyTimer
-trigger YDWETimerSystem___fnRemoveItem
-trigger YDWETimerSystem___fnDestroyEffect
-trigger YDWETimerSystem___fnDestroyLightning
-trigger YDWETimerSystem___fnRunTrigger
-timer YDWETimerSystem___Timer
-integer YDWETimerSystem___TimerHandle
-integer YDWETimerSystem___TimerSystem_RunIndex= 0
+integer YDWETimerSystem__CurrentTime
+integer YDWETimerSystem__CurrentIndex
+integer YDWETimerSystem__TaskListHead
+integer YDWETimerSystem__TaskListIdleHead
+integer YDWETimerSystem__TaskListIdleMax
+integer array YDWETimerSystem__TaskListIdle
+integer array YDWETimerSystem__TaskListNext
+integer array YDWETimerSystem__TaskListTime
+trigger array YDWETimerSystem__TaskListProc
+trigger YDWETimerSystem__fnRemoveUnit
+trigger YDWETimerSystem__fnDestroyTimer
+trigger YDWETimerSystem__fnRemoveItem
+trigger YDWETimerSystem__fnDestroyEffect
+trigger YDWETimerSystem__fnDestroyLightning
+trigger YDWETimerSystem__fnRunTrigger
+timer YDWETimerSystem__Timer
+integer YDWETimerSystem__TimerHandle
+integer YDWETimerSystem__TimerSystem_RunIndex= 0
 //endglobals from YDWETimerSystem
 //globals from WuQiQiHeSystem:
 constant boolean LIBRARY_WuQiQiHeSystem=true
@@ -420,7 +420,7 @@ integer nanduFlag= 0
 boolean tiaoZhanFlag= false
 integer tiaoZhanIndex= 0
 boolean is_victory= false
-constant string VERSION= "1.6.40"
+constant string VERSION= "1.6.41"
 timer shiWanTimer= null
 timerdialog shiWanTimerDialog= null
 dialog wuhun=DialogCreate()
@@ -1832,79 +1832,79 @@ real s__ModSpeed_dx
 real s__ModSpeed_dy
 real s__ModSpeed_dist
 real s__ModSpeed_rate
-constant integer si__YDWEStringFormula___Inventory=3
-integer si__YDWEStringFormula___Inventory_F=0
-integer si__YDWEStringFormula___Inventory_I=0
-integer array si__YDWEStringFormula___Inventory_V
-constant integer si__YDWEStringFormula___StringTable=4
-constant integer si__YDWEStringFormula___ItemIdMatrix=5
-integer s__YDWEStringFormula___ItemIdMatrix_Data
-integer s__YDWEStringFormula___ItemIdMatrix_Total= 1
-integer array s__YDWEStringFormula___ItemIdMatrix_itemId
-string array s__YDWEStringFormula___ItemIdMatrix_keyStr
-integer array s__YDWEStringFormula___ItemIdMatrix_keyLen
-constant integer si__YDWEStringFormula___FormulaMatrix=6
-integer s__YDWEStringFormula___FormulaMatrix_Data
-integer s__YDWEStringFormula___FormulaMatrix_Total= 1
-string array s__YDWEStringFormula___FormulaMatrix_formula
-integer array s__YDWEStringFormula___FormulaMatrix_segmLen
-string array s__YDWEStringFormula___FormulaMatrix_model
-string array s__YDWEStringFormula___FormulaMatrix_message
-integer array s__YDWEStringFormula___FormulaMatrix_chance
-boolean array s__YDWEStringFormula___FormulaMatrix_delete
-constant integer si__YDWEStringFormula___Sorting=7
-integer si__YDWEStringFormula___Sorting_F=0
-integer si__YDWEStringFormula___Sorting_I=0
-integer array si__YDWEStringFormula___Sorting_V
-integer array s___YDWEStringFormula___Sorting_stack
-constant integer s___YDWEStringFormula___Sorting_stack_size=8
-integer array s__YDWEStringFormula___Sorting_stack
-integer array s___YDWEStringFormula___Sorting_count
-constant integer s___YDWEStringFormula___Sorting_count_size=8
-integer array s__YDWEStringFormula___Sorting_count
-integer array s__YDWEStringFormula___Sorting_total
-string array s__YDWEStringFormula___Sorting_char
-constant integer si__YDWETimerPattern___YDVector3=10
-integer si__YDWETimerPattern___YDVector3_F=0
-integer si__YDWETimerPattern___YDVector3_I=0
-integer array si__YDWETimerPattern___YDVector3_V
-real array s__YDWETimerPattern___YDVector3_x
-real array s__YDWETimerPattern___YDVector3_y
-real array s__YDWETimerPattern___YDVector3_z
-constant integer si__YDWETimerPattern___Thread=11
-integer si__YDWETimerPattern___Thread_F=0
-integer si__YDWETimerPattern___Thread_I=0
-integer array si__YDWETimerPattern___Thread_V
-integer array s__YDWETimerPattern___Thread_des
-integer array s__YDWETimerPattern___Thread_pos
-integer array s__YDWETimerPattern___Thread_vel
-unit array s__YDWETimerPattern___Thread_caster
-unit array s__YDWETimerPattern___Thread_source
-unit array s__YDWETimerPattern___Thread_target
-unit array s__YDWETimerPattern___Thread_obj
-real array s__YDWETimerPattern___Thread_ac
-real array s__YDWETimerPattern___Thread_bc
-real array s__YDWETimerPattern___Thread_dist
-real array s__YDWETimerPattern___Thread_step
-real array s__YDWETimerPattern___Thread_amount
-integer array s__YDWETimerPattern___Thread_switch
-integer array s__YDWETimerPattern___Thread_follow
-integer array s__YDWETimerPattern___Thread_unitid
-integer array s__YDWETimerPattern___Thread_skills
-integer array s__YDWETimerPattern___Thread_order
-integer array s__YDWETimerPattern___Thread_level
-string array s__YDWETimerPattern___Thread_dsfx
-string array s__YDWETimerPattern___Thread_gsfx
-string array s__YDWETimerPattern___Thread_wsfx
-string array s__YDWETimerPattern___Thread_part
-boolean array s__YDWETimerPattern___Thread_recycle
-boolean array s__YDWETimerPattern___Thread_killdest
-boolean array s__YDWETimerPattern___Thread_volume
-group array s__YDWETimerPattern___Thread_g
-timer array s__YDWETimerPattern___Thread_t
-constant integer si__YDWETimerPattern___Parabola=12
-constant integer si__YDWETimerPattern___Linear=13
-constant integer si__YDWETimerPattern___Deceleration=14
+constant integer si__YDWEStringFormula__Inventory=3
+integer si__YDWEStringFormula__Inventory_F=0
+integer si__YDWEStringFormula__Inventory_I=0
+integer array si__YDWEStringFormula__Inventory_V
+constant integer si__YDWEStringFormula__StringTable=4
+constant integer si__YDWEStringFormula__ItemIdMatrix=5
+integer s__YDWEStringFormula__ItemIdMatrix_Data
+integer s__YDWEStringFormula__ItemIdMatrix_Total= 1
+integer array s__YDWEStringFormula__ItemIdMatrix_itemId
+string array s__YDWEStringFormula__ItemIdMatrix_keyStr
+integer array s__YDWEStringFormula__ItemIdMatrix_keyLen
+constant integer si__YDWEStringFormula__FormulaMatrix=6
+integer s__YDWEStringFormula__FormulaMatrix_Data
+integer s__YDWEStringFormula__FormulaMatrix_Total= 1
+string array s__YDWEStringFormula__FormulaMatrix_formula
+integer array s__YDWEStringFormula__FormulaMatrix_segmLen
+string array s__YDWEStringFormula__FormulaMatrix_model
+string array s__YDWEStringFormula__FormulaMatrix_message
+integer array s__YDWEStringFormula__FormulaMatrix_chance
+boolean array s__YDWEStringFormula__FormulaMatrix_delete
+constant integer si__YDWEStringFormula__Sorting=7
+integer si__YDWEStringFormula__Sorting_F=0
+integer si__YDWEStringFormula__Sorting_I=0
+integer array si__YDWEStringFormula__Sorting_V
+integer array s___YDWEStringFormula__Sorting_stack
+constant integer s___YDWEStringFormula__Sorting_stack_size=8
+integer array s__YDWEStringFormula__Sorting_stack
+integer array s___YDWEStringFormula__Sorting_count
+constant integer s___YDWEStringFormula__Sorting_count_size=8
+integer array s__YDWEStringFormula__Sorting_count
+integer array s__YDWEStringFormula__Sorting_total
+string array s__YDWEStringFormula__Sorting_char
+constant integer si__YDWETimerPattern__YDVector3=10
+integer si__YDWETimerPattern__YDVector3_F=0
+integer si__YDWETimerPattern__YDVector3_I=0
+integer array si__YDWETimerPattern__YDVector3_V
+real array s__YDWETimerPattern__YDVector3_x
+real array s__YDWETimerPattern__YDVector3_y
+real array s__YDWETimerPattern__YDVector3_z
+constant integer si__YDWETimerPattern__Thread=11
+integer si__YDWETimerPattern__Thread_F=0
+integer si__YDWETimerPattern__Thread_I=0
+integer array si__YDWETimerPattern__Thread_V
+integer array s__YDWETimerPattern__Thread_des
+integer array s__YDWETimerPattern__Thread_pos
+integer array s__YDWETimerPattern__Thread_vel
+unit array s__YDWETimerPattern__Thread_caster
+unit array s__YDWETimerPattern__Thread_source
+unit array s__YDWETimerPattern__Thread_target
+unit array s__YDWETimerPattern__Thread_obj
+real array s__YDWETimerPattern__Thread_ac
+real array s__YDWETimerPattern__Thread_bc
+real array s__YDWETimerPattern__Thread_dist
+real array s__YDWETimerPattern__Thread_step
+real array s__YDWETimerPattern__Thread_amount
+integer array s__YDWETimerPattern__Thread_switch
+integer array s__YDWETimerPattern__Thread_follow
+integer array s__YDWETimerPattern__Thread_unitid
+integer array s__YDWETimerPattern__Thread_skills
+integer array s__YDWETimerPattern__Thread_order
+integer array s__YDWETimerPattern__Thread_level
+string array s__YDWETimerPattern__Thread_dsfx
+string array s__YDWETimerPattern__Thread_gsfx
+string array s__YDWETimerPattern__Thread_wsfx
+string array s__YDWETimerPattern__Thread_part
+boolean array s__YDWETimerPattern__Thread_recycle
+boolean array s__YDWETimerPattern__Thread_killdest
+boolean array s__YDWETimerPattern__Thread_volume
+group array s__YDWETimerPattern__Thread_g
+timer array s__YDWETimerPattern__Thread_t
+constant integer si__YDWETimerPattern__Parabola=12
+constant integer si__YDWETimerPattern__Linear=13
+constant integer si__YDWETimerPattern__Deceleration=14
 constant integer si__DaPei=15
 integer si__DaPei_F=0
 integer si__DaPei_I=0
@@ -1930,12 +1930,12 @@ integer array si__ShopWeapon_V
 integer array s__ShopWeapon_min_xiuxing
 integer array s__ShopWeapon_id
 boolean array s__ShopWeapon_zhuanshu
-integer array si__YDWEStringFormula___Inventory_type
-trigger array st__YDWEStringFormula___Inventory_onDestroy
-integer array si__YDWETimerPattern___Thread_type
-trigger array st__YDWETimerPattern___Thread_onDestroy
+integer array si__YDWEStringFormula__Inventory_type
+trigger array st__YDWEStringFormula__Inventory_onDestroy
+integer array si__YDWETimerPattern__Thread_type
+trigger array st__YDWETimerPattern__Thread_onDestroy
 trigger st__Frame_onDestroy
-trigger st__YDWEStringFormula___Sorting_onDestroy
+trigger st__YDWEStringFormula__Sorting_onDestroy
 trigger st__DaPei_onDestroy
 trigger st__DaPei_XiaoGuoShuoMing
 trigger st__ZiZhiWuGong_create
@@ -2329,202 +2329,202 @@ function sc__DaPei_deallocate takes integer this returns nothing
     set si__DaPei_F=this
 endfunction
 
-//Generated method caller for YDWEStringFormula___Inventory.onDestroy
-function sc__YDWEStringFormula___Inventory_onDestroy takes integer this returns nothing
+//Generated method caller for YDWEStringFormula__Inventory.onDestroy
+function sc__YDWEStringFormula__Inventory_onDestroy takes integer this returns nothing
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWEStringFormula___Inventory_onDestroy[3])
+    call TriggerEvaluate(st__YDWEStringFormula__Inventory_onDestroy[3])
 endfunction
 
-//Generated allocator of YDWEStringFormula___Inventory
-function s__YDWEStringFormula___Inventory__allocate takes nothing returns integer
- local integer this=si__YDWEStringFormula___Inventory_F
+//Generated allocator of YDWEStringFormula__Inventory
+function s__YDWEStringFormula__Inventory__allocate takes nothing returns integer
+ local integer this=si__YDWEStringFormula__Inventory_F
     if (this!=0) then
-        set si__YDWEStringFormula___Inventory_F=si__YDWEStringFormula___Inventory_V[this]
+        set si__YDWEStringFormula__Inventory_F=si__YDWEStringFormula__Inventory_V[this]
     else
-        set si__YDWEStringFormula___Inventory_I=si__YDWEStringFormula___Inventory_I+1
-        set this=si__YDWEStringFormula___Inventory_I
+        set si__YDWEStringFormula__Inventory_I=si__YDWEStringFormula__Inventory_I+1
+        set this=si__YDWEStringFormula__Inventory_I
     endif
     if (this>8190) then
         return 0
     endif
 
-    set si__YDWEStringFormula___Inventory_type[this]=3
-    set si__YDWEStringFormula___Inventory_V[this]=-1
+    set si__YDWEStringFormula__Inventory_type[this]=3
+    set si__YDWEStringFormula__Inventory_V[this]=-1
  return this
 endfunction
 
-//Generated destructor of YDWEStringFormula___Inventory
-function sc__YDWEStringFormula___Inventory_deallocate takes integer this returns nothing
+//Generated destructor of YDWEStringFormula__Inventory
+function sc__YDWEStringFormula__Inventory_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWEStringFormula___Inventory_V[this]!=-1) then
+    elseif (si__YDWEStringFormula__Inventory_V[this]!=-1) then
         return
     endif
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWEStringFormula___Inventory_onDestroy[si__YDWEStringFormula___Inventory_type[this]])
-    set si__YDWEStringFormula___Inventory_V[this]=si__YDWEStringFormula___Inventory_F
-    set si__YDWEStringFormula___Inventory_F=this
+    call TriggerEvaluate(st__YDWEStringFormula__Inventory_onDestroy[si__YDWEStringFormula__Inventory_type[this]])
+    set si__YDWEStringFormula__Inventory_V[this]=si__YDWEStringFormula__Inventory_F
+    set si__YDWEStringFormula__Inventory_F=this
 endfunction
 
-//Generated allocator of YDWEStringFormula___StringTable
-function s__YDWEStringFormula___StringTable__allocate takes nothing returns integer
- local integer this=s__YDWEStringFormula___Inventory__allocate()
+//Generated allocator of YDWEStringFormula__StringTable
+function s__YDWEStringFormula__StringTable__allocate takes nothing returns integer
+ local integer this=s__YDWEStringFormula__Inventory__allocate()
  local integer kthis
     if(this==0) then
         return 0
     endif
-    set si__YDWEStringFormula___Inventory_type[this]=4
+    set si__YDWEStringFormula__Inventory_type[this]=4
     set kthis=this
 
  return this
 endfunction
 
 
-//Generated method caller for YDWETimerPattern___Thread.onDestroy
-function sc__YDWETimerPattern___Thread_onDestroy takes integer this returns nothing
+//Generated method caller for YDWETimerPattern__Thread.onDestroy
+function sc__YDWETimerPattern__Thread_onDestroy takes integer this returns nothing
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWETimerPattern___Thread_onDestroy[11])
+    call TriggerEvaluate(st__YDWETimerPattern__Thread_onDestroy[11])
 endfunction
 
-//Generated allocator of YDWETimerPattern___Thread
-function s__YDWETimerPattern___Thread__allocate takes nothing returns integer
- local integer this=si__YDWETimerPattern___Thread_F
+//Generated allocator of YDWETimerPattern__Thread
+function s__YDWETimerPattern__Thread__allocate takes nothing returns integer
+ local integer this=si__YDWETimerPattern__Thread_F
     if (this!=0) then
-        set si__YDWETimerPattern___Thread_F=si__YDWETimerPattern___Thread_V[this]
+        set si__YDWETimerPattern__Thread_F=si__YDWETimerPattern__Thread_V[this]
     else
-        set si__YDWETimerPattern___Thread_I=si__YDWETimerPattern___Thread_I+1
-        set this=si__YDWETimerPattern___Thread_I
+        set si__YDWETimerPattern__Thread_I=si__YDWETimerPattern__Thread_I+1
+        set this=si__YDWETimerPattern__Thread_I
     endif
     if (this>8190) then
         return 0
     endif
 
-    set si__YDWETimerPattern___Thread_type[this]=11
-    set si__YDWETimerPattern___Thread_V[this]=-1
+    set si__YDWETimerPattern__Thread_type[this]=11
+    set si__YDWETimerPattern__Thread_V[this]=-1
  return this
 endfunction
 
-//Generated destructor of YDWETimerPattern___Thread
-function sc__YDWETimerPattern___Thread_deallocate takes integer this returns nothing
+//Generated destructor of YDWETimerPattern__Thread
+function sc__YDWETimerPattern__Thread_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWETimerPattern___Thread_V[this]!=-1) then
+    elseif (si__YDWETimerPattern__Thread_V[this]!=-1) then
         return
     endif
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWETimerPattern___Thread_onDestroy[si__YDWETimerPattern___Thread_type[this]])
-    set si__YDWETimerPattern___Thread_V[this]=si__YDWETimerPattern___Thread_F
-    set si__YDWETimerPattern___Thread_F=this
+    call TriggerEvaluate(st__YDWETimerPattern__Thread_onDestroy[si__YDWETimerPattern__Thread_type[this]])
+    set si__YDWETimerPattern__Thread_V[this]=si__YDWETimerPattern__Thread_F
+    set si__YDWETimerPattern__Thread_F=this
 endfunction
 
-//Generated allocator of YDWETimerPattern___YDVector3
-function s__YDWETimerPattern___YDVector3__allocate takes nothing returns integer
- local integer this=si__YDWETimerPattern___YDVector3_F
+//Generated allocator of YDWETimerPattern__YDVector3
+function s__YDWETimerPattern__YDVector3__allocate takes nothing returns integer
+ local integer this=si__YDWETimerPattern__YDVector3_F
     if (this!=0) then
-        set si__YDWETimerPattern___YDVector3_F=si__YDWETimerPattern___YDVector3_V[this]
+        set si__YDWETimerPattern__YDVector3_F=si__YDWETimerPattern__YDVector3_V[this]
     else
-        set si__YDWETimerPattern___YDVector3_I=si__YDWETimerPattern___YDVector3_I+1
-        set this=si__YDWETimerPattern___YDVector3_I
+        set si__YDWETimerPattern__YDVector3_I=si__YDWETimerPattern__YDVector3_I+1
+        set this=si__YDWETimerPattern__YDVector3_I
     endif
     if (this>8190) then
         return 0
     endif
 
-    set si__YDWETimerPattern___YDVector3_V[this]=-1
+    set si__YDWETimerPattern__YDVector3_V[this]=-1
  return this
 endfunction
 
-//Generated destructor of YDWETimerPattern___YDVector3
-function s__YDWETimerPattern___YDVector3_deallocate takes integer this returns nothing
+//Generated destructor of YDWETimerPattern__YDVector3
+function s__YDWETimerPattern__YDVector3_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWETimerPattern___YDVector3_V[this]!=-1) then
+    elseif (si__YDWETimerPattern__YDVector3_V[this]!=-1) then
         return
     endif
-    set si__YDWETimerPattern___YDVector3_V[this]=si__YDWETimerPattern___YDVector3_F
-    set si__YDWETimerPattern___YDVector3_F=this
+    set si__YDWETimerPattern__YDVector3_V[this]=si__YDWETimerPattern__YDVector3_F
+    set si__YDWETimerPattern__YDVector3_F=this
 endfunction
 
-//Generated method caller for YDWEStringFormula___Sorting.onDestroy
-function sc__YDWEStringFormula___Sorting_onDestroy takes integer this returns nothing
+//Generated method caller for YDWEStringFormula__Sorting.onDestroy
+function sc__YDWEStringFormula__Sorting_onDestroy takes integer this returns nothing
             local integer i= 0
             loop
-                exitwhen i == s___YDWEStringFormula___Sorting_stack_size
-                set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=0
-                set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=0
+                exitwhen i == s___YDWEStringFormula__Sorting_stack_size
+                set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=0
+                set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=0
                 set i=i + 1
             endloop
-            set s__YDWEStringFormula___Sorting_char[this]=""
+            set s__YDWEStringFormula__Sorting_char[this]=""
 endfunction
 
-//Generated allocator of YDWEStringFormula___Sorting
-function s__YDWEStringFormula___Sorting__allocate takes nothing returns integer
- local integer this=si__YDWEStringFormula___Sorting_F
+//Generated allocator of YDWEStringFormula__Sorting
+function s__YDWEStringFormula__Sorting__allocate takes nothing returns integer
+ local integer this=si__YDWEStringFormula__Sorting_F
     if (this!=0) then
-        set si__YDWEStringFormula___Sorting_F=si__YDWEStringFormula___Sorting_V[this]
+        set si__YDWEStringFormula__Sorting_F=si__YDWEStringFormula__Sorting_V[this]
     else
-        set si__YDWEStringFormula___Sorting_I=si__YDWEStringFormula___Sorting_I+1
-        set this=si__YDWEStringFormula___Sorting_I
+        set si__YDWEStringFormula__Sorting_I=si__YDWEStringFormula__Sorting_I+1
+        set this=si__YDWEStringFormula__Sorting_I
     endif
     if (this>1022) then
         return 0
     endif
-    set s__YDWEStringFormula___Sorting_stack[this]=(this-1)*8
-    set s__YDWEStringFormula___Sorting_count[this]=(this-1)*8
-   set s__YDWEStringFormula___Sorting_total[this]= 7
-    set si__YDWEStringFormula___Sorting_V[this]=-1
+    set s__YDWEStringFormula__Sorting_stack[this]=(this-1)*8
+    set s__YDWEStringFormula__Sorting_count[this]=(this-1)*8
+   set s__YDWEStringFormula__Sorting_total[this]= 7
+    set si__YDWEStringFormula__Sorting_V[this]=-1
  return this
 endfunction
 
-//Generated destructor of YDWEStringFormula___Sorting
-function sc__YDWEStringFormula___Sorting_deallocate takes integer this returns nothing
+//Generated destructor of YDWEStringFormula__Sorting
+function sc__YDWEStringFormula__Sorting_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWEStringFormula___Sorting_V[this]!=-1) then
+    elseif (si__YDWEStringFormula__Sorting_V[this]!=-1) then
         return
     endif
     set f__arg_this=this
-    call TriggerEvaluate(st__YDWEStringFormula___Sorting_onDestroy)
-    set si__YDWEStringFormula___Sorting_V[this]=si__YDWEStringFormula___Sorting_F
-    set si__YDWEStringFormula___Sorting_F=this
+    call TriggerEvaluate(st__YDWEStringFormula__Sorting_onDestroy)
+    set si__YDWEStringFormula__Sorting_V[this]=si__YDWEStringFormula__Sorting_F
+    set si__YDWEStringFormula__Sorting_F=this
 endfunction
 
-//Generated allocator of YDWETimerPattern___Deceleration
-function s__YDWETimerPattern___Deceleration__allocate takes nothing returns integer
- local integer this=s__YDWETimerPattern___Thread__allocate()
+//Generated allocator of YDWETimerPattern__Deceleration
+function s__YDWETimerPattern__Deceleration__allocate takes nothing returns integer
+ local integer this=s__YDWETimerPattern__Thread__allocate()
  local integer kthis
     if(this==0) then
         return 0
     endif
-    set si__YDWETimerPattern___Thread_type[this]=14
+    set si__YDWETimerPattern__Thread_type[this]=14
     set kthis=this
 
  return this
 endfunction
 
 
-//Generated allocator of YDWETimerPattern___Parabola
-function s__YDWETimerPattern___Parabola__allocate takes nothing returns integer
- local integer this=s__YDWETimerPattern___Thread__allocate()
+//Generated allocator of YDWETimerPattern__Parabola
+function s__YDWETimerPattern__Parabola__allocate takes nothing returns integer
+ local integer this=s__YDWETimerPattern__Thread__allocate()
  local integer kthis
     if(this==0) then
         return 0
     endif
-    set si__YDWETimerPattern___Thread_type[this]=12
+    set si__YDWETimerPattern__Thread_type[this]=12
     set kthis=this
 
  return this
 endfunction
 
 
-//Generated allocator of YDWETimerPattern___Linear
-function s__YDWETimerPattern___Linear__allocate takes nothing returns integer
- local integer this=s__YDWETimerPattern___Thread__allocate()
+//Generated allocator of YDWETimerPattern__Linear
+function s__YDWETimerPattern__Linear__allocate takes nothing returns integer
+ local integer this=s__YDWETimerPattern__Thread__allocate()
  local integer kthis
     if(this==0) then
         return 0
     endif
-    set si__YDWETimerPattern___Thread_type[this]=13
+    set si__YDWETimerPattern__Thread_type[this]=13
     set kthis=this
 
  return this
@@ -3355,7 +3355,7 @@ endfunction
 
  function YDWEUnitTransform takes unit u,integer abilcode,integer targetid returns nothing
 		call UnitAddAbility(u, abilcode)
-		call EXSetAbilityDataInteger(EXGetUnitAbility(u, abilcode), 1, YDWEAbilityState___ABILITY_DATA_UNITID, GetUnitTypeId(u))
+		call EXSetAbilityDataInteger(EXGetUnitAbility(u, abilcode), 1, YDWEAbilityState__ABILITY_DATA_UNITID, GetUnitTypeId(u))
 		call EXSetAbilityAEmeDataA(EXGetUnitAbility(u, abilcode), GetUnitTypeId(u))
 		call UnitRemoveAbility(u, abilcode)
 		call UnitAddAbility(u, abilcode)
@@ -3971,11 +3971,11 @@ endfunction
 function YDWESyStemAbilityCastingOverTriggerAction takes unit hero,integer index returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEBase___AbilityCastingOverEventNumber
-        if YDWEBase___AbilityCastingOverEventType[i] == index then
+        exitwhen i >= YDWEBase__AbilityCastingOverEventNumber
+        if YDWEBase__AbilityCastingOverEventType[i] == index then
             set bj_lastAbilityCastingUnit=hero
-			if YDWEBase___AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase___AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase___AbilityCastingOverEventQueue[i]) then
-				call TriggerExecute(YDWEBase___AbilityCastingOverEventQueue[i])
+			if YDWEBase__AbilityCastingOverEventQueue[i] != null and TriggerEvaluate(YDWEBase__AbilityCastingOverEventQueue[i]) and IsTriggerEnabled(YDWEBase__AbilityCastingOverEventQueue[i]) then
+				call TriggerExecute(YDWEBase__AbilityCastingOverEventQueue[i])
 			endif
 		endif
         set i=i + 1
@@ -3985,9 +3985,9 @@ endfunction
 //YDWE技能捕捉事件 
 //===========================================================================  
 function YDWESyStemAbilityCastingOverRegistTrigger takes trigger trg,integer index returns nothing
-	set YDWEBase___AbilityCastingOverEventQueue[YDWEBase___AbilityCastingOverEventNumber]=trg
-	set YDWEBase___AbilityCastingOverEventType[YDWEBase___AbilityCastingOverEventNumber]=index
-	set YDWEBase___AbilityCastingOverEventNumber=YDWEBase___AbilityCastingOverEventNumber + 1
+	set YDWEBase__AbilityCastingOverEventQueue[YDWEBase__AbilityCastingOverEventNumber]=trg
+	set YDWEBase__AbilityCastingOverEventType[YDWEBase__AbilityCastingOverEventNumber]=index
+	set YDWEBase__AbilityCastingOverEventNumber=YDWEBase__AbilityCastingOverEventNumber + 1
 endfunction 
 //===========================================================================
 //系统函数完善
@@ -4024,7 +4024,7 @@ endfunction
 //unitpool bj_lastCreatedPool=null
 //unit bj_lastPoolAbstractedUnit=null
 function YDWEGetPlayerColorString takes player p,string s returns string
-    return YDWEBase___yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
+    return YDWEBase__yd_PlayerColor[GetHandleId(GetPlayerColor(p))] + s + "|r"
 endfunction
 //===========================================================================
 //===========================================================================
@@ -4071,22 +4071,22 @@ function InitializeYD takes nothing returns nothing
 	set yd_MapMaxX=GetCameraBoundMaxX() + GetCameraMargin(CAMERA_MARGIN_RIGHT)
 	set yd_MapMaxY=GetCameraBoundMaxY() + GetCameraMargin(CAMERA_MARGIN_TOP)
 	
-    set YDWEBase___yd_PlayerColor[0]="|cFFFF0303"
-    set YDWEBase___yd_PlayerColor[1]="|cFF0042FF"
-    set YDWEBase___yd_PlayerColor[2]="|cFF1CE6B9"
-    set YDWEBase___yd_PlayerColor[3]="|cFF540081"
-    set YDWEBase___yd_PlayerColor[4]="|cFFFFFC01"
-    set YDWEBase___yd_PlayerColor[5]="|cFFFE8A0E"
-    set YDWEBase___yd_PlayerColor[6]="|cFF20C000"
-    set YDWEBase___yd_PlayerColor[7]="|cFFE55BB0"
-    set YDWEBase___yd_PlayerColor[8]="|cFF959697"
-    set YDWEBase___yd_PlayerColor[9]="|cFF7EBFF1"
-    set YDWEBase___yd_PlayerColor[10]="|cFF106246"
-    set YDWEBase___yd_PlayerColor[11]="|cFF4E2A04"
-    set YDWEBase___yd_PlayerColor[12]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[13]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[14]="|cFF282828"
-    set YDWEBase___yd_PlayerColor[15]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[0]="|cFFFF0303"
+    set YDWEBase__yd_PlayerColor[1]="|cFF0042FF"
+    set YDWEBase__yd_PlayerColor[2]="|cFF1CE6B9"
+    set YDWEBase__yd_PlayerColor[3]="|cFF540081"
+    set YDWEBase__yd_PlayerColor[4]="|cFFFFFC01"
+    set YDWEBase__yd_PlayerColor[5]="|cFFFE8A0E"
+    set YDWEBase__yd_PlayerColor[6]="|cFF20C000"
+    set YDWEBase__yd_PlayerColor[7]="|cFFE55BB0"
+    set YDWEBase__yd_PlayerColor[8]="|cFF959697"
+    set YDWEBase__yd_PlayerColor[9]="|cFF7EBFF1"
+    set YDWEBase__yd_PlayerColor[10]="|cFF106246"
+    set YDWEBase__yd_PlayerColor[11]="|cFF4E2A04"
+    set YDWEBase__yd_PlayerColor[12]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[13]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[14]="|cFF282828"
+    set YDWEBase__yd_PlayerColor[15]="|cFF282828"
     //=================显示版本=====================
     call YDWEVersion_Init()
 endfunction
@@ -4277,7 +4277,7 @@ endfunction
 //library YDWEGeneralBounsSystem:
 
 //以下函数仅仅是让技能ID出现在代码里，不然SLK优化器会删除这些技能
-function YDWEGeneralBounsSystem___DisplayAllAbilityId takes nothing returns nothing
+function YDWEGeneralBounsSystem__DisplayAllAbilityId takes nothing returns nothing
     local integer aid=0
     set aid='YDl0'
     set aid='YDl1'
@@ -4349,22 +4349,22 @@ function YDWEGeneralBounsSystem___DisplayAllAbilityId takes nothing returns noth
     set aid='YDbm'
     set aid='YDbn'
 endfunction
-    function YDWEGeneralBounsSystem___UnitClearBonus takes unit u,integer bonusType returns nothing
-        local integer i=YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1
+    function YDWEGeneralBounsSystem__UnitClearBonus takes unit u,integer bonusType returns nothing
+        local integer i=YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1
         loop
-            exitwhen i < YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType]
-            call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
+            exitwhen i < YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType]
+            call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
             set i=i - 1
         endloop
         call SaveInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType) )), ( 0)) // INLINED!!
     endfunction
-    function YDWEGeneralBounsSystem___SetUnitMaxState takes unit u,integer bonusType,real value returns boolean
+    function YDWEGeneralBounsSystem__SetUnitMaxState takes unit u,integer bonusType,real value returns boolean
         local integer v=R2I(value)
         local integer s=0
         local integer o=0
         local unitstate state
-        local integer i=YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 2
-        local integer a=YDWEGeneralBounsSystem___ABILITY_NUM[bonusType]
+        local integer i=YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 2
+        local integer a=YDWEGeneralBounsSystem__ABILITY_NUM[bonusType]
         if value > 65535 or value <= 0 then
             return false
         endif
@@ -4386,60 +4386,60 @@ endfunction
             return false
         endif
         loop
-            exitwhen i < YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType]
-            if v >= YDWEGeneralBounsSystem___PowersOf2[i] then
-                call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
-                call SetUnitAbilityLevel(u, YDWEGeneralBounsSystem___BonusAbilitys[i], o)
-                call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
-                set v=v - YDWEGeneralBounsSystem___PowersOf2[i]
+            exitwhen i < YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType]
+            if v >= YDWEGeneralBounsSystem__PowersOf2[i] then
+                call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
+                call SetUnitAbilityLevel(u, YDWEGeneralBounsSystem__BonusAbilitys[i], o)
+                call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
+                set v=v - YDWEGeneralBounsSystem__PowersOf2[i]
             endif
             set i=i - 1
         endloop
         return true
     endfunction
-function YDWEGeneralBounsSystem___UnitSetBonus takes unit u,integer bonusType,integer ammount returns boolean
+function YDWEGeneralBounsSystem__UnitSetBonus takes unit u,integer bonusType,integer ammount returns boolean
     local integer i
     //设置属性为0不进行Loop
     if ammount == 0 then
-        call YDWEGeneralBounsSystem___UnitClearBonus(u , bonusType)
+        call YDWEGeneralBounsSystem__UnitClearBonus(u , bonusType)
         return false
     endif
-    if ammount < YDWEGeneralBounsSystem___MinBonus[bonusType] or ammount > YDWEGeneralBounsSystem___MaxBonus[bonusType] then
+    if ammount < YDWEGeneralBounsSystem__MinBonus[bonusType] or ammount > YDWEGeneralBounsSystem__MaxBonus[bonusType] then
         return false
-    elseif bonusType < 0 or bonusType >= YDWEGeneralBounsSystem___BONUS_TYPES then
+    elseif bonusType < 0 or bonusType >= YDWEGeneralBounsSystem__BONUS_TYPES then
         return false
     endif
     call SaveInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType) )), ( ammount)) // INLINED!!
     if ammount < 0 then
-        set ammount=YDWEGeneralBounsSystem___MaxBonus[bonusType] + ammount + 1
-        call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1])
-        call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem___BonusAbilitys[YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1])
+        set ammount=YDWEGeneralBounsSystem__MaxBonus[bonusType] + ammount + 1
+        call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1])
+        call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem__BonusAbilitys[YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1])
       else
-        call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 1])
+        call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 1])
     endif
-    set i=YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType + 1] - 2
+    set i=YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType + 1] - 2
     loop
-        exitwhen i < YDWEGeneralBounsSystem___ABILITY_COUNT[bonusType]
-        if ammount >= YDWEGeneralBounsSystem___PowersOf2[i] then
-            call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
-            call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem___BonusAbilitys[i])
-            set ammount=ammount - YDWEGeneralBounsSystem___PowersOf2[i]
+        exitwhen i < YDWEGeneralBounsSystem__ABILITY_COUNT[bonusType]
+        if ammount >= YDWEGeneralBounsSystem__PowersOf2[i] then
+            call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
+            call UnitMakeAbilityPermanent(u, true, YDWEGeneralBounsSystem__BonusAbilitys[i])
+            set ammount=ammount - YDWEGeneralBounsSystem__PowersOf2[i]
         else
-            call UnitRemoveAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
+            call UnitRemoveAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
         endif
         set i=i - 1
     endloop
     if not (LoadBoolean(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusMark")))) then // INLINED!!
         call SaveBoolean(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusMark" )), ( true)) // INLINED!!
-        set YDWEGeneralBounsSystem___UnitCount=YDWEGeneralBounsSystem___UnitCount + 1
-        set YDWEGeneralBounsSystem___Units[YDWEGeneralBounsSystem___UnitCount]=u
+        set YDWEGeneralBounsSystem__UnitCount=YDWEGeneralBounsSystem__UnitCount + 1
+        set YDWEGeneralBounsSystem__Units[YDWEGeneralBounsSystem__UnitCount]=u
     endif
     return true
 endfunction
-function YDWEGeneralBounsSystem___UnitGetBonus takes unit u,integer bonusType returns integer
+function YDWEGeneralBounsSystem__UnitGetBonus takes unit u,integer bonusType returns integer
     return (LoadInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType))))) // INLINED!!
 endfunction
-function YDWEGeneralBounsSystem___AddUnitMaxState takes unit u,integer bonusType,real value returns boolean
+function YDWEGeneralBounsSystem__AddUnitMaxState takes unit u,integer bonusType,real value returns boolean
     local unitstate state
     if bonusType == 0 then
         set state=UNIT_STATE_MAX_LIFE
@@ -4448,42 +4448,42 @@ function YDWEGeneralBounsSystem___AddUnitMaxState takes unit u,integer bonusType
       else
         return false
     endif
-    return YDWEGeneralBounsSystem___SetUnitMaxState(u , bonusType , value + GetUnitState(u, state))
+    return YDWEGeneralBounsSystem__SetUnitMaxState(u , bonusType , value + GetUnitState(u, state))
 endfunction
-function YDWEGeneralBounsSystem___UnitAddBonus takes unit u,integer bonusType,integer ammount returns boolean
-    return YDWEGeneralBounsSystem___UnitSetBonus(u , bonusType , (LoadInteger(YDHT, StringHash((I2S((GetHandleId(((u ))))) )), StringHash(( "bonusType" + I2S(( bonusType)))))) + ammount) // INLINED!!
+function YDWEGeneralBounsSystem__UnitAddBonus takes unit u,integer bonusType,integer ammount returns boolean
+    return YDWEGeneralBounsSystem__UnitSetBonus(u , bonusType , (LoadInteger(YDHT, StringHash((I2S((GetHandleId(((u ))))) )), StringHash(( "bonusType" + I2S(( bonusType)))))) + ammount) // INLINED!!
 endfunction
-function YDWEGeneralBounsSystem___FlushUnits takes nothing returns nothing
-    local integer i= YDWEGeneralBounsSystem___UnitCount
+function YDWEGeneralBounsSystem__FlushUnits takes nothing returns nothing
+    local integer i= YDWEGeneralBounsSystem__UnitCount
     local string h
     loop
         exitwhen i < 1
-        if GetUnitTypeId(YDWEGeneralBounsSystem___Units[i]) == 0 then
-            set h=I2S((GetHandleId((YDWEGeneralBounsSystem___Units[i])))) // INLINED!!
+        if GetUnitTypeId(YDWEGeneralBounsSystem__Units[i]) == 0 then
+            set h=I2S((GetHandleId((YDWEGeneralBounsSystem__Units[i])))) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType0" )), ( 0)) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType1" )), ( 0)) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType2" )), ( 0)) // INLINED!!
             call SaveInteger(YDHT, StringHash((h )), StringHash(( "bonusType3" )), ( 0)) // INLINED!!
             call SaveBoolean(YDHT, StringHash((h )), StringHash(( "bonusMark" )), ( false)) // INLINED!!
-            set YDWEGeneralBounsSystem___Units[i]=YDWEGeneralBounsSystem___Units[YDWEGeneralBounsSystem___UnitCount]
-            set YDWEGeneralBounsSystem___Units[YDWEGeneralBounsSystem___UnitCount]=null
-            set YDWEGeneralBounsSystem___UnitCount=YDWEGeneralBounsSystem___UnitCount - 1
+            set YDWEGeneralBounsSystem__Units[i]=YDWEGeneralBounsSystem__Units[YDWEGeneralBounsSystem__UnitCount]
+            set YDWEGeneralBounsSystem__Units[YDWEGeneralBounsSystem__UnitCount]=null
+            set YDWEGeneralBounsSystem__UnitCount=YDWEGeneralBounsSystem__UnitCount - 1
         endif
         set i=i - 1
     endloop
 endfunction
 function YDWEUnitSetBonus takes unit u,integer bonusType,integer ammount returns nothing
     if bonusType == 0 or bonusType == 1 then
-        call YDWEGeneralBounsSystem___SetUnitMaxState(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem__SetUnitMaxState(u , bonusType , ammount)
       else
-        call YDWEGeneralBounsSystem___UnitSetBonus(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem__UnitSetBonus(u , bonusType , ammount)
     endif
 endfunction
 function YDWEUnitAddBonus takes unit u,integer bonusType,integer ammount returns nothing
     if bonusType == 0 or bonusType == 1 then
-        call YDWEGeneralBounsSystem___AddUnitMaxState(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem__AddUnitMaxState(u , bonusType , ammount)
       else
-        call YDWEGeneralBounsSystem___UnitAddBonus(u , bonusType , ammount)
+        call YDWEGeneralBounsSystem__UnitAddBonus(u , bonusType , ammount)
     endif
 endfunction
 function YDWEGeneralBounsSystemUnitSetBonus takes unit u,integer bonusType,integer mod,integer ammount returns nothing
@@ -4499,100 +4499,100 @@ function YDWEGeneralBounsSystemUnitGetBonus takes unit u,integer bonusType retur
     return (LoadInteger(YDHT, StringHash((I2S((GetHandleId((u)))) )), StringHash(( "bonusType" + I2S(bonusType))))) // INLINED!!
 endfunction
 //private keyword BonusAbilitys
-function YDWEGeneralBounsSystem___InitializeAbilitys takes nothing returns nothing
+function YDWEGeneralBounsSystem__InitializeAbilitys takes nothing returns nothing
     local integer i=0
     local integer m=0
-    set YDWEGeneralBounsSystem___ABILITY_COUNT[0]=0 //life max
-set YDWEGeneralBounsSystem___ABILITY_COUNT[1]=15 //mana max
-set YDWEGeneralBounsSystem___ABILITY_COUNT[2]=30 //armor
-set YDWEGeneralBounsSystem___ABILITY_COUNT[3]=43 //attack
-set YDWEGeneralBounsSystem___ABILITY_COUNT[4]=67
-    set YDWEGeneralBounsSystem___ABILITY_NUM[0]=15
-    set YDWEGeneralBounsSystem___ABILITY_NUM[1]=15
-    set YDWEGeneralBounsSystem___ABILITY_NUM[2]=13
-    set YDWEGeneralBounsSystem___ABILITY_NUM[3]=24
+    set YDWEGeneralBounsSystem__ABILITY_COUNT[0]=0 //life max
+set YDWEGeneralBounsSystem__ABILITY_COUNT[1]=15 //mana max
+set YDWEGeneralBounsSystem__ABILITY_COUNT[2]=30 //armor
+set YDWEGeneralBounsSystem__ABILITY_COUNT[3]=43 //attack
+set YDWEGeneralBounsSystem__ABILITY_COUNT[4]=67
+    set YDWEGeneralBounsSystem__ABILITY_NUM[0]=15
+    set YDWEGeneralBounsSystem__ABILITY_NUM[1]=15
+    set YDWEGeneralBounsSystem__ABILITY_NUM[2]=13
+    set YDWEGeneralBounsSystem__ABILITY_NUM[3]=24
     // Bonus Mod - armor abilitys
     loop
         exitwhen i > 9
-        set YDWEGeneralBounsSystem___YDWEBONUS_MyChar[i]='0' + m
+        set YDWEGeneralBounsSystem__YDWEBONUS_MyChar[i]='0' + m
         set m=m + 1
         set i=i + 1
     endloop
     set m=0
     loop
         exitwhen i > 26
-        set YDWEGeneralBounsSystem___YDWEBONUS_MyChar[i]='a' + m
+        set YDWEGeneralBounsSystem__YDWEBONUS_MyChar[i]='a' + m
         set m=m + 1
         set i=i + 1
     endloop
     set i=0
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[0] - 1 )
-        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDl0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[0] - 1 )
+        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDl0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
     // Bonus Mod - Damage abilitys
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[1] - 1 )
-        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDm0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[1] - 1 )
+        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDm0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
     // Bonus Mod - Life MaxState abilitys
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[2] - 1 )
-        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDc0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[2] - 1 )
+        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDc0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
     // Bonus Mod - Mana MaxState abilitys
     set m=0
     loop
-        exitwhen m > ( YDWEGeneralBounsSystem___ABILITY_NUM[3] - 1 )
-        set YDWEGeneralBounsSystem___BonusAbilitys[i]='YDb0' - '0' + YDWEGeneralBounsSystem___YDWEBONUS_MyChar[m] // +1
+        exitwhen m > ( YDWEGeneralBounsSystem__ABILITY_NUM[3] - 1 )
+        set YDWEGeneralBounsSystem__BonusAbilitys[i]='YDb0' - '0' + YDWEGeneralBounsSystem__YDWEBONUS_MyChar[m] // +1
         set i=i + 1
         set m=m + 1
     endloop
 endfunction
-function YDWEGeneralBounsSystem___Initialize takes nothing returns nothing
+function YDWEGeneralBounsSystem__Initialize takes nothing returns nothing
     local integer i= 1
     local unit u
     local integer n=0
     local integer add=0
-    call YDWEGeneralBounsSystem___InitializeAbilitys()
+    call YDWEGeneralBounsSystem__InitializeAbilitys()
     loop
         set i=1
-        set YDWEGeneralBounsSystem___PowersOf2[add]=1
+        set YDWEGeneralBounsSystem__PowersOf2[add]=1
             loop
-                set YDWEGeneralBounsSystem___PowersOf2[add + 1]=YDWEGeneralBounsSystem___PowersOf2[add] * 2
+                set YDWEGeneralBounsSystem__PowersOf2[add + 1]=YDWEGeneralBounsSystem__PowersOf2[add] * 2
                 set add=add + 1
                 set i=i + 1
-                exitwhen i == YDWEGeneralBounsSystem___ABILITY_NUM[n]
+                exitwhen i == YDWEGeneralBounsSystem__ABILITY_NUM[n]
             endloop
-        set YDWEGeneralBounsSystem___MaxBonus[n]=YDWEGeneralBounsSystem___PowersOf2[add] - 1
-        set YDWEGeneralBounsSystem___MinBonus[n]=- YDWEGeneralBounsSystem___PowersOf2[add]
+        set YDWEGeneralBounsSystem__MaxBonus[n]=YDWEGeneralBounsSystem__PowersOf2[add] - 1
+        set YDWEGeneralBounsSystem__MinBonus[n]=- YDWEGeneralBounsSystem__PowersOf2[add]
         set add=add + 1
         set n=n + 1
         exitwhen n >= 4
     endloop
     //预读技能
-    if YDWEGeneralBounsSystem___PRELOAD_ABILITYS then
-        set u=CreateUnit(Player(15), YDWEGeneralBounsSystem___PRELOAD_DUMMY_UNIT, 0, 0, 0)
+    if YDWEGeneralBounsSystem__PRELOAD_ABILITYS then
+        set u=CreateUnit(Player(15), YDWEGeneralBounsSystem__PRELOAD_DUMMY_UNIT, 0, 0, 0)
         set i=0
         loop
-            exitwhen i == YDWEGeneralBounsSystem___ABILITY_COUNT[5]
-            call UnitAddAbility(u, YDWEGeneralBounsSystem___BonusAbilitys[i])
+            exitwhen i == YDWEGeneralBounsSystem__ABILITY_COUNT[5]
+            call UnitAddAbility(u, YDWEGeneralBounsSystem__BonusAbilitys[i])
             set i=i + 1
         endloop
         call RemoveUnit(u)
         set u=null
     endif
     //回收数据
-    call TimerStart(CreateTimer(), 10, true, function YDWEGeneralBounsSystem___FlushUnits)
+    call TimerStart(CreateTimer(), 10, true, function YDWEGeneralBounsSystem__FlushUnits)
 endfunction
 function YDWELifeChange takes unit u,integer mod,integer ch,integer id returns nothing
     local integer a
@@ -4697,7 +4697,7 @@ endfunction
 // Modified by : c kuhn
 // [private]用级数计算以e为底的对数
 // Returns 0 if x <= 0
-function YDWELogarithm___ln_taylor takes real x returns real
+function YDWELogarithm__ln_taylor takes real x returns real
     // ln( (1+x) / (1-x) ) = ln(1+x) - ln(1-x) = 2 * ( x + x^3 / 3 + x^5 / 5 + ... )
     // x = (y-1) / (y+1)
     // (0 < y < +∞, -1 < x < 1)
@@ -4722,7 +4722,7 @@ local real fCur
 endfunction
 // Author : c kuhn
 // 通过满二叉树特性快速找到大的部分
-function YDWELogarithm___Log2 takes real x returns real
+function YDWELogarithm__Log2 takes real x returns real
     local real res= 0.
     local real sign=1.
     local real i= 64.
@@ -4737,16 +4737,16 @@ function YDWELogarithm___Log2 takes real x returns real
             set x=1. / x
         endif
         if x >= 2. then
-            set mid=YDWELogarithm___base[7]
+            set mid=YDWELogarithm__base[7]
             loop
                 set temp=x / mid
                 exitwhen temp >= 1. and temp < 2.
                 if x < mid then
                     set i=i - level
-                    set mid=mid / YDWELogarithm___base[count]
+                    set mid=mid / YDWELogarithm__base[count]
                 else
                     set i=i + level
-                    set mid=mid * YDWELogarithm___base[count]
+                    set mid=mid * YDWELogarithm__base[count]
                 endif
                 set level=level / 2.
                 set count=count - 1
@@ -4759,7 +4759,7 @@ function YDWELogarithm___Log2 takes real x returns real
             set x=x / 1.4142135
             set fac=fac + .5
         endif
-        set res=sign * ( fac + YDWELogarithm___ln_taylor(x) * 1.442695 )
+        set res=sign * ( fac + YDWELogarithm__ln_taylor(x) * 1.442695 )
     endif
     
     return res
@@ -4767,29 +4767,29 @@ endfunction
 // 以 10 为底的对数
 // Returns 0 if x <= 0
 function YDWELogarithmLg takes real x returns real
-    return YDWELogarithm___Log2(x) * 0.3010300 // 1/log2(10) = 0.30102999566398119521373889472449
+    return YDWELogarithm__Log2(x) * 0.3010300 // 1/log2(10) = 0.30102999566398119521373889472449
 endfunction
 // 以 e 为底的对数
 // Returns 0 if x <= 0
 function YDWELogarithmLn takes real x returns real
-    return YDWELogarithm___Log2(x) * 0.6931472 // 1/log2(e) = 0.69314718055994530941723212145818
+    return YDWELogarithm__Log2(x) * 0.6931472 // 1/log2(e) = 0.69314718055994530941723212145818
 endfunction
 // 以 任意数 为底的对数 
 function YDWELogarithmLog takes real a,real x returns real
     if a <= 0 or ( a <= 1 and a >= 1 ) then
         return 0.
     endif
-    return YDWELogarithm___Log2(x) / YDWELogarithm___Log2(a)
+    return YDWELogarithm__Log2(x) / YDWELogarithm__Log2(a)
 endfunction
-function YDWELogarithm___onInit takes nothing returns nothing
-    set YDWELogarithm___base[1]=2.
-    set YDWELogarithm___base[2]=4.
-    set YDWELogarithm___base[3]=16.
-    set YDWELogarithm___base[4]=256.
-    set YDWELogarithm___base[5]=65536.
+function YDWELogarithm__onInit takes nothing returns nothing
+    set YDWELogarithm__base[1]=2.
+    set YDWELogarithm__base[2]=4.
+    set YDWELogarithm__base[3]=16.
+    set YDWELogarithm__base[4]=256.
+    set YDWELogarithm__base[5]=65536.
     //过大的数必须用乘法
-    set YDWELogarithm___base[6]=65536. * 65536. //2^32
-set YDWELogarithm___base[7]=YDWELogarithm___base[6] * YDWELogarithm___base[6] //2^64
+    set YDWELogarithm__base[6]=65536. * 65536. //2^32
+set YDWELogarithm__base[7]=YDWELogarithm__base[6] * YDWELogarithm__base[6] //2^64
 endfunction
 
 //library YDWELogarithm ends
@@ -4822,13 +4822,13 @@ endfunction
 
 //library YDWEStringHash ends
 //library YDWESync:
- function YDWESync___IsLivingPlayer takes player p returns boolean
+ function YDWESync__IsLivingPlayer takes player p returns boolean
 		return ( GetPlayerSlotState(p) == PLAYER_SLOT_STATE_PLAYING ) and ( GetPlayerController(p) == MAP_CONTROL_USER )
 	endfunction
- function YDWESync___GetLivingfPlayer takes nothing returns player
+ function YDWESync__GetLivingfPlayer takes nothing returns player
   local integer i= 0
 		loop
-			exitwhen YDWESync___IsLivingPlayer(Player(i)) or i >= 11
+			exitwhen YDWESync__IsLivingPlayer(Player(i)) or i >= 11
 			set i=i + 1
 		endloop
 		return Player(i)
@@ -4836,8 +4836,8 @@ endfunction
     
     function YDWESync_Lock takes nothing returns nothing
         loop
-            if not YDWESync___m_mutex_state then
-                set YDWESync___m_mutex_state=true
+            if not YDWESync__m_mutex_state then
+                set YDWESync__m_mutex_state=true
                 return
             endif
             call TriggerSleepAction(0.2)
@@ -4845,21 +4845,21 @@ endfunction
     endfunction
     
     function YDWESync_Unlock takes nothing returns nothing
-        set YDWESync___m_mutex_state=false
+        set YDWESync__m_mutex_state=false
     endfunction
     
     function YDWESync_Join takes player p returns nothing
         if GetLocalPlayer() == p then
-            call StoreInteger(YDWESync___m_gc, "-", "-", 'YDWE')
+            call StoreInteger(YDWESync__m_gc, "-", "-", 'YDWE')
         endif
         call TriggerSyncStart()
         if GetLocalPlayer() == p then
-            call SyncStoredInteger(YDWESync___m_gc, "-", "-")
+            call SyncStoredInteger(YDWESync__m_gc, "-", "-")
         endif
-        call StoreInteger(YDWESync___m_gc, "-", "-", 0)
+        call StoreInteger(YDWESync__m_gc, "-", "-", 0)
         call TriggerSyncReady()
         loop
-            if 'YDWE' == GetStoredInteger(YDWESync___m_gc, "-", "-") then
+            if 'YDWE' == GetStoredInteger(YDWESync__m_gc, "-", "-") then
                 return
             endif
             call TriggerSleepAction(0.2)
@@ -4867,11 +4867,11 @@ endfunction
     endfunction
     
     function YDWESync_Set takes string table,string key,integer value returns nothing
-        call StoreInteger(YDWESync___m_gc, table, key, value)
+        call StoreInteger(YDWESync__m_gc, table, key, value)
     endfunction
     
     function YDWESync_Get takes string table,string key returns integer
-        return GetStoredInteger(YDWESync___m_gc, table, key)
+        return GetStoredInteger(YDWESync__m_gc, table, key)
     endfunction
     
     function YDWESync_Start takes nothing returns nothing
@@ -4883,12 +4883,12 @@ endfunction
     endfunction
     
     function YDWESync_Send takes string table,string key returns nothing
-        call SyncStoredInteger(YDWESync___m_gc, table, key)
+        call SyncStoredInteger(YDWESync__m_gc, table, key)
     endfunction
     
- function YDWESync___onInit takes nothing returns nothing
+ function YDWESync__onInit takes nothing returns nothing
 		call FlushGameCache(InitGameCache("@"))
-		set YDWESync___m_gc=InitGameCache("@")
+		set YDWESync__m_gc=InitGameCache("@")
 	endfunction
 
 //library YDWESync ends
@@ -4901,9 +4901,9 @@ function YDWEAnyUnitDamagedTriggerAction takes nothing returns nothing
     local integer i= 0
     
     loop
-        exitwhen i >= YDWETriggerEvent___DamageEventNumber
-        if YDWETriggerEvent___DamageEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent___DamageEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent___DamageEventQueue[i]) then
-            call TriggerExecute(YDWETriggerEvent___DamageEventQueue[i])
+        exitwhen i >= YDWETriggerEvent__DamageEventNumber
+        if YDWETriggerEvent__DamageEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent__DamageEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent__DamageEventQueue[i]) then
+            call TriggerExecute(YDWETriggerEvent__DamageEventQueue[i])
         endif
         set i=i + 1
     endloop
@@ -4932,14 +4932,14 @@ function YDWESyStemAnyUnitDamagedRegistTrigger takes trigger trg returns nothing
         return
     endif
         
-    if YDWETriggerEvent___DamageEventNumber == 0 then
+    if YDWETriggerEvent__DamageEventNumber == 0 then
         set yd_DamageEventTrigger=CreateTrigger()
         call TriggerAddAction(yd_DamageEventTrigger, function YDWEAnyUnitDamagedTriggerAction)
         call YDWEAnyUnitDamagedEnumUnit()
     endif
     
-    set YDWETriggerEvent___DamageEventQueue[YDWETriggerEvent___DamageEventNumber]=trg
-    set YDWETriggerEvent___DamageEventNumber=YDWETriggerEvent___DamageEventNumber + 1
+    set YDWETriggerEvent__DamageEventQueue[YDWETriggerEvent__DamageEventNumber]=trg
+    set YDWETriggerEvent__DamageEventNumber=YDWETriggerEvent__DamageEventNumber + 1
 endfunction
 //===========================================================================  
 //�ƶ���Ʒ�¼� 
@@ -4950,9 +4950,9 @@ function YDWESyStemItemUnmovableTriggerAction takes nothing returns nothing
     if GetIssuedOrderId() >= 852002 and GetIssuedOrderId() <= 852007 then
 		set bj_lastMovedItemInItemSlot=GetOrderTargetItem()
     	loop
-        	exitwhen i >= YDWETriggerEvent___MoveItemEventNumber
-        	if YDWETriggerEvent___MoveItemEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent___MoveItemEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent___MoveItemEventQueue[i]) then
-        	    call TriggerExecute(YDWETriggerEvent___MoveItemEventQueue[i])
+        	exitwhen i >= YDWETriggerEvent__MoveItemEventNumber
+        	if YDWETriggerEvent__MoveItemEventQueue[i] != null and IsTriggerEnabled(YDWETriggerEvent__MoveItemEventQueue[i]) and TriggerEvaluate(YDWETriggerEvent__MoveItemEventQueue[i]) then
+        	    call TriggerExecute(YDWETriggerEvent__MoveItemEventQueue[i])
         	endif
         	set i=i + 1
     	endloop
@@ -4963,14 +4963,14 @@ function YDWESyStemItemUnmovableRegistTrigger takes trigger trg returns nothing
         return
     endif
         
-    if YDWETriggerEvent___MoveItemEventNumber == 0 then
-        set YDWETriggerEvent___MoveItemEventTrigger=CreateTrigger()
-        call TriggerAddAction(YDWETriggerEvent___MoveItemEventTrigger, function YDWESyStemItemUnmovableTriggerAction)
-        call TriggerRegisterAnyUnitEventBJ(YDWETriggerEvent___MoveItemEventTrigger, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
+    if YDWETriggerEvent__MoveItemEventNumber == 0 then
+        set YDWETriggerEvent__MoveItemEventTrigger=CreateTrigger()
+        call TriggerAddAction(YDWETriggerEvent__MoveItemEventTrigger, function YDWESyStemItemUnmovableTriggerAction)
+        call TriggerRegisterAnyUnitEventBJ(YDWETriggerEvent__MoveItemEventTrigger, EVENT_PLAYER_UNIT_ISSUED_TARGET_ORDER)
     endif
     
-    set YDWETriggerEvent___MoveItemEventQueue[YDWETriggerEvent___MoveItemEventNumber]=trg
-    set YDWETriggerEvent___MoveItemEventNumber=YDWETriggerEvent___MoveItemEventNumber + 1
+    set YDWETriggerEvent__MoveItemEventQueue[YDWETriggerEvent__MoveItemEventNumber]=trg
+    set YDWETriggerEvent__MoveItemEventNumber=YDWETriggerEvent__MoveItemEventNumber + 1
 endfunction
 function GetLastMovedItemInItemSlot takes nothing returns item
     return bj_lastMovedItemInItemSlot
@@ -5029,7 +5029,7 @@ endfunction
 //===========================================================================
 //���Ƽ���ģ�� 
 //===========================================================================
-function YDWECreateEwsp___Loop takes nothing returns nothing
+function YDWECreateEwsp__Loop takes nothing returns nothing
     local timer t= GetExpiredTimer()
  local string h= I2S((GetHandleId((t)))) // INLINED!!
     local unit tempUnit
@@ -5098,7 +5098,7 @@ function YDWECreateEwsp takes unit Hero,integer ewsp,integer number,real radius,
         call GroupAddUnit(bj_lastCreatedGroup, tempUnit)
         set bj_lastCreatedUnit=tempUnit
     endloop
-    call TimerStart(t, interval, true, function YDWECreateEwsp___Loop)
+    call TimerStart(t, interval, true, function YDWECreateEwsp__Loop)
     set t=null
     set tempUnit=null
 endfunction
@@ -5500,8 +5500,8 @@ function YDWE_PreloadSL_LoadPreFile takes player p,integer n,string strFilePath 
   
   loop
     exitwhen index > n
-    set YDWEPreloadSL___CodeHI[beg + index]=YDWE_PreloadSL_LoadInteger(index)
-    set YDWEPreloadSL___CodeLO[beg + index]=YDWE_PreloadSL_LoadInteger($200 + index)
+    set YDWEPreloadSL__CodeHI[beg + index]=YDWE_PreloadSL_LoadInteger(index)
+    set YDWEPreloadSL__CodeLO[beg + index]=YDWE_PreloadSL_LoadInteger($200 + index)
     set index=index + 1
   endloop
 endfunction
@@ -5513,8 +5513,8 @@ function YDWE_PreloadSL_SavePreFile takes player p,integer n,string strFilePath 
   call PreloadGenStart()
   loop
     exitwhen index > n
-    call YDWE_PreloadSL_SaveInteger(index , YDWEPreloadSL___CodeHI[beg + index])
-    call YDWE_PreloadSL_SaveInteger($200 + index , YDWEPreloadSL___CodeLO[beg + index])
+    call YDWE_PreloadSL_SaveInteger(index , YDWEPreloadSL__CodeHI[beg + index])
+    call YDWE_PreloadSL_SaveInteger($200 + index , YDWEPreloadSL__CodeLO[beg + index])
     set index=index + 1
   endloop
           
@@ -5597,15 +5597,15 @@ endfunction
 function YDWE_PreloadSL_GetMask takes player p returns integer
     local integer value
     local integer beg= ( 501 * GetPlayerId(p) )
-    local integer l__hi= YDWEPreloadSL___CodeHI[beg]
-    local integer l__lo= YDWEPreloadSL___CodeLO[beg]
+    local integer l__hi= YDWEPreloadSL__CodeHI[beg]
+    local integer l__lo= YDWEPreloadSL__CodeLO[beg]
     if l__hi < $8000 then
         set value=l__lo + l__hi * $10000
     else
         set l__hi=l__hi - $8000
         set value=- ( l__lo + l__hi * $10000 )
     endif
-    set YDWEPreloadSL___Code[beg]=value
+    set YDWEPreloadSL__Code[beg]=value
     return value - 'YDWE'
 endfunction
 ///
@@ -5626,18 +5626,18 @@ function YDWE_PreloadSL_Unmove takes integer beg,integer n,integer key returns n
         if value < beg then
             set value=value + n
         endif
-        set l__hi=YDWEPreloadSL___CodeHI[value]
-        set YDWEPreloadSL___CodeHI[value]=YDWEPreloadSL___CodeHI[index]
-        set YDWEPreloadSL___CodeHI[index]=l__hi
+        set l__hi=YDWEPreloadSL__CodeHI[value]
+        set YDWEPreloadSL__CodeHI[value]=YDWEPreloadSL__CodeHI[index]
+        set YDWEPreloadSL__CodeHI[index]=l__hi
         
         set value=keys - ( index - beg )
         set value=beg + value - value / n * n
         if value < beg then
             set value=value + n
         endif
-        set l__lo=YDWEPreloadSL___CodeLO[value]
-        set YDWEPreloadSL___CodeLO[value]=YDWEPreloadSL___CodeLO[index]
-        set YDWEPreloadSL___CodeLO[index]=l__lo
+        set l__lo=YDWEPreloadSL__CodeLO[value]
+        set YDWEPreloadSL__CodeLO[value]=YDWEPreloadSL__CodeLO[index]
+        set YDWEPreloadSL__CodeLO[index]=l__lo
         
         set keys=keys - key
         
@@ -5655,8 +5655,8 @@ function YDWE_PreloadSL_GetCode takes integer beg,integer n,integer key,integer 
     
     loop
         exitwhen index > end
-        set l__hi=YDWEPreloadSL___CodeHI[index]
-        set l__lo=YDWEPreloadSL___CodeLO[index]
+        set l__hi=YDWEPreloadSL__CodeHI[index]
+        set l__lo=YDWEPreloadSL__CodeLO[index]
         
         // SubKey
         set keys=keys + key
@@ -5685,7 +5685,7 @@ function YDWE_PreloadSL_GetCode takes integer beg,integer n,integer key,integer 
             set value=- ( l__lo + l__hi * $10000 )
         endif
         
-        set YDWEPreloadSL___Code[index]=value
+        set YDWEPreloadSL__Code[index]=value
         set index=index + 1
     endloop
     
@@ -5712,8 +5712,8 @@ function YDWE_PreloadSL_SetMask takes player p,integer mask returns nothing
             set l__lo=value - l__hi * $10000
             set l__hi=l__hi + $8000
     endif
-    set YDWEPreloadSL___CodeHI[beg]=l__hi
-    set YDWEPreloadSL___CodeLO[beg]=l__lo
+    set YDWEPreloadSL__CodeHI[beg]=l__hi
+    set YDWEPreloadSL__CodeLO[beg]=l__lo
 endfunction
 function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer mask returns nothing
     local integer l__hi
@@ -5726,7 +5726,7 @@ function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer 
     
     loop
         exitwhen index > end
-        set value=YDWEPreloadSL___Code[index]
+        set value=YDWEPreloadSL__Code[index]
         
         // SetCode
         if value >= 0 then
@@ -5748,8 +5748,8 @@ function YDWE_PreloadSL_SetCode takes integer beg,integer n,integer key,integer 
         set value=masks / $10000
         set l__hi=l__hi + ( value - value / $100 * $100 ) * $100
         set l__lo=l__lo + ( masks - masks / $100 * $100 ) * $10000
-        set YDWEPreloadSL___CodeHI[index]=l__hi
-        set YDWEPreloadSL___CodeLO[index]=l__lo
+        set YDWEPreloadSL__CodeHI[index]=l__hi
+        set YDWEPreloadSL__CodeLO[index]=l__lo
         set index=index + 1
     endloop
 endfunction
@@ -5775,18 +5775,18 @@ function YDWE_PreloadSL_Move takes integer beg,integer n,integer key returns not
         if value < beg then
             set value=value + n
         endif
-        set l__hi=YDWEPreloadSL___CodeHI[value]
-        set YDWEPreloadSL___CodeHI[value]=YDWEPreloadSL___CodeHI[index]
-        set YDWEPreloadSL___CodeHI[index]=l__hi
+        set l__hi=YDWEPreloadSL__CodeHI[value]
+        set YDWEPreloadSL__CodeHI[value]=YDWEPreloadSL__CodeHI[index]
+        set YDWEPreloadSL__CodeHI[index]=l__hi
         
         set value=keys - ( index - beg )
         set value=beg + value - value / n * n
         if value < beg then
             set value=value + n
         endif
-        set l__lo=YDWEPreloadSL___CodeLO[value]
-        set YDWEPreloadSL___CodeLO[value]=YDWEPreloadSL___CodeLO[index]
-        set YDWEPreloadSL___CodeLO[index]=l__lo
+        set l__lo=YDWEPreloadSL__CodeLO[value]
+        set YDWEPreloadSL__CodeLO[value]=YDWEPreloadSL__CodeLO[index]
+        set YDWEPreloadSL__CodeLO[index]=l__lo
         
         set index=index + 1
     endloop
@@ -5810,8 +5810,8 @@ function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
         set index=beg
         loop
             exitwhen index > end
-            call StoreInteger(YDWESync___m_gc, ("H" ), ( I2S(index) ), ( YDWEPreloadSL___CodeHI[index])) // INLINED!!
-            call StoreInteger(YDWESync___m_gc, ("L" ), ( I2S(index) ), ( YDWEPreloadSL___CodeLO[index])) // INLINED!!
+            call StoreInteger(YDWESync__m_gc, ("H" ), ( I2S(index) ), ( YDWEPreloadSL__CodeHI[index])) // INLINED!!
+            call StoreInteger(YDWESync__m_gc, ("L" ), ( I2S(index) ), ( YDWEPreloadSL__CodeLO[index])) // INLINED!!
             set index=index + 1
         endloop
     endif
@@ -5820,8 +5820,8 @@ function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
         set index=beg
         loop
             exitwhen index > end
-            call SyncStoredInteger(YDWESync___m_gc, ("H" ), ( I2S(index))) // INLINED!!
-            call SyncStoredInteger(YDWESync___m_gc, ("L" ), ( I2S(index))) // INLINED!!
+            call SyncStoredInteger(YDWESync__m_gc, ("H" ), ( I2S(index))) // INLINED!!
+            call SyncStoredInteger(YDWESync__m_gc, ("L" ), ( I2S(index))) // INLINED!!
             set index=index + 1
         endloop
     endif
@@ -5831,8 +5831,8 @@ function YDWE_PreloadSL_Sync takes player p,integer n returns nothing
     set index=beg
     loop
         exitwhen index > end
-        set YDWEPreloadSL___CodeHI[index]=(GetStoredInteger(YDWESync___m_gc, ("H" ), ( I2S(index)))) // INLINED!!
-        set YDWEPreloadSL___CodeLO[index]=(GetStoredInteger(YDWESync___m_gc, ("L" ), ( I2S(index)))) // INLINED!!
+        set YDWEPreloadSL__CodeHI[index]=(GetStoredInteger(YDWESync__m_gc, ("H" ), ( I2S(index)))) // INLINED!!
+        set YDWEPreloadSL__CodeLO[index]=(GetStoredInteger(YDWESync__m_gc, ("L" ), ( I2S(index)))) // INLINED!!
         set index=index + 1
     endloop
 endfunction
@@ -5846,7 +5846,7 @@ function YDWE_PreloadSL_Load takes player p,string dir,string file,integer n ret
     
     call YDWE_PreloadSL_Sync(p , n)
     set bj_lastLoadPreloadSLResult=YDWE_PreloadSL_Decode(p , n)
-    set YDWESync___m_mutex_state=false // INLINED!!
+    set YDWESync__m_mutex_state=false // INLINED!!
     
     return bj_lastLoadPreloadSLResult
 endfunction
@@ -5860,13 +5860,13 @@ function YDWE_PreloadSL_Save takes player p,string dir,string file,integer n ret
 endfunction
  
 function YDWE_PreloadSL_Set takes player p,string s,integer n,integer value returns nothing
-    set YDWEPreloadSL___Code[n + ( 501 * GetPlayerId(p) )]=value
+    set YDWEPreloadSL__Code[n + ( 501 * GetPlayerId(p) )]=value
 endfunction
 function YDWE_PreloadSL_Get takes player p,string s,integer n returns integer
-    return YDWEPreloadSL___Code[n + ( 501 * GetPlayerId(p) )]
+    return YDWEPreloadSL__Code[n + ( 501 * GetPlayerId(p) )]
 endfunction
                                 
-function YDWEPreloadSL___Init takes nothing returns nothing
+function YDWEPreloadSL__Init takes nothing returns nothing
     local integer index= 0
     loop
         exitwhen index >= 16
@@ -5885,9 +5885,9 @@ endfunction
 function YDWESyStemItemCombineTriggerAction takes nothing returns nothing
  local integer i= 0
     loop
-        exitwhen i >= YDWEStringFormula___ItemCombineEventNumber
-        if YDWEStringFormula___ItemCombineEventQueue[i] != null and TriggerEvaluate(YDWEStringFormula___ItemCombineEventQueue[i]) and IsTriggerEnabled(YDWEStringFormula___ItemCombineEventQueue[i]) then
-            call TriggerExecute(YDWEStringFormula___ItemCombineEventQueue[i])
+        exitwhen i >= YDWEStringFormula__ItemCombineEventNumber
+        if YDWEStringFormula__ItemCombineEventQueue[i] != null and TriggerEvaluate(YDWEStringFormula__ItemCombineEventQueue[i]) and IsTriggerEnabled(YDWEStringFormula__ItemCombineEventQueue[i]) then
+            call TriggerExecute(YDWEStringFormula__ItemCombineEventQueue[i])
         endif
         set i=i + 1
     endloop
@@ -5897,30 +5897,30 @@ endfunction
 //��Ʒ�ϳ��¼� 
 //===========================================================================  
 function YDWESyStemItemCombineRegistTrigger takes trigger trg returns nothing
-	set YDWEStringFormula___ItemCombineEventQueue[YDWEStringFormula___ItemCombineEventNumber]=trg
-	set YDWEStringFormula___ItemCombineEventNumber=YDWEStringFormula___ItemCombineEventNumber + 1
+	set YDWEStringFormula__ItemCombineEventQueue[YDWEStringFormula__ItemCombineEventNumber]=trg
+	set YDWEStringFormula__ItemCombineEventNumber=YDWEStringFormula__ItemCombineEventNumber + 1
 endfunction
-        function s__YDWEStringFormula___Inventory_reset takes integer this returns nothing
+        function s__YDWEStringFormula__Inventory_reset takes integer this returns nothing
             call FlushChildHashtable(YDHT, StringHash(("YDWEStringFormula." + I2S(this)))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula___Inventory_onDestroy takes integer this returns nothing
+        function s__YDWEStringFormula__Inventory_onDestroy takes integer this returns nothing
             call FlushChildHashtable(YDHT, StringHash(("YDWEStringFormula." + I2S(this)))) // INLINED!!
         endfunction
     
-        function s__YDWEStringFormula___StringTable__getindex takes integer this,string key returns integer
+        function s__YDWEStringFormula__StringTable__getindex takes integer this,string key returns integer
             return (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S(this) )), StringHash(( key)))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula___StringTable__setindex takes integer this,string key,integer value returns nothing
+        function s__YDWEStringFormula__StringTable__setindex takes integer this,string key,integer value returns nothing
             call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S(this) )), StringHash(( key )), ( value)) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula___StringTable_flush takes integer this,string key returns nothing
+        function s__YDWEStringFormula__StringTable_flush takes integer this,string key returns nothing
             call RemoveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S(this) )), StringHash(( key))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula___StringTable_exists takes integer this,string key returns boolean
+        function s__YDWEStringFormula__StringTable_exists takes integer this,string key returns boolean
             return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S(this) )), StringHash(( key)))) // INLINED!!
         endfunction 
 //***************************************************************
@@ -5929,7 +5929,7 @@ endfunction
 //*
 //***************************************************************
     
-    function YDWEStringFormula___Convert takes integer value,integer length returns string
+    function YDWEStringFormula__Convert takes integer value,integer length returns string
         local string Char= I2S(value)
         local integer slen= StringLength(Char)
             
@@ -5948,47 +5948,47 @@ endfunction
     
         
         
-        function s__YDWEStringFormula___ItemIdMatrix_get takes integer id returns integer
-            return (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S(id)))))) // INLINED!!
+        function s__YDWEStringFormula__ItemIdMatrix_get takes integer id returns integer
+            return (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S(id)))))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula___ItemIdMatrix_exists takes integer id returns boolean
-            return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S(id)))))) // INLINED!!
+        function s__YDWEStringFormula__ItemIdMatrix_exists takes integer id returns boolean
+            return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S(id)))))) // INLINED!!
         endfunction
                  
-        function s__YDWEStringFormula___ItemIdMatrix_sub takes integer this,integer segment returns integer
-            local integer start= s__YDWEStringFormula___ItemIdMatrix_keyLen[this] * segment + 1
-            return S2I(SubString(s__YDWEStringFormula___ItemIdMatrix_keyStr[this], start, ( start + s__YDWEStringFormula___ItemIdMatrix_keyLen[this] )))
+        function s__YDWEStringFormula__ItemIdMatrix_sub takes integer this,integer segment returns integer
+            local integer start= s__YDWEStringFormula__ItemIdMatrix_keyLen[this] * segment + 1
+            return S2I(SubString(s__YDWEStringFormula__ItemIdMatrix_keyStr[this], start, ( start + s__YDWEStringFormula__ItemIdMatrix_keyLen[this] )))
         endfunction
         
-        function s__YDWEStringFormula___ItemIdMatrix_assigns takes integer id returns integer
+        function s__YDWEStringFormula__ItemIdMatrix_assigns takes integer id returns integer
             local integer this= 0
             if id == null or id == 0 then
                 return 0
             endif
             
-            set this=(LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S((id))))))) // INLINED!!
+            set this=(LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S((id))))))) // INLINED!!
                 
             if (this) > 0 then
                 return this
             endif
             
-            set this=(s__YDWEStringFormula___ItemIdMatrix_Total)
-            set s__YDWEStringFormula___ItemIdMatrix_itemId[this]=id
-            set s__YDWEStringFormula___ItemIdMatrix_keyStr[this]=I2S(YDWEStringFormula___SEGMENT_LENGTH)
-            set s__YDWEStringFormula___ItemIdMatrix_keyLen[this]=YDWEStringFormula___SEGMENT_LENGTH
-            call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S(id)) )), ( ( (this)))) // INLINED!!
-            set s__YDWEStringFormula___ItemIdMatrix_Total=s__YDWEStringFormula___ItemIdMatrix_Total + 1
+            set this=(s__YDWEStringFormula__ItemIdMatrix_Total)
+            set s__YDWEStringFormula__ItemIdMatrix_itemId[this]=id
+            set s__YDWEStringFormula__ItemIdMatrix_keyStr[this]=I2S(YDWEStringFormula__SEGMENT_LENGTH)
+            set s__YDWEStringFormula__ItemIdMatrix_keyLen[this]=YDWEStringFormula__SEGMENT_LENGTH
+            call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S(id)) )), ( ( (this)))) // INLINED!!
+            set s__YDWEStringFormula__ItemIdMatrix_Total=s__YDWEStringFormula__ItemIdMatrix_Total + 1
             return this
         endfunction
         
-        function s__YDWEStringFormula___ItemIdMatrix_memory takes integer this,string key returns nothing
-            set s__YDWEStringFormula___ItemIdMatrix_keyStr[this]=s__YDWEStringFormula___ItemIdMatrix_keyStr[this] + key
+        function s__YDWEStringFormula__ItemIdMatrix_memory takes integer this,string key returns nothing
+            set s__YDWEStringFormula__ItemIdMatrix_keyStr[this]=s__YDWEStringFormula__ItemIdMatrix_keyStr[this] + key
             //debug call BJDebugMsg("|cff00ff00KEY: |r" + .keyStr)
         endfunction
         
-        function s__YDWEStringFormula___ItemIdMatrix_onInit takes nothing returns nothing
-            set s__YDWEStringFormula___ItemIdMatrix_Data=s__YDWEStringFormula___StringTable__allocate()
+        function s__YDWEStringFormula__ItemIdMatrix_onInit takes nothing returns nothing
+            set s__YDWEStringFormula__ItemIdMatrix_Data=s__YDWEStringFormula__StringTable__allocate()
         endfunction
         
 ////////////////// __End of ItemId Matrix__ ////////////////
@@ -6003,40 +6003,40 @@ endfunction
         
         
         
-        function s__YDWEStringFormula___FormulaMatrix_exists takes string s returns boolean
-            return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___FormulaMatrix_Data)) )), StringHash(( (s))))) // INLINED!!
+        function s__YDWEStringFormula__FormulaMatrix_exists takes string s returns boolean
+            return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__FormulaMatrix_Data)) )), StringHash(( (s))))) // INLINED!!
         endfunction
         
-        function s__YDWEStringFormula___FormulaMatrix_sub takes integer this,integer segment returns integer
-            local integer start= s__YDWEStringFormula___FormulaMatrix_segmLen[this] * segment + 1
-            return S2I(SubString(s__YDWEStringFormula___FormulaMatrix_formula[this], start, ( start + s__YDWEStringFormula___FormulaMatrix_segmLen[this] )))
+        function s__YDWEStringFormula__FormulaMatrix_sub takes integer this,integer segment returns integer
+            local integer start= s__YDWEStringFormula__FormulaMatrix_segmLen[this] * segment + 1
+            return S2I(SubString(s__YDWEStringFormula__FormulaMatrix_formula[this], start, ( start + s__YDWEStringFormula__FormulaMatrix_segmLen[this] )))
         endfunction
         
-        function s__YDWEStringFormula___FormulaMatrix_memory takes integer lingth,string formStr,integer eventually returns integer
+        function s__YDWEStringFormula__FormulaMatrix_memory takes integer lingth,string formStr,integer eventually returns integer
             local integer this= 0
             
-            if (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___FormulaMatrix_Data)) )), StringHash(( ((formStr)))))) then // INLINED!!
+            if (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__FormulaMatrix_Data)) )), StringHash(( ((formStr)))))) then // INLINED!!
                 //debug call BJDebugMsg("|cffff0000Registration cannot be repeated !!|r")
                 return 0
             endif
             
-            set this=(s__YDWEStringFormula___FormulaMatrix_Total)
-            set s__YDWEStringFormula___FormulaMatrix_formula[this]=formStr + YDWEStringFormula___Convert(eventually , YDWEStringFormula___SEGMENT_LENGTH)
-            set s__YDWEStringFormula___FormulaMatrix_segmLen[this]=lingth
+            set this=(s__YDWEStringFormula__FormulaMatrix_Total)
+            set s__YDWEStringFormula__FormulaMatrix_formula[this]=formStr + YDWEStringFormula__Convert(eventually , YDWEStringFormula__SEGMENT_LENGTH)
+            set s__YDWEStringFormula__FormulaMatrix_segmLen[this]=lingth
             
-            set s__YDWEStringFormula___FormulaMatrix_model[this]=null //"Abilities\\Spells\\Items\\AIam\\AIamTarget.mdl"
-set s__YDWEStringFormula___FormulaMatrix_message[this]=null //"|cff00ff00��ϳ��ˣ�|r" 
-set s__YDWEStringFormula___FormulaMatrix_chance[this]=100
-            set s__YDWEStringFormula___FormulaMatrix_delete[this]=false
-            call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___FormulaMatrix_Data)) )), StringHash(( (formStr) )), ( ( (this)))) // INLINED!!
-            set s__YDWEStringFormula___FormulaMatrix_Total=s__YDWEStringFormula___FormulaMatrix_Total + 1
+            set s__YDWEStringFormula__FormulaMatrix_model[this]=null //"Abilities\\Spells\\Items\\AIam\\AIamTarget.mdl"
+set s__YDWEStringFormula__FormulaMatrix_message[this]=null //"|cff00ff00��ϳ��ˣ�|r" 
+set s__YDWEStringFormula__FormulaMatrix_chance[this]=100
+            set s__YDWEStringFormula__FormulaMatrix_delete[this]=false
+            call SaveInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__FormulaMatrix_Data)) )), StringHash(( (formStr) )), ( ( (this)))) // INLINED!!
+            set s__YDWEStringFormula__FormulaMatrix_Total=s__YDWEStringFormula__FormulaMatrix_Total + 1
             
             //debug call BJDebugMsg("|cff00ff00Formula Register: |r" + I2S(integer(this)) + ". " + this.formula)
             return this
         endfunction
         
-        function s__YDWEStringFormula___FormulaMatrix_onInit takes nothing returns nothing
-            set s__YDWEStringFormula___FormulaMatrix_Data=s__YDWEStringFormula___StringTable__allocate()
+        function s__YDWEStringFormula__FormulaMatrix_onInit takes nothing returns nothing
+            set s__YDWEStringFormula__FormulaMatrix_Data=s__YDWEStringFormula__StringTable__allocate()
         endfunction
         
     
@@ -6045,99 +6045,99 @@ set s__YDWEStringFormula___FormulaMatrix_chance[this]=100
 ////////////////////////////////////////////////////////////
 //////////////////// __Formula Sorting__ ///////////////////
         
-        function s__YDWEStringFormula___Sorting_onDestroy takes integer this returns nothing
+        function s__YDWEStringFormula__Sorting_onDestroy takes integer this returns nothing
             local integer i= 0
             loop
-                exitwhen i == s___YDWEStringFormula___Sorting_stack_size
-                set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=0
-                set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=0
+                exitwhen i == s___YDWEStringFormula__Sorting_stack_size
+                set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=0
+                set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=0
                 set i=i + 1
             endloop
-            set s__YDWEStringFormula___Sorting_char[this]=""
+            set s__YDWEStringFormula__Sorting_char[this]=""
         endfunction
 
-//Generated destructor of YDWEStringFormula___Sorting
-function s__YDWEStringFormula___Sorting_deallocate takes integer this returns nothing
+//Generated destructor of YDWEStringFormula__Sorting
+function s__YDWEStringFormula__Sorting_deallocate takes integer this returns nothing
     if this==null then
         return
-    elseif (si__YDWEStringFormula___Sorting_V[this]!=-1) then
+    elseif (si__YDWEStringFormula__Sorting_V[this]!=-1) then
         return
     endif
-    call s__YDWEStringFormula___Sorting_onDestroy(this)
-    set si__YDWEStringFormula___Sorting_V[this]=si__YDWEStringFormula___Sorting_F
-    set si__YDWEStringFormula___Sorting_F=this
+    call s__YDWEStringFormula__Sorting_onDestroy(this)
+    set si__YDWEStringFormula__Sorting_V[this]=si__YDWEStringFormula__Sorting_F
+    set si__YDWEStringFormula__Sorting_F=this
 endfunction
         
-        function s__YDWEStringFormula___Sorting_create takes integer type1,integer n1,integer type2,integer n2,integer type3,integer n3,integer type4,integer n4,integer type5,integer n5,integer type6,integer n6,integer type7,integer n7 returns integer
-            local integer this= s__YDWEStringFormula___Sorting__allocate()
+        function s__YDWEStringFormula__Sorting_create takes integer type1,integer n1,integer type2,integer n2,integer type3,integer n3,integer type4,integer n4,integer type5,integer n5,integer type6,integer n6,integer type7,integer n7 returns integer
+            local integer this= s__YDWEStringFormula__Sorting__allocate()
             
-            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+1]=s__YDWEStringFormula___ItemIdMatrix_assigns(type1)
-            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+2]=s__YDWEStringFormula___ItemIdMatrix_assigns(type2)
-            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+3]=s__YDWEStringFormula___ItemIdMatrix_assigns(type3)
-            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+4]=s__YDWEStringFormula___ItemIdMatrix_assigns(type4)
-            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+5]=s__YDWEStringFormula___ItemIdMatrix_assigns(type5)
-            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+6]=s__YDWEStringFormula___ItemIdMatrix_assigns(type6)
-            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+7]=s__YDWEStringFormula___ItemIdMatrix_assigns(type7)
+            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+1]=s__YDWEStringFormula__ItemIdMatrix_assigns(type1)
+            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+2]=s__YDWEStringFormula__ItemIdMatrix_assigns(type2)
+            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+3]=s__YDWEStringFormula__ItemIdMatrix_assigns(type3)
+            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+4]=s__YDWEStringFormula__ItemIdMatrix_assigns(type4)
+            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+5]=s__YDWEStringFormula__ItemIdMatrix_assigns(type5)
+            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+6]=s__YDWEStringFormula__ItemIdMatrix_assigns(type6)
+            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+7]=s__YDWEStringFormula__ItemIdMatrix_assigns(type7)
             
-            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+1]=n1
-            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+2]=n2
-            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+3]=n3
-            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+4]=n4
-            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+5]=n5
-            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+6]=n6
-            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+7]=n7
+            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+1]=n1
+            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+2]=n2
+            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+3]=n3
+            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+4]=n4
+            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+5]=n5
+            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+6]=n6
+            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+7]=n7
             
             return this
         endfunction
         
-        function s__YDWEStringFormula___Sorting_convert takes integer this returns string
+        function s__YDWEStringFormula__Sorting_convert takes integer this returns string
             local integer i= 1
             local integer j
             local integer k
               
-            set s__YDWEStringFormula___Sorting_char[this]=""
+            set s__YDWEStringFormula__Sorting_char[this]=""
             loop
-                exitwhen i > s__YDWEStringFormula___Sorting_total[this]
-                if s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i] == 0 or s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i] == 0 then
-                    set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+s__YDWEStringFormula___Sorting_total[this]]
-                    set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+s__YDWEStringFormula___Sorting_total[this]]
-                    set s__YDWEStringFormula___Sorting_total[this]=s__YDWEStringFormula___Sorting_total[this] - 1
+                exitwhen i > s__YDWEStringFormula__Sorting_total[this]
+                if s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i] == 0 or s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i] == 0 then
+                    set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+s__YDWEStringFormula__Sorting_total[this]]
+                    set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+s__YDWEStringFormula__Sorting_total[this]]
+                    set s__YDWEStringFormula__Sorting_total[this]=s__YDWEStringFormula__Sorting_total[this] - 1
                     set i=i - 1
                 else
                     set j=i + 1
                     loop
-                        exitwhen j > s__YDWEStringFormula___Sorting_total[this]
-                        if s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j] == 0 or s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j] == 0 then
-                            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]=s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+s__YDWEStringFormula___Sorting_total[this]]
-                            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j]=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+s__YDWEStringFormula___Sorting_total[this]]
-                            set s__YDWEStringFormula___Sorting_total[this]=s__YDWEStringFormula___Sorting_total[this] - 1
+                        exitwhen j > s__YDWEStringFormula__Sorting_total[this]
+                        if s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j] == 0 or s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j] == 0 then
+                            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]=s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+s__YDWEStringFormula__Sorting_total[this]]
+                            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j]=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+s__YDWEStringFormula__Sorting_total[this]]
+                            set s__YDWEStringFormula__Sorting_total[this]=s__YDWEStringFormula__Sorting_total[this] - 1
                             set j=j - 1
-                        elseif (s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]) > (s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]) then
-                            set k=s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]
-                            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]
-                            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]=k
-                            set k=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]
-                            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j]
-                            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j]=k
-                        elseif (s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]) == (s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]) then
-                            set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i] + s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+j]
-                            set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+j]=0
+                        elseif (s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]) > (s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]) then
+                            set k=s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]
+                            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]
+                            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]=k
+                            set k=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]
+                            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j]
+                            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j]=k
+                        elseif (s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]) == (s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]) then
+                            set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i] + s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+j]
+                            set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+j]=0
                             set j=j - 1
                         endif
                         set j=j + 1
                     endloop
                 
-                    set j=s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]
+                    set j=s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]
                     loop
                         exitwhen j == 0
-                        set s__YDWEStringFormula___Sorting_char[this]=s__YDWEStringFormula___Sorting_char[this] + YDWEStringFormula___Convert(s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i] , YDWEStringFormula___SEGMENT_LENGTH)
+                        set s__YDWEStringFormula__Sorting_char[this]=s__YDWEStringFormula__Sorting_char[this] + YDWEStringFormula__Convert(s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i] , YDWEStringFormula__SEGMENT_LENGTH)
                         set j=j - 1
                     endloop
                 endif
                 set i=i + 1
             endloop
             
-            return s__YDWEStringFormula___Sorting_char[this]
+            return s__YDWEStringFormula__Sorting_char[this]
         endfunction
         
 ////////////////// __End of Formula Sorting__ //////////////
@@ -6147,15 +6147,15 @@ endfunction
 ////////////////////////////////////////////////////////////
 /////////////////////// __Craft Item__ /////////////////////
     
-    function YDWEStringFormula___Adaptation takes nothing returns boolean
+    function YDWEStringFormula__Adaptation takes nothing returns boolean
         return true
     endfunction
         
-    function YDWEStringFormula___verify takes nothing returns boolean
-        return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S((GetItemTypeId(GetManipulatedItem())))))))) // INLINED!!
+    function YDWEStringFormula__verify takes nothing returns boolean
+        return (HaveSavedInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S((GetItemTypeId(GetManipulatedItem())))))))) // INLINED!!
     endfunction
         
-    function YDWEStringFormula___GetCharges takes item it returns integer
+    function YDWEStringFormula__GetCharges takes item it returns integer
         local integer charges= GetItemCharges(it)
         if charges == 0 then
             set charges=1
@@ -6163,10 +6163,10 @@ endfunction
         return charges
     endfunction
         
-    function YDWEStringFormula___CraftItem takes nothing returns nothing
+    function YDWEStringFormula__CraftItem takes nothing returns nothing
         local integer forx= 0
-        local integer itmx= (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula___ItemIdMatrix_Data)) )), StringHash(( (I2S((GetItemTypeId(GetManipulatedItem())))))))) // INLINED!!
-        local integer size= StringLength(s__YDWEStringFormula___ItemIdMatrix_keyStr[itmx]) / s__YDWEStringFormula___ItemIdMatrix_keyLen[itmx]
+        local integer itmx= (LoadInteger(YDHT, StringHash(("YDWEStringFormula." + I2S((s__YDWEStringFormula__ItemIdMatrix_Data)) )), StringHash(( (I2S((GetItemTypeId(GetManipulatedItem())))))))) // INLINED!!
+        local integer size= StringLength(s__YDWEStringFormula__ItemIdMatrix_keyStr[itmx]) / s__YDWEStringFormula__ItemIdMatrix_keyLen[itmx]
         local integer inst= 0
         local integer numb= 0
         local integer sum= 0
@@ -6193,7 +6193,7 @@ endfunction
             if it != null then
                 set items[sum]=it
                 set typeid[sum]=GetItemTypeId(it)
-                set amount[sum]=YDWEStringFormula___GetCharges(it)
+                set amount[sum]=YDWEStringFormula__GetCharges(it)
                 if it == article then
                     set b=true
                 endif
@@ -6213,8 +6213,8 @@ endfunction
         //* Check Formulas
         loop
             exitwhen inst == size
-            set forx=(s__YDWEStringFormula___ItemIdMatrix_sub(itmx,inst))
-            set numb=StringLength(s__YDWEStringFormula___FormulaMatrix_formula[forx]) / s__YDWEStringFormula___FormulaMatrix_segmLen[forx] - 1
+            set forx=(s__YDWEStringFormula__ItemIdMatrix_sub(itmx,inst))
+            set numb=StringLength(s__YDWEStringFormula__FormulaMatrix_formula[forx]) / s__YDWEStringFormula__FormulaMatrix_segmLen[forx] - 1
             
             set i=0
             loop
@@ -6225,7 +6225,7 @@ endfunction
                 
             set i=0
             loop
-                set tmpid=s__YDWEStringFormula___ItemIdMatrix_itemId[(s__YDWEStringFormula___FormulaMatrix_sub(forx,i))]
+                set tmpid=s__YDWEStringFormula__ItemIdMatrix_itemId[(s__YDWEStringFormula__FormulaMatrix_sub(forx,i))]
                 exitwhen i == numb
                 
                 set j=0
@@ -6244,13 +6244,13 @@ endfunction
                 set i=i + 1
             endloop
             if i == numb then
-                if GetRandomInt(0, 99) < s__YDWEStringFormula___FormulaMatrix_chance[forx] then
-                    if s__YDWEStringFormula___FormulaMatrix_model[forx] != null then
-                        call DestroyEffect(AddSpecialEffectTarget(s__YDWEStringFormula___FormulaMatrix_model[forx], caster, "origin"))
+                if GetRandomInt(0, 99) < s__YDWEStringFormula__FormulaMatrix_chance[forx] then
+                    if s__YDWEStringFormula__FormulaMatrix_model[forx] != null then
+                        call DestroyEffect(AddSpecialEffectTarget(s__YDWEStringFormula__FormulaMatrix_model[forx], caster, "origin"))
                     endif
                     
-                    if s__YDWEStringFormula___FormulaMatrix_message[forx] != null then
-                        call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30, s__YDWEStringFormula___FormulaMatrix_message[forx])
+                    if s__YDWEStringFormula__FormulaMatrix_message[forx] != null then
+                        call DisplayTimedTextToPlayer(GetTriggerPlayer(), 0, 0, 30, s__YDWEStringFormula__FormulaMatrix_message[forx])
                     endif
                 
                     set i=0
@@ -6283,7 +6283,7 @@ endfunction
                     call UnitAddItem(caster, it)
                     set bj_lastCombinedItem=it
                     call YDWESyStemItemCombineTriggerAction()
-                elseif s__YDWEStringFormula___FormulaMatrix_delete[forx] then
+                elseif s__YDWEStringFormula__FormulaMatrix_delete[forx] then
                     set i=0
                     loop
                         exitwhen i == sum
@@ -6317,8 +6317,8 @@ endfunction
         set caster=null
         set it=null
     endfunction
-    function YDWEStringFormula___Init takes nothing returns nothing
-        local filterfunc f= Filter(function YDWEStringFormula___Adaptation)
+    function YDWEStringFormula__Init takes nothing returns nothing
+        local filterfunc f= Filter(function YDWEStringFormula__Adaptation)
         local trigger t= CreateTrigger()
         local integer i= 0
         
@@ -6328,8 +6328,8 @@ endfunction
             set i=i + 1
         endloop
         
-        call TriggerAddCondition(t, Condition(function YDWEStringFormula___verify))
-        call TriggerAddAction(t, function YDWEStringFormula___CraftItem)
+        call TriggerAddCondition(t, Condition(function YDWEStringFormula__verify))
+        call TriggerAddAction(t, function YDWEStringFormula__CraftItem)
         call DestroyFilter(f)
         
         set f=null
@@ -6341,27 +6341,27 @@ endfunction
     
     // call YDWENewItemsFormula('rat6', 6, 'rat9', 5, 'ratc', 4, 'rde1', 3, 'rde2', 2, 'rde3', 1, 'mcou')
     function YDWENewItemsFormula takes integer type1,integer n1,integer type2,integer n2,integer type3,integer n3,integer type4,integer n4,integer type5,integer n5,integer type6,integer n6,integer eventually returns nothing
-        local integer sort= s__YDWEStringFormula___Sorting_create(type1 , n1 , type2 , n2 , type3 , n3 , type4 , n4 , type5 , n5 , type6 , n6 , 0 , 0)
-        local integer itmx= s__YDWEStringFormula___ItemIdMatrix_assigns(eventually)
-        local string f= I2S(YDWEStringFormula___SEGMENT_LENGTH) + s__YDWEStringFormula___Sorting_convert(sort)
+        local integer sort= s__YDWEStringFormula__Sorting_create(type1 , n1 , type2 , n2 , type3 , n3 , type4 , n4 , type5 , n5 , type6 , n6 , 0 , 0)
+        local integer itmx= s__YDWEStringFormula__ItemIdMatrix_assigns(eventually)
+        local string f= I2S(YDWEStringFormula__SEGMENT_LENGTH) + s__YDWEStringFormula__Sorting_convert(sort)
         local string s= ""
         local integer i= 0
         
-        set YDWEStringFormula___FormulaData=s__YDWEStringFormula___FormulaMatrix_memory(YDWEStringFormula___SEGMENT_LENGTH , f , itmx)
-        if (YDWEStringFormula___FormulaData) > 0 then
-            set s=YDWEStringFormula___Convert((YDWEStringFormula___FormulaData) , YDWEStringFormula___SEGMENT_LENGTH)
+        set YDWEStringFormula__FormulaData=s__YDWEStringFormula__FormulaMatrix_memory(YDWEStringFormula__SEGMENT_LENGTH , f , itmx)
+        if (YDWEStringFormula__FormulaData) > 0 then
+            set s=YDWEStringFormula__Convert((YDWEStringFormula__FormulaData) , YDWEStringFormula__SEGMENT_LENGTH)
             
             set i=0
             loop
-                exitwhen i > s__YDWEStringFormula___Sorting_total[sort]
-                call s__YDWEStringFormula___ItemIdMatrix_memory(s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[sort]+i],s)
+                exitwhen i > s__YDWEStringFormula__Sorting_total[sort]
+                call s__YDWEStringFormula__ItemIdMatrix_memory(s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[sort]+i],s)
                 set i=i + 1
             endloop
             
-            call s__YDWEStringFormula___ItemIdMatrix_memory(itmx,s)
+            call s__YDWEStringFormula__ItemIdMatrix_memory(itmx,s)
         endif
         
-        call s__YDWEStringFormula___Sorting_deallocate(sort)
+        call s__YDWEStringFormula__Sorting_deallocate(sort)
         set f=""
         set s=""
     endfunction
@@ -6376,7 +6376,7 @@ endfunction
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //                                       Timer Pattern Union                                              //
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    function YDWETimerPattern___SingleMagic takes unit sour,unit targ,real x,real y,real h,integer uid,integer aid,integer lv,integer order returns nothing
+    function YDWETimerPattern__SingleMagic takes unit sour,unit targ,real x,real y,real h,integer uid,integer aid,integer lv,integer order returns nothing
         local unit dummy= CreateUnit(GetOwningPlayer(sour), uid, x, y, GetUnitFacing(sour))
         call UnitApplyTimedLife(dummy, 'BHwe', 1.0)
         call UnitAddAbility(dummy, aid)
@@ -6386,34 +6386,34 @@ endfunction
         //debug call BJDebugMsg("Target order")
         set dummy=null
     endfunction
-    function YDWETimerPattern___GetUnitZ takes unit u returns real
-        call MoveLocation(YDWETimerPattern___yd_loc, GetUnitX(u), GetUnitY(u))
-        return GetUnitFlyHeight(u) + GetLocationZ(YDWETimerPattern___yd_loc)
+    function YDWETimerPattern__GetUnitZ takes unit u returns real
+        call MoveLocation(YDWETimerPattern__yd_loc, GetUnitX(u), GetUnitY(u))
+        return GetUnitFlyHeight(u) + GetLocationZ(YDWETimerPattern__yd_loc)
     endfunction
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //                                            Filter Funcs                                                //
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-    function YDWETimerPattern___EnemyFilter takes unit u,unit caster returns boolean
+    function YDWETimerPattern__EnemyFilter takes unit u,unit caster returns boolean
         return IsUnitType(u, UNIT_TYPE_MAGIC_IMMUNE) == false and IsUnitType(u, UNIT_TYPE_RESISTANT) == false and IsUnitType(u, UNIT_TYPE_SLEEPING) == false and GetUnitState(u, UNIT_STATE_LIFE) > 0.405 and IsUnitType(u, UNIT_TYPE_STRUCTURE) == false and IsUnitIllusion(u) == false and IsUnitHidden(u) == false and IsUnitEnemy(u, GetOwningPlayer(caster)) and IsUnitVisible(u, GetOwningPlayer(caster))
     endfunction
-    function YDWETimerPattern___TreeFilter takes nothing returns boolean
+    function YDWETimerPattern__TreeFilter takes nothing returns boolean
         local integer id= GetDestructableTypeId(GetFilterDestructable())
         return id == 'LTlt' or id == 'ATtr' or id == 'BTtw' or id == 'KTtw' or id == 'YTft' or id == 'JTct' or id == 'YTst' or id == 'YTct' or id == 'YTwt' or id == 'JTtw' or id == 'DTsh' or id == 'FTtw' or id == 'CTtr' or id == 'ITtw' or id == 'NTtw' or id == 'OTtw' or id == 'ZTtw' or id == 'WTst' or id == 'GTsh' or id == 'VTlt' or id == 'WTtw' or id == 'ATtc' or id == 'BTtc' or id == 'CTtc' or id == 'ITtc' or id == 'NTtc' or id == 'ZTtc'
     endfunction
-    function YDWETimerPattern___DamageFilter takes nothing returns boolean
+    function YDWETimerPattern__DamageFilter takes nothing returns boolean
         local unit u= GetFilterUnit()
-        local integer d= YDWETimerPattern___tmp_data
-        if not ( IsUnitInGroup(u, s__YDWETimerPattern___Thread_g[d]) ) and s__YDWETimerPattern___Thread_switch[d] != 0 and YDWETimerPattern___EnemyFilter(u , s__YDWETimerPattern___Thread_caster[d]) then
-            call UnitDamageTarget(s__YDWETimerPattern___Thread_caster[d], u, s__YDWETimerPattern___Thread_amount[d], true, true, bj_lastSetAttackType, bj_lastSetDamageType, bj_lastSetWeaponType)
-            call DestroyEffect(AddSpecialEffectTarget(s__YDWETimerPattern___Thread_dsfx[d], u, s__YDWETimerPattern___Thread_part[d]))
-            if s__YDWETimerPattern___Thread_skills[d] > '0000' and s__YDWETimerPattern___Thread_skills[d] != null and s__YDWETimerPattern___Thread_order[d] > 0 and s__YDWETimerPattern___Thread_order[d] != null then
-                call YDWETimerPattern___SingleMagic(s__YDWETimerPattern___Thread_caster[d] , u , s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[d]] , s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[d]] , GetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[d]) , s__YDWETimerPattern___Thread_unitid[d] , s__YDWETimerPattern___Thread_skills[d] , s__YDWETimerPattern___Thread_level[d] , s__YDWETimerPattern___Thread_order[d])
+        local integer d= YDWETimerPattern__tmp_data
+        if not ( IsUnitInGroup(u, s__YDWETimerPattern__Thread_g[d]) ) and s__YDWETimerPattern__Thread_switch[d] != 0 and YDWETimerPattern__EnemyFilter(u , s__YDWETimerPattern__Thread_caster[d]) then
+            call UnitDamageTarget(s__YDWETimerPattern__Thread_caster[d], u, s__YDWETimerPattern__Thread_amount[d], true, true, bj_lastSetAttackType, bj_lastSetDamageType, bj_lastSetWeaponType)
+            call DestroyEffect(AddSpecialEffectTarget(s__YDWETimerPattern__Thread_dsfx[d], u, s__YDWETimerPattern__Thread_part[d]))
+            if s__YDWETimerPattern__Thread_skills[d] > '0000' and s__YDWETimerPattern__Thread_skills[d] != null and s__YDWETimerPattern__Thread_order[d] > 0 and s__YDWETimerPattern__Thread_order[d] != null then
+                call YDWETimerPattern__SingleMagic(s__YDWETimerPattern__Thread_caster[d] , u , s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[d]] , s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[d]] , GetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[d]) , s__YDWETimerPattern__Thread_unitid[d] , s__YDWETimerPattern__Thread_skills[d] , s__YDWETimerPattern__Thread_level[d] , s__YDWETimerPattern__Thread_order[d])
             endif
-            if not ( s__YDWETimerPattern___Thread_recycle[d] ) then
+            if not ( s__YDWETimerPattern__Thread_recycle[d] ) then
                 //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r A one-time.")
-                set s__YDWETimerPattern___Thread_switch[d]=0
+                set s__YDWETimerPattern__Thread_switch[d]=0
             endif
-            set s__YDWETimerPattern___Thread_target[d]=u
+            set s__YDWETimerPattern__Thread_target[d]=u
             //call GroupAddUnit(d.g, u)
             set u=null
             return true
@@ -6421,7 +6421,7 @@ endfunction
         set u=null
         return false
     endfunction
-    function YDWETimerPattern___TreeKill takes nothing returns nothing
+    function YDWETimerPattern__TreeKill takes nothing returns nothing
         local destructable d= GetEnumDestructable()
         if GetWidgetLife(d) > 0.405 then
             call KillDestructable(d)
@@ -6431,266 +6431,266 @@ endfunction
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
     //                                         Major Structure Code                                           //
     //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-        function s__YDWETimerPattern___Thread__staticgetindex takes handle h returns integer
+        function s__YDWETimerPattern__Thread__staticgetindex takes handle h returns integer
             return (LoadInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId((h)))))))) // INLINED!!
         endfunction
-        function s__YDWETimerPattern___Thread__staticsetindex takes handle h,integer value returns nothing
+        function s__YDWETimerPattern__Thread__staticsetindex takes handle h,integer value returns nothing
             call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId((h)))) )), ( value)) // INLINED!!
         endfunction
-        function s__YDWETimerPattern___Thread_flush takes handle h returns nothing
+        function s__YDWETimerPattern__Thread_flush takes handle h returns nothing
             call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId((h))))))) // INLINED!!
         endfunction
-        function s__YDWETimerPattern___Thread__set_x takes integer this,real value returns nothing
-            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]]=value
-            call SetUnitX(s__YDWETimerPattern___Thread_obj[this], value)
+        function s__YDWETimerPattern__Thread__set_x takes integer this,real value returns nothing
+            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]]=value
+            call SetUnitX(s__YDWETimerPattern__Thread_obj[this], value)
         endfunction
-        function s__YDWETimerPattern___Thread__set_y takes integer this,real value returns nothing
-            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]=value
-            call SetUnitY(s__YDWETimerPattern___Thread_obj[this], value)
+        function s__YDWETimerPattern__Thread__set_y takes integer this,real value returns nothing
+            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]=value
+            call SetUnitY(s__YDWETimerPattern__Thread_obj[this], value)
         endfunction
-        function s__YDWETimerPattern___Thread__set_z takes integer this,real value returns nothing
-            set s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]]=value
-            call MoveLocation(YDWETimerPattern___yd_loc, s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])
-            call SetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[this], value - GetLocationZ(YDWETimerPattern___yd_loc), 0)
+        function s__YDWETimerPattern__Thread__set_z takes integer this,real value returns nothing
+            set s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]]=value
+            call MoveLocation(YDWETimerPattern__yd_loc, s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])
+            call SetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[this], value - GetLocationZ(YDWETimerPattern__yd_loc), 0)
         endfunction
-        function s__YDWETimerPattern___Thread_onDestroy takes integer this returns nothing
+        function s__YDWETimerPattern__Thread_onDestroy takes integer this returns nothing
             //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r Knockback stopped!")
-            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_obj[this])))))))) // INLINED!!
-            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this])))))))) // INLINED!!
-            call GroupClear(s__YDWETimerPattern___Thread_g[this])
-            call DestroyGroup(s__YDWETimerPattern___Thread_g[this])
-            call PauseTimer(s__YDWETimerPattern___Thread_t[this])
-            call DestroyTimer(s__YDWETimerPattern___Thread_t[this])
-            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_des[this])
-            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_pos[this])
-            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_vel[this])
-            set s__YDWETimerPattern___Thread_caster[this]=null
-            set s__YDWETimerPattern___Thread_target[this]=null
-            set s__YDWETimerPattern___Thread_obj[this]=null
-            set s__YDWETimerPattern___Thread_g[this]=null
-            set s__YDWETimerPattern___Thread_t[this]=null
-            set s__YDWETimerPattern___Thread_amount[this]=0
-            set s__YDWETimerPattern___Thread_skills[this]=0
-            set s__YDWETimerPattern___Thread_order[this]=0
-            set s__YDWETimerPattern___Thread_dsfx[this]=""
-            set s__YDWETimerPattern___Thread_gsfx[this]=""
-            set s__YDWETimerPattern___Thread_wsfx[this]=""
-            set s__YDWETimerPattern___Thread_part[this]=""
+            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_obj[this])))))))) // INLINED!!
+            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this])))))))) // INLINED!!
+            call GroupClear(s__YDWETimerPattern__Thread_g[this])
+            call DestroyGroup(s__YDWETimerPattern__Thread_g[this])
+            call PauseTimer(s__YDWETimerPattern__Thread_t[this])
+            call DestroyTimer(s__YDWETimerPattern__Thread_t[this])
+            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_des[this])
+            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_pos[this])
+            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_vel[this])
+            set s__YDWETimerPattern__Thread_caster[this]=null
+            set s__YDWETimerPattern__Thread_target[this]=null
+            set s__YDWETimerPattern__Thread_obj[this]=null
+            set s__YDWETimerPattern__Thread_g[this]=null
+            set s__YDWETimerPattern__Thread_t[this]=null
+            set s__YDWETimerPattern__Thread_amount[this]=0
+            set s__YDWETimerPattern__Thread_skills[this]=0
+            set s__YDWETimerPattern__Thread_order[this]=0
+            set s__YDWETimerPattern__Thread_dsfx[this]=""
+            set s__YDWETimerPattern__Thread_gsfx[this]=""
+            set s__YDWETimerPattern__Thread_wsfx[this]=""
+            set s__YDWETimerPattern__Thread_part[this]=""
         endfunction
-        function s__YDWETimerPattern___Parabola_move takes nothing returns nothing
+        function s__YDWETimerPattern__Parabola_move takes nothing returns nothing
             local integer this= (LoadInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((GetExpiredTimer()))))))))) // INLINED!!
             //local real vx = .des.x - .pos.x
             //local real vy = .des.y - .pos.y
             //local real vz = .des.z - .pos.z
             //if vx * vx + vy * vy + vz * vz > 900.0 then
-                call s__YDWETimerPattern___Thread__set_x(this,GetUnitX(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]) //.pos.x + .vel.x
-call s__YDWETimerPattern___Thread__set_y(this,GetUnitY(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]) //.pos.y + .vel.y
-call s__YDWETimerPattern___Thread__set_z(this,YDWETimerPattern___GetUnitZ(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___Thread_ac[this] * s__YDWETimerPattern___Thread_step[this] * 2 + s__YDWETimerPattern___Thread_ac[this] * s__YDWETimerPattern___Thread_dist[this] + s__YDWETimerPattern___Thread_bc[this]) //.pos.z + .ac * .step * 2 + .ac * .dist + .bc
-set s__YDWETimerPattern___Thread_step[this]=s__YDWETimerPattern___Thread_step[this] + s__YDWETimerPattern___Thread_dist[this]
+                call s__YDWETimerPattern__Thread__set_x(this,GetUnitX(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]) //.pos.x + .vel.x
+call s__YDWETimerPattern__Thread__set_y(this,GetUnitY(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]) //.pos.y + .vel.y
+call s__YDWETimerPattern__Thread__set_z(this,YDWETimerPattern__GetUnitZ(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__Thread_ac[this] * s__YDWETimerPattern__Thread_step[this] * 2 + s__YDWETimerPattern__Thread_ac[this] * s__YDWETimerPattern__Thread_dist[this] + s__YDWETimerPattern__Thread_bc[this]) //.pos.z + .ac * .step * 2 + .ac * .dist + .bc
+set s__YDWETimerPattern__Thread_step[this]=s__YDWETimerPattern__Thread_step[this] + s__YDWETimerPattern__Thread_dist[this]
                 //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r high = ." + R2S(GetLocationZ(yd_loc)))
-                if (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] or s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]] <= GetLocationZ(YDWETimerPattern___yd_loc) then // INLINED!!
-                    set s__YDWETimerPattern___Thread_switch[this]=0
+                if (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] or s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]] <= GetLocationZ(YDWETimerPattern__yd_loc) then // INLINED!!
+                    set s__YDWETimerPattern__Thread_switch[this]=0
                 endif
-                if s__YDWETimerPattern___Thread_amount[this] > 0.0 then
+                if s__YDWETimerPattern__Thread_amount[this] > 0.0 then
                     //call this.damage(.caster, .pos.x + .vel.x, .pos.y + .vel.y, GetUnitZ(.obj), false, false)
-                    set YDWETimerPattern___tmp_data=(this)
-                    call GroupEnumUnitsInRange(s__YDWETimerPattern___Thread_g[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]], 120.0, Condition(function YDWETimerPattern___DamageFilter))
+                    set YDWETimerPattern__tmp_data=(this)
+                    call GroupEnumUnitsInRange(s__YDWETimerPattern__Thread_g[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]], 120.0, Condition(function YDWETimerPattern__DamageFilter))
                     //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r Area damage.")
                 endif
             //else
                 //set .switch = 0
             //endif
-            if s__YDWETimerPattern___Thread_switch[this] == 0 then
-                call SetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[this], GetUnitDefaultFlyHeight(s__YDWETimerPattern___Thread_obj[this]), 200.0)
-                call SetUnitTimeScale(s__YDWETimerPattern___Thread_obj[this], 1)
+            if s__YDWETimerPattern__Thread_switch[this] == 0 then
+                call SetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[this], GetUnitDefaultFlyHeight(s__YDWETimerPattern__Thread_obj[this]), 200.0)
+                call SetUnitTimeScale(s__YDWETimerPattern__Thread_obj[this], 1)
                 //YDWETriggerEvent
-                call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern___Thread_obj[this] , 7)
-                call sc__YDWETimerPattern___Thread_deallocate(this)
+                call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern__Thread_obj[this] , 7)
+                call sc__YDWETimerPattern__Thread_deallocate(this)
             endif
         endfunction
-        function s__YDWETimerPattern___Parabola_create takes unit source,unit object,real angle,real distance,real time,real interval,real high,real damage,string attach,string deff returns integer
-            local integer this= s__YDWETimerPattern___Parabola__allocate()
+        function s__YDWETimerPattern__Parabola_create takes unit source,unit object,real angle,real distance,real time,real interval,real high,real damage,string attach,string deff returns integer
+            local integer this= s__YDWETimerPattern__Parabola__allocate()
             local real vx= 0.0
             local real vy= 0.0
             local real vz= 0.0
-            set s__YDWETimerPattern___Thread_des[this]=s__YDWETimerPattern___YDVector3__allocate()
-            set s__YDWETimerPattern___Thread_pos[this]=s__YDWETimerPattern___YDVector3__allocate()
-            set s__YDWETimerPattern___Thread_vel[this]=s__YDWETimerPattern___YDVector3__allocate()
-            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]]=GetUnitX(object)
-            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]=GetUnitY(object)
-            set s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]]=YDWETimerPattern___GetUnitZ(object)
-            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_des[this]]=s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] + distance * Cos(angle)
-            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_des[this]]=s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] + distance * Sin(angle)
-            call MoveLocation(YDWETimerPattern___yd_loc, s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_des[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_des[this]])
-            set s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]]=GetLocationZ(YDWETimerPattern___yd_loc)
-            if s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]] > s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]] then
-                set high=high + s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]]
+            set s__YDWETimerPattern__Thread_des[this]=s__YDWETimerPattern__YDVector3__allocate()
+            set s__YDWETimerPattern__Thread_pos[this]=s__YDWETimerPattern__YDVector3__allocate()
+            set s__YDWETimerPattern__Thread_vel[this]=s__YDWETimerPattern__YDVector3__allocate()
+            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]]=GetUnitX(object)
+            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]=GetUnitY(object)
+            set s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]]=YDWETimerPattern__GetUnitZ(object)
+            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_des[this]]=s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] + distance * Cos(angle)
+            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_des[this]]=s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] + distance * Sin(angle)
+            call MoveLocation(YDWETimerPattern__yd_loc, s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_des[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_des[this]])
+            set s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]]=GetLocationZ(YDWETimerPattern__yd_loc)
+            if s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]] > s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]] then
+                set high=high + s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]]
             else
-                set high=high + s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]]
+                set high=high + s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]]
             endif
-            set s__YDWETimerPattern___Thread_ac[this]=( 2 * ( s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]] ) - 4 * high ) / ( distance * distance )
-            set s__YDWETimerPattern___Thread_bc[this]=( s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_des[this]] - s__YDWETimerPattern___YDVector3_z[s__YDWETimerPattern___Thread_pos[this]] - s__YDWETimerPattern___Thread_ac[this] * distance * distance ) / distance
-            set s__YDWETimerPattern___Thread_dist[this]=distance * interval / time
-            set s__YDWETimerPattern___Thread_ac[this]=s__YDWETimerPattern___Thread_ac[this] * s__YDWETimerPattern___Thread_dist[this]
-            set s__YDWETimerPattern___Thread_bc[this]=s__YDWETimerPattern___Thread_bc[this] * s__YDWETimerPattern___Thread_dist[this]
-            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]=s__YDWETimerPattern___Thread_dist[this] * Cos(angle)
-            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]=s__YDWETimerPattern___Thread_dist[this] * Sin(angle)
-            set s__YDWETimerPattern___Thread_step[this]=0.0
-            set s__YDWETimerPattern___Thread_caster[this]=source
-            set s__YDWETimerPattern___Thread_obj[this]=object
-            set s__YDWETimerPattern___Thread_amount[this]=damage
-            set s__YDWETimerPattern___Thread_dsfx[this]=deff
-            set s__YDWETimerPattern___Thread_part[this]=attach
-            set s__YDWETimerPattern___Thread_switch[this]=1
-            set s__YDWETimerPattern___Thread_recycle[this]=true
-            set s__YDWETimerPattern___Thread_t[this]=CreateTimer()
-            set s__YDWETimerPattern___Thread_g[this]=CreateGroup()
-            call UnitAddAbility(s__YDWETimerPattern___Thread_obj[this], 'Amrf')
-            call UnitRemoveAbility(s__YDWETimerPattern___Thread_obj[this], 'Amrf')
-            call TimerStart(s__YDWETimerPattern___Thread_t[this], interval, true, function s__YDWETimerPattern___Parabola_move)
-            call GroupAddUnit(s__YDWETimerPattern___Thread_g[this], object)
+            set s__YDWETimerPattern__Thread_ac[this]=( 2 * ( s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]] ) - 4 * high ) / ( distance * distance )
+            set s__YDWETimerPattern__Thread_bc[this]=( s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_des[this]] - s__YDWETimerPattern__YDVector3_z[s__YDWETimerPattern__Thread_pos[this]] - s__YDWETimerPattern__Thread_ac[this] * distance * distance ) / distance
+            set s__YDWETimerPattern__Thread_dist[this]=distance * interval / time
+            set s__YDWETimerPattern__Thread_ac[this]=s__YDWETimerPattern__Thread_ac[this] * s__YDWETimerPattern__Thread_dist[this]
+            set s__YDWETimerPattern__Thread_bc[this]=s__YDWETimerPattern__Thread_bc[this] * s__YDWETimerPattern__Thread_dist[this]
+            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]=s__YDWETimerPattern__Thread_dist[this] * Cos(angle)
+            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]=s__YDWETimerPattern__Thread_dist[this] * Sin(angle)
+            set s__YDWETimerPattern__Thread_step[this]=0.0
+            set s__YDWETimerPattern__Thread_caster[this]=source
+            set s__YDWETimerPattern__Thread_obj[this]=object
+            set s__YDWETimerPattern__Thread_amount[this]=damage
+            set s__YDWETimerPattern__Thread_dsfx[this]=deff
+            set s__YDWETimerPattern__Thread_part[this]=attach
+            set s__YDWETimerPattern__Thread_switch[this]=1
+            set s__YDWETimerPattern__Thread_recycle[this]=true
+            set s__YDWETimerPattern__Thread_t[this]=CreateTimer()
+            set s__YDWETimerPattern__Thread_g[this]=CreateGroup()
+            call UnitAddAbility(s__YDWETimerPattern__Thread_obj[this], 'Amrf')
+            call UnitRemoveAbility(s__YDWETimerPattern__Thread_obj[this], 'Amrf')
+            call TimerStart(s__YDWETimerPattern__Thread_t[this], interval, true, function s__YDWETimerPattern__Parabola_move)
+            call GroupAddUnit(s__YDWETimerPattern__Thread_g[this], object)
             call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((object))))) )), ( ( (this)))) // INLINED!!
-            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
+            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
             return this
         endfunction
     // uniform speed
-        function s__YDWETimerPattern___Linear_move takes nothing returns nothing
+        function s__YDWETimerPattern__Linear_move takes nothing returns nothing
             local integer this= (LoadInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((GetExpiredTimer()))))))))) // INLINED!!
-            if s__YDWETimerPattern___Thread_step[this] > s__YDWETimerPattern___Thread_dist[this] then
-                call s__YDWETimerPattern___Thread__set_x(this,GetUnitX(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]) //.pos.x + .vel.x
-call s__YDWETimerPattern___Thread__set_y(this,GetUnitY(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]) //.pos.y + .vel.y
+            if s__YDWETimerPattern__Thread_step[this] > s__YDWETimerPattern__Thread_dist[this] then
+                call s__YDWETimerPattern__Thread__set_x(this,GetUnitX(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]) //.pos.x + .vel.x
+call s__YDWETimerPattern__Thread__set_y(this,GetUnitY(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]) //.pos.y + .vel.y
 //set .pos.z = GetUnitZ(.obj)
-set s__YDWETimerPattern___Thread_step[this]=s__YDWETimerPattern___Thread_step[this] - s__YDWETimerPattern___Thread_dist[this]
+set s__YDWETimerPattern__Thread_step[this]=s__YDWETimerPattern__Thread_step[this] - s__YDWETimerPattern__Thread_dist[this]
                 //call this.damage(.caster, .pos.x, .pos.y, .pos.z, true, true)
-                set YDWETimerPattern___tmp_data=(this)
-                call GroupEnumUnitsInRange(s__YDWETimerPattern___Thread_g[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] + s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]], 120.0, Condition(function YDWETimerPattern___DamageFilter))
-                if (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] then // INLINED!!
-                    set s__YDWETimerPattern___Thread_switch[this]=0
+                set YDWETimerPattern__tmp_data=(this)
+                call GroupEnumUnitsInRange(s__YDWETimerPattern__Thread_g[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] + s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]], 120.0, Condition(function YDWETimerPattern__DamageFilter))
+                if (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] then // INLINED!!
+                    set s__YDWETimerPattern__Thread_switch[this]=0
                 endif
             else
-                set s__YDWETimerPattern___Thread_switch[this]=0
+                set s__YDWETimerPattern__Thread_switch[this]=0
             endif
-            if s__YDWETimerPattern___Thread_switch[this] == 0 then
+            if s__YDWETimerPattern__Thread_switch[this] == 0 then
                 // YDWETriggerEvent
-                if s__YDWETimerPattern___Thread_target[this] != null then
+                if s__YDWETimerPattern__Thread_target[this] != null then
                     //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r  |cffff0000" + GetUnitName(.target) + "|r was hit!!!")
                     //call YDWESaveUnitByString(I2S(YDWEH2I(.caster)), "MoonPriestessArrow", .target)
-                    set bj_lastAbilityTargetUnit=s__YDWETimerPattern___Thread_target[this]
-                    call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern___Thread_caster[this] , 8)
+                    set bj_lastAbilityTargetUnit=s__YDWETimerPattern__Thread_target[this]
+                    call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern__Thread_caster[this] , 8)
                 else
-                    call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern___Thread_caster[this] , 9)
+                    call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern__Thread_caster[this] , 9)
                 endif
                 //call KillUnit(.obj)
-                call RemoveUnit(s__YDWETimerPattern___Thread_obj[this])
-                call sc__YDWETimerPattern___Thread_deallocate(this)
+                call RemoveUnit(s__YDWETimerPattern__Thread_obj[this])
+                call sc__YDWETimerPattern__Thread_deallocate(this)
             endif
         endfunction
-        function s__YDWETimerPattern___Linear_create takes unit source,unit object,real angle,real distance,real time,real interval,integer uid,integer aid,integer lv,integer orderid,string attach,string sfx returns integer
-            local integer this= s__YDWETimerPattern___Linear__allocate()
-            set s__YDWETimerPattern___Thread_des[this]=s__YDWETimerPattern___YDVector3__allocate()
-            set s__YDWETimerPattern___Thread_pos[this]=s__YDWETimerPattern___YDVector3__allocate()
-            set s__YDWETimerPattern___Thread_vel[this]=s__YDWETimerPattern___YDVector3__allocate()
-            set s__YDWETimerPattern___Thread_step[this]=distance
-            set s__YDWETimerPattern___Thread_dist[this]=distance * interval / time
-            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]=s__YDWETimerPattern___Thread_dist[this] * Cos(angle)
-            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]=s__YDWETimerPattern___Thread_dist[this] * Sin(angle)
-            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]]=GetUnitX(object)
-            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]=GetUnitY(object)
-            set s__YDWETimerPattern___Thread_caster[this]=source
-            set s__YDWETimerPattern___Thread_obj[this]=object
-            set s__YDWETimerPattern___Thread_unitid[this]=uid
-            set s__YDWETimerPattern___Thread_skills[this]=aid
-            set s__YDWETimerPattern___Thread_level[this]=lv
-            set s__YDWETimerPattern___Thread_order[this]=orderid
-            set s__YDWETimerPattern___Thread_part[this]=attach
-            set s__YDWETimerPattern___Thread_gsfx[this]=sfx
-            set s__YDWETimerPattern___Thread_switch[this]=1
-            set s__YDWETimerPattern___Thread_recycle[this]=false
-            set s__YDWETimerPattern___Thread_t[this]=CreateTimer()
-            set s__YDWETimerPattern___Thread_g[this]=CreateGroup()
-            call TimerStart(s__YDWETimerPattern___Thread_t[this], interval, true, function s__YDWETimerPattern___Linear_move)
-            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
+        function s__YDWETimerPattern__Linear_create takes unit source,unit object,real angle,real distance,real time,real interval,integer uid,integer aid,integer lv,integer orderid,string attach,string sfx returns integer
+            local integer this= s__YDWETimerPattern__Linear__allocate()
+            set s__YDWETimerPattern__Thread_des[this]=s__YDWETimerPattern__YDVector3__allocate()
+            set s__YDWETimerPattern__Thread_pos[this]=s__YDWETimerPattern__YDVector3__allocate()
+            set s__YDWETimerPattern__Thread_vel[this]=s__YDWETimerPattern__YDVector3__allocate()
+            set s__YDWETimerPattern__Thread_step[this]=distance
+            set s__YDWETimerPattern__Thread_dist[this]=distance * interval / time
+            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]=s__YDWETimerPattern__Thread_dist[this] * Cos(angle)
+            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]=s__YDWETimerPattern__Thread_dist[this] * Sin(angle)
+            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]]=GetUnitX(object)
+            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]=GetUnitY(object)
+            set s__YDWETimerPattern__Thread_caster[this]=source
+            set s__YDWETimerPattern__Thread_obj[this]=object
+            set s__YDWETimerPattern__Thread_unitid[this]=uid
+            set s__YDWETimerPattern__Thread_skills[this]=aid
+            set s__YDWETimerPattern__Thread_level[this]=lv
+            set s__YDWETimerPattern__Thread_order[this]=orderid
+            set s__YDWETimerPattern__Thread_part[this]=attach
+            set s__YDWETimerPattern__Thread_gsfx[this]=sfx
+            set s__YDWETimerPattern__Thread_switch[this]=1
+            set s__YDWETimerPattern__Thread_recycle[this]=false
+            set s__YDWETimerPattern__Thread_t[this]=CreateTimer()
+            set s__YDWETimerPattern__Thread_g[this]=CreateGroup()
+            call TimerStart(s__YDWETimerPattern__Thread_t[this], interval, true, function s__YDWETimerPattern__Linear_move)
+            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
             return this
         endfunction
     // Uniform deceleration
-        function s__YDWETimerPattern___Deceleration_move takes nothing returns nothing
+        function s__YDWETimerPattern__Deceleration_move takes nothing returns nothing
             local integer this= (LoadInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((GetExpiredTimer()))))))))) // INLINED!!
-            local real l__xp= GetUnitX(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___Thread_dist[this] * s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]
-            local real l__yp= GetUnitY(s__YDWETimerPattern___Thread_obj[this]) + s__YDWETimerPattern___Thread_dist[this] * s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]
-            if s__YDWETimerPattern___Thread_volume[this] == false then
+            local real l__xp= GetUnitX(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__Thread_dist[this] * s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]
+            local real l__yp= GetUnitY(s__YDWETimerPattern__Thread_obj[this]) + s__YDWETimerPattern__Thread_dist[this] * s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]
+            if s__YDWETimerPattern__Thread_volume[this] == false then
                 //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |rPathable without terrain.")
                 if IsTerrainPathable(l__xp, l__yp, PATHING_TYPE_WALKABILITY) then
-                    set s__YDWETimerPattern___Thread_switch[this]=0
+                    set s__YDWETimerPattern__Thread_switch[this]=0
                 else
-                    call s__YDWETimerPattern___Thread__set_x(this,l__xp)
-                    call s__YDWETimerPattern___Thread__set_y(this,l__yp)
+                    call s__YDWETimerPattern__Thread__set_x(this,l__xp)
+                    call s__YDWETimerPattern__Thread__set_y(this,l__yp)
                 endif
             else
-                call s__YDWETimerPattern___Thread__set_x(this,l__xp)
-                call s__YDWETimerPattern___Thread__set_y(this,l__yp)
+                call s__YDWETimerPattern__Thread__set_x(this,l__xp)
+                call s__YDWETimerPattern__Thread__set_y(this,l__yp)
             endif
-            if s__YDWETimerPattern___Thread_follow[this] == 0 then
-                if GetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[this]) < 5. then
-                    if IsTerrainPathable(s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]], PATHING_TYPE_FLOATABILITY) then
-                        call DestroyEffect(AddSpecialEffect(s__YDWETimerPattern___Thread_gsfx[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]))
+            if s__YDWETimerPattern__Thread_follow[this] == 0 then
+                if GetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[this]) < 5. then
+                    if IsTerrainPathable(s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]], PATHING_TYPE_FLOATABILITY) then
+                        call DestroyEffect(AddSpecialEffect(s__YDWETimerPattern__Thread_gsfx[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]))
                     else
-                        call DestroyEffect(AddSpecialEffect(s__YDWETimerPattern___Thread_wsfx[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]))
+                        call DestroyEffect(AddSpecialEffect(s__YDWETimerPattern__Thread_wsfx[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]))
                     endif
                 endif
             endif
-            set s__YDWETimerPattern___Thread_follow[this]=s__YDWETimerPattern___Thread_follow[this] + 1
-            if s__YDWETimerPattern___Thread_follow[this] == 2 then
-                set s__YDWETimerPattern___Thread_follow[this]=0
+            set s__YDWETimerPattern__Thread_follow[this]=s__YDWETimerPattern__Thread_follow[this] + 1
+            if s__YDWETimerPattern__Thread_follow[this] == 2 then
+                set s__YDWETimerPattern__Thread_follow[this]=0
             endif
-            if s__YDWETimerPattern___Thread_killdest[this] then
-                call MoveRectTo(YDWETimerPattern___Area, s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])
-                call EnumDestructablesInRect(YDWETimerPattern___Area, YDWETimerPattern___Bexpr, function YDWETimerPattern___TreeKill)
+            if s__YDWETimerPattern__Thread_killdest[this] then
+                call MoveRectTo(YDWETimerPattern__Area, s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])
+                call EnumDestructablesInRect(YDWETimerPattern__Area, YDWETimerPattern__Bexpr, function YDWETimerPattern__TreeKill)
             endif
-            if s__YDWETimerPattern___Thread_amount[this] > 0.0 then
+            if s__YDWETimerPattern__Thread_amount[this] > 0.0 then
                 //call this.damage(.caster, .pos.x, .pos.y, 0.0, false, .recycle)
-                set YDWETimerPattern___tmp_data=(this)
-                call GroupEnumUnitsInRange(s__YDWETimerPattern___Thread_g[this], s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]], s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]], 120.0, Condition(function YDWETimerPattern___DamageFilter))
+                set YDWETimerPattern__tmp_data=(this)
+                call GroupEnumUnitsInRange(s__YDWETimerPattern__Thread_g[this], s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]], s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]], 120.0, Condition(function YDWETimerPattern__DamageFilter))
             endif
-            set s__YDWETimerPattern___Thread_dist[this]=s__YDWETimerPattern___Thread_dist[this] - s__YDWETimerPattern___Thread_step[this]
-            if s__YDWETimerPattern___Thread_dist[this] <= 0.0 or (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]] then // INLINED!!
-                set s__YDWETimerPattern___Thread_switch[this]=0
+            set s__YDWETimerPattern__Thread_dist[this]=s__YDWETimerPattern__Thread_dist[this] - s__YDWETimerPattern__Thread_step[this]
+            if s__YDWETimerPattern__Thread_dist[this] <= 0.0 or (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinX), yd_MapMaxX)) != s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]] or (RMinBJ(RMaxBJ(((s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]])*1.0), yd_MapMinY), yd_MapMaxY)) != s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]] then // INLINED!!
+                set s__YDWETimerPattern__Thread_switch[this]=0
             endif
-            if s__YDWETimerPattern___Thread_switch[this] == 0 then
-                call SetUnitFlyHeight(s__YDWETimerPattern___Thread_obj[this], GetUnitDefaultFlyHeight(s__YDWETimerPattern___Thread_obj[this]), 200.0)
-                call SetUnitTimeScale(s__YDWETimerPattern___Thread_obj[this], 1)
+            if s__YDWETimerPattern__Thread_switch[this] == 0 then
+                call SetUnitFlyHeight(s__YDWETimerPattern__Thread_obj[this], GetUnitDefaultFlyHeight(s__YDWETimerPattern__Thread_obj[this]), 200.0)
+                call SetUnitTimeScale(s__YDWETimerPattern__Thread_obj[this], 1)
                 // YDWETriggerEvent
-                call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern___Thread_obj[this] , 6)
-                call sc__YDWETimerPattern___Thread_deallocate(this)
+                call YDWESyStemAbilityCastingOverTriggerAction(s__YDWETimerPattern__Thread_obj[this] , 6)
+                call sc__YDWETimerPattern__Thread_deallocate(this)
             endif
         endfunction
-        function s__YDWETimerPattern___Deceleration_create takes unit source,unit object,real angle,real distance,real time,real interval,real damage,boolean killtrees,boolean cycle,boolean path,string part,string geff,string weff returns integer
-            local integer this= s__YDWETimerPattern___Deceleration__allocate()
+        function s__YDWETimerPattern__Deceleration_create takes unit source,unit object,real angle,real distance,real time,real interval,real damage,boolean killtrees,boolean cycle,boolean path,string part,string geff,string weff returns integer
+            local integer this= s__YDWETimerPattern__Deceleration__allocate()
 local real vx= 0.0
             local real vy= 0.0
             local real l__l= 0.0
-            set s__YDWETimerPattern___Thread_des[this]=s__YDWETimerPattern___YDVector3__allocate()
-            set s__YDWETimerPattern___Thread_pos[this]=s__YDWETimerPattern___YDVector3__allocate()
-            set s__YDWETimerPattern___Thread_vel[this]=s__YDWETimerPattern___YDVector3__allocate()
-            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_vel[this]]=Cos(angle)
-            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_vel[this]]=Sin(angle)
-            set s__YDWETimerPattern___Thread_dist[this]=2 * distance * interval / time
-            set s__YDWETimerPattern___Thread_step[this]=s__YDWETimerPattern___Thread_dist[this] * interval / time
-            set s__YDWETimerPattern___YDVector3_x[s__YDWETimerPattern___Thread_pos[this]]=GetUnitX(object)
-            set s__YDWETimerPattern___YDVector3_y[s__YDWETimerPattern___Thread_pos[this]]=GetUnitY(object)
-            set s__YDWETimerPattern___Thread_caster[this]=source
-            set s__YDWETimerPattern___Thread_obj[this]=object
-            set s__YDWETimerPattern___Thread_amount[this]=damage
-            set s__YDWETimerPattern___Thread_killdest[this]=killtrees
-            set s__YDWETimerPattern___Thread_recycle[this]=cycle
-            set s__YDWETimerPattern___Thread_volume[this]=path
-            set s__YDWETimerPattern___Thread_gsfx[this]=geff
-            set s__YDWETimerPattern___Thread_wsfx[this]=weff
-            set s__YDWETimerPattern___Thread_switch[this]=1
-            set s__YDWETimerPattern___Thread_follow[this]=0
-            set s__YDWETimerPattern___Thread_g[this]=CreateGroup()
-            set s__YDWETimerPattern___Thread_t[this]=CreateTimer()
-            call TimerStart(s__YDWETimerPattern___Thread_t[this], interval, true, function s__YDWETimerPattern___Deceleration_move)
-            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
+            set s__YDWETimerPattern__Thread_des[this]=s__YDWETimerPattern__YDVector3__allocate()
+            set s__YDWETimerPattern__Thread_pos[this]=s__YDWETimerPattern__YDVector3__allocate()
+            set s__YDWETimerPattern__Thread_vel[this]=s__YDWETimerPattern__YDVector3__allocate()
+            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_vel[this]]=Cos(angle)
+            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_vel[this]]=Sin(angle)
+            set s__YDWETimerPattern__Thread_dist[this]=2 * distance * interval / time
+            set s__YDWETimerPattern__Thread_step[this]=s__YDWETimerPattern__Thread_dist[this] * interval / time
+            set s__YDWETimerPattern__YDVector3_x[s__YDWETimerPattern__Thread_pos[this]]=GetUnitX(object)
+            set s__YDWETimerPattern__YDVector3_y[s__YDWETimerPattern__Thread_pos[this]]=GetUnitY(object)
+            set s__YDWETimerPattern__Thread_caster[this]=source
+            set s__YDWETimerPattern__Thread_obj[this]=object
+            set s__YDWETimerPattern__Thread_amount[this]=damage
+            set s__YDWETimerPattern__Thread_killdest[this]=killtrees
+            set s__YDWETimerPattern__Thread_recycle[this]=cycle
+            set s__YDWETimerPattern__Thread_volume[this]=path
+            set s__YDWETimerPattern__Thread_gsfx[this]=geff
+            set s__YDWETimerPattern__Thread_wsfx[this]=weff
+            set s__YDWETimerPattern__Thread_switch[this]=1
+            set s__YDWETimerPattern__Thread_follow[this]=0
+            set s__YDWETimerPattern__Thread_g[this]=CreateGroup()
+            set s__YDWETimerPattern__Thread_t[this]=CreateTimer()
+            call TimerStart(s__YDWETimerPattern__Thread_t[this], interval, true, function s__YDWETimerPattern__Deceleration_move)
+            call SaveInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this]))))) )), ( ( (this)))) // INLINED!!
             return this
         endfunction
     // Jump Attack PUI
@@ -6699,7 +6699,7 @@ local real vx= 0.0
             //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r No object!")
             return
         endif
-        call s__YDWETimerPattern___Parabola_create(u , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , high , damage , part , dsfx)
+        call s__YDWETimerPattern__Parabola_create(u , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , high , damage , part , dsfx)
     endfunction
     // Moon Priestess Arrow PUI
     function YDWETimerPatternMoonPriestessArrow takes unit u,real face,real dis,real lasttime,real timeout,integer lv,integer aid,integer uid,string order,string part,string dsfx returns nothing
@@ -6712,7 +6712,7 @@ local real vx= 0.0
         if sour == null then
             set sour=u
         endif
-        call s__YDWETimerPattern___Linear_create(sour , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , uid , aid , IMaxBJ(lv, 1) , OrderId(order) , part , dsfx)
+        call s__YDWETimerPattern__Linear_create(sour , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , uid , aid , IMaxBJ(lv, 1) , OrderId(order) , part , dsfx)
         //call YDWEFlushMissionByString(I2S(YDWEH2I(u)))
         set sour=null
     endfunction
@@ -6722,46 +6722,46 @@ local real vx= 0.0
             //debug call BJDebugMsg("|cff00ff00[YDWE] Timer Pattern : |r No object!")
             return
         endif
-        call s__YDWETimerPattern___Deceleration_create(u , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , damage , killtrees , cycle , path , part , gsfx , wsfx)
+        call s__YDWETimerPattern__Deceleration_create(u , u , Deg2Rad(face) , RMaxBJ(dis, 0) , RMaxBJ(lasttime, 0) , RMaxBJ(timeout, 0) , damage , killtrees , cycle , path , part , gsfx , wsfx)
     endfunction
-    function YDWETimerPattern___Init takes nothing returns nothing
-        set YDWETimerPattern___Area=Rect(- 120.0, - 120.0, 120.0, 120.0)
-        set YDWETimerPattern___Bexpr=Filter(function YDWETimerPattern___TreeFilter)
+    function YDWETimerPattern__Init takes nothing returns nothing
+        set YDWETimerPattern__Area=Rect(- 120.0, - 120.0, 120.0, 120.0)
+        set YDWETimerPattern__Bexpr=Filter(function YDWETimerPattern__TreeFilter)
     endfunction
 
 //library YDWETimerPattern ends
 //library YDWETimerSystem:
-function YDWETimerSystem___NewTaskIndex takes nothing returns integer
- local integer h= YDWETimerSystem___TaskListIdleHead
-	if YDWETimerSystem___TaskListIdleHead < 0 then
-		if YDWETimerSystem___TaskListIdleMax >= 8000 then
+function YDWETimerSystem__NewTaskIndex takes nothing returns integer
+ local integer h= YDWETimerSystem__TaskListIdleHead
+	if YDWETimerSystem__TaskListIdleHead < 0 then
+		if YDWETimerSystem__TaskListIdleMax >= 8000 then
 			return 8100
 		else
-			set YDWETimerSystem___TaskListIdleMax=YDWETimerSystem___TaskListIdleMax + 1
-			return YDWETimerSystem___TaskListIdleMax
+			set YDWETimerSystem__TaskListIdleMax=YDWETimerSystem__TaskListIdleMax + 1
+			return YDWETimerSystem__TaskListIdleMax
 		endif
 	endif
-	set YDWETimerSystem___TaskListIdleHead=YDWETimerSystem___TaskListIdle[h]
+	set YDWETimerSystem__TaskListIdleHead=YDWETimerSystem__TaskListIdle[h]
 	return h
 endfunction
-function YDWETimerSystem___DeleteTaskIndex takes integer index returns nothing
-	set YDWETimerSystem___TaskListIdle[index]=YDWETimerSystem___TaskListIdleHead
-	set YDWETimerSystem___TaskListIdleHead=index
+function YDWETimerSystem__DeleteTaskIndex takes integer index returns nothing
+	set YDWETimerSystem__TaskListIdle[index]=YDWETimerSystem__TaskListIdleHead
+	set YDWETimerSystem__TaskListIdleHead=index
 endfunction
 //�ú������д���
-function YDWETimerSystem___NewTask takes real time,trigger proc returns integer
- local integer index= YDWETimerSystem___NewTaskIndex()
- local integer h= YDWETimerSystem___TaskListHead
- local integer t= R2I(100. * time) + YDWETimerSystem___CurrentTime
+function YDWETimerSystem__NewTask takes real time,trigger proc returns integer
+ local integer index= YDWETimerSystem__NewTaskIndex()
+ local integer h= YDWETimerSystem__TaskListHead
+ local integer t= R2I(100. * time) + YDWETimerSystem__CurrentTime
  local integer p
-	set YDWETimerSystem___TaskListProc[index]=proc
-	set YDWETimerSystem___TaskListTime[index]=t
+	set YDWETimerSystem__TaskListProc[index]=proc
+	set YDWETimerSystem__TaskListTime[index]=t
 	loop
-		set p=YDWETimerSystem___TaskListNext[h]
-		if p < 0 or YDWETimerSystem___TaskListTime[p] >= t then
+		set p=YDWETimerSystem__TaskListNext[h]
+		if p < 0 or YDWETimerSystem__TaskListTime[p] >= t then
 		//	call BJDebugMsg("NewTask:"+I2S(index))
-			set YDWETimerSystem___TaskListNext[h]=index
-			set YDWETimerSystem___TaskListNext[index]=p
+			set YDWETimerSystem__TaskListNext[h]=index
+			set YDWETimerSystem__TaskListNext[index]=p
 			return index
 		endif
 		set h=p
@@ -6769,59 +6769,59 @@ function YDWETimerSystem___NewTask takes real time,trigger proc returns integer
 	return index
 endfunction
 function YDWETimerSystemNewTask takes real time,trigger proc returns integer
-	return YDWETimerSystem___NewTask(time , proc)
+	return YDWETimerSystem__NewTask(time , proc)
 endfunction
 function YDWETimerSystemGetCurrentTask takes nothing returns integer
-	return YDWETimerSystem___CurrentIndex
+	return YDWETimerSystem__CurrentIndex
 endfunction
 //ɾ����λ
-function YDWETimerSystem___RemoveUnit_CallBack takes nothing returns nothing
-    call RemoveUnit(LoadUnitHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
-    call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
+function YDWETimerSystem__RemoveUnit_CallBack takes nothing returns nothing
+    call RemoveUnit(LoadUnitHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
+    call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
 endfunction
 function YDWETimerRemoveUnit takes real time,unit u returns nothing
-    call SaveUnitHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnRemoveUnit), u)
+    call SaveUnitHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnRemoveUnit), u)
 endfunction
 //�ݻټ�ʱ��
-function YDWETimerSystem___DestroyTimer_CallBack takes nothing returns nothing
-    call DestroyTimer(LoadTimerHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
-    call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
+function YDWETimerSystem__DestroyTimer_CallBack takes nothing returns nothing
+    call DestroyTimer(LoadTimerHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
+    call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
 endfunction
 function YDWETimerDestroyTimer takes real time,timer t returns nothing
-    call SaveTimerHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnDestroyTimer), t)
+    call SaveTimerHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnDestroyTimer), t)
 endfunction
 //ɾ����Ʒ
-function YDWETimerSystem___RemoveItem_CallBack takes nothing returns nothing
-    call RemoveItem(LoadItemHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
-    call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
+function YDWETimerSystem__RemoveItem_CallBack takes nothing returns nothing
+    call RemoveItem(LoadItemHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
+    call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
 endfunction
 function YDWETimerRemoveItem takes real time,item it returns nothing
-    call SaveItemHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnRemoveItem), it)
+    call SaveItemHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnRemoveItem), it)
 endfunction
 //ɾ����Ч
-function YDWETimerSystem___DestroyEffect_CallBack takes nothing returns nothing
-    call DestroyEffect(LoadEffectHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
-    call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
+function YDWETimerSystem__DestroyEffect_CallBack takes nothing returns nothing
+    call DestroyEffect(LoadEffectHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
+    call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
 endfunction
 function YDWETimerDestroyEffect takes real time,effect e returns nothing
-    call SaveEffectHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnDestroyEffect), e)
+    call SaveEffectHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnDestroyEffect), e)
 endfunction
 //ɾ��������Ч
-function YDWETimerSystem___DestroyLightning_CallBack takes nothing returns nothing
-    call DestroyLightning(LoadLightningHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
-    call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
+function YDWETimerSystem__DestroyLightning_CallBack takes nothing returns nothing
+    call DestroyLightning(LoadLightningHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
+    call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
 endfunction
 function YDWETimerDestroyLightning takes real time,lightning lt returns nothing
- local integer i= YDWETimerSystem___NewTask(time , YDWETimerSystem___fnDestroyLightning)
-    call SaveLightningHandle(YDHT, YDWETimerSystem___TimerHandle, i, lt)
+ local integer i= YDWETimerSystem__NewTask(time , YDWETimerSystem__fnDestroyLightning)
+    call SaveLightningHandle(YDHT, YDWETimerSystem__TimerHandle, i, lt)
 endfunction
 //���д�����
-function YDWETimerSystem___RunTrigger_CallBack takes nothing returns nothing
-    call TriggerExecute(LoadTriggerHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex))
-    call RemoveSavedHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___CurrentIndex)
+function YDWETimerSystem__RunTrigger_CallBack takes nothing returns nothing
+    call TriggerExecute(LoadTriggerHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex))
+    call RemoveSavedHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__CurrentIndex)
 endfunction
 function YDWETimerRunTrigger takes real time,trigger trg returns nothing
-    call SaveTriggerHandle(YDHT, YDWETimerSystem___TimerHandle, YDWETimerSystem___NewTask(time , YDWETimerSystem___fnRunTrigger), trg)
+    call SaveTriggerHandle(YDHT, YDWETimerSystem__TimerHandle, YDWETimerSystem__NewTask(time , YDWETimerSystem__fnRunTrigger), trg)
 endfunction
 //ɾ��Ư������
 function YDWETimerDestroyTextTag takes real time,texttag tt returns nothing
@@ -6835,50 +6835,50 @@ function YDWETimerDestroyTextTag takes real time,texttag tt returns nothing
     call SetTextTagFadepoint(tt, time)
 endfunction
 //���ļ�ʱ��������
-function YDWETimerSystem___Main takes nothing returns nothing
- local integer h= YDWETimerSystem___TaskListHead
+function YDWETimerSystem__Main takes nothing returns nothing
+ local integer h= YDWETimerSystem__TaskListHead
  local integer p
 	loop
-		set YDWETimerSystem___CurrentIndex=YDWETimerSystem___TaskListNext[h]
-		exitwhen YDWETimerSystem___CurrentIndex < 0 or YDWETimerSystem___CurrentTime < YDWETimerSystem___TaskListTime[YDWETimerSystem___CurrentIndex]
+		set YDWETimerSystem__CurrentIndex=YDWETimerSystem__TaskListNext[h]
+		exitwhen YDWETimerSystem__CurrentIndex < 0 or YDWETimerSystem__CurrentTime < YDWETimerSystem__TaskListTime[YDWETimerSystem__CurrentIndex]
 		//call BJDebugMsg("Task:"+I2S(CurrentIndex))
-		call TriggerEvaluate(YDWETimerSystem___TaskListProc[YDWETimerSystem___CurrentIndex])
-		call YDWETimerSystem___DeleteTaskIndex(YDWETimerSystem___CurrentIndex)
-		set YDWETimerSystem___TaskListNext[h]=YDWETimerSystem___TaskListNext[YDWETimerSystem___CurrentIndex]
+		call TriggerEvaluate(YDWETimerSystem__TaskListProc[YDWETimerSystem__CurrentIndex])
+		call YDWETimerSystem__DeleteTaskIndex(YDWETimerSystem__CurrentIndex)
+		set YDWETimerSystem__TaskListNext[h]=YDWETimerSystem__TaskListNext[YDWETimerSystem__CurrentIndex]
 	endloop
-	set YDWETimerSystem___CurrentTime=YDWETimerSystem___CurrentTime + 1
+	set YDWETimerSystem__CurrentTime=YDWETimerSystem__CurrentTime + 1
 endfunction
 //��ʼ������
-function YDWETimerSystem___Init takes nothing returns nothing
-    set YDWETimerSystem___Timer=CreateTimer()
-	set YDWETimerSystem___TimerHandle=GetHandleId(YDWETimerSystem___Timer)
-	set YDWETimerSystem___CurrentTime=0
-	set YDWETimerSystem___TaskListHead=0
-	set YDWETimerSystem___TaskListNext[0]=- 1
-	set YDWETimerSystem___TaskListIdleHead=1
-	set YDWETimerSystem___TaskListIdleMax=1
-	set YDWETimerSystem___TaskListIdle[1]=- 1
+function YDWETimerSystem__Init takes nothing returns nothing
+    set YDWETimerSystem__Timer=CreateTimer()
+	set YDWETimerSystem__TimerHandle=GetHandleId(YDWETimerSystem__Timer)
+	set YDWETimerSystem__CurrentTime=0
+	set YDWETimerSystem__TaskListHead=0
+	set YDWETimerSystem__TaskListNext[0]=- 1
+	set YDWETimerSystem__TaskListIdleHead=1
+	set YDWETimerSystem__TaskListIdleMax=1
+	set YDWETimerSystem__TaskListIdle[1]=- 1
 	
-	set YDWETimerSystem___fnRemoveUnit=CreateTrigger()
-	set YDWETimerSystem___fnDestroyTimer=CreateTrigger()
-	set YDWETimerSystem___fnRemoveItem=CreateTrigger()
-	set YDWETimerSystem___fnDestroyEffect=CreateTrigger()
-	set YDWETimerSystem___fnDestroyLightning=CreateTrigger()
-	set YDWETimerSystem___fnRunTrigger=CreateTrigger()
-	call TriggerAddCondition(YDWETimerSystem___fnRemoveUnit, Condition(function YDWETimerSystem___RemoveUnit_CallBack))
-	call TriggerAddCondition(YDWETimerSystem___fnDestroyTimer, Condition(function YDWETimerSystem___DestroyTimer_CallBack))
-	call TriggerAddCondition(YDWETimerSystem___fnRemoveItem, Condition(function YDWETimerSystem___RemoveItem_CallBack))
-	call TriggerAddCondition(YDWETimerSystem___fnDestroyEffect, Condition(function YDWETimerSystem___DestroyEffect_CallBack))
-	call TriggerAddCondition(YDWETimerSystem___fnDestroyLightning, Condition(function YDWETimerSystem___DestroyLightning_CallBack))
-	call TriggerAddCondition(YDWETimerSystem___fnRunTrigger, Condition(function YDWETimerSystem___RunTrigger_CallBack))
+	set YDWETimerSystem__fnRemoveUnit=CreateTrigger()
+	set YDWETimerSystem__fnDestroyTimer=CreateTrigger()
+	set YDWETimerSystem__fnRemoveItem=CreateTrigger()
+	set YDWETimerSystem__fnDestroyEffect=CreateTrigger()
+	set YDWETimerSystem__fnDestroyLightning=CreateTrigger()
+	set YDWETimerSystem__fnRunTrigger=CreateTrigger()
+	call TriggerAddCondition(YDWETimerSystem__fnRemoveUnit, Condition(function YDWETimerSystem__RemoveUnit_CallBack))
+	call TriggerAddCondition(YDWETimerSystem__fnDestroyTimer, Condition(function YDWETimerSystem__DestroyTimer_CallBack))
+	call TriggerAddCondition(YDWETimerSystem__fnRemoveItem, Condition(function YDWETimerSystem__RemoveItem_CallBack))
+	call TriggerAddCondition(YDWETimerSystem__fnDestroyEffect, Condition(function YDWETimerSystem__DestroyEffect_CallBack))
+	call TriggerAddCondition(YDWETimerSystem__fnDestroyLightning, Condition(function YDWETimerSystem__DestroyLightning_CallBack))
+	call TriggerAddCondition(YDWETimerSystem__fnRunTrigger, Condition(function YDWETimerSystem__RunTrigger_CallBack))
 	
-    call TimerStart(YDWETimerSystem___Timer, 0.01, true, function YDWETimerSystem___Main)
+    call TimerStart(YDWETimerSystem__Timer, 0.01, true, function YDWETimerSystem__Main)
 endfunction
 //ѭ�������ö�����ʱ��
 function YDWETimerSystemGetRunIndex takes nothing returns integer
-    return YDWETimerSystem___TimerSystem_RunIndex
+    return YDWETimerSystem__TimerSystem_RunIndex
 endfunction
-function YDWETimerSystem___RunPeriodicTriggerFunction takes nothing returns nothing
+function YDWETimerSystem__RunPeriodicTriggerFunction takes nothing returns nothing
     local integer tid= GetHandleId(GetExpiredTimer())
     local trigger trg= LoadTriggerHandle(YDHT, tid, $D0001)
 	call SaveInteger(YDHT, StringHash(I2S(GetHandleId(trg))), StringHash("RunIndex"), LoadInteger(YDHT, tid, $D0002))
@@ -6887,7 +6887,7 @@ function YDWETimerSystem___RunPeriodicTriggerFunction takes nothing returns noth
     endif
     set trg=null
 endfunction
-function YDWETimerSystem___RunPeriodicTriggerFunctionByTimes takes nothing returns nothing
+function YDWETimerSystem__RunPeriodicTriggerFunctionByTimes takes nothing returns nothing
     local integer tid= GetHandleId(GetExpiredTimer())
     local trigger trg= LoadTriggerHandle(YDHT, tid, $D0001)
     local integer times= LoadInteger(YDHT, tid, $D0003)
@@ -6914,9 +6914,9 @@ function YDWETimerRunPeriodicTrigger takes real timeout,trigger trg,boolean b,in
         set t=CreateTimer()
 		set tid=GetHandleId(t)
     endif
-    set YDWETimerSystem___TimerSystem_RunIndex=YDWETimerSystem___TimerSystem_RunIndex + 1
+    set YDWETimerSystem__TimerSystem_RunIndex=YDWETimerSystem__TimerSystem_RunIndex + 1
 	call SaveTriggerHandle(YDHT, tid, $D0001, trg)
-	call SaveInteger(YDHT, tid, $D0002, YDWETimerSystem___TimerSystem_RunIndex)
+	call SaveInteger(YDHT, tid, $D0002, YDWETimerSystem__TimerSystem_RunIndex)
 	set index=LoadInteger(YDHT, GetHandleId(trg), 'YDTS' + data)
     set index=index + 1
 	call SaveInteger(YDHT, GetHandleId(trg), 'YDTS' + data, index)
@@ -6924,9 +6924,9 @@ function YDWETimerRunPeriodicTrigger takes real timeout,trigger trg,boolean b,in
 	
     if b == false then
 		call SaveInteger(YDHT, tid, $D0003, times)
-        call TimerStart(t, timeout, true, function YDWETimerSystem___RunPeriodicTriggerFunctionByTimes)
+        call TimerStart(t, timeout, true, function YDWETimerSystem__RunPeriodicTriggerFunctionByTimes)
       else
-        call TimerStart(t, timeout, true, function YDWETimerSystem___RunPeriodicTriggerFunction)
+        call TimerStart(t, timeout, true, function YDWETimerSystem__RunPeriodicTriggerFunction)
     endif
     set t=null
 endfunction
@@ -7126,11 +7126,11 @@ endfunction
 //library WuQiQiHeSystem ends
 //===========================================================================
 // 
-// 决战江湖1.6.40正式版
+// 决战江湖1.6.41正式版
 // 
 //   Warcraft III map script
 //   Generated by the Warcraft III World Editor
-//   Date: Tue Apr 07 16:13:52 2020
+//   Date: Fri Apr 10 10:42:28 2020
 //   Map Author: 云杨 zei_kale
 // 
 //===========================================================================
@@ -7175,6 +7175,15 @@ endfunction
 //*  Unit Creation
 //*
 //***************************************************************************
+//===========================================================================
+function CreateUnitsForPlayer0 takes nothing returns nothing
+    local player p= Player(0)
+    local unit u
+    local integer unitID
+    local trigger t
+    local real life
+    set u=CreateUnit(p, 'o02Z', 1870.8, - 4104.3, 256.627)
+endfunction
 //===========================================================================
 function CreateBuildingsForPlayer5 takes nothing returns nothing
     local player p= Player(5)
@@ -7320,7 +7329,7 @@ function CreateNeutralPassive takes nothing returns nothing
     set u=CreateUnit(p, 'o02B', - 8490.7, - 14848.6, 180.000)
     set u=CreateUnit(p, 'hkni', - 11717.6, - 13939.5, 180.000)
     set u=CreateUnit(p, 'hkni', - 12586.0, - 13906.9, 0.000)
-    set u=CreateUnit(p, 'o02L', 1781.6, - 4106.0, 270.000)
+    set u=CreateUnit(p, 'o02L', 1773.6, - 4106.0, 270.000)
 endfunction
 //===========================================================================
 function CreatePlayerBuildings takes nothing returns nothing
@@ -7328,6 +7337,7 @@ function CreatePlayerBuildings takes nothing returns nothing
 endfunction
 //===========================================================================
 function CreatePlayerUnits takes nothing returns nothing
+    call CreateUnitsForPlayer0()
     call CreateUnitsForPlayer5()
     call CreateUnitsForPlayer6()
 endfunction
@@ -8046,8 +8056,8 @@ function TransferJY takes nothing returns nothing
 endfunction
 // 按几何正态分布进行随机
 function GetGeoNormRandomReal takes real r1,real r2 returns real
- local real rr1= (YDWELogarithm___Log2(((r1)*1.0)) * 0.3010300) // INLINED!!
- local real rr2= (YDWELogarithm___Log2(((r2)*1.0)) * 0.3010300) // INLINED!!
+ local real rr1= (YDWELogarithm__Log2(((r1)*1.0)) * 0.3010300) // INLINED!!
+ local real rr2= (YDWELogarithm__Log2(((r2)*1.0)) * 0.3010300) // INLINED!!
  local real rr3= GetRandomReal(rr1, rr2)
  local real rr4= GetRandomReal(rr1, rr2)
  local real rr5= GetRandomReal(rr1, rr2)
@@ -10737,8 +10747,6 @@ function ShengChengFang takes nothing returns nothing
 		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "升级城防，每位玩家守家积分+15")
 		// set shoujiajf[i] = shoujiajf[i] + $F
 		// call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()),0,0,"|CFF34FF00守家积分+15")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "升级城防，每位玩家守家积分+15")
-		
 	else
 		call AdjustPlayerStateBJ($4E20, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
 		call DisplayTextToPlayer(GetOwningPlayer(GetTriggerUnit()), 0, 0, "|cFFFF0000城防已达最高，无法继续升级|r")
@@ -10944,58 +10952,7 @@ function JiaRuMenPai takes nothing returns nothing
 				call SetPlayerName(p, "〓姑苏慕容〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 				call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
 			endif
-			// 自由改投明教
-			if GetItemTypeId(GetManipulatedItem()) == 'I09N' then
-				if udg_jf[i - 1] >= 20 then
-					if ( jf_useMax[i - 1] + 20 ) <= jf_max then
-						set udg_shuxing[i]=udg_shuxing[i] - 5
-						set wuxing[i]=( wuxing[i] + 3 )
-						set jingmai[i]=( jingmai[i] + 2 )
-						set fuyuan[i]=( fuyuan[i] + 2 )
-						set udg_runamen[i]=14
-						call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓明教〓，大家一起膜拜他|r")
-						call SetPlayerName(p, "〓明教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-						call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
-						// 累加本局可用积分
-						set jf_useMax[i - 1]=jf_useMax[i - 1] + 20
-						// 扣除对应的积分
-						set udg_jf[i - 1]=udg_jf[i - 1] - 20
-						// 保存到服务器
-						call DzAPI_Map_StoreInteger(Player(i - 1) , "jf" , udg_jf[i - 1])
-						call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00扣除20积分选择明教")
-					else
-						call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00不能选择明教，本局可用积分达到上限50")
-					endif
-				else
-					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00积分不足20，不能选择明教")
-				endif
-			endif
-			// 自由改投灵鹫
-			if GetItemTypeId(GetManipulatedItem()) == 'I0EH' then
-				if udg_jf[i - 1] >= 20 then
-					if ( jf_useMax[i - 1] + 20 ) <= jf_max then
-						set udg_shuxing[i]=udg_shuxing[i] - 5
-						set danpo[i]=( danpo[i] + 2 )
-						set jingmai[i]=( jingmai[i] + 2 )
-						set fuyuan[i]=( fuyuan[i] + 1 )
-						set udg_runamen[i]=12
-						call DisplayTimedTextToForce(bj_FORCE_ALL_PLAYERS, 15., "|CFFff9933玩家" + GetPlayerName(p) + "改拜入了〓灵鹫宫〓，大家一起膜拜他|r")
-						call SetPlayerName(p, "〓灵鹫宫〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-						call AdjustPlayerStateBJ(- 60, p, PLAYER_STATE_RESOURCE_LUMBER)
-						// 累加本局可用积分
-						set jf_useMax[i - 1]=jf_useMax[i - 1] + 20
-						// 扣除对应的积分
-						set udg_jf[i - 1]=udg_jf[i - 1] - 20
-						// 保存到服务器
-						call DzAPI_Map_StoreInteger(Player(i - 1) , "jf" , udg_jf[i - 1])
-						call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00扣除20积分选择灵鹫宫")
-					else
-						call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00不能选择灵鹫宫，本局可用积分达到上限50")
-					endif
-				else
-					call DisplayTimedTextToPlayer(p, 0, 0, 5, "|cFF66CC00积分不足20，不能选择灵鹫宫")
-				endif
-			endif
+			
 			
 			// 自由改投铁掌帮
 			if GetItemTypeId(GetManipulatedItem()) == 'I0E1' then
@@ -11176,282 +11133,14 @@ function JiaRuMenPai takes nothing returns nothing
 		else
 			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
 		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894837 ) ) then
-		if ( ( GetUnitTypeId(u) != 'O001' ) and ( GetUnitTypeId(u) != 'O002' ) ) then
-			set udg_runamen[i]=6
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓血刀门〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓血刀门〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			call UnitRemoveAbility(u, 'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u, Q4)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set gengu[i]=( gengu[i] + 2 )
-			set danpo[i]=( danpo[i] + 3 )
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		else
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894838 ) ) then
-		if ( ( GetUnitTypeId(u) != 'O004' ) and ( GetUnitTypeId(u) != 'O000' ) and ( GetUnitTypeId(u) != 'O001' ) ) then
-			set udg_runamen[i]=7
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓恒山派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓恒山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			call UnitRemoveAbility(u, 'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u, Q4)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set yishu[i]=( yishu[i] + 3 )
-			set fuyuan[i]=( fuyuan[i] + 2 )
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		else
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894839 ) ) then
-		if ( ( GetUnitTypeId(u) != 'O004' ) ) then
-			set udg_runamen[i]=8
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓峨眉派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓峨眉派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			call UnitRemoveAbility(u, 'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u, Q4)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set yishu[i]=( yishu[i] + 1 )
-			set jingmai[i]=( jingmai[i] + 1 )
-			set fuyuan[i]=( fuyuan[i] + 3 )
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		else
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894840 ) ) then
-		if ( ( GetUnitTypeId(u) != 'O001' ) ) then
-			set udg_runamen[i]=$A
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓星宿派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓星宿派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			set Q4=GetRandomLocInRect(He)
-			call UnitRemoveAbility(u, 'Avul')
-			call SetUnitPositionLoc(u, Q4)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set danpo[i]=( danpo[i] + 2 )
-			set yishu[i]=( yishu[i] + 1 )
-			set jingmai[i]=( jingmai[i] + 2 )
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		else
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894841 ) ) then
-		if ( ( GetUnitTypeId(u) != 'O003' ) ) then
-			set udg_runamen[i]=9
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓武当派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓武当派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u, Q4)
-			call UnitRemoveAbility(u, 'Avul')
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set gengu[i]=( gengu[i] + 1 )
-			set jingmai[i]=( jingmai[i] + 2 )
-			set fuyuan[i]=( fuyuan[i] + 2 )
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		else
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894849 ) ) then
-		if ( ( GetUnitTypeId(u) != 'O000' ) ) then
-			set udg_runamen[i]=2
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓古墓派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓古墓派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			call UnitRemoveAbility(u, 'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u, Q4)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set wuxing[i]=( wuxing[i] + 2 )
-			set jingmai[i]=( jingmai[i] + 1 )
-			set fuyuan[i]=( fuyuan[i] + 2 )
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		else
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0A2' ) ) then
-		if ( ( GetUnitTypeId(u) != 'O002' ) and ( GetUnitTypeId(u) != 'O003' ) ) then
-			set udg_runamen[i]=15
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓衡山派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓衡山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			call UnitRemoveAbility(u, 'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u, Q4)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set wuxing[i]=( wuxing[i] + 3 )
-			set yishu[i]=( yishu[i] + 2 )
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		else
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0CK' ) ) then
-		if ( GetUnitTypeId(u) == 'O000' or GetUnitTypeId(u) == 'O001' or GetUnitTypeId(u) == 'O004' or GetUnitTypeId(u) == 'O02J' ) then
-			set udg_runamen[i]=16
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓神龙教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			call UnitRemoveAbility(u, 'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u, Q4)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set gengu[i]=gengu[i] + 2
-			set fuyuan[i]=fuyuan[i] + 2
-			set danpo[i]=danpo[i] + 1
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		else
-			set udg_runamen[i]=17
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓神龙教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			call UnitRemoveAbility(u, 'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u, Q4)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set gengu[i]=gengu[i] + 2
-			set fuyuan[i]=fuyuan[i] + 2
-			set danpo[i]=danpo[i] + 1
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0CX' ) ) then
-		if ( GetUnitTypeId(u) != 'O003' ) then
-			set udg_runamen[i]=18
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓泰山派〓，请在NPC郭靖处选择副职|r")
-			call SetPlayerName(p, "〓泰山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
-			call UnitAddAbility(u, 'A05R')
-			call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
-			call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
-			if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
-				call UnitAddAbility(u, 'A040')
-				call UnitAddAbility(u, 'A041')
-				call UnitAddAbility(u, 'A042')
-			endif
-			set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
-			call UnitRemoveAbility(u, 'Avul')
-			set Q4=GetRandomLocInRect(He)
-			call SetUnitPositionLoc(u, Q4)
-			call PanCameraToTimedLocForPlayer(p, Q4, 0)
-			call createPartnerAndTownPortalDummy(i , Q4)
-			set gengu[i]=gengu[i] + 3
-			set wuxing[i]=wuxing[i] + 1
-			set yishu[i]=yishu[i] + 1
-			call RemoveLocation(Q4)
-			call UnitAddItemByIdSwapped(1227896394, u)
-		else
-			call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
-		endif
-	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0EV' ) ) then
-		set udg_runamen[i]=23
-		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓野螺派〓，请在NPC郭靖处选择副职|r")
-		call SetPlayerName(p, "〓野螺派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		// 明教
+	elseif GetItemTypeId(GetManipulatedItem()) == 'I09N' then
+		set udg_runamen[i]=14
+		set wuxing[i]=( wuxing[i] + 3 )
+		set jingmai[i]=( jingmai[i] + 2 )
+		set fuyuan[i]=( fuyuan[i] + 2 )
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓明教〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓明教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
 		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
 		call UnitAddAbility(u, 'A05R')
 		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
@@ -11467,11 +11156,329 @@ function JiaRuMenPai takes nothing returns nothing
 		call SetUnitPositionLoc(u, Q4)
 		call PanCameraToTimedLocForPlayer(p, Q4, 0)
 		call createPartnerAndTownPortalDummy(i , Q4)
-		set danpo[i]=danpo[i] + 5
 		call RemoveLocation(Q4)
 		call UnitAddItemByIdSwapped(1227896394, u)
+		// 灵鹫
+	elseif GetItemTypeId(GetManipulatedItem()) == 'I0EH' then
+		set udg_runamen[i]=12
+		set danpo[i]=( danpo[i] + 2 )
+		set jingmai[i]=( jingmai[i] + 2 )
+		set fuyuan[i]=( fuyuan[i] + 1 )
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓灵鹫宫〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓灵鹫宫〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894837 ) ) then
+	if ( ( GetUnitTypeId(u) != 'O001' ) and ( GetUnitTypeId(u) != 'O002' ) ) then
+		set udg_runamen[i]=6
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓血刀门〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓血刀门〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set gengu[i]=( gengu[i] + 2 )
+		set danpo[i]=( danpo[i] + 3 )
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	else
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894838 ) ) then
+	if ( ( GetUnitTypeId(u) != 'O004' ) and ( GetUnitTypeId(u) != 'O000' ) and ( GetUnitTypeId(u) != 'O001' ) ) then
+		set udg_runamen[i]=7
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓恒山派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓恒山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set yishu[i]=( yishu[i] + 3 )
+		set fuyuan[i]=( fuyuan[i] + 2 )
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	else
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894839 ) ) then
+	if ( ( GetUnitTypeId(u) != 'O004' ) ) then
+		set udg_runamen[i]=8
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓峨眉派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓峨眉派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set yishu[i]=( yishu[i] + 1 )
+		set jingmai[i]=( jingmai[i] + 1 )
+		set fuyuan[i]=( fuyuan[i] + 3 )
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	else
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894840 ) ) then
+	if ( ( GetUnitTypeId(u) != 'O001' ) ) then
+		set udg_runamen[i]=$A
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓星宿派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓星宿派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		set Q4=GetRandomLocInRect(He)
+		call UnitRemoveAbility(u, 'Avul')
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set danpo[i]=( danpo[i] + 2 )
+		set yishu[i]=( yishu[i] + 1 )
+		set jingmai[i]=( jingmai[i] + 2 )
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	else
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894841 ) ) then
+	if ( ( GetUnitTypeId(u) != 'O003' ) ) then
+		set udg_runamen[i]=9
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓武当派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓武当派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call UnitRemoveAbility(u, 'Avul')
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set gengu[i]=( gengu[i] + 1 )
+		set jingmai[i]=( jingmai[i] + 2 )
+		set fuyuan[i]=( fuyuan[i] + 2 )
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	else
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 1227894849 ) ) then
+	if ( ( GetUnitTypeId(u) != 'O000' ) ) then
+		set udg_runamen[i]=2
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓古墓派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓古墓派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set wuxing[i]=( wuxing[i] + 2 )
+		set jingmai[i]=( jingmai[i] + 1 )
+		set fuyuan[i]=( fuyuan[i] + 2 )
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	else
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0A2' ) ) then
+	if ( ( GetUnitTypeId(u) != 'O002' ) and ( GetUnitTypeId(u) != 'O003' ) ) then
+		set udg_runamen[i]=15
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓衡山派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓衡山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set wuxing[i]=( wuxing[i] + 3 )
+		set yishu[i]=( yishu[i] + 2 )
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	else
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0CK' ) ) then
+	if ( GetUnitTypeId(u) == 'O000' or GetUnitTypeId(u) == 'O001' or GetUnitTypeId(u) == 'O004' or GetUnitTypeId(u) == 'O02J' ) then
+		set udg_runamen[i]=16
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓神龙教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set gengu[i]=gengu[i] + 2
+		set fuyuan[i]=fuyuan[i] + 2
+		set danpo[i]=danpo[i] + 1
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	else
+		set udg_runamen[i]=17
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓神龙教〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓神龙教〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set gengu[i]=gengu[i] + 2
+		set fuyuan[i]=fuyuan[i] + 2
+		set danpo[i]=danpo[i] + 1
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0CX' ) ) then
+	if ( GetUnitTypeId(u) != 'O003' ) then
+		set udg_runamen[i]=18
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓泰山派〓，请在NPC郭靖处选择副职|r")
+		call SetPlayerName(p, "〓泰山派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+		call UnitAddAbility(u, 'A05R')
+		call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+		call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+		if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+			call UnitAddAbility(u, 'A040')
+			call UnitAddAbility(u, 'A041')
+			call UnitAddAbility(u, 'A042')
+		endif
+		set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+		call UnitRemoveAbility(u, 'Avul')
+		set Q4=GetRandomLocInRect(He)
+		call SetUnitPositionLoc(u, Q4)
+		call PanCameraToTimedLocForPlayer(p, Q4, 0)
+		call createPartnerAndTownPortalDummy(i , Q4)
+		set gengu[i]=gengu[i] + 3
+		set wuxing[i]=wuxing[i] + 1
+		set yishu[i]=yishu[i] + 1
+		call RemoveLocation(Q4)
+		call UnitAddItemByIdSwapped(1227896394, u)
+	else
+		call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff0000你的角色不能加入该门派")
+	endif
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0EV' ) ) then
+	set udg_runamen[i]=23
+	call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933恭喜加入〓野螺派〓，请在NPC郭靖处选择副职|r")
+	call SetPlayerName(p, "〓野螺派〓" + LoadStr(YDHT, GetHandleId(p), GetHandleId(p)))
+	call DisplayTimedTextToPlayer(p, 0, 0, 15., "|CFFff9933获得武功：凌波微步（可以在主城和传送石之间任意传送了）\n获得新手大礼包（可以在背包中打开获得惊喜哦）")
+	call UnitAddAbility(u, 'A05R')
+	call AddCharacterABuff(udg_hero[i] , udg_xinggeA[i])
+	call AddCharacterBBuff(udg_hero[i] , udg_xinggeB[i])
+	if udg_vip[i] < 2 and udg_elevenvip[i] < 1 then
+		call UnitAddAbility(u, 'A040')
+		call UnitAddAbility(u, 'A041')
+		call UnitAddAbility(u, 'A042')
+	endif
+	set I7[( ( ( i - 1 ) * 20 ) + 8 )]='A05R'
+	call UnitRemoveAbility(u, 'Avul')
+	set Q4=GetRandomLocInRect(He)
+	call SetUnitPositionLoc(u, Q4)
+	call PanCameraToTimedLocForPlayer(p, Q4, 0)
+	call createPartnerAndTownPortalDummy(i , Q4)
+	set danpo[i]=danpo[i] + 5
+	call RemoveLocation(Q4)
+	call UnitAddItemByIdSwapped(1227896394, u)
 	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0AG' ) ) then
-		call randomMenpai(p , 1)
+	call randomMenpai(p , 1)
 	endif
 	set p=null
 	set u=null
@@ -12770,38 +12777,38 @@ function mutatedAttacker takes unit u returns nothing
  local integer i= GetRandomInt(1, 100)
 	if udg_nandu == 6 then
 		if i <= 80 then
-			call SetUnitVertexColor(u, 225, 0, 0, 10)
+			call SetUnitVertexColor(u, 225, 0, 0, 255)
 			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 1)
-			call SetUnitScalePercent(u, 1.3, 1.3, 1.3)
+			call SetUnitScale(u, 1.5, 1.5, 1.5)
 		elseif i <= 95 then
-			call SetUnitVertexColor(u, 0, 225, 0, 10)
+			call SetUnitVertexColor(u, 0, 225, 0, 255)
 			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 2)
-			call SetUnitScalePercent(u, 1.4, 1.4, 1.4)
+			call SetUnitScale(u, 1.7, 1.7, 1.7)
 		else
-			call SetUnitVertexColor(u, 0, 0, 225, 10)
+			call SetUnitVertexColor(u, 0, 0, 225, 255)
 			call SaveInteger(YDHT, GetHandleId(u), StringHash("color"), 3)
-			call SetUnitScalePercent(u, 1.5, 1.5, 1.5)
+			call SetUnitScale(u, 1.9, 1.9, 1.9)
 		endif
 	endif
 endfunction
 function lA takes nothing returns nothing
 	call CreateNUnitsAtLocFacingLocBJ(1, y7[udg_boshu], Player(6), v7[6], v7[4])
 	call GroupAddUnit(w7, bj_lastCreatedUnit)
-	if GetRandomInt(60, 100) == 87 then
+	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
 	
 	call CreateNUnitsAtLocFacingLocBJ(1, y7[udg_boshu], Player(6), v7[7], v7[4])
 	call GroupAddUnit(w7, bj_lastCreatedUnit)
-	if GetRandomInt(60, 100) == 87 then
+	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
 	
 	call CreateNUnitsAtLocFacingLocBJ(1, y7[udg_boshu], Player(6), v7[5], v7[4])
 	call GroupAddUnit(w7, bj_lastCreatedUnit)
-	if GetRandomInt(60, 100) == 87 then
+	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[4])
@@ -12821,7 +12828,7 @@ endfunction
 function KA takes nothing returns nothing
 	call CreateNUnitsAtLocFacingLocBJ(1, y7[( udg_boshu + 1 )], Player(6), v7[8], v7[3])
 	call GroupAddUnit(w7, bj_lastCreatedUnit)
-	if GetRandomInt(60, 100) == 87 then
+	if GetRandomInt(70, 100) == 87 then
 		call mutatedAttacker(bj_lastCreatedUnit)
 	endif
 	call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D000F, v7[3])
@@ -23379,7 +23386,7 @@ endfunction
 //--------------------------
 //店小二新手任务
 function IJ takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 'I025' ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 'I025' ) ) // INLINED!!
 endfunction
 function lJ takes nothing returns nothing
  local unit u= GetTriggerUnit()
@@ -23745,28 +23752,28 @@ local integer i=GetPlayerId(p)
 	// 获取玩家对应的地图等级
  local integer level=DzAPI_Map_GetMapLevel(Player(i))
 	if ( ( level >= 3 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D4' ) ) and not LoadBoolean(YDHT, i, StringHash("3级奖励")) then
-        call unitadditembyidswapped(mapLevelReward[1] , u) // 养精蓄锐令牌
+		call unitadditembyidswapped(mapLevelReward[1] , u) // 养精蓄锐令牌
 call unitadditembyidswapped(mapLevelReward[GetRandomInt(2, 3)] , u)
-        call SaveBoolean(YDHT, i, StringHash("3级奖励"), true)
-    elseif ( ( level >= 5 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D6' ) ) and not LoadBoolean(YDHT, i, StringHash("5级奖励")) then
-        call unitadditembyidswapped('I02T' , u) // 大雁
+		call SaveBoolean(YDHT, i, StringHash("3级奖励"), true)
+	elseif ( ( level >= 5 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D6' ) ) and not LoadBoolean(YDHT, i, StringHash("5级奖励")) then
+		call unitadditembyidswapped('I02T' , u) // 大雁
 call unitadditembyidswapped(mapLevelReward[GetRandomInt(5, 7)] , u)
-        call SaveBoolean(YDHT, i, StringHash("5级奖励"), true)
-    elseif ( ( level >= 8 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D5' ) ) and not LoadBoolean(YDHT, i, StringHash("8级奖励")) then
+		call SaveBoolean(YDHT, i, StringHash("5级奖励"), true)
+	elseif ( ( level >= 8 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D5' ) ) and not LoadBoolean(YDHT, i, StringHash("8级奖励")) then
 		call unitadditembyidswapped(mapLevelReward[GetRandomInt(8, 10)] , u)
-        call SaveBoolean(YDHT, i, StringHash("8级奖励"), true)
-    elseif ( ( level >= 10 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D7' ) ) and not LoadBoolean(YDHT, i, StringHash("10级奖励")) then
-        call unitadditembyidswapped('I019' , u) // 白虎符
+		call SaveBoolean(YDHT, i, StringHash("8级奖励"), true)
+	elseif ( ( level >= 10 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D7' ) ) and not LoadBoolean(YDHT, i, StringHash("10级奖励")) then
+		call unitadditembyidswapped('I019' , u) // 白虎符
 call unitadditembyidswapped(mapLevelReward[GetRandomInt(12, 15)] , u)
-        call SaveBoolean(YDHT, i, StringHash("10级奖励"), true)
-    elseif ( ( level >= 11 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D8' ) ) and not LoadBoolean(YDHT, i, StringHash("11级奖励")) then
-        call unitadditembyidswapped('I06Z' , u) // 续命
+		call SaveBoolean(YDHT, i, StringHash("10级奖励"), true)
+	elseif ( ( level >= 11 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D8' ) ) and not LoadBoolean(YDHT, i, StringHash("11级奖励")) then
+		call unitadditembyidswapped('I06Z' , u) // 续命
 call unitadditembyidswapped(mapLevelReward[GetRandomInt(17, 19)] , u)
-        call SaveBoolean(YDHT, i, StringHash("11级奖励"), true)
-    elseif ( ( level >= 12 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0DA' ) ) and not LoadBoolean(YDHT, i, StringHash("12级奖励")) then
+		call SaveBoolean(YDHT, i, StringHash("11级奖励"), true)
+	elseif ( ( level >= 12 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0DA' ) ) and not LoadBoolean(YDHT, i, StringHash("12级奖励")) then
 		call unitadditembyidswapped(mapLevelReward[GetRandomInt(20, 22)] , u)
-        call SaveBoolean(YDHT, i, StringHash("12级奖励"), true)
-    elseif ( ( level >= 14 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0EI' ) ) and not LoadBoolean(YDHT, i, StringHash("14级奖励")) then
+		call SaveBoolean(YDHT, i, StringHash("12级奖励"), true)
+	elseif ( ( level >= 14 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0EI' ) ) and not LoadBoolean(YDHT, i, StringHash("14级奖励")) then
 		if GetRandomInt(1, 3) <= 2 then
 			if GetRandomInt(1, 2) == 1 then
 				call AdjustPlayerStateBJ(50000, p, PLAYER_STATE_RESOURCE_GOLD) // 奖励5w金钱
@@ -23774,12 +23781,15 @@ else
 				call AdjustPlayerStateBJ(25, p, PLAYER_STATE_RESOURCE_LUMBER) // 奖励25木头
 endif
 		else
-		call unitadditembyidswapped(mapLevelReward[23] , u)
+			call unitadditembyidswapped(mapLevelReward[23] , u)
 		endif
-        call SaveBoolean(YDHT, i, StringHash("14级奖励"), true)
-    else
-        call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|CFFFE890D可能你不符合条件或者已经领取过了哦！")
-    endif
+		call SaveBoolean(YDHT, i, StringHash("14级奖励"), true)
+	elseif ( ( level >= 25 or level_award[i + 1] == 1 ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0D9' ) ) and not LoadBoolean(YDHT, i, StringHash("25级奖励")) then
+		call unitadditembyidswapped('I070' , u) // 通犀地龙丸
+call SaveBoolean(YDHT, i, StringHash("25级奖励"), true)
+	else
+		call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|CFFFE890D可能你不符合条件或者已经领取过了哦！")
+	endif
 	set u=null
 	set p=null
 endfunction
@@ -23809,15 +23819,16 @@ local integer i=GetPlayerId(p)
  local integer jf5= 14
  local integer jf6= 10
  local integer jf7= 15
+	
 	if ( ( GetItemTypeId(GetManipulatedItem()) == 'I0DC' ) ) and udg_jf[i] >= jf1 and ( jf_useMax[i] + jf1 ) <= jf_max then
 		call unitadditembyidswapped('I01L' , u) // 创建精钢剑给玩家
 call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|cFF66CC00获取精钢剑，扣除4积分")
 		call jfChange(i , jf1)
-    elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0EL' ) ) and udg_jf[i] >= jf7 and ( jf_useMax[i] + jf7 ) <= jf_max then
+	elseif ( ( GetItemTypeId(GetManipulatedItem()) == 'I0EL' ) ) and udg_jf[i] >= jf7 and ( jf_useMax[i] + jf7 ) <= jf_max then
 		if bigTalent[i + 1] != 1 and talent_flag[i + 1] == 1 then
-        	set bigTalent[i + 1]=1
-        	call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|cFF66CC00激活加强天赋系统")
-        	call jfChange(i , jf7)
+			set bigTalent[i + 1]=1
+			call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|cFF66CC00激活加强天赋系统")
+			call jfChange(i , jf7)
 		else
 			if talent_flag[i + 1] != 1 then
 				call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|cFF66CC00激活失败，尚未解锁天赋系统")
@@ -23894,15 +23905,16 @@ call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|cFF66CC00获取精钢剑，�
 	else
 		call DisplayTimedTextToPlayer(Player(i), 0, 0, 5, "|CFFFE890D不好意思你的积分不够了哦，或者已经或者已经达到本局使用上限50！")
 	endif
+	
 	set u=null
 	set p=null
 endfunction
 
- function isJfShop2 takes nothing returns boolean
+function isJfShop2 takes nothing returns boolean
 	return ( ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 'I0EG' ) )
 endfunction
 function jfShop2 takes nothing returns nothing
-    local unit u=GetTriggerUnit()
+ local unit u=GetTriggerUnit()
 local player p=GetOwningPlayer(u)
 local integer i=GetPlayerId(p)
  local integer jf7= 200
@@ -24020,17 +24032,18 @@ function lcyAndWcy takes nothing returns nothing
 		endif
 	elseif GetUnitTypeId(GetTriggerUnit()) == 'o02Q' then
 		call createitemloc('I0DP' , loc)
+		
 		call DisplayTextToPlayer(p, 0, 0, "|CFF34FF00你的实力得到王重阳认可，获得|cFFFF00CC七星道袍|r")
 	endif
 	set p=null
 	set loc=null
 endfunction
- // 慕容专属任务I0DR
- function isMuRongOnly takes nothing returns boolean
- 	return (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) and GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER and GetItemTypeId(GetManipulatedItem()) == 'I0DR' // INLINED!!
- 	// return((GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())=='I0DR'))
- endfunction
- function muRongOnly takes nothing returns nothing
+// 慕容专属任务I0DR
+function isMuRongOnly takes nothing returns boolean
+	return (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) and GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER and GetItemTypeId(GetManipulatedItem()) == 'I0DR' // INLINED!!
+	// return((GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())=='I0DR'))
+endfunction
+function muRongOnly takes nothing returns nothing
  local unit u=GetTriggerUnit()
 local player p=GetOwningPlayer(u)
 local integer i=1 + GetPlayerId(p)
@@ -24065,7 +24078,7 @@ local integer i=1 + GetPlayerId(p)
 	if hengShanOnlyFlag[i] == 0 then
 		// 必须是恒山派
 		if udg_runamen[i] == 7 then
-		// GetPlayerState(p,PLAYER_STATE_RESOURCE_GOLD) >= 200000 
+			// GetPlayerState(p,PLAYER_STATE_RESOURCE_GOLD) >= 200000 
 			if GetHeroLevel(udg_hero[i]) >= 90 then
 				set hengShanOnlyFlag[i]=1
 				// 田伯光随机出现在黄蓉、林朝英、灭绝师太附近
@@ -24243,7 +24256,7 @@ local integer i=1 + GetPlayerId(p)
 			else
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00韦小宝：|r |cFF99FFCC你的等级不足40级|r\n")
 			endif
-				else
+		else
 			call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00韦小宝：|r |cFF99FFCC你不是神龙教中人，无法接此任务|r\n")
 		endif
 	elseif shenLongOnlyFlag[i] == 1 then
@@ -24318,6 +24331,7 @@ function WanChengYangShou takes nothing returns nothing
 	call AdjustPlayerStateBJ(5000 * ( l__l + 1 ), p, PLAYER_STATE_RESOURCE_GOLD)
 	call AdjustPlayerStateBJ(10 * ( l__l + 1 ), p, PLAYER_STATE_RESOURCE_LUMBER)
 	//call AddHeroXP(udg_hero[i],200*GetHeroLevel(udg_hero[i])*GetHeroLevel(udg_hero[i])*(xiuxing[i]+1),true)
+	
 	set yangshou[i]=0
 	if GetRandomInt(1, 10) <= l__l + 1 then
 		call unitadditembyidswapped('I04T' , udg_hero[i])
@@ -24346,14 +24360,14 @@ function QiuHun_Action takes nothing returns nothing
 			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC帮我找到经书了吗|r\n|cFFFFCC00提示：|r |cFF99FFCC帮助周伯通寻找|cFFADFF2F九阴真经上下卷（九阴真经和九阴白骨爪）|r\n")
 		endif
 	elseif GetItemTypeId(GetManipulatedItem()) == 'I0EK' then
-	    if ( xidujuexue[i] == 0 ) then
-            set xidujuexue[i]=1
-            call PlaySoundOnUnitBJ(bh, 100, u)
-            call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC我听说老毒物把他的绝学西毒棍法和蛤蟆功整理成书了，你能帮我找来么？|r\n|cFFFFCC00提示：|r |cFF99FFCC帮助周伯通寻找|cFFADFF2F蛤蟆功和西毒棍法|r\n")
-        else
-            call PlaySoundOnUnitBJ(bh, 100, u)
-            call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC我听说老毒物把他的绝学西毒棍法和蛤蟆功整理成书了，你能帮我找来么？|r\n|cFFFFCC00提示：|r |cFF99FFCC帮助周伯通寻找|cFFADFF2FcFFADFF2F蛤蟆功和西毒棍法|r\n")
-        endif
+		if ( xidujuexue[i] == 0 ) then
+			set xidujuexue[i]=1
+			call PlaySoundOnUnitBJ(bh, 100, u)
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC我听说老毒物把他的绝学西毒棍法和蛤蟆功整理成书了，你能帮我找来么？|r\n|cFFFFCC00提示：|r |cFF99FFCC帮助周伯通寻找|cFFADFF2F蛤蟆功和西毒棍法|r\n")
+		else
+			call PlaySoundOnUnitBJ(bh, 100, u)
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC我听说老毒物把他的绝学西毒棍法和蛤蟆功整理成书了，你能帮我找来么？|r\n|cFFFFCC00提示：|r |cFF99FFCC帮助周伯通寻找|cFFADFF2FcFFADFF2F蛤蟆功和西毒棍法|r\n")
+		endif
 	elseif GetItemTypeId(GetManipulatedItem()) == 'I0AT' and udg_runamen[i] == 2 then
 		if ( zhaoyangguo[i] == 0 ) then
 			set zhaoyangguo[i]=1
@@ -24442,7 +24456,7 @@ function QiuHunWanCheng takes nothing returns nothing
 	if qiuhun[i] == 1 and UnitHaveItem(u , 'I02X') and UnitHaveItem(u , 'I03I') then
 		set L7[i]=1
 		loop
-			exitwhen L7[i] > wugongshu[i]
+		exitwhen L7[i] > wugongshu[i]
 			if ( I7[( i - 1 ) * 20 + L7[i]] != 'AEfk' ) then
 				if L7[i] == wugongshu[i] then
 					call RemoveItem(FetchUnitItem(u , 'I02X'))
@@ -24450,7 +24464,7 @@ function QiuHunWanCheng takes nothing returns nothing
 					call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC不错小子，居然被你找到了，不能让你白跑，我把这遗忘技能的法门传给你，今后你遗忘技能就不需要遗忘之石了|r\n")
 					set udg_yiwang[i]=true
 					set qiuhun[i]=0
-					exitwhen true
+				exitwhen true
 				endif
 			else
 				call UnitAddAbility(u, 'A017')
@@ -24460,25 +24474,25 @@ function QiuHunWanCheng takes nothing returns nothing
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC不错小子，居然被你找到了，不能让你白跑，我这七十二路空明拳传给你了|r\n")
 				call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|CFFFF0033恭喜" + GetPlayerName(p) + "习得空明拳")
 				set qiuhun[i]=0
-				exitwhen true
+			exitwhen true
 			endif
 			set L7[i]=L7[i] + 1
 		endloop
 	elseif xidujuexue[i] == 1 and UnitHaveItem(u , 'I03C') and UnitHaveItem(u , 'I03O') then
-	    set xidujuexue[i]=0
-        call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC不错小子，居然被找到了|r\n")
-        call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC这个铁掌令是我上次和裘千仞老儿过招的时候得到的，就送给你了吧|r\n")
-        call unitadditembyidswapped('I0EJ' , u)
-        call RemoveItem(FetchUnitItem(u , 'I03O'))
-        call RemoveItem(FetchUnitItem(u , 'I03C'))
+		set xidujuexue[i]=0
+		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC不错小子，居然被找到了|r\n")
+		call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC这个铁掌令是我上次和裘千仞老儿过招的时候得到的，就送给你了吧|r\n")
+		call unitadditembyidswapped('I0EJ' , u)
+		call RemoveItem(FetchUnitItem(u , 'I03O'))
+		call RemoveItem(FetchUnitItem(u , 'I03C'))
 	elseif touxiao[i] == 1 and UnitHaveItem(u , 'I0A1') then
 		set L7[i]=1
 		loop
-			exitwhen L7[i] > wugongshu[i]
+		exitwhen L7[i] > wugongshu[i]
 			if ( I7[( i - 1 ) * 20 + L7[i]] != 'AEfk' ) then
 				if L7[i] == wugongshu[i] then
 					call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC小子，你学的武功太多了，遗忘一些再过来找我吧|r\n")
-					exitwhen true
+				exitwhen true
 				endif
 			else
 				call UnitAddAbility(u, 'A018')
@@ -24489,7 +24503,7 @@ function QiuHunWanCheng takes nothing returns nothing
 				call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC这把玉箫其实是一把难得的神器，就送给你了吧|r\n")
 				call unitadditembyidswapped('I09D' , u)
 				set touxiao[i]=0
-				exitwhen true
+			exitwhen true
 			endif
 			set L7[i]=L7[i] + 1
 		endloop
@@ -24501,735 +24515,735 @@ endfunction
 //-------任务系统-------
 //鲁有脚送信任务
 function QJ takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895898 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895898 ) ) // INLINED!!
 endfunction
 function RJ takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= 3 ) ) then
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000你无法再接取此任务了")
-else
-if ( ( jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
-if ( ( GetRandomInt(1, 100) <= 35 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Bg))
-set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F黄蓉|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( GetRandomInt(1, 70) <= 35 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Xe))
-set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=2
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F达摩祖师|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=3
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Pe))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F郭靖\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-endif
-endif
-else
-if ( ( jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Bg))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F黄蓉|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 2 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Xe))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F达摩祖师|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Pe))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F郭靖\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-endif
-endif
-endif
-endif
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= 3 ) ) then
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000你无法再接取此任务了")
+	else
+		if ( ( jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
+			if ( ( GetRandomInt(1, 100) <= 35 ) ) then
+				call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Bg))
+				set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
+				call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F黄蓉|r\n")
+				call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+				call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+			else
+				if ( ( GetRandomInt(1, 70) <= 35 ) ) then
+					call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Xe))
+					set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=2
+					call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F达摩祖师|r\n")
+					call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+					call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+				else
+					set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=3
+					call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Pe))
+					call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F郭靖\n")
+					call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+					call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+				endif
+			endif
+		else
+			if ( ( jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
+				call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Bg))
+				call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F黄蓉|r\n")
+				call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+				call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+			else
+				if ( ( jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 2 ) ) then
+					call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Xe))
+					call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F达摩祖师|r\n")
+					call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+					call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+				else
+					if ( ( jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) ) then
+						call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Pe))
+						call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+						call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00鲁有脚：|r |cFF99FFCC丐帮乃江湖第一大帮派，负责传送各种情报|r\n|cFFFFCC00提示：|r |cFF99FFCC送信给|cFFADFF2F郭靖\n")
+						call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+						call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+					endif
+				endif
+			endif
+		endif
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function TJ takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( jd[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 1 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( jd[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 1 ) ) // INLINED!!
 endfunction
 function UJ takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( GetRandomInt(1, 50) <= 25 ) ) then
-call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 500)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
-else
-if ( ( GetRandomInt(1, 50) <= 25 ) ) then
-call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 3 , 0 , $C8)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
-else
-call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 0 , 30)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
-endif
-endif
-if ( ( GetRandomInt(1, 50) <= 40 ) ) then
-call unitadditembyidswapped(YaoCao[5] , GetTriggerUnit())
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00意外获得了一个锦灯笼")
-endif
-call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 100, true)
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $F )
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( GetRandomInt(1, 50) <= 25 ) ) then
+		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 500)
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
+	else
+		if ( ( GetRandomInt(1, 50) <= 25 ) ) then
+			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 3 , 0 , $C8)
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
+		else
+			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 0 , 30)
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
+		endif
+	endif
+	if ( ( GetRandomInt(1, 50) <= 40 ) ) then
+		call unitadditembyidswapped(YaoCao[5] , GetTriggerUnit())
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00意外获得了一个锦灯笼")
+	endif
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 100, true)
+	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+	set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $F )
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function WJ takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( jd[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 2 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( jd[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 2 ) ) // INLINED!!
 endfunction
 function XJ takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( GetRandomInt(1, 50) <= 25 ) ) then
-call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 500)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
-else
-if ( ( GetRandomInt(1, 50) <= 25 ) ) then
-call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 3 , 0 , $C8)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
-else
-call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 0 , 30)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
-endif
-endif
-if ( ( GetRandomInt(1, 50) <= 40 ) ) then
-call unitadditembyidswapped(YaoCao[5] , GetTriggerUnit())
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00意外获得了一个锦灯笼")
-endif
-call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 100, true)
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $F )
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( GetRandomInt(1, 50) <= 25 ) ) then
+		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 500)
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
+	else
+		if ( ( GetRandomInt(1, 50) <= 25 ) ) then
+			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 3 , 0 , $C8)
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
+		else
+			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 0 , 30)
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
+		endif
+	endif
+	if ( ( GetRandomInt(1, 50) <= 40 ) ) then
+		call unitadditembyidswapped(YaoCao[5] , GetTriggerUnit())
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00意外获得了一个锦灯笼")
+	endif
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 100, true)
+	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+	set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $F )
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function ZJ takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( jd[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 3 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( jd[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 3 ) ) // INLINED!!
 endfunction
 function dK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( GetRandomInt(1, 50) <= 25 ) ) then
-call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 500)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
-else
-if ( ( GetRandomInt(1, 50) <= 25 ) ) then
-call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 3 , 0 , $C8)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
-else
-call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 0 , 30)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
-endif
-endif
-if ( ( GetRandomInt(1, 50) <= 40 ) ) then
-call unitadditembyidswapped(YaoCao[5] , GetTriggerUnit())
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00意外获得了一个锦灯笼")
-endif
-call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 100, true)
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $F )
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( GetRandomInt(1, 50) <= 25 ) ) then
+		call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 500)
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、生命+500\n")
+	else
+		if ( ( GetRandomInt(1, 50) <= 25 ) ) then
+			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 3 , 0 , $C8)
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、攻击+200")
+		else
+			call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 2 , 0 , 30)
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得经验+100、江湖声望+15、防御+30\n")
+		endif
+	endif
+	if ( ( GetRandomInt(1, 50) <= 40 ) ) then
+		call unitadditembyidswapped(YaoCao[5] , GetTriggerUnit())
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00意外获得了一个锦灯笼")
+	endif
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 100, true)
+	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+	set jd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( kd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $F )
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function fK takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895352 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895352 ) ) // INLINED!!
 endfunction
 //击杀野猪首领
 function gK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( e8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Se))
-set e8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00耶律齐：|r |cFF99FFCC我一生酷爱打猎，平时有时间就会出来试试身手，你愿意一同前往吗|r\n|cFFFFCC00提示：|r |cFF99FFCC击杀山林中的|cFFADFF2F野猪首领|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( e8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Se))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00你已经接下任务了\n|cFFFFCC00提示：|r |cFF99FFCC击杀山林中的|cFFADFF2F野猪首领|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-endif
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( e8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
+		call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Se))
+		set e8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
+		call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00耶律齐：|r |cFF99FFCC我一生酷爱打猎，平时有时间就会出来试试身手，你愿意一同前往吗|r\n|cFFFFCC00提示：|r |cFF99FFCC击杀山林中的|cFFADFF2F野猪首领|r\n")
+		call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+		call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+	else
+		if ( ( e8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
+			call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Se))
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00你已经接下任务了\n|cFFFFCC00提示：|r |cFF99FFCC击杀山林中的|cFFADFF2F野猪首领|r\n")
+			call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+			call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+		endif
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function iK takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895353 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895353 ) ) // INLINED!!
 endfunction
 //林远图押镖任务
 function jK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
-if ( ( GetRandomInt(1, 70) <= $A ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Te))
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给全真教的丘掌门吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往全真教的|cFFADFF2F丘处机|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( GetRandomInt(1, 60) <= $A ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ue))
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=2
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC全真教山下附近的豺狼经常出没攻击镖车，你能前往消灭他们吗|r\n|cFFFFCC00提示：|r |cFF99FFCC前往全真教山下的杀死10只|cFFADFF2F豺狼|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( GetRandomInt(1, 50) <= $A ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ve))
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=3
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给燕子坞的慕容复吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往燕子坞的|cFFADFF2F慕容复|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( GetRandomInt(1, 40) <= $A ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(We))
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=4
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC燕子坞的蝎子王经常出没攻击镖车，你能前往消灭他们吗|r\n|cFFFFCC00提示：|r |cFF99FFCC前往燕子坞的杀死3只|cFFADFF2F蝎子王|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( GetRandomInt(1, 30) <= $A ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Xe))
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=5
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给少林寺的达摩祖师吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往少林寺的|cFFADFF2F达摩祖师|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( GetRandomInt(1, 20) <= $A ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ye))
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=6
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给雁门关的乔峰吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往雁门关的|cFFADFF2F乔峰|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=7
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Je))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC西域邪教持续骚扰我中原武林，是时候给他们一点颜色了|r\n|cFFFFCC00提示：|r |cFF99FFCC守住武林正派，杀死10只|cFFADFF2F进攻的西域教徒|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-endif
-endif
-endif
-endif
-endif
-endif
-else
-if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Te))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给全真教的邱掌门吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往全真教的|cFFADFF2F丘处机|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 2 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ue))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC全真教山下附近的豺狼经常出没攻击镖车，你能前往消灭他们吗|r\n|cFFFFCC00提示：|r |cFF99FFCC前往全真教山下的杀死10只|cFFADFF2F豺狼|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ve))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给燕子坞的慕容复吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往燕子坞的|cFFADFF2F慕容复|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 4 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(We))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC燕子坞的蝎子王经常出没攻击镖车，你能前往消灭他们吗|r\n|cFFFFCC00提示：|r |cFF99FFCC前往燕子坞的杀死5只|cFFADFF2F蝎子王|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 5 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Xe))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给少林寺的达摩祖师吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往少林寺的|cFFADFF2F达摩祖师|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 6 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ye))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给雁门关的乔峰吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往雁门关的|cFFADFF2F乔峰|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 7 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Je))
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC西域邪教持续骚扰我中原武林，是时候给他们一点颜色了|r\n|cFFFFCC00提示：|r |cFF99FFCC守住武林正派，杀死10只|cFFADFF2F进攻的西域教徒|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
+		if ( ( GetRandomInt(1, 70) <= $A ) ) then
+			call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Te))
+			set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
+			call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给全真教的丘掌门吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往全真教的|cFFADFF2F丘处机|r\n")
+			call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+			call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+		else
+			if ( ( GetRandomInt(1, 60) <= $A ) ) then
+				call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ue))
+				set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=2
+				call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC全真教山下附近的豺狼经常出没攻击镖车，你能前往消灭他们吗|r\n|cFFFFCC00提示：|r |cFF99FFCC前往全真教山下的杀死10只|cFFADFF2F豺狼|r\n")
+				call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+				call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+			else
+				if ( ( GetRandomInt(1, 50) <= $A ) ) then
+					call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ve))
+					set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=3
+					call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给燕子坞的慕容复吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往燕子坞的|cFFADFF2F慕容复|r\n")
+					call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+					call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+				else
+					if ( ( GetRandomInt(1, 40) <= $A ) ) then
+						call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(We))
+						set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=4
+						call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+						call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC燕子坞的蝎子王经常出没攻击镖车，你能前往消灭他们吗|r\n|cFFFFCC00提示：|r |cFF99FFCC前往燕子坞的杀死3只|cFFADFF2F蝎子王|r\n")
+						call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+						call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+					else
+						if ( ( GetRandomInt(1, 30) <= $A ) ) then
+							call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Xe))
+							set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=5
+							call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+							call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给少林寺的达摩祖师吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往少林寺的|cFFADFF2F达摩祖师|r\n")
+							call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+							call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+						else
+							if ( ( GetRandomInt(1, 20) <= $A ) ) then
+								call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ye))
+								set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=6
+								call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+								call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给雁门关的乔峰吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往雁门关的|cFFADFF2F乔峰|r\n")
+								call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+								call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+							else
+								set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=7
+								call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Je))
+								call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+								call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC西域邪教持续骚扰我中原武林，是时候给他们一点颜色了|r\n|cFFFFCC00提示：|r |cFF99FFCC守住武林正派，杀死10只|cFFADFF2F进攻的西域教徒|r\n")
+								call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+								call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+							endif
+						endif
+					endif
+				endif
+			endif
+		endif
+	else
+		if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
+			call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Te))
+			call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给全真教的邱掌门吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往全真教的|cFFADFF2F丘处机|r\n")
+			call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+			call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+		else
+			if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 2 ) ) then
+				call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ue))
+				call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC全真教山下附近的豺狼经常出没攻击镖车，你能前往消灭他们吗|r\n|cFFFFCC00提示：|r |cFF99FFCC前往全真教山下的杀死10只|cFFADFF2F豺狼|r\n")
+				call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+				call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+			else
+				if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 3 ) ) then
+					call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ve))
+					call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给燕子坞的慕容复吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往燕子坞的|cFFADFF2F慕容复|r\n")
+					call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+					call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+				else
+					if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 4 ) ) then
+						call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(We))
+						call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+						call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC燕子坞的蝎子王经常出没攻击镖车，你能前往消灭他们吗|r\n|cFFFFCC00提示：|r |cFF99FFCC前往燕子坞的杀死5只|cFFADFF2F蝎子王|r\n")
+						call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+						call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+					else
+						if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 5 ) ) then
+							call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Xe))
+							call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+							call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给少林寺的达摩祖师吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往少林寺的|cFFADFF2F达摩祖师|r\n")
+							call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+							call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+						else
+							if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 6 ) ) then
+								call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Ye))
+								call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+								call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC我这有一封信，你帮我送给雁门关的乔峰吧|r\n|cFFFFCC00提示：|r |cFF99FFCC前往雁门关的|cFFADFF2F乔峰|r\n")
+								call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+								call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+							else
+								if ( ( g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 7 ) ) then
+									call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Je))
+									call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+									call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC西域邪教持续骚扰我中原武林，是时候给他们一点颜色了|r\n|cFFFFCC00提示：|r |cFF99FFCC守住武林正派，杀死10只|cFFADFF2F进攻的西域教徒|r\n")
+									call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+									call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+								endif
+							endif
+						endif
+					endif
+				endif
+			endif
+		endif
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function mK takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 1 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 1 ) ) // INLINED!!
 endfunction
 function nK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+20，经验值+300")
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 20 )
-call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 300, true)
-if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
-call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+	call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+20，经验值+300")
+	set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 20 )
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 300, true)
+	if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
+		call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function pK takes nothing returns boolean
-return ( ( GetUnitTypeId(GetTriggerUnit()) == 'ngns' ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] == 2 ) )
+	return ( ( GetUnitTypeId(GetTriggerUnit()) == 'ngns' ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] == 2 ) )
 endfunction
 function qK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetKillingUnit())
-set h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-if ( ( h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= $A ) ) then
-set h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+25，经验值+300")
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 25 )
-call AddHeroXP(GetKillingUnit(), 300, true)
-set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
-call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
-endif
-else
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "豺狼：" + ( I2S(h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]) + " / 10" ) ))
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetKillingUnit())
+	set h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	if ( ( h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= $A ) ) then
+		set h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+		call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+25，经验值+300")
+		set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+		set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 25 )
+		call AddHeroXP(GetKillingUnit(), 300, true)
+		set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+		if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
+			call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
+		endif
+	else
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "豺狼：" + ( I2S(h8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]) + " / 10" ) ))
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function sK takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 3 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 3 ) ) // INLINED!!
 endfunction
 function tK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+20，经验值+300")
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 20 )
-call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 300, true)
-set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
-call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+	call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+20，经验值+300")
+	set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 20 )
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 300, true)
+	set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
+		call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function vK takes nothing returns boolean
-return ( ( GetUnitTypeId(GetTriggerUnit()) == 'nanb' ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] == 4 ) )
+	return ( ( GetUnitTypeId(GetTriggerUnit()) == 'nanb' ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] == 4 ) )
 endfunction
 function wK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) ))
-set i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= 3 ) ) then
-set i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+30，经验值+300")
-set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 30 )
-call AddHeroXP(GetKillingUnit(), 300, true)
-if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
-call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
-endif
-else
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "蝎子王：" + ( I2S(i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]) + " / 3" ) ))
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) ))
+	set i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= 3 ) ) then
+		set i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+		call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+30，经验值+300")
+		set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+		set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+		set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 30 )
+		call AddHeroXP(GetKillingUnit(), 300, true)
+		if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
+			call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
+		endif
+	else
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "蝎子王：" + ( I2S(i8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]) + " / 3" ) ))
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function yK takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 5 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 5 ) ) // INLINED!!
 endfunction
 function zK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+20，经验值+300")
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 20 )
-call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 300, true)
-set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
-call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+	call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+20，经验值+300")
+	set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 20 )
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 300, true)
+	set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
+		call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function aK takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 6 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 6 ) ) // INLINED!!
 endfunction
 function BK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+20，经验值+300")
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 20 )
-call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 300, true)
-set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
-call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+	call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+20，经验值+300")
+	set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 20 )
+	call AddHeroXP(LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0), 300, true)
+	set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
+		call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function CK takes nothing returns boolean
-return GetKillingUnit() != null and ( ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] == 7 ) )
+	return GetKillingUnit() != null and ( ( g8[( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) )] == 7 ) )
 endfunction
 function cK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) ))
-set j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= $A ) ) then
-set j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+30，经验值+300")
-set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 30 )
-call AddHeroXP(GetKillingUnit(), 300, true)
-set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
-call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
-endif
-else
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "西域邪教：" + ( I2S(j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]) + " / 10" ) ))
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetKillingUnit())) ))
+	set j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= $A ) ) then
+		set j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+		call PlaySoundOnUnitBJ(Hh, 100, GetKillingUnit())
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+30，经验值+300")
+		set g8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+		set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 30 )
+		call AddHeroXP(GetKillingUnit(), 300, true)
+		set qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+		if ( ( GetRandomInt(1, 35) <= ( fuyuan[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] - 5 ) ) ) then
+			call unitadditembyidswapped(gudong[GetRandomInt(1, 3)] , LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00你的运气（与福缘有关）太好了，竟然意外获得了一个古董")
+		endif
+	else
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "西域邪教：" + ( I2S(j8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]) + " / 10" ) ))
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function EK takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895364 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895364 ) ) // INLINED!!
 endfunction
 function FK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= 3 ) ) then
-if ( ( o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == false ) ) then
-if ( ( GetRandomInt(1, 100) <= 25 ) ) then
-call unitadditembyidswapped('I01U' , GetTriggerUnit())
-set o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=true
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
-else
-if ( ( GetRandomInt(1, 60) <= 20 ) ) then
-call unitadditembyidswapped('I01Z' , GetTriggerUnit())
-set o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=true
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
-else
-if ( ( GetRandomInt(1, 60) <= 30 ) ) then
-call unitadditembyidswapped(1227895124 , GetTriggerUnit())
-set o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=true
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
-else
-call unitadditembyidswapped(1227895109 , GetTriggerUnit())
-set o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=true
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
-endif
-endif
-endif
-call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
-if ( ( GetRandomInt(1, $B4) <= $A ) ) then
-call createitemloc(1227895627 , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, $AA) <= $A ) ) then
-call createitemloc(1227895385 , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, $A0) <= $A ) ) then
-call createitemloc('I03D' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, $96) <= $A ) ) then
-call createitemloc(1227895382 , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, $8C) <= $A ) ) then
-call createitemloc(1227895624 , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, $82) <= $A ) ) then
-call createitemloc(1227895621 , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 120) <= $A ) ) then
-call createitemloc(1227895603 , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 110) <= $A ) ) then
-call createitemloc('I02W' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 100) <= $A ) ) then
-call createitemloc(1227895601 , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 90) <= $A ) ) then
-call createitemloc('I03G' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 80) <= $A ) ) then
-call createitemloc('I02U' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 70) <= $A ) ) then
-call createitemloc(1227895626 , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 60) <= $A ) ) then
-call createitemloc('I030' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 50) <= $A ) ) then
-call createitemloc('I02X' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 40) <= $A ) ) then
-call createitemloc('I03I' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 30) <= $A ) ) then
-call createitemloc('I02Z' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-if ( ( GetRandomInt(1, 20) <= $A ) ) then
-call createitemloc('I03L' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-call createitemloc('I03F' , LoadLocationHandle(YDHT, id * cx, $1769D332))
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-endif
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $1769D332))
-else
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC你已经领过奖励了\n")
-endif
-else
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC需要完成至少3次押镖任务才可以领取奖励哦")
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( qd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= 3 ) ) then
+		if ( ( o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == false ) ) then
+			if ( ( GetRandomInt(1, 100) <= 25 ) ) then
+				call unitadditembyidswapped('I01U' , GetTriggerUnit())
+				set o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=true
+				call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
+			else
+				if ( ( GetRandomInt(1, 60) <= 20 ) ) then
+					call unitadditembyidswapped('I01Z' , GetTriggerUnit())
+					set o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=true
+					call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+					call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
+				else
+					if ( ( GetRandomInt(1, 60) <= 30 ) ) then
+						call unitadditembyidswapped(1227895124 , GetTriggerUnit())
+						set o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=true
+						call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+						call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
+					else
+						call unitadditembyidswapped(1227895109 , GetTriggerUnit())
+						set o8[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=true
+						call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+						call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
+					endif
+				endif
+			endif
+			call SaveLocationHandle(YDHT, id * cx, $1769D332, GetUnitLoc(GetTriggerUnit()))
+			if ( ( GetRandomInt(1, $B4) <= $A ) ) then
+				call createitemloc(1227895627 , LoadLocationHandle(YDHT, id * cx, $1769D332))
+			else
+				if ( ( GetRandomInt(1, $AA) <= $A ) ) then
+					call createitemloc(1227895385 , LoadLocationHandle(YDHT, id * cx, $1769D332))
+				else
+					if ( ( GetRandomInt(1, $A0) <= $A ) ) then
+						call createitemloc('I03D' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+					else
+						if ( ( GetRandomInt(1, $96) <= $A ) ) then
+							call createitemloc(1227895382 , LoadLocationHandle(YDHT, id * cx, $1769D332))
+						else
+							if ( ( GetRandomInt(1, $8C) <= $A ) ) then
+								call createitemloc(1227895624 , LoadLocationHandle(YDHT, id * cx, $1769D332))
+							else
+								if ( ( GetRandomInt(1, $82) <= $A ) ) then
+									call createitemloc(1227895621 , LoadLocationHandle(YDHT, id * cx, $1769D332))
+								else
+									if ( ( GetRandomInt(1, 120) <= $A ) ) then
+										call createitemloc(1227895603 , LoadLocationHandle(YDHT, id * cx, $1769D332))
+									else
+										if ( ( GetRandomInt(1, 110) <= $A ) ) then
+											call createitemloc('I02W' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+										else
+											if ( ( GetRandomInt(1, 100) <= $A ) ) then
+												call createitemloc(1227895601 , LoadLocationHandle(YDHT, id * cx, $1769D332))
+											else
+												if ( ( GetRandomInt(1, 90) <= $A ) ) then
+													call createitemloc('I03G' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+												else
+													if ( ( GetRandomInt(1, 80) <= $A ) ) then
+														call createitemloc('I02U' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+													else
+														if ( ( GetRandomInt(1, 70) <= $A ) ) then
+															call createitemloc(1227895626 , LoadLocationHandle(YDHT, id * cx, $1769D332))
+														else
+															if ( ( GetRandomInt(1, 60) <= $A ) ) then
+																call createitemloc('I030' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+															else
+																if ( ( GetRandomInt(1, 50) <= $A ) ) then
+																	call createitemloc('I02X' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+																else
+																	if ( ( GetRandomInt(1, 40) <= $A ) ) then
+																		call createitemloc('I03I' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+																	else
+																		if ( ( GetRandomInt(1, 30) <= $A ) ) then
+																			call createitemloc('I02Z' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+																		else
+																			if ( ( GetRandomInt(1, 20) <= $A ) ) then
+																				call createitemloc('I03L' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+																			else
+																				call createitemloc('I03F' , LoadLocationHandle(YDHT, id * cx, $1769D332))
+																			endif
+																		endif
+																	endif
+																endif
+															endif
+														endif
+													endif
+												endif
+											endif
+										endif
+									endif
+								endif
+							endif
+						endif
+					endif
+				endif
+			endif
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00获得" + GetItemName(bj_lastCreatedItem) ))
+			call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $1769D332))
+		else
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC你已经领过奖励了\n")
+		endif
+	else
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00林远图：|r |cFF99FFCC需要完成至少3次押镖任务才可以领取奖励哦")
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 //接杀熊、桃花岛哑仆的任务
 function HK takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896132 or GetItemTypeId(GetManipulatedItem()) == 'I09W' ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896132 or GetItemTypeId(GetManipulatedItem()) == 'I09W' ) ) // INLINED!!
 endfunction
 function IK takes nothing returns nothing
  local unit u=GetTriggerUnit()
  local player p=GetOwningPlayer(u)
  local integer i=1 + GetPlayerId(p)
  local location loc=null
-    if GetItemTypeId(GetManipulatedItem()) == 1227896132 then
-        if ( ( rd[i] == 0 ) ) then
-            set loc=GetRectCenter(Nf)
-            set rd[i]=1
-            call PlaySoundOnUnitBJ(bh, 100, u)
-            call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00胡斐：|r |cFF99FFCC这一代时常有熊出没，能搞点熊皮来的话应该可以卖个好价钱|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F30只熊|r\n")
-            call PingMinimapLocForForce(ov(p), loc, 5.)
-            call RemoveLocation(loc)
-        elseif ( ( rd[i] == 1 ) ) then
-            set loc=GetRectCenter(Nf)
-            call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00胡斐：|r |cFF99FFCC这一代时常有熊出没，能搞点熊皮来的话应该可以卖个好价钱|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F30只熊|r\n")
-            call PingMinimapLocForForce(ov(p), loc, 5.)
-            call RemoveLocation(loc)
-        elseif ( ( rd[i] == 2 ) ) then
-            call DisplayTextToPlayer(p, 0, 0, "|cFfff0000这个任务你已经完成过了")
-        endif
-    elseif GetItemTypeId(GetManipulatedItem()) == 'I09W' then
-        if ( ( LoadInteger(YDHT, StringHash("哑仆任务"), i) == 0 ) ) then
-            call SaveInteger(YDHT, StringHash("哑仆任务"), i, 1)
-            call PlaySoundOnUnitBJ(bh, 100, u)
-            call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC黄老邪把我腿打断的时候，桃花岛上的哑仆一直欺负我，你能帮我杀掉十个哑仆吗|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F十个哑仆|r\n")
-        elseif ( ( LoadInteger(YDHT, StringHash("哑仆任务"), i) == 1 ) ) then
-            call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC杀掉十个哑仆了吗|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F十个哑仆|r\n")
-        endif
-    endif
-    set u=null
-    set p=null
-    set loc=null
+	if GetItemTypeId(GetManipulatedItem()) == 1227896132 then
+		if ( ( rd[i] == 0 ) ) then
+			set loc=GetRectCenter(Nf)
+			set rd[i]=1
+			call PlaySoundOnUnitBJ(bh, 100, u)
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00胡斐：|r |cFF99FFCC这一代时常有熊出没，能搞点熊皮来的话应该可以卖个好价钱|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F30只熊|r\n")
+			call PingMinimapLocForForce(ov(p), loc, 5.)
+			call RemoveLocation(loc)
+		elseif ( ( rd[i] == 1 ) ) then
+			set loc=GetRectCenter(Nf)
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00胡斐：|r |cFF99FFCC这一代时常有熊出没，能搞点熊皮来的话应该可以卖个好价钱|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F30只熊|r\n")
+			call PingMinimapLocForForce(ov(p), loc, 5.)
+			call RemoveLocation(loc)
+		elseif ( ( rd[i] == 2 ) ) then
+			call DisplayTextToPlayer(p, 0, 0, "|cFfff0000这个任务你已经完成过了")
+		endif
+	elseif GetItemTypeId(GetManipulatedItem()) == 'I09W' then
+		if ( ( LoadInteger(YDHT, StringHash("哑仆任务"), i) == 0 ) ) then
+			call SaveInteger(YDHT, StringHash("哑仆任务"), i, 1)
+			call PlaySoundOnUnitBJ(bh, 100, u)
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC黄老邪把我腿打断的时候，桃花岛上的哑仆一直欺负我，你能帮我杀掉十个哑仆吗|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F十个哑仆|r\n")
+		elseif ( ( LoadInteger(YDHT, StringHash("哑仆任务"), i) == 1 ) ) then
+			call DisplayTextToPlayer(p, 0, 0, "|cFFFFCC00周伯通：|r |cFF99FFCC杀掉十个哑仆了吗|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F十个哑仆|r\n")
+		endif
+	endif
+	set u=null
+	set p=null
+	set loc=null
 endfunction
 //升10级自动奖励丹药
 function PK takes nothing returns boolean
 	return ( GetTriggerUnit() == udg_hero[1] or GetTriggerUnit() == udg_hero[2] or GetTriggerUnit() == udg_hero[3] or GetTriggerUnit() == udg_hero[4] or GetTriggerUnit() == udg_hero[5] ) and GetUnitLevel(GetTriggerUnit()) == 10 and GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER
 endfunction
 function QK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-if ( ( GetRandomInt(1, 60) <= $A ) ) then
-call unitadditembyidswapped(1227895375 , GetTriggerUnit())
-else
-if ( ( GetRandomInt(1, 50) <= $A ) ) then
-call unitadditembyidswapped(1227895370 , GetTriggerUnit())
-else
-if ( ( GetRandomInt(1, 40) <= $A ) ) then
-call unitadditembyidswapped(1227895363 , GetTriggerUnit())
-else
-if ( ( GetRandomInt(1, 30) <= $A ) ) then
-call unitadditembyidswapped(1227895368 , GetTriggerUnit())
-else
-if ( ( GetRandomInt(1, 60) <= 30 ) ) then
-call unitadditembyidswapped(1227895369 , GetTriggerUnit())
-else
-call unitadditembyidswapped(1227895365 , GetTriggerUnit())
-endif
-endif
-endif
-endif
-endif
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00恭喜升到10级，获得" + GetItemName(bj_lastCreatedItem) ))
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	call PlaySoundOnUnitBJ(Hh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+	if ( ( GetRandomInt(1, 60) <= $A ) ) then
+		call unitadditembyidswapped(1227895375 , GetTriggerUnit())
+	else
+		if ( ( GetRandomInt(1, 50) <= $A ) ) then
+			call unitadditembyidswapped(1227895370 , GetTriggerUnit())
+		else
+			if ( ( GetRandomInt(1, 40) <= $A ) ) then
+				call unitadditembyidswapped(1227895363 , GetTriggerUnit())
+			else
+				if ( ( GetRandomInt(1, 30) <= $A ) ) then
+					call unitadditembyidswapped(1227895368 , GetTriggerUnit())
+				else
+					if ( ( GetRandomInt(1, 60) <= 30 ) ) then
+						call unitadditembyidswapped(1227895369 , GetTriggerUnit())
+					else
+						call unitadditembyidswapped(1227895365 , GetTriggerUnit())
+					endif
+				endif
+			endif
+		endif
+	endif
+	call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00恭喜升到10级，获得" + GetItemName(bj_lastCreatedItem) ))
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 //采集断肠草
 function SK takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895890 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227895890 ) ) // INLINED!!
 endfunction
 function TK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Gg))
-set z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00公孙绿萼：|r |cFF99FFCC杨过中了情花剧毒，你能替我想想办法救救他吗|r\n|cFFFFCC00提示：|r |cFF99FFCC采集绝情谷副本中的|cFFADFF2F断肠草|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Gg))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00你已经接下任务了\n|cFFFFCC00提示：|r |cFF99FFCC采集绝情谷副本的|cFFADFF2F断肠草|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-endif
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
+		call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Gg))
+		set z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
+		call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00公孙绿萼：|r |cFF99FFCC杨过中了情花剧毒，你能替我想想办法救救他吗|r\n|cFFFFCC00提示：|r |cFF99FFCC采集绝情谷副本中的|cFFADFF2F断肠草|r\n")
+		call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+		call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+	else
+		if ( ( z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
+			call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(Gg))
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00你已经接下任务了\n|cFFFFCC00提示：|r |cFF99FFCC采集绝情谷副本的|cFFADFF2F断肠草|r\n")
+			call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+			call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+		endif
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 //采集到断肠草
 function VK takes nothing returns nothing
@@ -25241,219 +25255,219 @@ function VK takes nothing returns nothing
 	endif
 endfunction
 function WK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, 0)
-call EnumItemsInRectBJ(Gg, function VK)
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, 0)
+	call EnumItemsInRectBJ(Gg, function VK)
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 //断肠草
 function YK takes nothing returns boolean
 	return ( ( GetItemTypeId(GetManipulatedItem()) == 'I04S' ) )
 endfunction
 function ZK takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-call SaveItemHandle(YDHT, id * cx, $1769D332, GetManipulatedItem())
-if ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) == false ) ) then // INLINED!!
-set bj_forLoopAIndex=1
-set bj_forLoopAIndexEnd=12
-loop
-exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-if ( ( GetManipulatedItem() == a9[bj_forLoopAIndex] ) ) then
-call createitemloc('I04S' , B9[bj_forLoopAIndex])
-set a9[bj_forLoopAIndex]=bj_lastCreatedItem
-call DisplayTimedTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, 15., "|CFFFF0000只能由主角来采集")
-endif
-set bj_forLoopAIndex=bj_forLoopAIndex + 1
-endloop
-else
-if ( ( z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
-set A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-if ( ( A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= $A ) ) then
-set z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=2
-set A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务请前往公孙绿萼换取奖励")
-else
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "断肠草：" + ( I2S(A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]) + " / 10" ) ))
-endif
-call CreateNUnitsAtLoc(1, 1752196449, Player(15), v7[1], bj_UNIT_FACING)
-call ShowUnitHide(bj_lastCreatedUnit)
-call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', GetRandomReal(20., 25.))
-set bj_forLoopAIndex=1
-set bj_forLoopAIndexEnd=12
-loop
-exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-if ( ( LoadItemHandle(YDHT, id * cx, $1769D332) == a9[bj_forLoopAIndex] ) ) then
-set b9[bj_forLoopAIndex]=bj_lastCreatedUnit
-endif
-set bj_forLoopAIndex=bj_forLoopAIndex + 1
-endloop
-else
-set bj_forLoopAIndex=1
-set bj_forLoopAIndexEnd=12
-loop
-exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-if ( ( LoadItemHandle(YDHT, id * cx, $1769D332) == a9[bj_forLoopAIndex] ) ) then
-call createitemloc('I04S' , B9[bj_forLoopAIndex])
-set a9[bj_forLoopAIndex]=bj_lastCreatedItem
-call DisplayTimedTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, 15., "|CFFFF0000身上没有该任务或已经完成了")
-endif
-set bj_forLoopAIndex=bj_forLoopAIndex + 1
-endloop
-endif
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	call SaveItemHandle(YDHT, id * cx, $1769D332, GetManipulatedItem())
+	if ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) == false ) ) then // INLINED!!
+		set bj_forLoopAIndex=1
+		set bj_forLoopAIndexEnd=12
+		loop
+		exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+			if ( ( GetManipulatedItem() == a9[bj_forLoopAIndex] ) ) then
+				call createitemloc('I04S' , B9[bj_forLoopAIndex])
+				set a9[bj_forLoopAIndex]=bj_lastCreatedItem
+				call DisplayTimedTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, 15., "|CFFFF0000只能由主角来采集")
+			endif
+			set bj_forLoopAIndex=bj_forLoopAIndex + 1
+		endloop
+	else
+		if ( ( z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
+			set A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+			if ( ( A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] >= $A ) ) then
+				set z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=2
+				set A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务请前往公孙绿萼换取奖励")
+			else
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "断肠草：" + ( I2S(A9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]) + " / 10" ) ))
+			endif
+			call CreateNUnitsAtLoc(1, 1752196449, Player(15), v7[1], bj_UNIT_FACING)
+			call ShowUnitHide(bj_lastCreatedUnit)
+			call UnitApplyTimedLife(bj_lastCreatedUnit, 'BHwe', GetRandomReal(20., 25.))
+			set bj_forLoopAIndex=1
+			set bj_forLoopAIndexEnd=12
+			loop
+			exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+				if ( ( LoadItemHandle(YDHT, id * cx, $1769D332) == a9[bj_forLoopAIndex] ) ) then
+					set b9[bj_forLoopAIndex]=bj_lastCreatedUnit
+				endif
+				set bj_forLoopAIndex=bj_forLoopAIndex + 1
+			endloop
+		else
+			set bj_forLoopAIndex=1
+			set bj_forLoopAIndexEnd=12
+			loop
+			exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+				if ( ( LoadItemHandle(YDHT, id * cx, $1769D332) == a9[bj_forLoopAIndex] ) ) then
+					call createitemloc('I04S' , B9[bj_forLoopAIndex])
+					set a9[bj_forLoopAIndex]=bj_lastCreatedItem
+					call DisplayTimedTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, 15., "|CFFFF0000身上没有该任务或已经完成了")
+				endif
+				set bj_forLoopAIndex=bj_forLoopAIndex + 1
+			endloop
+		endif
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 //完成断肠草任务
 function eL takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( z9[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 2 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( z9[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )] == 2 ) ) // INLINED!!
 endfunction
 function fL takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call PlaySoundOnUnitBJ(Hh, 100, GetTriggerUnit())
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-set z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 100 )
-if ( ( GetRandomInt(1, 40) <= 20 ) ) then
-call unitadditembyidswapped('I00X' , GetTriggerUnit())
-else
-call unitadditembyidswapped('I00Y' , GetTriggerUnit())
-endif
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00完成任务江湖声望+100，并获得" + GetItemName(bj_lastCreatedItem) ))
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call PlaySoundOnUnitBJ(Hh, 100, GetTriggerUnit())
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	set z9[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 100 )
+	if ( ( GetRandomInt(1, 40) <= 20 ) ) then
+		call unitadditembyidswapped('I00X' , GetTriggerUnit())
+	else
+		call unitadditembyidswapped('I00Y' , GetTriggerUnit())
+	endif
+	call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, ( "|CFF34FF00完成任务江湖声望+100，并获得" + GetItemName(bj_lastCreatedItem) ))
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function hL takes nothing returns boolean
-return ( ( GetUnitTypeId(GetTriggerUnit()) == 1752196449 ) )
+	return ( ( GetUnitTypeId(GetTriggerUnit()) == 1752196449 ) )
 endfunction
 function iL takes nothing returns nothing
-set bj_forLoopAIndex=1
-set bj_forLoopAIndexEnd=12
-loop
-exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
-if ( ( GetTriggerUnit() == b9[bj_forLoopAIndex] ) ) then
-call createitemloc('I04S' , B9[bj_forLoopAIndex])
-set a9[bj_forLoopAIndex]=bj_lastCreatedItem
-endif
-set bj_forLoopAIndex=bj_forLoopAIndex + 1
-endloop
+	set bj_forLoopAIndex=1
+	set bj_forLoopAIndexEnd=12
+	loop
+	exitwhen bj_forLoopAIndex > bj_forLoopAIndexEnd
+		if ( ( GetTriggerUnit() == b9[bj_forLoopAIndex] ) ) then
+			call createitemloc('I04S' , B9[bj_forLoopAIndex])
+			set a9[bj_forLoopAIndex]=bj_lastCreatedItem
+		endif
+		set bj_forLoopAIndex=bj_forLoopAIndex + 1
+	endloop
 endfunction
 //护送耶律楚材
 function kL takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896387 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896387 ) ) // INLINED!!
 endfunction
 function mL takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(gh))
-set Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00完颜萍：|r |cFF99FFCC耶律楚材受伤了，你能帮个忙啊|r\n|cFFFFCC00提示：|r |cFF99FFCC护送耶律楚材回|cFFADFF2F大辽国|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call SaveLocationHandle(YDHT, id * cx, 1231311908, GetRectCenter(hh))
-call CreateNUnitsAtLoc(1, 1853254706, GetOwningPlayer(GetTriggerUnit()), LoadLocationHandle(YDHT, id * cx, 1231311908), bj_UNIT_FACING)
-call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D0012, LoadLocationHandle(YDHT, id * cx, $5E83114F))
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, 1231311908))
-else
-if ( ( Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(gh))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00你已经接下任务了\n|cFFFFCC00提示：|r |cFF99FFCC护送耶律楚材回|cFFADFF2F大辽国|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00你已经完成了这个任务了（不可重复接取）")
-endif
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
+		call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(gh))
+		set Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
+		call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00完颜萍：|r |cFF99FFCC耶律楚材受伤了，你能帮个忙啊|r\n|cFFFFCC00提示：|r |cFF99FFCC护送耶律楚材回|cFFADFF2F大辽国|r\n")
+		call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+		call SaveLocationHandle(YDHT, id * cx, 1231311908, GetRectCenter(hh))
+		call CreateNUnitsAtLoc(1, 1853254706, GetOwningPlayer(GetTriggerUnit()), LoadLocationHandle(YDHT, id * cx, 1231311908), bj_UNIT_FACING)
+		call IssuePointOrderByIdLoc(bj_lastCreatedUnit, $D0012, LoadLocationHandle(YDHT, id * cx, $5E83114F))
+		call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+		call RemoveLocation(LoadLocationHandle(YDHT, id * cx, 1231311908))
+	else
+		if ( ( Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
+			call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(gh))
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00你已经接下任务了\n|cFFFFCC00提示：|r |cFF99FFCC护送耶律楚材回|cFFADFF2F大辽国|r\n")
+			call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+			call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+		else
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00你已经完成了这个任务了（不可重复接取）")
+		endif
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function oL takes nothing returns boolean
-return ( ( GetUnitTypeId(GetTriggerUnit()) == 1853254706 ) )
+	return ( ( GetUnitTypeId(GetTriggerUnit()) == 1853254706 ) )
 endfunction
 function pL takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetTriggerPlayer()) ))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000任务失败了")
-set Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-call PlaySoundOnUnitBJ(Gh, 100, udg_hero[LoadInteger(YDHT, id * cx, - $5E9EB4B3)])
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetTriggerPlayer()) ))
+	call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFF0000任务失败了")
+	set Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	call PlaySoundOnUnitBJ(Gh, 100, udg_hero[LoadInteger(YDHT, id * cx, - $5E9EB4B3)])
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 function rL takes nothing returns boolean
-return ( ( GetUnitTypeId(GetTriggerUnit()) == 1853254706 ) )
+	return ( ( GetUnitTypeId(GetTriggerUnit()) == 1853254706 ) )
 endfunction
 function sL takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call PlaySoundOnUnitBJ(Hh, 100, udg_hero[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )])
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-set Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=2
-set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $96 )
-set juexuelingwu[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( juexuelingwu[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
-call RemoveUnit(GetTriggerUnit())
-call AdjustPlayerStateBJ($7530, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
-call AdjustPlayerStateBJ(20, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_LUMBER)
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务江湖声望+150，并获得金钱+30000、稀有币+20、绝学领悟力+1")
-call ShowUnitShow(gg_unit_nvl2_0005)
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call PlaySoundOnUnitBJ(Hh, 100, udg_hero[( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) )])
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	set Sd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=2
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $96 )
+	set juexuelingwu[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( juexuelingwu[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + 1 )
+	call RemoveUnit(GetTriggerUnit())
+	call AdjustPlayerStateBJ($7530, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_GOLD)
+	call AdjustPlayerStateBJ(20, GetOwningPlayer(GetTriggerUnit()), PLAYER_STATE_RESOURCE_LUMBER)
+	call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务江湖声望+150，并获得金钱+30000、稀有币+20、绝学领悟力+1")
+	call ShowUnitShow(gg_unit_nvl2_0005)
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 //高昌迷宫任务
 function uL takes nothing returns boolean
-return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896388 ) ) // INLINED!!
+	return ( ( (IsUnitType((GetTriggerUnit() ), ( UNIT_TYPE_HERO)) != null) ) and ( GetPlayerController(GetOwningPlayer(GetTriggerUnit())) == MAP_CONTROL_USER ) and ( GetItemTypeId(GetManipulatedItem()) == 1227896388 ) ) // INLINED!!
 endfunction
 function vL takes nothing returns nothing
-local integer id=GetHandleId(GetTriggeringTrigger())
-local integer cx=LoadInteger(YDHT, id, - $3021938A)
-set cx=cx + 3
-call SaveInteger(YDHT, id, - $3021938A, cx)
-call SaveInteger(YDHT, id, - $1317DA19, cx)
-call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
-call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
-if ( ( Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(xg))
-set Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
-call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00苗人凤：|r |cFF99FFCC很多武林恶势力犯事之后都躲到了高昌迷宫里|r\n|cFFFFCC00提示：|r |cFF99FFCC分别杀死|cFFADFF2F10个门派叛徒和武林恶徒|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
-call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(xg))
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00苗人凤：|r |cFF99FFCC很多武林恶势力犯事之后都躲到了高昌迷宫里|r\n|cFFFFCC00提示：|r |cFF99FFCC分别杀死|cFFADFF2F10个门派叛徒和武林恶徒|r\n")
-call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
-call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
-else
-if ( ( Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 2 ) ) then
-call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFfff0000这个任务你无法再接取了")
-endif
-endif
-endif
-call FlushChildHashtable(YDHT, id * cx)
+ local integer id=GetHandleId(GetTriggeringTrigger())
+ local integer cx=LoadInteger(YDHT, id, - $3021938A)
+	set cx=cx + 3
+	call SaveInteger(YDHT, id, - $3021938A, cx)
+	call SaveInteger(YDHT, id, - $1317DA19, cx)
+	call SaveInteger(YDHT, id * cx, - $5E9EB4B3, ( 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit())) ))
+	call SaveUnitHandle(YDHT, id * cx, - $2EC5CBA0, GetTriggerUnit())
+	if ( ( Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 0 ) ) then
+		call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(xg))
+		set Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=1
+		call PlaySoundOnUnitBJ(bh, 100, LoadUnitHandle(YDHT, id * cx, - $2EC5CBA0))
+		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00苗人凤：|r |cFF99FFCC很多武林恶势力犯事之后都躲到了高昌迷宫里|r\n|cFFFFCC00提示：|r |cFF99FFCC分别杀死|cFFADFF2F10个门派叛徒和武林恶徒|r\n")
+		call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+		call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+	else
+		if ( ( Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 1 ) ) then
+			call SaveLocationHandle(YDHT, id * cx, $5E83114F, GetRectCenter(xg))
+			call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFFFFCC00苗人凤：|r |cFF99FFCC很多武林恶势力犯事之后都躲到了高昌迷宫里|r\n|cFFFFCC00提示：|r |cFF99FFCC分别杀死|cFFADFF2F10个门派叛徒和武林恶徒|r\n")
+			call PingMinimapLocForForce(ov(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) ))), LoadLocationHandle(YDHT, id * cx, $5E83114F), 5.)
+			call RemoveLocation(LoadLocationHandle(YDHT, id * cx, $5E83114F))
+		else
+			if ( ( Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] == 2 ) ) then
+				call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|cFfff0000这个任务你无法再接取了")
+			endif
+		endif
+	endif
+	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 // 完成高昌迷宫任务
 function xL takes nothing returns boolean
@@ -25528,9 +25542,9 @@ function yL takes nothing returns nothing
 		call DisplayTextToPlayer(Player(- 1 + ( LoadInteger(YDHT, id * cx, - $5E9EB4B3) )), 0, 0, "|CFF34FF00完成任务获得江湖声望+200和古董一个")
 		set Td[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
 	endif
-		set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $C8 )
-		set Vd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
-		set Ud[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=( shengwang[LoadInteger(YDHT, id * cx, - $5E9EB4B3)] + $C8 )
+	set Vd[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
+	set Ud[LoadInteger(YDHT, id * cx, - $5E9EB4B3)]=0
 	call FlushChildHashtable(YDHT, id * cx)
 endfunction
 //辽国第一先锋任务+拯救阿紫任务
@@ -25645,11 +25659,14 @@ function EL takes nothing returns nothing
 endfunction
 function Tasks_Trigger takes nothing returns nothing
  local trigger t= CreateTrigger()
+	
+	
 	set bigTalent[1]=0
 	set bigTalent[2]=0
 	set bigTalent[3]=0
 	set bigTalent[4]=0
 	set bigTalent[5]=0
+	
 	set Fo=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(Fo, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(Fo, Condition(function IJ))
@@ -25674,6 +25691,7 @@ function Tasks_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(t, Condition(function isBuyWuGongBook))
 	call TriggerAddAction(t, function buyWuGongBook)
+	
 	// 速战速决任务
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
@@ -25876,6 +25894,7 @@ function Tasks_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(t, Condition(function isWolfSkin))
 	call TriggerAddAction(t, function wolfSkin)
+	
 	// 完成狼皮任务
 	set t=CreateTrigger()
 	// -4885,424
@@ -25884,6 +25903,7 @@ function Tasks_Trigger takes nothing returns nothing
 	// call TriggerAddRect(t,Rect(-5056.,192.,-4736.,512.))
 	call TriggerAddCondition(t, Condition(function isFinishWolfSkin))
 	call TriggerAddAction(t, function finishWolfSkin)
+	
 	// 倚天剑任务
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
@@ -25893,6 +25913,7 @@ function Tasks_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_DEATH)
 	call TriggerAddCondition(t, Condition(function IsWanChengYiTian))
 	call TriggerAddAction(t, function WanChengYiTian)
+	
 	// 全真专属任务
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
@@ -25902,16 +25923,19 @@ function Tasks_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_DEATH)
 	call TriggerAddCondition(t, Condition(function isLcyAndWcy))
 	call TriggerAddAction(t, function lcyAndWcy)
+	
 	// 慕容专属任务
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(t, Condition(function isMuRongOnly))
 	call TriggerAddAction(t, function muRongOnly)
+	
 	// 恒山专属任务
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(t, Condition(function isHengShanOnly))
 	call TriggerAddAction(t, function hengShanOnly)
+	
 	// 华山专属任务
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
@@ -25921,21 +25945,25 @@ function Tasks_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_DEATH)
 	call TriggerAddCondition(t, Condition(function isLingHuChongDeath))
 	call TriggerAddAction(t, function lingHuChongDeath)
+	
 	// 神龙教专属任务
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(t, Condition(function isShenLongOnly))
 	call TriggerAddAction(t, function shenLongOnly)
+	
 	// 衡山派专属任务
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(t, Condition(function isHengShan2Only))
 	call TriggerAddAction(t, function hengShan2Only)
+	
 	// 泰山派专属任务
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(t, Condition(function isTaiShanOnly))
 	call TriggerAddAction(t, function taiShanOnly)
+	
 	set t=null
 endfunction
 // 清除地图上的物品
@@ -26133,7 +26161,7 @@ function shieldReduceDamage takes nothing returns nothing
     if LoadReal(YDHT, GetHandleId(u), $FED) > 0 and GetEventDamage() > 50 then
         set boss_index=( udg_boshu - 1 ) / 4 + 1
         // call BJDebugMsg(R2S(YDWELogarithmLg(GetEventDamage())))
-        set loss=Pow(2, (YDWELogarithm___Log2(((GetEventDamage())*1.0)) * 0.3010300)) * 100 / Pow(2, 9 + boss_index) // INLINED!!
+        set loss=Pow(2, (YDWELogarithm__Log2(((GetEventDamage())*1.0)) * 0.3010300)) * 100 / Pow(2, 9 + boss_index) // INLINED!!
         call EXSetEventDamage(0)
         call SaveReal(YDHT, GetHandleId(u), $FED, LoadReal(YDHT, GetHandleId(u), $FED) - loss)
     endif
@@ -41682,8 +41710,8 @@ function fanShouQianZhu takes unit u,unit l__ut returns nothing
 	
 endfunction
 // - 乾坤一掷  主动
-//     - 点数 * 1W金钱换 （1 ~ 点数 * 50点）三围
-//     - 点数 * 1K木换 （1 ~ 点数 * 5）绝学领悟
+//     - 点数 * 3000金钱换 （1 ~ 点数 * 30点）三围
+//     - 点数 * 100木换 （1 ~ 点数 * 5）绝学领悟
 function qianKunYiZhi takes unit u returns nothing
  local integer rand= GetRandomInt(1, 6)
  local player p= GetOwningPlayer(u)
@@ -41694,6 +41722,7 @@ function qianKunYiZhi takes unit u returns nothing
  local location loc
  local string s
  local real addition= 1
+ local integer goldBase= 3000
 	
 	if UnitHaveItem(u , ITEM_YE_LUO) then
 		set addition=addition + 0.03 * GetItemCharges(FetchUnitItem(u , ITEM_YE_LUO))
@@ -41702,15 +41731,15 @@ function qianKunYiZhi takes unit u returns nothing
 	call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl", u, "overhead"))
 	call DisplayTextToPlayer(GetOwningPlayer(u), 0, 0, "|cFFFFCC00掷出了" + I2S(rand) + "点|r")
 	if GetRandomInt(1, 2) == 1 then
-		if gold > rand * 2000 then
-			set add=R2I(GetRandomInt(1, rand * 50) * addition)
+		if gold > rand * goldBase then
+			set add=R2I(GetRandomInt(1, rand * 30) * addition)
 			call ModifyHeroStat(0, u, 0, add)
 			call ModifyHeroStat(1, u, 0, add)
 			call ModifyHeroStat(2, u, 0, add)
 			
 			set loc=GetUnitLoc(u)
-			set s="金币-" + I2S(rand * 2000)
-			call AdjustPlayerStateBJ(- rand * 2000, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
+			set s="金币-" + I2S(rand * goldBase)
+			call AdjustPlayerStateBJ(- rand * goldBase, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
 			call CreateTextTagLocBJ(s, loc, 0, 12., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
 			call Nw(3 , bj_lastCreatedTextTag)
 			call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70), GetRandomReal(50, 130))
@@ -53162,7 +53191,7 @@ endfunction
 function Trig____________________004Actions takes nothing returns nothing
     call main2()
     call YDWEGeneralBounsSystemUnitSetBonus(GetTriggerUnit() , 0 , 0 , 300)
-    call YDWESetLocalVariableReal("R" , (YDWELogarithm___Log2(((0.01)*1.0)) * 0.3010300)) // INLINED!!
+    call YDWESetLocalVariableReal("R" , (YDWELogarithm__Log2(((0.01)*1.0)) * 0.3010300)) // INLINED!!
 endfunction
 //===========================================================================
 function InitTrig____________________004 takes nothing returns nothing
@@ -53814,19 +53843,19 @@ function main takes nothing returns nothing
     call CreateAllUnits()
     call InitBlizzard()
 
-call ExecuteFunc("jasshelper__initstructs26498687")
+call ExecuteFunc("jasshelper__initstructs6602125")
 call ExecuteFunc("FrameLibrary___init")
 call ExecuteFunc("UniMissileSystem3D__Init")
 call ExecuteFunc("YDTriggerSaveLoadSystem___Init")
 call ExecuteFunc("InitializeYD")
 call ExecuteFunc("YDWEBitwise___onInit")
-call ExecuteFunc("YDWEGeneralBounsSystem___Initialize")
-call ExecuteFunc("YDWELogarithm___onInit")
-call ExecuteFunc("YDWESync___onInit")
-call ExecuteFunc("YDWEPreloadSL___Init")
-call ExecuteFunc("YDWEStringFormula___Init")
-call ExecuteFunc("YDWETimerPattern___Init")
-call ExecuteFunc("YDWETimerSystem___Init")
+call ExecuteFunc("YDWEGeneralBounsSystem__Initialize")
+call ExecuteFunc("YDWELogarithm__onInit")
+call ExecuteFunc("YDWESync__onInit")
+call ExecuteFunc("YDWEPreloadSL__Init")
+call ExecuteFunc("YDWEStringFormula__Init")
+call ExecuteFunc("YDWETimerPattern__Init")
+call ExecuteFunc("YDWETimerSystem__Init")
 call ExecuteFunc("init")
 
     call InitGlobals()
@@ -53839,7 +53868,7 @@ endfunction
 //*
 //***************************************************************************
 function config takes nothing returns nothing
-    call SetMapName("决战江湖1.6.40正式版")
+    call SetMapName("决战江湖1.6.41正式版")
     call SetMapDescription("|cFFFF00FF当你打开这个游戏的时候，你的江湖已经开始了.....|r")
     call SetPlayers(9)
     call SetTeams(9)
@@ -53859,10 +53888,13 @@ function config takes nothing returns nothing
     call InitAllyPriorities()
 endfunction
 //===========================================================================
-//��Ծϵͳ 
-//===========================================================================
-//===========================================================================
 //修改生命
+//===========================================================================
+//===========================================================================
+//ϵͳ-TimerSystem
+//===========================================================================
+//===========================================================================
+//��Ծϵͳ 
 //===========================================================================
 //===========================================================================  
 //===========================================================================  
@@ -53872,9 +53904,6 @@ endfunction
      
  
                  
-//===========================================================================
-//ϵͳ-TimerSystem
-//===========================================================================
 
 
 
@@ -53968,46 +53997,46 @@ local integer this=f__arg_this
 set f__result_string= s
    return true
 endfunction
-function sa__YDWEStringFormula___Inventory_onDestroy takes nothing returns boolean
+function sa__YDWEStringFormula__Inventory_onDestroy takes nothing returns boolean
 local integer this=f__arg_this
             call FlushChildHashtable(YDHT, StringHash(("YDWEStringFormula." + I2S(this)))) // INLINED!!
    return true
 endfunction
-function sa__YDWETimerPattern___Thread_onDestroy takes nothing returns boolean
+function sa__YDWETimerPattern__Thread_onDestroy takes nothing returns boolean
 local integer this=f__arg_this
-            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_obj[this])))))))) // INLINED!!
-            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern___Thread_t[this])))))))) // INLINED!!
-            call GroupClear(s__YDWETimerPattern___Thread_g[this])
-            call DestroyGroup(s__YDWETimerPattern___Thread_g[this])
-            call PauseTimer(s__YDWETimerPattern___Thread_t[this])
-            call DestroyTimer(s__YDWETimerPattern___Thread_t[this])
-            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_des[this])
-            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_pos[this])
-            call s__YDWETimerPattern___YDVector3_deallocate(s__YDWETimerPattern___Thread_vel[this])
-            set s__YDWETimerPattern___Thread_caster[this]=null
-            set s__YDWETimerPattern___Thread_target[this]=null
-            set s__YDWETimerPattern___Thread_obj[this]=null
-            set s__YDWETimerPattern___Thread_g[this]=null
-            set s__YDWETimerPattern___Thread_t[this]=null
-            set s__YDWETimerPattern___Thread_amount[this]=0
-            set s__YDWETimerPattern___Thread_skills[this]=0
-            set s__YDWETimerPattern___Thread_order[this]=0
-            set s__YDWETimerPattern___Thread_dsfx[this]=""
-            set s__YDWETimerPattern___Thread_gsfx[this]=""
-            set s__YDWETimerPattern___Thread_wsfx[this]=""
-            set s__YDWETimerPattern___Thread_part[this]=""
+            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_obj[this])))))))) // INLINED!!
+            call RemoveSavedInteger(YDHT, StringHash(("YDWETimerPattern." )), StringHash(( I2S((GetHandleId(((s__YDWETimerPattern__Thread_t[this])))))))) // INLINED!!
+            call GroupClear(s__YDWETimerPattern__Thread_g[this])
+            call DestroyGroup(s__YDWETimerPattern__Thread_g[this])
+            call PauseTimer(s__YDWETimerPattern__Thread_t[this])
+            call DestroyTimer(s__YDWETimerPattern__Thread_t[this])
+            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_des[this])
+            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_pos[this])
+            call s__YDWETimerPattern__YDVector3_deallocate(s__YDWETimerPattern__Thread_vel[this])
+            set s__YDWETimerPattern__Thread_caster[this]=null
+            set s__YDWETimerPattern__Thread_target[this]=null
+            set s__YDWETimerPattern__Thread_obj[this]=null
+            set s__YDWETimerPattern__Thread_g[this]=null
+            set s__YDWETimerPattern__Thread_t[this]=null
+            set s__YDWETimerPattern__Thread_amount[this]=0
+            set s__YDWETimerPattern__Thread_skills[this]=0
+            set s__YDWETimerPattern__Thread_order[this]=0
+            set s__YDWETimerPattern__Thread_dsfx[this]=""
+            set s__YDWETimerPattern__Thread_gsfx[this]=""
+            set s__YDWETimerPattern__Thread_wsfx[this]=""
+            set s__YDWETimerPattern__Thread_part[this]=""
    return true
 endfunction
-function sa__YDWEStringFormula___Sorting_onDestroy takes nothing returns boolean
+function sa__YDWEStringFormula__Sorting_onDestroy takes nothing returns boolean
 local integer this=f__arg_this
             local integer i= 0
             loop
-                exitwhen i == s___YDWEStringFormula___Sorting_stack_size
-                set s___YDWEStringFormula___Sorting_stack[s__YDWEStringFormula___Sorting_stack[this]+i]=0
-                set s___YDWEStringFormula___Sorting_count[s__YDWEStringFormula___Sorting_count[this]+i]=0
+                exitwhen i == s___YDWEStringFormula__Sorting_stack_size
+                set s___YDWEStringFormula__Sorting_stack[s__YDWEStringFormula__Sorting_stack[this]+i]=0
+                set s___YDWEStringFormula__Sorting_count[s__YDWEStringFormula__Sorting_count[this]+i]=0
                 set i=i + 1
             endloop
-            set s__YDWEStringFormula___Sorting_char[this]=""
+            set s__YDWEStringFormula__Sorting_char[this]=""
    return true
 endfunction
 function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
@@ -54015,7 +54044,7 @@ function sa___prototype4_SetUnitMoveSpeedEx takes nothing returns boolean
     return true
 endfunction
 
-function jasshelper__initstructs26498687 takes nothing returns nothing
+function jasshelper__initstructs6602125 takes nothing returns nothing
     set st__Frame_onDestroy=CreateTrigger()
     call TriggerAddCondition(st__Frame_onDestroy,Condition( function sa__Frame_onDestroy))
     set st__ShopWeapon_onDestroy=CreateTrigger()
@@ -54030,22 +54059,22 @@ function jasshelper__initstructs26498687 takes nothing returns nothing
     call TriggerAddCondition(st__DaPei_onDestroy,Condition( function sa__DaPei_onDestroy))
     set st__DaPei_XiaoGuoShuoMing=CreateTrigger()
     call TriggerAddCondition(st__DaPei_XiaoGuoShuoMing,Condition( function sa__DaPei_XiaoGuoShuoMing))
-    set st__YDWEStringFormula___Inventory_onDestroy[3]=CreateTrigger()
-    set st__YDWEStringFormula___Inventory_onDestroy[4]=st__YDWEStringFormula___Inventory_onDestroy[3]
-    call TriggerAddCondition(st__YDWEStringFormula___Inventory_onDestroy[3],Condition( function sa__YDWEStringFormula___Inventory_onDestroy))
-    set st__YDWETimerPattern___Thread_onDestroy[11]=CreateTrigger()
-    set st__YDWETimerPattern___Thread_onDestroy[12]=st__YDWETimerPattern___Thread_onDestroy[11]
-    set st__YDWETimerPattern___Thread_onDestroy[13]=st__YDWETimerPattern___Thread_onDestroy[11]
-    set st__YDWETimerPattern___Thread_onDestroy[14]=st__YDWETimerPattern___Thread_onDestroy[11]
-    call TriggerAddCondition(st__YDWETimerPattern___Thread_onDestroy[11],Condition( function sa__YDWETimerPattern___Thread_onDestroy))
-    set st__YDWEStringFormula___Sorting_onDestroy=CreateTrigger()
-    call TriggerAddCondition(st__YDWEStringFormula___Sorting_onDestroy,Condition( function sa__YDWEStringFormula___Sorting_onDestroy))
+    set st__YDWEStringFormula__Inventory_onDestroy[3]=CreateTrigger()
+    set st__YDWEStringFormula__Inventory_onDestroy[4]=st__YDWEStringFormula__Inventory_onDestroy[3]
+    call TriggerAddCondition(st__YDWEStringFormula__Inventory_onDestroy[3],Condition( function sa__YDWEStringFormula__Inventory_onDestroy))
+    set st__YDWETimerPattern__Thread_onDestroy[11]=CreateTrigger()
+    set st__YDWETimerPattern__Thread_onDestroy[12]=st__YDWETimerPattern__Thread_onDestroy[11]
+    set st__YDWETimerPattern__Thread_onDestroy[13]=st__YDWETimerPattern__Thread_onDestroy[11]
+    set st__YDWETimerPattern__Thread_onDestroy[14]=st__YDWETimerPattern__Thread_onDestroy[11]
+    call TriggerAddCondition(st__YDWETimerPattern__Thread_onDestroy[11],Condition( function sa__YDWETimerPattern__Thread_onDestroy))
+    set st__YDWEStringFormula__Sorting_onDestroy=CreateTrigger()
+    call TriggerAddCondition(st__YDWEStringFormula__Sorting_onDestroy,Condition( function sa__YDWEStringFormula__Sorting_onDestroy))
     set st___prototype4[1]=CreateTrigger()
     call TriggerAddAction(st___prototype4[1],function sa___prototype4_SetUnitMoveSpeedEx)
     call TriggerAddCondition(st___prototype4[1],Condition(function sa___prototype4_SetUnitMoveSpeedEx))
 
 
-call ExecuteFunc("s__ModSpeed_Init___onInit")
+call ExecuteFunc("s__ModSpeed_Init__onInit")
 
 
 
@@ -54062,7 +54091,7 @@ call ExecuteFunc("s__ModSpeed_Init___onInit")
 
 
 
-    call ExecuteFunc("s__YDWEStringFormula___ItemIdMatrix_onInit")
-    call ExecuteFunc("s__YDWEStringFormula___FormulaMatrix_onInit")
+    call ExecuteFunc("s__YDWEStringFormula__ItemIdMatrix_onInit")
+    call ExecuteFunc("s__YDWEStringFormula__FormulaMatrix_onInit")
 endfunction
 
