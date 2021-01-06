@@ -80,88 +80,11 @@ endif
 call FlushChildHashtable(YDHT,id*cx)
 endfunction
 //==================九阴真经系统开始==================//
-	//摧坚神抓和摧心掌
-    function JiuYin_Condition takes nothing returns boolean
-    	return(GetUnitAbilityLevel(GetAttacker(),'A0D1')>=1 or GetUnitAbilityLevel(GetAttacker(),'A0D3')>=1)and(IsUnitEnemy(GetTriggerUnit(),GetOwningPlayer(GetAttacker())))
-    endfunction
-    function CuiJian_Condition takes nothing returns boolean
-        return IsUnitEnemy(GetFilterUnit(),GetOwningPlayer(GetAttacker()))and IsUnitAliveBJ(GetFilterUnit())
-    endfunction
-    function CuiJian_Action takes nothing returns nothing
-		local integer i=1+GetPlayerId(GetOwningPlayer(GetEventDamageSource()))
-	    local unit u=GetAttacker()
-	    local unit uc=GetEnumUnit()
-	    local location loc=GetUnitLoc(uc)
-	    local real shxishu=1.
-	    local real shanghai=0.
-        call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Items\\AIil\\AIilTarget.mdl"))
-        if GetUnitAbilityLevel(GetAttacker(),'A07S')>=1 then
-	        set shxishu=shxishu+1.
-        endif
-        if isTitle(1+GetPlayerId(GetOwningPlayer(u)), 37) then // 九阴真人
-	        set shxishu=shxishu * 20
-        endif
-		if isTitle(i, 41) then
-			set shxishu=shxishu*10
-		endif
-        set shanghai=ShangHaiGongShi(u,uc,30.,30.,shxishu,'A0D1')
-        call WuGongShangHai(u,uc,shanghai)
-        if((GetUnitAbilityLevel(u,'A07N')!=0)and(GetRandomReal(.0,100.)<=10.)and(UnitHasBuffBJ(uc,'B008')==false))then
-            call WanBuff(u, uc, 11)
-        endif
-        call RemoveLocation(loc)
-        set loc=null
-        set u=null
-        set uc=null
-    endfunction
-    function JiuYin_Action takes nothing returns nothing
-	    local unit u=GetAttacker()
-	    local unit uc=GetTriggerUnit()
-	    local location loc=GetUnitLoc(u)
-	    local player p=GetOwningPlayer(u)
-	    local integer i=1+GetPlayerId(p)
-        local real shanghai=0.
-        local real shxishu=1.
-
-	    //摧坚神抓
-        if GetUnitAbilityLevel(GetAttacker(),'A0D1')>=1 then
-            if GetRandomReal(.0,100.)<=15.+I2R(fuyuan[i])/5. then
-                call ForGroupBJ(YDWEGetUnitsInRangeOfLocMatchingNull(500.,loc,Condition(function CuiJian_Condition)),function CuiJian_Action)
-                call WuGongShengChong(GetAttacker(),'A0D1',700.)
-            endif
-        endif
-        //摧心掌
-        if GetUnitAbilityLevel(GetAttacker(),'A0D3')>=1 then
-	        if GetRandomReal(.0,100.)<=15.+I2R(fuyuan[i])/5. then
-		        if GetUnitAbilityLevel(u,'A07S')>=1 then
-	                set shxishu=shxishu+1.
-                endif
-		        if isTitle(i, 37) then // 九阴真人
-	                set shxishu=shxishu*20
-                endif
-                if((GetUnitAbilityLevel(u,'A0D2')!=0)and(GetRandomInt(1,$A)<5)and(UnitHasBuffBJ(uc,'Bcri')==false))then
-                    call WanBuff(u, uc, 4)
-                endif
-                if((GetUnitAbilityLevel(u,'A0D6')!=0)and(GetRandomInt(1,$A)<5)and(UnitHasBuffBJ(uc,1110454324)==false))then
-                    call WanBuff(u, uc, 7)
-                endif
-		        set shanghai=ShangHaiGongShi(u,uc,80,64,shxishu,'A0D3')
-                call AddSpecialEffectTargetUnitBJ( "overhead", GetTriggerUnit(),"Abilities\\Spells\\Items\\OrbDarkness\\OrbDarkness.mdl")
-                call DestroyEffect( GetLastCreatedEffectBJ() )
-                call WuGongShangHai(u,uc,shanghai)
-                call WuGongShengChong(u,'A0D3',1050.)
-            endif
-        endif
-        call RemoveLocation(loc)
-        set u=null
-        set uc=null
-        set loc=null
-        set p=null
-    endfunction
+	
 
 
 function cI takes nothing returns boolean
-return(GetUnitAbilityLevel(GetKillingUnit(),'A07S')>0 or GetUnitAbilityLevel(GetKillingUnit(),'A0D2')>0 or GetUnitAbilityLevel(GetKillingUnit(),'A0D6')>0)
+	return GetUnitAbilityLevel(GetKillingUnit(),'A07S')>0
 endfunction
 //九阴真经杀100怪
 function DI takes nothing returns nothing
@@ -169,10 +92,6 @@ function DI takes nothing returns nothing
     local integer cx=LoadInteger(YDHT,id,-$3021938A)
     local integer i=1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))
 	local integer beishu = 1 // 内功加成倍数
-	// 九阴真人称号
-	if isTitle(i, 37) then
-		set beishu = 2
-	endif
     set cx=cx+3
     call SaveInteger(YDHT,id,-$3021938A,cx)
     call SaveInteger(YDHT,id,-$1317DA19,cx)
@@ -184,61 +103,8 @@ function DI takes nothing returns nothing
             call ModifyHeroStat(0,GetKillingUnit(),0,10*beishu)
             call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"招式伤害+"+I2S(10*beishu))
         endif
-        if GetUnitAbilityLevel(GetKillingUnit(),'A0D2')>0 then
-	        if GetRandomInt(1,2)==1 then
-            	call ModifyHeroStat(0,GetKillingUnit(),1,10*beishu)
-            	call ModifyHeroStat(1,GetKillingUnit(),0,30*beishu)
-            	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"招式伤害-"+I2S(10*beishu))
-            	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"内力+"+I2S(30*beishu))
-            else
-            	call ModifyHeroStat(2,GetKillingUnit(),0,10*beishu)
-            	call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"真实伤害+"+I2S(10*beishu))
-        	endif
-        endif
-        if GetUnitAbilityLevel(GetKillingUnit(),'A0D6')>0 then
-            if GetRandomInt(1,6)==1 then
-	            set wuxing[i]=wuxing[i]+beishu
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"悟性+"+I2S(beishu))
-	        elseif GetRandomInt(1,5)==1 then
-	            set gengu[i]=gengu[i]+beishu
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"根骨+"+I2S(beishu))
-	        elseif GetRandomInt(1,4)==1 then
-	            set danpo[i]=danpo[i]+beishu
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"胆魄+"+I2S(beishu))
-	        elseif GetRandomInt(1,3)==1 then
-	            set yishu[i]=yishu[i]+beishu
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"医术+"+I2S(beishu))
-	        elseif GetRandomInt(1,2)==1 then
-	            set jingmai[i]=jingmai[i]+beishu
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"经脉+"+I2S(beishu))
-	        else
-	            set fuyuan[i]=fuyuan[i]+beishu
-	            call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"福缘+"+I2S(beishu))
-            endif
-            if GetRandomInt(1,5)<=3 then
-                if GetRandomInt(1,6)==1 then
-	                set wuxing[i]=wuxing[i]-beishu
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"悟性-"+I2S(beishu))
-	            elseif GetRandomInt(1,5)==1 then
-	                set gengu[i]=gengu[i]-beishu
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"根骨-"+I2S(beishu))
-	            elseif GetRandomInt(1,4)==1 then
-	                set danpo[i]=danpo[i]-beishu
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"胆魄-"+I2S(beishu))
-	            elseif GetRandomInt(1,3)==1 then
-	                set yishu[i]=yishu[i]-beishu
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"医术-"+I2S(beishu))
-	            elseif GetRandomInt(1,2)==1 then
-	                set jingmai[i]=jingmai[i]-beishu
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"经脉-"+I2S(beishu))
-	            else
-	                set fuyuan[i]=fuyuan[i]-beishu
-	                call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"福缘-"+I2S(beishu))
-                endif
-            endif
-
-
-        endif
+        
+       
     endif
     call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -371,10 +237,6 @@ endfunction
 
 function JiangHuNeiGong_Trigger takes nothing returns nothing
 	local trigger t = null
-	set t=CreateTrigger()
-    call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
-    call TriggerAddCondition(t,Condition(function JiuYin_Condition))
-    call TriggerAddAction(t,function JiuYin_Action)
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t, Condition(function IsJiuYang))

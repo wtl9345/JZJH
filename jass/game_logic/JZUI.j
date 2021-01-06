@@ -490,3 +490,4 @@ function initUI takes nothing returns nothing
 	call TriggerAddAction(t, function doToggleQimenStatus)
 	set t = null
 endfunction
+

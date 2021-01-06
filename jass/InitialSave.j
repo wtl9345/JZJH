@@ -52,11 +52,6 @@ function CunWuGongS takes nothing returns nothing
 	call CunWuGong(34, 'I03P', 'A080', "绝世内功", 25, 0, 0, 32, 22, 32)
 	call CunWuGong(35, 'I03U', 'A083', "绝世内功", 0, 24, 0, 30, 24, 21)
 	call CunWuGong(36, 'I03R', 'A09D', "绝世内功", 0, 30, 0, 27, 34, 23)
-	call CunWuGong(37, 'I09G', 'A0D2', "九阴内功", 0, 17, 17, 17, 20, 0)
-	call CunWuGong(38, 'I09H', 'A0D4', "九阴内功", 0, 17, 17, 17, 20, 0)
-	call CunWuGong(39, 'I09I', 'A0D6', "九阴内功", 0, 17, 17, 17, 20, 0) // 易筋断骨篇
-	call CunWuGong(40, 'I09J', 'A0D1', "九阴武学", 13, 0, 12, 12, 16, 0) // 摧坚
-	call CunWuGong(41, 'I09K', 'A0D3', "九阴武学", 13, 0, 12, 12, 16, 0) // 摧心掌
 	call CunWuGong(42, 'I0C2', 'A03N', "奇武", 0, 0, 0, 15, 14, 16)
 	call CunWuGong(43, 'I0C3', 'A03P', "奇武", 0, 18, 20, 0, 0, 16)
 	call CunWuGong(44, 'I0C4', 'A03L', "奇武", 12, 14, 16, 0, 0, 0)

@@ -45,3 +45,4 @@ function npcHint takes nothing returns nothing
     // 新手任务
     call AddSpecialEffectTargetUnitBJ("overhead", Ts, "[ch]14.mdl")
 endfunction
+

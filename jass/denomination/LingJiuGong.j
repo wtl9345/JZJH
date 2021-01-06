@@ -356,24 +356,16 @@ function BaHuangGong takes nothing returns nothing
 	// 随机数1-100 小于 （6+ 福缘/3 + 六脉等级*3）
 	if GetRandomInt(1,100) < IMaxBJ(30, gailv + fuyuan[i] / 5 + GetUnitAbilityLevel(u, 'A085') * 3) then
 		call WuGongShengChong(u, 'A02G', 500-50*GetUnitAbilityLevel(u, 'A089'))
-		if GetUnitAbilityLevel(u, 'A0D2')>=1 then
-			call ModifyHeroStat(j, u, 0, jishu*level*6)
-			set t = CreateTimer()
-			call SaveInteger(YDHT, GetHandleId(t), 0, j)
-			call SaveUnitHandle(YDHT, GetHandleId(t), 1, u)
-			call SaveInteger(YDHT, GetHandleId(t), 2, jishu)
-			call SaveInteger(YDHT, GetHandleId(t), 3, level)
-			call TimerStart(t, 8., false, function BaHuangGong_1)
-		else
-			call ModifyHeroStat(0, u, 0, jishu*level)
-			call ModifyHeroStat(1, u, 0, jishu*level)
-			call ModifyHeroStat(2, u, 0, jishu*level)
-			set t = CreateTimer()
-			call SaveUnitHandle(YDHT, GetHandleId(t), 1, u)
-			call SaveInteger(YDHT, GetHandleId(t), 2, jishu)
-			call SaveInteger(YDHT, GetHandleId(t), 3, level)
-			call TimerStart(t, 8., false, function BaHuangGong_2)
-		endif
+		
+		call ModifyHeroStat(0, u, 0, jishu*level)
+		call ModifyHeroStat(1, u, 0, jishu*level)
+		call ModifyHeroStat(2, u, 0, jishu*level)
+		set t = CreateTimer()
+		call SaveUnitHandle(YDHT, GetHandleId(t), 1, u)
+		call SaveInteger(YDHT, GetHandleId(t), 2, jishu)
+		call SaveInteger(YDHT, GetHandleId(t), 3, level)
+		call TimerStart(t, 8., false, function BaHuangGong_2)
+		
 		call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
 		if GetUnitAbilityLevel(u, 'A083')>=1 then
 			set juexuelingwu[i] = juexuelingwu[i] + level

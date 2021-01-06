@@ -38,6 +38,42 @@ native DzAPI_Map_GetActivityData takes nothing returns string
 native DzAPI_Map_GetMapConfig takes string key returns string
 native DzAPI_Map_HasMallItem takes player whichPlayer, string key returns boolean
 
+	//library DzAPI ends
+
+// japi
+native EXGetUnitAbility takes unit u,integer abilcode returns ability
+native EXGetUnitAbilityByIndex takes unit u,integer index returns ability
+native EXGetAbilityId takes ability abil returns integer
+native EXGetAbilityState takes ability abil,integer state_type returns real
+native EXSetAbilityState takes ability abil,integer state_type,real value returns boolean
+native EXGetAbilityDataReal takes ability abil,integer level,integer data_type returns real
+native EXSetAbilityDataReal takes ability abil,integer level,integer data_type,real value returns boolean
+native EXGetAbilityDataInteger takes ability abil,integer level,integer data_type returns integer
+native EXSetAbilityDataInteger takes ability abil,integer level,integer data_type,integer value returns boolean
+native EXGetAbilityDataString takes ability abil,integer level,integer data_type returns string
+native EXSetAbilityDataString takes ability abil,integer level,integer data_type,string value returns boolean
+native EXSetAbilityAEmeDataA takes ability abil,integer unitid returns boolean
+native EXGetItemDataString takes integer itemcode,integer data_type returns string
+native EXSetItemDataString takes integer itemcode,integer data_type,string value returns boolean
+native EXGetEventDamageData takes integer edd_type returns integer
+native EXSetEventDamage takes real amount returns boolean
+native EXGetEffectX takes effect e returns real
+native EXGetEffectY takes effect e returns real
+native EXGetEffectZ takes effect e returns real
+native EXSetEffectXY takes effect e,real x,real y returns nothing
+native EXSetEffectZ takes effect e,real z returns nothing
+native EXGetEffectSize takes effect e returns real
+native EXSetEffectSize takes effect e,real size returns nothing
+native EXEffectMatRotateX takes effect e,real angle returns nothing
+native EXEffectMatRotateY takes effect e,real angle returns nothing
+native EXEffectMatRotateZ takes effect e,real angle returns nothing
+native EXEffectMatScale takes effect e,real x,real y,real z returns nothing
+native EXEffectMatReset takes effect e returns nothing
+native EXSetEffectSpeed takes effect e,real speed returns nothing
+native EXExecuteScript takes string script returns string
+		
+		
+
 //library DzAPI:
 function GetPlayerServerValueSuccess takes player whichPlayer returns boolean
 	if ( DzAPI_Map_GetServerValueErrorCode(whichPlayer) == 0 ) then
@@ -179,36 +215,3 @@ function DzAPI_Map_Ladder_SubmitPlayerExtraExp takes player whichPlayer,integer 
 	call DzAPI_Map_Ladder_SetStat(whichPlayer, "ExtraExp", I2S(value))
 endfunction
 
-//library DzAPI ends
-
-// japi
-native EXGetUnitAbility takes unit u,integer abilcode returns ability
-native EXGetUnitAbilityByIndex takes unit u,integer index returns ability
-native EXGetAbilityId takes ability abil returns integer
-native EXGetAbilityState takes ability abil,integer state_type returns real
-native EXSetAbilityState takes ability abil,integer state_type,real value returns boolean
-native EXGetAbilityDataReal takes ability abil,integer level,integer data_type returns real
-native EXSetAbilityDataReal takes ability abil,integer level,integer data_type,real value returns boolean
-native EXGetAbilityDataInteger takes ability abil,integer level,integer data_type returns integer
-native EXSetAbilityDataInteger takes ability abil,integer level,integer data_type,integer value returns boolean
-native EXGetAbilityDataString takes ability abil,integer level,integer data_type returns string
-native EXSetAbilityDataString takes ability abil,integer level,integer data_type,string value returns boolean
-native EXSetAbilityAEmeDataA takes ability abil,integer unitid returns boolean
-native EXGetItemDataString takes integer itemcode,integer data_type returns string
-native EXSetItemDataString takes integer itemcode,integer data_type,string value returns boolean
-native EXGetEventDamageData takes integer edd_type returns integer
-native EXSetEventDamage takes real amount returns boolean
-native EXGetEffectX takes effect e returns real
-native EXGetEffectY takes effect e returns real
-native EXGetEffectZ takes effect e returns real
-native EXSetEffectXY takes effect e,real x,real y returns nothing
-native EXSetEffectZ takes effect e,real z returns nothing
-native EXGetEffectSize takes effect e returns real
-native EXSetEffectSize takes effect e,real size returns nothing
-native EXEffectMatRotateX takes effect e,real angle returns nothing
-native EXEffectMatRotateY takes effect e,real angle returns nothing
-native EXEffectMatRotateZ takes effect e,real angle returns nothing
-native EXEffectMatScale takes effect e,real x,real y,real z returns nothing
-native EXEffectMatReset takes effect e returns nothing
-native EXSetEffectSpeed takes effect e,real speed returns nothing
-native EXExecuteScript takes string script returns string

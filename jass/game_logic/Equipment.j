@@ -15,7 +15,7 @@
 
 //鸟拿东西显示附加属性
 function Zy takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO)==false)and(GetItemUserData(GetManipulatedItem())>0))
+	return (not IsUnitType(GetTriggerUnit(),UNIT_TYPE_HERO) and GetItemUserData(GetManipulatedItem())>0) 
 endfunction
 function dz takes nothing returns nothing
 	local item it = GetManipulatedItem()

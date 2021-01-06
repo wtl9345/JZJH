@@ -1104,19 +1104,6 @@ function QiuHun_Action takes nothing returns nothing
 				call DisplayTextToPlayer(p,0,0,"|cFFFFCC00杨过：|r |cFF99FFCC少侠，你的条件不足|r\n")
 			endif
 		endif
-	elseif GetItemTypeId(GetManipulatedItem())=='I09M' then
-		if GetUnitAbilityLevel(u, 'A0D4')>=1 then
-			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00洪七公：|r |cFF99FFCC年轻人，你已经掌握此武功了")
-		else
-			if  UnitHaveItem(u,'I02X') and yishu[i]>=35 then
-				call RemoveItem(FetchUnitItem(u,'I02X'))
-				call unitadditembyidswapped('I09H', u)
-				call DisplayTextToPlayer(p,0,0,"|cFFFFCC00洪七公：|r |cFF99FFCC看你资质不错，书的这几页就是医疗篇的修习法门|r\n")
-			else
-				call DisplayTextToPlayer(p,0,0,"|cFFFFCC00洪七公：|r |cFF99FFCC年轻人，你的条件不足|r\n")
-			endif
-		endif
-		call ShowUnitHide(gg_unit_n00E_0066)
 	endif
 	set u=null
 	set p=null
@@ -1820,7 +1807,7 @@ function FK takes nothing returns nothing
 endfunction
 //接杀熊、桃花岛哑仆的任务
 function HK takes nothing returns boolean
-	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())==1227896132 or GetItemTypeId(GetManipulatedItem())=='I09W'))
+	return((UnitTypeNotNull(GetTriggerUnit(),UNIT_TYPE_HERO))and(GetPlayerController(GetOwningPlayer(GetTriggerUnit()))==MAP_CONTROL_USER)and(GetItemTypeId(GetManipulatedItem())==1227896132))
 endfunction
 function IK takes nothing returns nothing
 	local unit u=GetTriggerUnit()
@@ -1842,14 +1829,6 @@ function IK takes nothing returns nothing
 			call RemoveLocation(loc)
 		elseif((rd[i]==2))then
 			call DisplayTextToPlayer(p,0,0,"|cFfff0000这个任务你已经完成过了")
-		endif
-	elseif GetItemTypeId(GetManipulatedItem())=='I09W' then
-		if((LoadInteger(YDHT,StringHash("哑仆任务"),i)==0))then
-			call SaveInteger(YDHT,StringHash("哑仆任务"),i,1)
-			call PlaySoundOnUnitBJ(bh,100,u)
-			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00周伯通：|r |cFF99FFCC黄老邪把我腿打断的时候，桃花岛上的哑仆一直欺负我，你能帮我杀掉十个哑仆吗|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F十个哑仆|r\n")
-		elseif((LoadInteger(YDHT,StringHash("哑仆任务"),i)==1))then
-			call DisplayTextToPlayer(p,0,0,"|cFFFFCC00周伯通：|r |cFF99FFCC杀掉十个哑仆了吗|r\n|cFFFFCC00提示：|r |cFF99FFCC杀死|cFFADFF2F十个哑仆|r\n")
 		endif
 	endif
 	set u = null

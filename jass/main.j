@@ -33,7 +33,6 @@
 
 #include "test/najitest.j"
 #include "test/KeyInput.j"
-#include "TaoHuaDao.j"
 
 // 包含门派库
 #include "denomination/ShaoLin.j"
@@ -167,7 +166,6 @@ globals
 	boolean udg_yanglao = false
 	boolean udg_yunyangxianshen = false
 	boolean udg_sutong = false
-	boolean taohuakai=false
 	dialog udg_index=null
 	button udg_index0=null
 	button udg_index1=null
@@ -1407,7 +1405,6 @@ function Zw takes nothing returns nothing
 	call AdjustPlayerStateBJ($A,Player(3),PLAYER_STATE_RESOURCE_LUMBER)
 	call AdjustPlayerStateBJ($A,Player(4),PLAYER_STATE_RESOURCE_LUMBER)
 	call ChooseMoShi()
-	call TaoHuaDaoKaiFang()
 	set bj_forLoopAIndex = 0
 	loop
 	exitwhen bj_forLoopAIndex >= 5
@@ -2582,7 +2579,6 @@ function main2 takes nothing returns nothing
 	call ZhenFa_Trigger() //阵法触发器
 	call TiaoZhan_Trigger() //挑战场触发器
 	call QiWu_Trigger() //奇武触发器
-	call TaoHuaDao_Trigger() //桃花岛触发器
 	call Instances_Trigger() //副本和任务系统
 	call Experiences_Trigger() //历练系统
 	call ElixirSystem_Trigger() //丹药系统

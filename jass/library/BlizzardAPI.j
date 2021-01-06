@@ -1,5 +1,44 @@
 //hardware
 
+
+/*
+DzFrameSetPoint achor定义，从0开始
+enum class AnchorPoint
+{
+    TOPLEFT = 0,
+    TOP = 1,
+    TOPRIGHT = 2,
+    LEFT = 3,
+    CENTER = 4,
+    RIGHT = 5,
+    BOTTOMLEFT = 6,
+    BOTTOM = 7,
+    BOTTOMRIGHT = 8,
+};
+
+DzFrameSetScript  注册ui事件的事件ID
+enum class CFrameEvents
+{
+    NONE = 0,
+    FRAME_EVENT_PRESSED = 1,
+    FRAME_MOUSE_ENTER = 2,
+    FRAME_MOUSE_LEAVE = 3,
+    FRAME_MOUSE_UP = 4,
+    FRAME_MOUSE_DOWN = 5,
+    FRAME_MOUSE_WHEEL = 6,
+    FRAME_FOCUS_ENTER = FRAME_MOUSE_ENTER,
+    FRAME_FOCUS_LEAVE = FRAME_MOUSE_LEAVE,
+    FRAME_CHECKBOX_CHECKED = 7,
+    FRAME_CHECKBOX_UNCHECKED = 8,
+    FRAME_EDITBOX_TEXT_CHANGED = 9,
+    FRAME_POPUPMENU_ITEM_CHANGE_START = 10,
+    FRAME_POPUPMENU_ITEM_CHANGED = 11,
+    FRAME_MOUSE_DOUBLECLICK = 12,
+    FRAME_SPRITE_ANIM_UPDATE = 13,
+};
+ */
+
+
 //获取鼠标在游戏内的坐标X
 native DzGetMouseTerrainX takes nothing returns real
 
@@ -310,39 +349,3 @@ native DzCreateFrameByTagName takes string frameType, string name, integer paren
 native DzFrameSetVertexColor takes integer frame, integer color returns nothing
 
 
-/*
-DzFrameSetPoint achor定义，从0开始
-enum class AnchorPoint
-{
-    TOPLEFT = 0,
-    TOP = 1,
-    TOPRIGHT = 2,
-    LEFT = 3,
-    CENTER = 4,
-    RIGHT = 5,
-    BOTTOMLEFT = 6,
-    BOTTOM = 7,
-    BOTTOMRIGHT = 8,
-};
-
-DzFrameSetScript  注册ui事件的事件ID
-enum class CFrameEvents
-{
-    NONE = 0,
-    FRAME_EVENT_PRESSED = 1,
-    FRAME_MOUSE_ENTER = 2,
-    FRAME_MOUSE_LEAVE = 3,
-    FRAME_MOUSE_UP = 4,
-    FRAME_MOUSE_DOWN = 5,
-    FRAME_MOUSE_WHEEL = 6,
-    FRAME_FOCUS_ENTER = FRAME_MOUSE_ENTER,
-    FRAME_FOCUS_LEAVE = FRAME_MOUSE_LEAVE,
-    FRAME_CHECKBOX_CHECKED = 7,
-    FRAME_CHECKBOX_UNCHECKED = 8,
-    FRAME_EDITBOX_TEXT_CHANGED = 9,
-    FRAME_POPUPMENU_ITEM_CHANGE_START = 10,
-    FRAME_POPUPMENU_ITEM_CHANGED = 11,
-    FRAME_MOUSE_DOUBLECLICK = 12,
-    FRAME_SPRITE_ANIM_UPDATE = 13,
-};
- */

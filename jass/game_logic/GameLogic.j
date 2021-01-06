@@ -2644,7 +2644,7 @@ function HeroLevel takes nothing returns nothing
 					// 自由自动学的技能补属性begin
 					set S9=1
 					loop
-					exitwhen S9>20
+					exitwhen S9>17
 						if (X7[d8[i]]==MM9[S9]) then
 							set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 							call ModifyHeroStat(1,u,0,udg_jueneiminjie[S9])
@@ -2735,7 +2735,7 @@ function HeroLevel takes nothing returns nothing
 			// 自由自动学的技能补属性begin
 			set S9=1
 			loop
-			exitwhen S9>20
+			exitwhen S9>17
 				if (Z7[udg_runamen[i]]==MM9[S9]) then
 					set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 					call ModifyHeroStat(1,u,0,udg_jueneiminjie[S9])
@@ -3763,7 +3763,7 @@ function Forget takes player p, integer num returns nothing
 	else
 		set S9=1
 		loop
-		exitwhen S9>20
+		exitwhen S9>17
 			if((I7[20*(i-1)+num]==MM9[S9]))then
 				set udg_shanghaijiacheng[i]=(udg_shanghaijiacheng[i]-udg_jueneishjc[S9])
 				call ModifyHeroStat(1,udg_hero[i],1,udg_jueneiminjie[S9])
@@ -3893,7 +3893,7 @@ function LearnJiNeng takes unit ut,  item it returns nothing
 						endif
 						set S9=1
 						loop
-						exitwhen S9>20
+						exitwhen S9>17
 							if (id==MM9[S9]) then
 								set udg_shanghaijiacheng[i] = udg_shanghaijiacheng[i] + udg_jueneishjc[S9]
 								call ModifyHeroStat(1,u,0,udg_jueneiminjie[S9])
@@ -3976,9 +3976,6 @@ function NeiGongJiaChengS takes nothing returns nothing
 	call NeiGongJiaCheng(15,'A07U',.07,0,0,50,.18)
 	call NeiGongJiaCheng(16,1093678935,.09,0,0,50,.1)
 	call NeiGongJiaCheng(17,'A0DN',.03,0,0,40,.18)
-	call NeiGongJiaCheng(18,'A0D2',.2,0,0,80,.5)
-	call NeiGongJiaCheng(19,'A0D6',.8,0,0,10,.15)
-	call NeiGongJiaCheng(20,'A0D4',-0.2,0,0,-40,-0.25)
 endfunction
 //------学习武功系统结束------
 //------武功效果系统开始------

@@ -1349,27 +1349,6 @@ function KK takes nothing returns nothing
 				call DisplayTextToPlayer(p,0,0,("熊："+(I2S(ud[i])+" / 30")))
 			endif
 		endif
-	elseif GetUnitTypeId(uc)=='nvil' then
-		if LoadInteger(YDHT,StringHash("哑仆任务"),i)==1 then
-			call SaveInteger(YDHT,StringHash("哑仆"),i,LoadInteger(YDHT,StringHash("哑仆"),i)+1)
-			if LoadInteger(YDHT,StringHash("哑仆"),i)>=10 then
-				call SaveInteger(YDHT,StringHash("哑仆任务"),i,0)
-				call SaveInteger(YDHT,StringHash("哑仆"),i,0)
-				call unitadditembyidswapped('I09V',u)
-				call PlaySoundOnUnitBJ(Hh,100,u)
-				call DisplayTextToPlayer(p,0,0,("|CFF34FF00完成任务获得"+GetItemName(bj_lastCreatedItem)))
-			else
-				call DisplayTextToPlayer(p,0,0,("哑仆："+I2S(LoadInteger(YDHT,StringHash("哑仆"),i))+" / 10"))
-			endif
-		endif
-		// 寻宝摧心掌爆率翻倍
-		if GetRandomInt(1, 100) <=10 or (Deputy_isDeputy(i, XUN_BAO) and GetRandomInt(1,100) <= 20) then
-			call unitadditembyidswapped('I09K',u)
-		endif
-		// 寻宝新手神器爆率翻倍
-		if GetRandomInt(1, 100) <=10 or (Deputy_isDeputy(i, XUN_BAO) and GetRandomInt(1,100) <= 20) then
-			call unitadditembyidswapped('I0DJ',u)
-		endif
 	elseif GetUnitTypeId(uc)=='nlv3' then
 		if GetRandomInt(0,100)<=100-GetNumPlayer()*10 then
 			call AdjustPlayerStateBJ(2,Player(0),PLAYER_STATE_RESOURCE_LUMBER)
