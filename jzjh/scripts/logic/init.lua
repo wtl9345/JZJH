@@ -5,23 +5,11 @@
 ---
 
 require 'logic.globals'
-require 'logic.talent'
-require 'logic.npcHint'
-require 'logic.showHealthPoint'
-require 'logic.cleanItems'
-require 'logic.enhancedDefense'
-require 'logic.antiqueExchangeBooks'
 require 'logic.recordHandleNumber'
 
 local logic = {}
 
 function logic.init()
-    talent_effect()
-    showHealthPoint()
-    showNpcHint()
-    enhanceDefense()
-    cleanItems()
-    exchangeBooks()
     recordHandleNumber()
 end
 
