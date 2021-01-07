@@ -27,3 +27,4 @@ kurongsharen: integer
     数组: 5
 HuanZhuangCD: boolean
     数组: 5
+youLingChuan: trigger

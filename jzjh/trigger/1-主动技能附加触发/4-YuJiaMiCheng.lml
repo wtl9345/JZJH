@@ -14,74 +14,15 @@
         常量: unit
         函数: GetTriggerUnit
     YDWESetAnyTypeLocalVariable
-        预设: typename02_real
-        常量: damage
-        常量: 1.00
-    YDWESetAnyTypeLocalVariable
-        预设: typename02_real
-        常量: damage
-        函数: OperatorReal
-            函数: YDWEGetAnyTypeLocalVariable
-                常量: damage
-            预设: OperatorAdd
-            函数: I2R
-                函数: GetHeroStatBJ
-                    预设: HeroStatStr
-                    函数: YDWEGetAnyTypeLocalVariable
-                        常量: unit
-                    预设: InclusionInclude
-    YDWESetAnyTypeLocalVariable
-        预设: typename02_real
-        常量: damage
-        函数: OperatorReal
-            函数: YDWEGetAnyTypeLocalVariable
-                常量: damage
-            预设: OperatorAdd
-            函数: I2R
-                函数: GetHeroStatBJ
-                    预设: HeroStatAgi
-                    函数: YDWEGetAnyTypeLocalVariable
-                        常量: unit
-                    预设: InclusionInclude
-    YDWESetAnyTypeLocalVariable
-        预设: typename02_real
-        常量: damage
-        函数: OperatorReal
-            函数: YDWEGetAnyTypeLocalVariable
-                常量: damage
-            预设: OperatorAdd
-            函数: I2R
-                函数: GetHeroStatBJ
-                    预设: HeroStatInt
-                    函数: YDWEGetAnyTypeLocalVariable
-                        常量: unit
-                    预设: InclusionInclude
-    YDWESetAnyTypeLocalVariable
-        预设: typename02_real
-        常量: damage
-        函数: OperatorReal
-            函数: YDWEGetAnyTypeLocalVariable
-                常量: damage
-            预设: OperatorMultiply
-            常量: 0.5
-    YDWESetAnyTypeLocalVariable
-        预设: typename02_real
-        常量: damage
-        函数: OperatorReal
-            函数: YDWEGetAnyTypeLocalVariable
-                常量: damage
-            预设: OperatorMultiply
-            函数: I2R
-                函数: GetUnitAbilityLevel
-                    函数: YDWEGetAnyTypeLocalVariable
-                        常量: unit
-                    常量: q01k
-    CommentString
-        常量: 伤害设置
-    YDWESetAnyTypeLocalVariable
         预设: typename07_unit
         常量: u
         函数: GetTriggerUnit
+    YDWESetAnyTypeLocalVariable
+        预设: typename02_real
+        常量: damage
+        常量: 1.00
+    CommentString
+        常量: 伤害设置
     YDWETimerStartMultiple
         函数: CreateTimer
         常量: 0.25
@@ -280,6 +221,11 @@
                                                     常量: m
                                                 函数: YDWEGetAnyTypeLocalVariable
                                                     常量: g0
+                                            YDWESetAnyTypeLocalVariable
+                                                预设: typename02_real
+                                                常量: damage
+                                                函数: YDWECustomScriptCode
+                                                    常量: 'ShangHaiGongShi(GetTriggerUnit(),GetEnumUnit(), 5, 5, 1, ''q01k'')'
                                             UnitDamageTargetBJ
                                                 函数: YDWEGetAnyTypeLocalVariable
                                                     常量: u
