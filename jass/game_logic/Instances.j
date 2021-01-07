@@ -2641,70 +2641,7 @@ endif
 endif
 call FlushChildHashtable(YDHT,id*cx)
 endfunction
-//------------------九阳真经系统----------------------------
 
-//特殊事件：九阳真经系统
-//事件1：开局5分钟少林藏经阁出现尹克西和潇湘子（夜间隐身）   击杀尹克西和潇湘子: 两本奇武——潇湘子的《寿木长生功》或尹克西的《黄沙万里鞭法》 全击杀事件结束
-//事件2：事件1后10~25分钟内的随机时间，若尹克西和潇湘子未全死，九阳真经被二人偷走，觉远大师和张君宝去追  击杀觉远大师和张君宝：几率获得奇武《九阳真经散篇》 不击杀事件结束，少林高价卖《九阳真经残卷》
-//事件3：事件2后10~25分钟内的随机时间，如果觉远大师和张君宝都被击杀，则尹克西和潇湘子逃走并将经书藏入白猿腹中，二人斗殴而死   击杀白猿——得到伴侣白猿 事件结束
-//事件4：事件3后10~30分钟内的随机时， 若白猿存活，发生曾阿牛剖腹取书事件，白猿死亡，FB BOSS 替换为曾阿牛——此后可以重复刷新，击杀后获得《九阳真经残卷》
-
-
-
-//尹克西和潇湘子在藏经阁偷取九阳神功
-//尹克西坐标：6100,-1900
-//潇湘子坐标：6100,-2500
-
-globals
-	timer jiuyangTimer1 = null
-	timer jiuyangTimer2 = null
-	timer jiuyangTimer3 = null
-	timerdialog jiuyangTimerDialog1 = null
-	timerdialog jiuyangTimerDialog2 = null
-	timerdialog jiuyangTimerDialog3 = null
-
-	quest defeatStealer = null
-	quest defeatSeeker = null
-endglobals
-
-//偷书成功
-function stealSuccess takes nothing returns nothing
-	local unit ykx = LoadUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 0)
-	local unit xxz = LoadUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 1)
-	if(IsUnitAliveBJ(ykx) or IsUnitAliveBJ(xxz)) then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：潇湘子和尹克西将九阳真经从少林寺藏经阁中窃出，震惊武林！！少林寺已派出觉远和张君宝缉拿潇湘子和尹克西！")
-		call ExecuteFunc("seekStealers")
-	else
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：由于潇湘子和尹克西被江湖英雄击杀，九阳真经未从少林寺藏经阁中窃出！")
-	endif
-	call RemoveUnit(ykx)
-	call RemoveUnit(xxz)
-	call DestroyQuest(defeatStealer)
-	call PauseTimer(jiuyangTimer1)
-	call DestroyTimer(jiuyangTimer1)
-	call DestroyTimerDialog(jiuyangTimerDialog1)
-    set ykx = null
-    set xxz = null
-endfunction
-function stealJiuYang takes nothing returns nothing
-	local unit ykx = null
-	local unit xxz = null
-	call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：小道消息称潇湘子和尹克西潜入少林寺藏经阁窃取九阳神功秘籍，目前还无法证实消息的真实性")
-	set defeatStealer = CreateQuestBJ( bj_QUESTTYPE_OPT_DISCOVERED, "击杀潇湘子和尹克西", "传闻潇湘子和尹克西正在少林寺藏经阁窃取九阳真经，目前尚不知真实性如何。少侠们可以前往藏经阁一探究竟。（提示：不一定要击杀潇湘子和尹克西）", "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp" )
-	//尹克西
-	call CreateNUnitsAtLoc(1,'nrog',Player(12),Location(6100,-1900),bj_UNIT_FACING)
-	set ykx = bj_lastCreatedUnit
-	//潇湘子
-	call CreateNUnitsAtLoc(1,'nban',Player(12),Location(6100,-2500),bj_UNIT_FACING)
-	set xxz = bj_lastCreatedUnit
-	set jiuyangTimer1 = CreateTimer()
-	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 0, ykx)
-	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer1), 1, xxz)
-	call TimerStart(jiuyangTimer1, GetRandomInt(600, 1500),false, function stealSuccess)
-	set jiuyangTimerDialog1 = createTimerDialog(jiuyangTimer1, "二杰盗经书")
-	set ykx = null
-	set xxz = null
-endfunction
 //击杀尹克西和潇湘子后几率获得奇武：潇湘子的《寿木长生功》或尹克西的《黄沙万里鞭法》，江湖声望+1000
 function isKillStealer takes nothing returns boolean
 	return GetUnitTypeId(GetTriggerUnit())=='nrog' or GetUnitTypeId(GetTriggerUnit())=='nban'
@@ -2712,104 +2649,7 @@ endfunction
 function killStealer takes nothing returns nothing
 	call dropItem(GetKillingUnit(), 'I0CT', 'I0CU', 50)
 endfunction
-//随后张无忌将经书从白猿腹中取出，白猿死亡，副本7BOSS变为张无忌，击杀后得到《九阳真经残卷》
-function baiYuanDeath takes nothing returns nothing
-	if(IsUnitAliveBJ(gg_unit_n00M_0131)) then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：传闻有一名叫曾阿牛的武林新秀从百年古猿腹中得到了《九阳神功残卷》！")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：百年古猿死去，曾阿牛出现在地图上！")
-		call RemoveUnit(gg_unit_n00M_0131)
-		call ShowUnit( gg_unit_n00N_0132, true )
-	endif
-	call PauseTimer(jiuyangTimer3)
-	call DestroyTimer(jiuyangTimer3)
-	call DestroyTimerDialog(jiuyangTimerDialog3)
-endfunction
-//不击杀尹克西和潇湘子的话二人将经书偷走，觉远大师和张君宝去追经书，若不打败觉远大师和张君宝，经书将被二人追回，经书重回少林寺藏经阁中
-function seekSuccess takes nothing returns nothing
-	local unit jyds = LoadUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 0)
-	local unit zjb = LoadUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 1)
-	// local integer i = GetRandomInt(1200, 3000)
-	local integer i = GetRandomInt(600, 1800)
-	if(IsUnitAliveBJ(jyds) or IsUnitAliveBJ(zjb)) then
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：觉远和张君宝已成功缉拿潇湘子和尹克西并夺回九阳真经，九阳真经现已归还藏经阁！")
-		// 少林寺出现觉远卖九阳真经残卷，300木头，九阳散篇100木头
-		call CreateUnit(Player(PLAYER_NEUTRAL_PASSIVE), 'o02V', 2844, - 1500,300)
-	else
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：觉远和张君宝被不知名江湖人士打败，潇湘子和尹克西逃跑！")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：潇湘子和尹克西互殴而死，九阳真经不知所终！传闻潇湘子和尹克西将窃走的九阳真经藏入白猿腹中！")
-		call DisplayTextToForce(bj_FORCE_ALL_PLAYERS, "|cFFFFCC00江湖小报：白猿在地图上出现！！！")
-		call ShowUnit( gg_unit_n00M_0131, true )
-		set jiuyangTimer3 = CreateTimer()
-		call TimerStart(jiuyangTimer3, i,false, function baiYuanDeath)
-		set jiuyangTimerDialog3 = createTimerDialog(jiuyangTimer3, "曾阿牛取腹中书")
-	endif
-	call PauseTimer(jiuyangTimer2)
-	call DestroyTimer(jiuyangTimer2)
-	call DestroyTimerDialog(jiuyangTimerDialog2)
-	call RemoveUnit(jyds)
-	call RemoveUnit(zjb)
-	call DestroyQuest(defeatSeeker)
-	set jyds = null
-	set zjb = null
-endfunction
 
-
-//觉远大师坐标：-1000 -14300
-//张君宝坐标：-1000 -13300
-//尹克西坐标：-2000 -14300 中立无敌NPC
-//潇湘子坐标：-2000 -13300 中立无敌NPC
-function seekStealers takes nothing returns nothing
-	local unit ykx = null
-	local unit xxz = null
-	local unit jyds = null
-	local unit zjb = null
-	local integer i = GetRandomInt(600, 1500)
-	call CreateNUnitsAtLoc(1,'nrog',Player(12),Location(-2000, -14300),bj_UNIT_FACING)
-	set ykx = bj_lastCreatedUnit
-	call CreateNUnitsAtLoc(1,'nban',Player(12),Location(-2000, -13300),bj_UNIT_FACING)
-	set xxz = bj_lastCreatedUnit
-	call CreateNUnitsAtLoc(1,'n00K',Player(12),Location(-1000, -14300),bj_UNIT_FACING)
-	set jyds = bj_lastCreatedUnit
-	call CreateNUnitsAtLoc(1,'n00L',Player(12),Location(-1000, -13300),bj_UNIT_FACING)
-	set zjb = bj_lastCreatedUnit
-	call UnitAddAbility(ykx, 'Avul')
-	call UnitAddAbility(xxz, 'Avul')
-	set defeatSeeker =CreateQuestBJ(bj_QUESTTYPE_OPT_DISCOVERED, "打败觉远大师和张君宝", "传闻潇湘子和尹克西已将九阳真经从少林寺藏经阁窃出，觉远大师和张君宝正在追赶。少侠们对九阳真经感兴趣吗？（提示：可以打败觉远大师和张君宝帮助潇湘子和尹克西逃跑，否则九阳真经将被追回藏经阁）", "ReplaceableTextures\\CommandButtons\\BTNAmbush.blp" )
-	set jiuyangTimer2 = CreateTimer()
-	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 0, jyds)
-	call SaveUnitHandle(YDHT, GetHandleId(jiuyangTimer2), 1, zjb)
-	call TimerStart(jiuyangTimer2, GetRandomInt(600, 1500),false, function seekSuccess)
-	set jiuyangTimerDialog2 = createTimerDialog(jiuyangTimer2, "追回经书")
-	set ykx = null
-	set xxz = null
-	set jyds = null
-	set zjb = null
-endfunction
-//若打败觉远大师和张君宝，可几率获得奇武《九阳真经散篇》，江湖声望-1000
-function isKillSeeker takes nothing returns boolean
-	return GetUnitTypeId(GetTriggerUnit())=='n00K' or GetUnitTypeId(GetTriggerUnit())=='n00L'
-endfunction
-function killSeeker takes nothing returns nothing
-	//击杀者声望-500
-	set shengwang[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))] = IMaxBJ(0, shengwang[1+GetPlayerId(GetOwningPlayer(GetKillingUnit()))] - 500)
-	call dropItem(GetKillingUnit(), 'I0CV', 0, 50)
-
-endfunction
-//并且在地图上出现副本7——白猿，击杀后得到伴侣——白猿
-function isKillBaiYuan takes nothing returns boolean
-	return GetUnitTypeId(GetTriggerUnit())=='n00M'
-endfunction
-function killBaiYuan takes nothing returns nothing
-	call dropItem(GetKillingUnit(), 'I0CS', 0, 100)
-endfunction
-//击杀曾阿牛后得到九阳残卷
-function isKillANiu takes nothing returns boolean
-	return GetUnitTypeId(GetTriggerUnit())=='n00N'
-endfunction
-function killANiu takes nothing returns nothing
-	call dropItem(GetKillingUnit(), 'I0CW', 'I09Q', 50)
-endfunction
-//------------------九阳真经系统结束----------------------------
 //-------各种副本结束-------//
 function Instances_Trigger takes nothing returns nothing
 	local trigger t = CreateTrigger()
@@ -3212,30 +3052,12 @@ function Instances_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(tq,EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(tq,Condition(function lO))
 	call TriggerAddAction(tq,function JO)
-	//特殊事件：潇湘子和尹克西到藏经阁盗取九阳神功经书
-	set t = CreateTrigger()
-	// call TriggerRegisterTimerEventSingle(t, GetRandomInt(60, 1800))
-	call TriggerRegisterTimerEventSingle(t, 300)
-	call TriggerAddAction(t, function stealJiuYang)
+
 	//击杀潇湘子和尹克西，获得奇武，事件结束
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_DEATH)
 	call TriggerAddCondition(t,Condition(function isKillStealer))
 	call TriggerAddAction(t,function killStealer)
-	//击杀觉远大师和张君宝，获得奇武，事件结束
-	set t=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_DEATH)
-	call TriggerAddCondition(t,Condition(function isKillSeeker))
-	call TriggerAddAction(t,function killSeeker)
-	//击杀白猿，获得伴侣白猿
-	set t=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_DEATH)
-	call TriggerAddCondition(t,Condition(function isKillBaiYuan))
-	call TriggerAddAction(t,function killBaiYuan)
-	//击杀曾阿牛，获得九阳残卷
-	set t=CreateTrigger()
-	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_DEATH)
-	call TriggerAddCondition(t,Condition(function isKillANiu))
-	call TriggerAddAction(t,function killANiu)
+
 	set t = null
 endfunction
