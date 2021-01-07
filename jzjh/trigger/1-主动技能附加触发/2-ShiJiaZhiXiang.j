@@ -1,4 +1,4 @@
-//TESH.scrollpos=87
+//TESH.scrollpos=117
 //TESH.alwaysfold=0
 function Trig_youLingChuanConditions takes nothing returns boolean
     return ((GetSpellAbilityId() == 'A17C'))

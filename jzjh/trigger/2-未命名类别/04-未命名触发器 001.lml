@@ -2,6 +2,8 @@
     MapInitializationEvent
 条件
 动作
+    CustomScriptCode
+        常量: 'call InitTrig_youLingChuan()'
     SetPlayerState
         预设: Player00
         预设: PlayerStateFoodCap

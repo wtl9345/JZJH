@@ -142,7 +142,7 @@ function KeyInput takes nothing returns nothing
         set s = s + getTitleString(i, 10, "北乔峰 ")
         set s = s + getTitleString(i, 11, "君子剑 ")
         set s = s + getTitleString(i, 12, "风清扬 ")
-        set s = s + getTitleString(i, 13, "老顽童 ")
+
         set s = s + getTitleString(i, 14, "中神通 ")
         set s = s + getTitleString(i, 15, "血刀老祖 ")
         set s = s + getTitleString(i, 16, "空心菜 ")
@@ -166,13 +166,13 @@ function KeyInput takes nothing returns nothing
         set s = s + getTitleString(i, 34, "天门道长 ")
         set s = s + getTitleString(i, 35, "铁掌水上漂 ")
         set s = s + getTitleString(i, 36, "搜魂侠 ")
-        set s = s + getTitleString(i, 37, "九阴真人 ")
+
         set s = s + getTitleString(i, 38, "西毒 ")
         set s = s + getTitleString(i, 39, "东邪 ")
         set s = s + getTitleString(i, 40, "南帝 ")
-        set s = s + getTitleString(i, 41, "瑶琴 ")
+
         set s = s + getTitleString(i, 42, "小虾米 ")
-        set s = s + getTitleString(i, 43, "郭大侠 ")
+
         set s = s + getTitleString(i, 44, "神仙姐姐 ")
         set s = s + getTitleString(i, 45, "婆婆姊姊 ")
         set s = s + getTitleString(i, 46, "女中诸葛 ")
@@ -213,7 +213,7 @@ function KeyInput takes nothing returns nothing
 			call DisplayTextToPlayer(p,0,0,"|cFF9933FF伤害回复："+I2S(R2I(LoadReal(YDHT,GetHandleId(it),StringHash("伤害回复"))))+" 杀怪回复："+I2S(R2I(LoadReal(YDHT,GetHandleId(it),StringHash("杀怪回复"))))+" 生命回复："+I2S(R2I(LoadReal(YDHT,GetHandleId(it),StringHash("生命回复"))))+" 法力回复："+I2S(R2I(LoadReal(YDHT,GetHandleId(it),StringHash("法力回复")))))
 		endif
 	endif
-	
+
 	if s=="ckjn" or s=="CKJN" then
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000人物性格：你学武资质"+XingGeA(udg_xinggeA[i])+"，态度"+XingGeB(udg_xinggeB[i]))
 		call DisplayTextToPlayer(p,0,0,"|cFFcc99ff〓〓〓〓〓〓〓〓〓〓〓")
@@ -288,7 +288,7 @@ function KeyInput takes nothing returns nothing
 			// 已通关门派
 			if spilt == "1" then
 				set tgs_menpai = tgs_menpai+ "||" + "|CffFF0000"+udg_menpainame[j+1]+"|r"
-			else 
+			else
 				set tgs_menpai = tgs_menpai+ "||" +udg_menpainame[j+1]
 			endif
 			set j = j +1
@@ -302,7 +302,7 @@ function KeyInput takes nothing returns nothing
 			// 已通关门派
 			if spilt == "1" then
 				set tgm_menpai = tgm_menpai+ "||" + "|CffFF0000"+udg_menpainame[j+1]+"|r"
-			else 
+			else
 				set tgm_menpai = tgm_menpai+ "||" +udg_menpainame[j+1]
 			endif
 			set j = j +1
@@ -610,7 +610,7 @@ function KeyInput takes nothing returns nothing
 	        call DisplayTextToPlayer(p,0,0,"|cFFFF0000属性点已用完")
 	    endif
 	endif
-	
+
 	//测试码
 	if s=="代码不乱用吧" and udg_isTest[GetPlayerId(p)] then
 		call SetHeroLevel(udg_hero[i],GetHeroLevel(udg_hero[i])+5,true)
@@ -693,10 +693,10 @@ function KeyInput takes nothing returns nothing
 		set udg_boshu=udg_boshu+1
 		call DisplayTextToPlayer(p,0,0,"|cFFFF0000已跳转至下一波")
 	endif
-	if s == "撸Boss8" or s=="lboss8" and udg_isTest[GetPlayerId(p)] then 
+	if s == "撸Boss8" or s=="lboss8" and udg_isTest[GetPlayerId(p)] then
 		call CreateNUnitsAtLocFacingLocBJ(1,u7[8],Player(6),v7[6],v7[4])
 	endif
-	// if s == "撸Boss" or s=="撸boss" and udg_isTest[GetPlayerId(p)] then 
+	// if s == "撸Boss" or s=="撸boss" and udg_isTest[GetPlayerId(p)] then
 	// 	call CreateNUnitsAtLocFacingLocBJ(1,u7[5],Player(6),v7[6],v7[4])
 	// 	call CreateNUnitsAtLocFacingLocBJ(1,u7[1],Player(6),v7[6],v7[4])
 	// endif

@@ -80,7 +80,7 @@ endif
 call FlushChildHashtable(YDHT,id*cx)
 endfunction
 //==================九阴真经系统开始==================//
-	
+
 
 
 function cI takes nothing returns boolean
@@ -103,8 +103,8 @@ function DI takes nothing returns nothing
             call ModifyHeroStat(0,GetKillingUnit(),0,10*beishu)
             call DisplayTextToPlayer(Player(-1+(LoadInteger(YDHT,id*cx,-$5E9EB4B3))),0,0,"招式伤害+"+I2S(10*beishu))
         endif
-        
-       
+
+
     endif
     call FlushChildHashtable(YDHT,id*cx)
 endfunction
@@ -117,8 +117,8 @@ function GI takes nothing returns nothing
 	call UnitResetCooldown(GetTriggerUnit())
 endfunction
 function isShuangShouBeiDong takes nothing returns boolean
-	// 学会双手，老顽童或郭大侠或小龙女称号
-	return GetUnitAbilityLevel(GetAttacker(),'A07U') >= 1 and (isTitle(1+GetPlayerId(GetOwningPlayer(GetAttacker())), 13) or isTitle(1+GetPlayerId(GetOwningPlayer(GetAttacker())), 43) or isTitle(1+GetPlayerId(GetOwningPlayer(GetAttacker())), 6))
+	// 学会双手，小龙女称号
+	return GetUnitAbilityLevel(GetAttacker(),'A07U') >= 1 and isTitle(1+GetPlayerId(GetOwningPlayer(GetAttacker())), 6)
 endfunction
 function shuangShouBeiDong takes nothing returns nothing
 	local unit u=GetAttacker()
