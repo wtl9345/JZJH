@@ -253,10 +253,10 @@ function KeyInput takes nothing returns nothing
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF星宿：神木王鼎，乔峰接任务，副本1杀丁春秋杀阿紫")
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF血刀：血刀，90级挑战场挑战血刀老祖")
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF自由：十四天书，具体合成请看基地右边NPC随风")
-		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF铁掌：铁掌令，周伯通处任务")
+		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF铁掌、桃花岛：铁掌令，贼哥处购买")
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF唐门：子午砂，副本2唐文亮几率掉落；观音泪，副本4南海神尼几率掉落")
 		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF五毒：选择门派时赠送")
-		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF桃花岛：桃花岛玉箫任务")
+		 call DisplayTextToPlayer(p,0,0,"|cFF00FFFF野螺：技能几率偷取")
 	endif
 
 	// 手动整理物品

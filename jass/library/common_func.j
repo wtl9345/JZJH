@@ -1101,7 +1101,7 @@ function UnitHaveItem takes unit u,integer j returns boolean
 endfunction
 
 function UnitHasDenomWeapon takes unit u, integer id returns boolean
-    return UnitHaveItem(u, id) or denomWeapon[1 + GetPlayerId(GetOwningPlayer(u))] == 1
+    return UnitHaveItem(u, id) or ateDenom[1 + GetPlayerId(GetOwningPlayer(u))] == 1
 endfunction
 
 function Vv takes player pv returns nothing
