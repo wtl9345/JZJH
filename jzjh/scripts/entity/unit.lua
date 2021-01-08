@@ -1364,6 +1364,30 @@ function mt:has_item(id)
     return false
 end
 
+--- 拥有其中一种物品
+--- @param ... table 物品列表
+--- @return boolean
+function mt:has_any_item(...)
+    local arg = { ... }
+    if arg[1] then
+        if type(arg[1]) == 'table' then
+            for _, v in ipairs(arg(1)) do
+                if self:has_item(v) then
+                    return true
+                end
+            end
+            return false
+        end
+        for _, v in ipairs(arg) do
+            if self:has_item(v) then
+                return true
+            end
+        end
+        return false
+    end
+    return false
+end
+
 --- @param item item|string|number
 --- @return item
 function mt:add_item(item)

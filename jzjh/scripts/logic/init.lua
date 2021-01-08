@@ -6,10 +6,12 @@
 
 require 'logic.globals'
 require 'logic.recordHandleNumber'
+require 'logic.mongolia_camp'
 
 local logic = {}
 
 function logic.init()
+    initMongoliaCamp() -- 1.7之蒙古大营
     recordHandleNumber()
 end
 
