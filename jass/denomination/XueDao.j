@@ -16,7 +16,7 @@ function XueZhan_Action takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A06M')>=1 then
 		set shxishu=shxishu+.9
 	endif
-	if UnitHaveItem(u,'I098') then
+	if UnitHasDenomWeapon(u,'I098') then
 		set shxishu=shxishu*4
 	endif
 	set shanghai=ShangHaiGongShi(u,uc,100.,200.,shxishu,'A0CN')
@@ -140,7 +140,7 @@ function XueDao_Action takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A086')>=1 then
 		set shxishu=shxishu+1.5
 	endif
-	if UnitHaveItem(u,'I098') then
+	if UnitHasDenomWeapon(u,'I098') then
 		set shxishu=shxishu*4
 	endif
 	set shanghai=ShangHaiGongShi(u,uc,36,54,shxishu,'A0CI')
@@ -210,7 +210,7 @@ function XueMo_Action takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A086')>=1 then
 		set shxishu=shxishu+1.5
 	endif
-	if UnitHaveItem(u,'I098') then
+	if UnitHasDenomWeapon(u,'I098') then
 		set shxishu=shxishu*4
 	endif
 	if GetUnitAbilityLevel(u,'A0CK')>=1 then
@@ -286,7 +286,7 @@ function FoMie_Action takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A086')>=1 then
 		set shxishu=shxishu+1.5
 	endif
-	if UnitHaveItem(u,'I098') then
+	if UnitHasDenomWeapon(u,'I098') then
 		set shxishu=shxishu*4
 	endif
 	if dist>20. then
@@ -403,7 +403,7 @@ function XueDaoJing_Action takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A086')>=1 then
 		set shxishu=shxishu+1.5
 	endif
-	if UnitHasItemOfTypeBJ(u,'I098') then
+	if UnitHasDenomWeapon(u,'I098') then
 		set shxishu=shxishu*4
 	endif
 	if i<=imax then
@@ -487,7 +487,7 @@ function XueDaoJing_Action2 takes nothing returns nothing
 	local unit uc=GetTriggerUnit()
 	local real shxishu=1.
 	local real shanghai=0
-	if UnitHasItemOfTypeBJ(u,'I098') then
+	if UnitHasDenomWeapon(u,'I098') then
 		set shxishu=shxishu*4
 	endif
 	// 一刀绝空2倍
@@ -506,27 +506,27 @@ function XueDao_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function IsXueDaoJing))
 	call TriggerAddAction(t,function XueDaoJing)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function XueDaoJing_Condition))
 	call TriggerAddAction(t,function XueDaoJing_Action2)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function IsXueZhan))
 	call TriggerAddAction(t,function XueZhanDao)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function IsXueDao))
 	call TriggerAddAction(t,function XueDaoDao)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function IsXueMo))
 	call TriggerAddAction(t,function XueMoDao)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function IsFoMie))

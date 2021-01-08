@@ -23,7 +23,7 @@ function QD takes nothing returns nothing
         call WanBuff(u, uc, 7)
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0E0') then
+	if UnitHasDenomWeapon(u, 'I0E0') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,44,50,shxishu,'A08W')
@@ -56,7 +56,7 @@ function TD takes nothing returns nothing
         set shxishu=shxishu+.7
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0E0') then
+	if UnitHasDenomWeapon(u, 'I0E0') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,7.,9.,shxishu,'A08X')
@@ -112,7 +112,7 @@ function ZD takes nothing returns nothing
         set shxishu=shxishu+.5
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0E0') then
+	if UnitHasDenomWeapon(u, 'I0E0') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,20,20,shxishu,'A08Y')
@@ -152,7 +152,7 @@ function arc_Actions2 takes nothing returns nothing
         set shxishu=shxishu+.8
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0E0') then
+	if UnitHasDenomWeapon(u, 'I0E0') then
 	    set shxishu = shxishu * 2
     endif
     set i = i+1
@@ -677,7 +677,7 @@ function CE takes nothing returns nothing
     call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Undead\\FrostNova\\FrostNovaTarget.mdl"))
     call RemoveLocation(loc)
     // 专属加成
-	if UnitHaveItem(u, 'I0E0') then
+	if UnitHasDenomWeapon(u, 'I0E0') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,200.,300.,shxishu,'A091')
@@ -710,17 +710,17 @@ function HuaShan_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function PD))
 	call TriggerAddAction(t,function QD)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function SD))
 	call TriggerAddAction(t,function TD)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function VD))
 	call TriggerAddAction(t,function WD)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function YD))
@@ -730,7 +730,7 @@ function HuaShan_Trigger takes nothing returns nothing
     call TriggerRegisterAnyUnitEventBJ( t, EVENT_PLAYER_UNIT_SPELL_EFFECT )
     call TriggerAddCondition( t, Condition( function Trig_arc_Conditions ) )
     call TriggerAddAction( t, function Trig_arc_Actions )
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function BE))

@@ -31,7 +31,7 @@ function ZiXuJuDing takes nothing returns nothing
         set shxishu=shxishu+.7
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0DZ') then
+	if UnitHasDenomWeapon(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,24,40,shxishu,'A04W')
@@ -77,7 +77,7 @@ function XiaoLian_Action takes nothing returns nothing
         set shxishu=shxishu+.7
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0DZ') then
+	if UnitHasDenomWeapon(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
     // 教主夫人加成
@@ -95,7 +95,7 @@ function XiaoLian_Action takes nothing returns nothing
 		call IssueTargetOrderById(bj_lastCreatedUnit,$D0216, uc)
 		call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',15.)
 	endif
-	
+
 	call WuGongShangHai(u,uc,shanghai)
 	call RemoveLocation(loc)
 	set loc = null
@@ -146,7 +146,7 @@ function XiaoLian_Action_1 takes nothing returns nothing
         set shxishu=shxishu+.7
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0DZ') then
+	if UnitHasDenomWeapon(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
     // 教主夫人加成
@@ -161,7 +161,7 @@ function XiaoLian_Action_1 takes nothing returns nothing
 		call IssueTargetOrderById(bj_lastCreatedUnit,$D0216, uc)
 		call UnitApplyTimedLife(bj_lastCreatedUnit,'BHwe',15.)
 	endif
-	
+
 
 	call WuGongShangHai(u,uc,shanghai)
 	call RemoveLocation(loc)
@@ -199,7 +199,7 @@ function GuiFeiHuiMouSH takes nothing returns nothing
     call WuGongShengChong(u,'A04X',500.)
     call WuGongShengChong(u,'A059',2500.)
     // 加弹指概率穴位全封
-    if (GetUnitAbilityLevel(u,'A06H')!=0) and GetRandomInt(1,100) <= 40+ GetUnitAbilityLevel(u,'A07N')*4 then 
+    if (GetUnitAbilityLevel(u,'A06H')!=0) and GetRandomInt(1,100) <= 40+ GetUnitAbilityLevel(u,'A07N')*4 then
         call WanBuff(u, uc, 12)
     endif
     if (GetUnitAbilityLevel(u,'A03V')!=0) then //加擒龙
@@ -220,7 +220,7 @@ function GuiFeiHuiMouSH takes nothing returns nothing
 		endif
 	endif
     // 专属加成
-	if UnitHaveItem(u, 'I0DZ') then
+	if UnitHasDenomWeapon(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,80,90,shxishu,'A04X')
@@ -265,7 +265,7 @@ function LuDaBaLiu takes nothing returns nothing
         set shxishu=shxishu+1.
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0DZ') then
+	if UnitHasDenomWeapon(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,ut,80,100,shxishu,'A04Z')
@@ -326,7 +326,7 @@ function DiQingXiangLong takes nothing returns nothing
 	call WuGongShengChong(u,'A051',150.)
 	call WuGongShengChong(u,'A059',2500.)
     // 专属加成,5倍偷木加内力
-	if UnitHaveItem(u, 'I0DZ') then
+	if UnitHasDenomWeapon(u, 'I0DZ') then
 	    set beishu = beishu *5
         set gailv = gailv + 40
     endif
@@ -377,7 +377,7 @@ function DiQingXiangLongSH takes nothing returns nothing
         set shxishu=shxishu+1.2
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0DZ') then
+	if UnitHasDenomWeapon(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,ut,100,140,shxishu,'A051')
@@ -412,7 +412,7 @@ function birdDamage takes unit u, unit ut returns nothing
         set shxishu=shxishu+2.0
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0DZ') then
+	if UnitHasDenomWeapon(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
     // 教主夫人加成
@@ -604,7 +604,7 @@ function Trig_ciZhenSaoSheFunc007Conditions takes nothing returns boolean
 	local integer i = LoadInteger(YDHT, GetHandleId(GetOwningPlayer(u)), 20000)
 	local real shxishu=1.
 	local real shanghai=0.
-    
+
     if (YDWEIsTriggerEventId(EVENT_UNIT_DAMAGED) == false) then
 	    //call BJDebugMsg("123")
 	    call FlushChildHashtable(YDHT, GetHandleId(GetTriggeringTrigger()))
@@ -635,7 +635,7 @@ function Trig_ciZhenSaoSheFunc007Conditions takes nothing returns boolean
         endif
     endif
     // 专属加成
-	if UnitHaveItem(u, 'I0DZ') then
+	if UnitHasDenomWeapon(u, 'I0DZ') then
 	    set shxishu = shxishu * 2
     endif
     // 神龙教主加成

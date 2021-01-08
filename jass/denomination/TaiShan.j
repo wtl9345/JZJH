@@ -22,11 +22,11 @@
  function IsQiXingLuo takes nothing returns boolean
 	return GetSpellAbilityId()=='A08A'
  endfunction
- 
+
  function QiXingLuo_Condition takes nothing returns boolean
 	return DamageFilter(LoadUnitHandle(YDHT, $6162A, 0), GetFilterUnit())
  endfunction
- 
+
  function QiXingLuo_Action takes nothing returns nothing
 	local timer t = GetExpiredTimer()
 	local integer iMax = LoadInteger(YDHT, GetHandleId(t), 0)
@@ -39,7 +39,7 @@
 	local group g = null
 	local unit ut = null
 	// 专属加成
-	if UnitHaveItem(u, 'I0E2') then
+	if UnitHasDenomWeapon(u, 'I0E2') then
 	    set shxishu = shxishu * 2
   endif
 	if (i <= iMax) then
@@ -73,7 +73,7 @@
 	set g = null
 	set ut = null
  endfunction
- 
+
  /*
   * 触发器动作
   *
@@ -82,9 +82,9 @@
   * 升重速度 200
   * w1=30 w2=30
   * 特效字符串 Abilities\\Spells\\NightElf\\Starfall\\StarfallTarget.mdl
-  * 
+  *
   * 可选搭配：
-  * 增加伤害 乾坤大挪移+60% 葵花宝典+100% 
+  * 增加伤害 乾坤大挪移+60% 葵花宝典+100%
   * 增加BUFF 吸星大法+封穴或混乱
   * 减小随机的范围 双手A07U+范围减半 小无相A083+范围减半
   */
@@ -183,16 +183,16 @@ endfunction
   *
   * 可替换参数：
   * 升重速度 100
-  * 
+  *
   * 可选搭配：
-  * 增加伤害 葵花宝典 A07T 双手互搏 A07U 每级暴击伤害额外+20% 
+  * 增加伤害 葵花宝典 A07T 双手互搏 A07U 每级暴击伤害额外+20%
   * 群体BUFF 小无相功 A083 对所有友方英雄施放岱宗如何
   */
 function DaiZongRuHe takes nothing returns nothing
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(GetTriggerUnit()))
 	local real extraHit = (0.5 + 0.2 * GetUnitAbilityLevel(GetTriggerUnit(), 'A07T') + 0.2 * GetUnitAbilityLevel(GetTriggerUnit(), 'A07U')) * GetUnitAbilityLevel(GetTriggerUnit(), 'A08B')
 	// 专属加成
-	if UnitHaveItem(GetTriggerUnit(), 'I0E2') then
+	if UnitHasDenomWeapon(GetTriggerUnit(), 'I0E2') then
 	    set extraHit = extraHit * 3
   endif
 	if isTitle(i, 34) then
@@ -236,7 +236,7 @@ function ShiBaPan takes nothing returns nothing
 	local integer abilityLevel = IMinBJ(1 + GetUnitAbilityLevel(u, 'A07T') + GetUnitAbilityLevel(u, 'A07R') + GetUnitAbilityLevel(u, 'A07U') , 4)
 	local integer gailv = 15 // 触发概率
 	// 专属加成，触发概率100%
-	if UnitHaveItem(u, 'I0E2') then
+	if UnitHasDenomWeapon(u, 'I0E2') then
 	    set gailv = gailv + 15
     endif
 	if (GetRandomInt(1, 100) <= gailv + GetUnitAbilityLevel(u, 'A08F') + fuyuan[i] / 5 and not(UnitHasBuffBJ(u, 'B01L'))) then
@@ -285,7 +285,7 @@ function WuDaFuJian_Action takes nothing returns nothing
 	local real shxishu = 1 + DamageCoefficientByAbility(u, 'A07P', 1.0) + DamageCoefficientByAbility(u, 'A07T', 1.0) + DamageCoefficientByItem(u, 'I0E2', 3.0)
 	local integer i = GetRandomInt(0, 100)
 	// 专属加成
-	// if UnitHaveItem(u, 'I0E2') then
+	// if UnitHasDenomWeapon(u, 'I0E2') then
 	//     set shxishu = shxishu * 2
   // endif
 	if (i <= 20) then
@@ -314,7 +314,7 @@ function WuDaFuJian_Action takes nothing returns nothing
 			call WanBuff(u, ut, 9)
 		endif
 	endif
-		
+
 	set u = null
 	set ut = null
 endfunction

@@ -15,14 +15,14 @@ globals
 	constant integer YA_HUAN = 7 // 丫鬟
 	constant integer JING_WU = 8 // 精武师
 	constant integer MAX_DEPUTY = 8 // 最大副职数（根据目前的设计，这一值不能超过30）
-	
-	
+
+
 	constant integer QIAN_ZHU_SHOU = 'A0BL' // 千蛛手
 	constant integer WU_DU_ZHOU = 'A0DU' // 五毒笛咒
 	constant integer YU_SHE_SHU = 'A0DT' // 驭蛇奇术
 	constant integer BU_TIAN_JING = 'A0DS' // 补天心经
 	constant integer WAN_CHU_SHI_XIN = 'A0DR' // 万蜍噬心
-	
+
 	constant integer LUO_YING_ZHANG = 'A0EE' // 落英神剑掌
 	constant integer LUO_YING_JIAN = 'A0EG' // 落英剑法
 	constant integer XUAN_FENG_TUI = 'A0EI' // 旋风扫叶腿
@@ -34,7 +34,7 @@ globals
 	constant integer FAN_SHOU_QIAN_ZHU = 'A0ES' // 反手牵猪
 	constant integer QIAN_KUN_YI_ZHI = 'A0ET' // 乾坤一掷
 	constant integer DA_GONG_GAO_CHENG = 'A0ER' // 大功告成
-	
+
 	constant integer SHUANG_SHOU = 'A07U' // 双手互搏
 	constant integer KUI_HUA = 'A07T' // 葵花宝典
 	constant integer HUA_GU = 'A06L' // 化骨绵掌
@@ -44,44 +44,44 @@ globals
 	constant integer BI_HAI = 'A018' // 碧海潮生曲
 	constant integer JIU_YIN = 'A07S' // 九阴真经内功
 	constant integer JIU_ZHAO = 'A07N' // 九阴白骨爪
-	
+
 	constant integer DA_GOU = 'A07L' // 打狗棒法
-	
+
 	constant integer LONG_XIANG = 'S002' // 龙象般若功
 	constant integer XIAO_WU_XIANG = 'A083' // 小无相功
 
 	constant integer MIAO_SHOU_KONG_KONG = 'A03O' // 妙手空空
 	constant integer GUI_XI_GONG = 'A0CE' // 龟息功
 	constant integer SHEN_XING_BAI_BIAN = 'A03N' // 神行百变
-	
-	
-	
+
+
+
 	constant integer POISONED_BUFF = 'BEsh' // 中毒buff
 	constant integer DEEP_POISONED_BUFF = 'B01J' // 深度中毒buff
-	
+
 	constant integer ITEM_SHE_ZHANG = 'I09B' // 蛇杖物品
 	constant integer ITEM_YU_XIAO = 'I09D' // 玉箫物品
 	constant integer ITEM_HAN_SHA = 'I0AE' // 含沙射影
 	constant integer ITEM_YE_LUO = 'I0EU' // 野螺
-	
-	
+
+
 endglobals
 library Deputy requires YDWEBitwise
 	// 判断是否具备某副职
 	public function isDeputy takes integer i, integer whichDeputy returns boolean
 		return YDWEBitwise_AND(deputy[i], YDWEBitwise_LShift(1, whichDeputy - 1)) != 0
 	endfunction
-	
+
 	// 设置副职
 	public function setDeputy takes integer i, integer whichDeputy returns nothing
 		set deputy[i] = YDWEBitwise_OR(deputy[i], YDWEBitwise_LShift(1, whichDeputy - 1))
 	endfunction
-	
+
 	// 判断是否具备某副职的大师
 	public function isMaster takes integer i, integer whichMaster returns boolean
 		return YDWEBitwise_AND(master[i], YDWEBitwise_LShift(1, whichMaster - 1)) != 0
 	endfunction
-	
+
 	// 设置副职大师
 	public function setMaster takes integer i, integer whichMaster returns nothing
 		set master[i] = YDWEBitwise_OR(master[i], YDWEBitwise_LShift(1, whichMaster - 1))
@@ -236,7 +236,7 @@ library WuQiQiHeSystem initializer init requires Deputy
 			endif
 			set i = i + 1
 		endloop
-		
+
 		set u=null
 		set it=null
 		set p = null
@@ -441,7 +441,7 @@ function dropItem takes unit u, integer itemId, integer itemId2, integer possibi
 			call createitemloc(itemId2,loc)
 		endif
 		set N7=N7+1
-		
+
 	endloop
 	call RemoveLocation(loc)
 	set u = null
@@ -1099,6 +1099,11 @@ function UnitHaveItem takes unit u,integer j returns boolean
 	endif
 	return false
 endfunction
+
+function UnitHasDenomWeapon takes unit u, integer id returns boolean
+    return UnitHaveItem(u, id) or denomWeapon[1 + GetPlayerId(GetOwningPlayer(u))] == 1
+endfunction
+
 function Vv takes player pv returns nothing
 	local group g=CreateGroup()
 	call GroupEnumUnitsOfPlayer(g,pv,null)
@@ -1127,7 +1132,7 @@ function CheckY takes real y returns real
 		return E2
 	endif
 	return y
-	
+
 endfunction
 function Wv takes nothing returns nothing
 	local integer d=0
@@ -1493,7 +1498,7 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 		* (1.5 + 0.5 * GetUnitAbilityLevel(u,id)) \
 		* (udg_shanghaijiacheng[i] + 1.) \
 		* shxishu
-		
+
 		// 养老模式
 		if udg_yanglao then
 			set attack = attack * 30
@@ -1506,7 +1511,7 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 		if UnitHaveItem(u,'I0EE') then
 			set attack = attack * 3
 		endif
-		
+
 		//call BJDebugMsg(R2S(attack))
 		set j = 1
 		loop
@@ -1528,17 +1533,17 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 		// 难6以上敌方用先天功加超多伤害
 		// if udg_nandu>=5 and id == 1093682245 then
 		// 	set attack = attack * 10
-		// endif 
+		// endif
 	endif
-	
-	
+
+
 	if uc == null then
 		set target_def = 1
 	else
 		// 敌方防御因子 = 1/(1+0.1*敌人等级)
 		set target_def = 1 / (1 + 0.1 * GetUnitLevel(uc))
 	endif
-	
+
 	// 特殊防御
 	// 如果特攻大于等于42或者敌方虚弱
 	if special_attack[i] >= 6 * (1 + udg_nandu) or UnitHasBuffBJ(uc, 'B022') then
@@ -1546,10 +1551,10 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 		set special_def = RMaxBJ(1 + (special_attack[i] - 6 * (1 + udg_nandu)) * 0.06, 1)
 	else
 		// 特防 = 1/(1+0.06*(42 - 特攻))
-		set special_def = 1 / (1 + 0.06 * ( (1 + udg_nandu) * 6 - special_attack[i])) 
+		set special_def = 1 / (1 + 0.06 * ( (1 + udg_nandu) * 6 - special_attack[i]))
 	endif
-	
-	
+
+
 	//set critical = udg_baojishanghai[1+GetPlayerId(GetOwningPlayer(u))]
 	if uc == null then
 		set dodge = 25
@@ -1563,7 +1568,7 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 	set random = GetRandomReal(0.95, 0.95 + I2R(udg_xinggeB[i]) / 20)
 	// 伤害 = 攻击因子 * 敌方防御因子 * 随机因子 * 特防
 	set basic_damage = attack * target_def * random * special_def
-	
+
 
 	// 红怪
 	if LoadInteger(YDHT, GetHandleId(uc), StringHash("color")) == 1 then
@@ -1582,18 +1587,18 @@ function ShangHaiGongShi takes unit u, unit uc,real w1, real w2, real shxishu, i
 	if uc == udg_boss[7] and tiaoZhanIndex == 3 then
 		set basic_damage = basic_damage / Pow(10, endless_count)
 	endif
-	
+
 	// 先天功不会miss
 	if GetUnitAbilityLevel(u,'A0CH')>=1 then
 		set dodge = 0
 	endif
-	
+
 	if GetRandomReal(0, 100) < dodge then
 		set shanghai = 0
 	else
 		set shanghai = basic_damage
 	endif
-	
+
 	set p=null
 	set it=null
 	call SaveReal(YDHT,1+GetPlayerId(GetOwningPlayer(u)),id*3,basic_damage)
@@ -1643,12 +1648,12 @@ function addAllAttrs takes integer i, integer num returns nothing
 endfunction
 
 
-/**	
+/**
 * 重随机门派后调整属性点（原先的属性点加成去掉）
 * @param i 玩家角标
 * @param last_i 上一个门派的id
 */
-function jianShuXingDian takes integer i, integer last_i returns nothing 
+function jianShuXingDian takes integer i, integer last_i returns nothing
 	if last_i==11 then
 		set udg_shuxing[i]=udg_shuxing[i]-5
 	elseif last_i==14 then
@@ -1732,7 +1737,7 @@ function randomMenpai takes player p,integer status returns nothing
 	local integer last_i = 0
 	// 保存上一个门派id
 	set last_i = udg_runamen[i]
-	
+
 	//
 	set udg_runamen[i]=GetRandomInt(1, DENOMINATION_NUMBER)
 	if udg_runamen[i]==11 then
@@ -1853,7 +1858,7 @@ function randomMenpai takes player p,integer status returns nothing
 		call SetPlayerName(p,"〓桃花岛〓"+LoadStr(YDHT,GetHandleId(p),GetHandleId(p)))
 		call SaveInteger(YDHT, GetHandleId(udg_hero[i]), BI_BO_POINT, 20)
 		if Player(i - 1) == GetLocalPlayer() then
-			call bibo_image.show()					
+			call bibo_image.show()
 		endif
 	endif
 	if status == 1 then
@@ -2113,7 +2118,7 @@ function LifeChange takes unit u,integer mod,integer ch,integer id returns nothi
 	local integer c
 	local integer d
 	local integer aid = id
-	
+
 	if mod==1 then
 		set ch=-ch
 	elseif mod==2 then
@@ -2148,7 +2153,7 @@ function LifeChange takes unit u,integer mod,integer ch,integer id returns nothi
 		set a=a+1
 		set b=b+1
 	endloop
-	
+
 endfunction
 
 // 百分比伤害

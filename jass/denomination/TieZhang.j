@@ -49,7 +49,7 @@ function TieSha_Action takes nothing returns nothing
 
 
 	// 专属
-	if UnitHaveItem(GetAttacker(), 'I0EJ') then
+	if UnitHasDenomWeapon(GetAttacker(), 'I0EJ') then
 	    set shxishu = shxishu * 4
     endif
 	call PassiveWuGongEffectAndDamage(GetAttacker(), GetEnumUnit(), "Abilities\\Spells\\Undead\\RaiseSkeletonWarrior\\RaiseSkeleton.mdl", 14, 18, shxishu, 'A06Y')
@@ -99,7 +99,7 @@ function DuSheMove takes nothing returns nothing
 	endif
 
 	// 专属
-	if UnitHaveItem(u, 'I0EJ') then
+	if UnitHasDenomWeapon(u, 'I0EJ') then
 	    set shxishu = shxishu * 4
     endif
 	if (counter>=maxCount) then
@@ -128,7 +128,7 @@ function DuSheMove takes nothing returns nothing
 				call SaveLocationHandle(YDHT, GetHandleId(t), 3, GetUnitLoc(ut))
 				//call RemoveLocation(destination)
 			else
-				
+
 				set g = GetUnitsInRangeOfLocMatching(1500, destination, Condition(function IsDuSheEnemy))
 				if(CountUnitsInGroup(g)>0) then
 					set ut = GroupPickRandomUnit(g)
@@ -213,7 +213,7 @@ function TongBeiQuan takes nothing returns nothing
 		set coefficient = 1
 	endif
 	// 专属
-	if UnitHaveItem(u, 'I0EJ') then
+	if UnitHasDenomWeapon(u, 'I0EJ') then
 	    set shxishu = shxishu * 4
     endif
 	if (GetRandomInt(1, 100)<=fuyuan[i]/5+15) then
@@ -246,7 +246,7 @@ endfunction
 
 
 function IsGuiYuan takes nothing returns boolean
-	return PassiveWuGongCondition(GetAttacker(), GetTriggerUnit(), 'A0DP') or PassiveWuGongCondition(GetTriggerUnit(), GetAttacker(), 'A0DP') 
+	return PassiveWuGongCondition(GetAttacker(), GetTriggerUnit(), 'A0DP') or PassiveWuGongCondition(GetTriggerUnit(), GetAttacker(), 'A0DP')
 endfunction
 
 function selectAttr takes nothing returns nothing

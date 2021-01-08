@@ -28,7 +28,7 @@ function r3 takes nothing returns nothing
     if((GetUnitAbilityLevel(u,1093678930)!=0))then
         set shxishu=shxishu+.6
     endif
-    if UnitHaveItem(u, 'I0AM') then
+    if UnitHasDenomWeapon(u, 'I0AM') then
 	    set shxishu = shxishu * 1.8
     endif
     set shanghai=ShangHaiGongShi(u,uc,20.3,20.3,shxishu,'A0BP')
@@ -181,7 +181,7 @@ function y3 takes nothing returns nothing
         if((GetUnitAbilityLevel(u,'A0BV')!=0))then
             set shxishu=shxishu+.5
         endif
-        if UnitHaveItem(u, 'I0AM') then
+        if UnitHasDenomWeapon(u, 'I0AM') then
 	    	set shxishu = shxishu * 1.8
     	endif
         if isTitle(i, 23) then
@@ -196,7 +196,7 @@ function y3 takes nothing returns nothing
             if((GetUnitAbilityLevel(u,'A0BV')!=0))then
                 set shxishu=shxishu+.5
             endif
-            if UnitHaveItem(u, 'I0AM') then
+            if UnitHasDenomWeapon(u, 'I0AM') then
 	    		set shxishu = shxishu * 1.8
     		endif
             if isTitle(i, 23) then
@@ -227,7 +227,7 @@ function ShenDingSanYin_1 takes nothing returns nothing
 	local location loc = GetUnitLoc(u)
 	local location loc2 = pu(loc, 120, GetRandomReal(0, 360))
 	set isproducing[i]=false
-	if UnitHaveItem(u, 'I0AM') then
+	if UnitHasDenomWeapon(u, 'I0AM') then
 		call CreateNUnitsAtLoc(1,1969451827,p,loc2,bj_UNIT_FACING)
 		if (GetUnitAbilityLevel(u,'A06P')!=0) then
 			call UnitAddAbility(bj_lastCreatedUnit,1095656040)
@@ -275,7 +275,7 @@ function a3 takes nothing returns nothing
     if((GetUnitAbilityLevel(u,'A084')!=0))then
         set shxishu=shxishu+.8
     endif
-    if UnitHaveItem(u, 'I0AM') then
+    if UnitHasDenomWeapon(u, 'I0AM') then
 	    set shxishu = shxishu * 1.8
     endif
     call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Orc\\WarStomp\\WarStompCaster.mdl"))
@@ -309,7 +309,7 @@ function C3 takes nothing returns nothing
     if((GetUnitAbilityLevel(u,1093678930)!=0))then
         set shxishu=shxishu+.7
     endif
-    if UnitHaveItem(u, 'I0AM') then
+    if UnitHasDenomWeapon(u, 'I0AM') then
 	    set shxishu = shxishu * 1.8
     endif
     if((GetUnitAbilityLevel(u,'A07P')!=0)and(GetUnitAbilityLevel(u,'A06L')!=0)and(UnitHasBuffBJ(uc,1110454324)==false)and(GetRandomReal(.0,100.)<=3.))then
@@ -447,7 +447,7 @@ function L3 takes nothing returns nothing
     if((GetUnitAbilityLevel(u,1093678932)!=0))then
         set shxishu=shxishu+.8
     endif
-    if UnitHaveItem(u, 'I0AM') then
+    if UnitHasDenomWeapon(u, 'I0AM') then
 	    set shxishu = shxishu * 1.8
     endif
     if isTitle(i, 23) then
@@ -508,42 +508,42 @@ function XingXiu_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function p3))
 	call TriggerAddAction(t,function s3)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function u3))
 	call TriggerAddAction(t,function v3)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function x3))
 	call TriggerAddAction(t,function y3)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function A3))
 	call TriggerAddAction(t,function a3)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function b3))
 	call TriggerAddAction(t,function C3)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_DEATH)
 	call TriggerAddCondition(t,Condition(function D3))
 	call TriggerAddAction(t,function E3)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function G3))
 	call TriggerAddAction(t,function I3)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_DEATH)
 	call TriggerAddCondition(t,Condition(function J3))
 	call TriggerAddAction(t,function MM3)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_PICKUP_ITEM)
 	call TriggerAddCondition(t,Condition(function IsShenDingSanYin))

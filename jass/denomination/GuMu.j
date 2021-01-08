@@ -20,7 +20,7 @@ function FE takes nothing returns nothing
                 if((GetUnitAbilityLevel(u,'A07N')!=0))then
                     set shxishu=shxishu+.8
                 endif
-                if UnitHaveItem(u,'I09C') then
+                if UnitHasDenomWeapon(u,'I09C') then
 					set shxishu=shxishu*4
 				endif
                 call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
@@ -40,7 +40,7 @@ function FE takes nothing returns nothing
                 if((GetUnitAbilityLevel(u,'A07N')!=0))then
                     set shxishu=shxishu+.8
                 endif
-                if UnitHaveItem(u,'I09C') then
+                if UnitHasDenomWeapon(u,'I09C') then
 					set shxishu=shxishu*4
 				endif
                 call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
@@ -59,7 +59,7 @@ function FE takes nothing returns nothing
         if((GetUnitAbilityLevel(u,'A07N')!=0))then
             set shxishu=shxishu+.8
         endif
-        if UnitHaveItem(u,'I09C') then
+        if UnitHasDenomWeapon(u,'I09C') then
 			set shxishu=shxishu*4
 		endif
         call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\HolyBolt\\HolyBoltSpecialArt.mdl"))
@@ -154,7 +154,7 @@ function OE takes nothing returns nothing
     if UnitHaveItem(u,'I0AU') then
 		set shxishu=shxishu*2
 	endif
-    if UnitHaveItem(u,'I09C') then
+    if UnitHasDenomWeapon(u,'I09C') then
 		set shxishu=shxishu*4
 	endif
     set shanghai=ShangHaiGongShi(u,uc,46.,46.,shxishu,'A09J')
@@ -179,8 +179,8 @@ function SE takes nothing returns nothing
 	if((GetUnitAbilityLevel(u,'A07N')!=0))then
         set shxishu=shxishu+.7
     endif
-    if UnitHaveItem(u,'I09C') then
-		set shxishu=shxishu*4
+    if UnitHasDenomWeapon(u,'I09C') then
+		set shxishu = shxishu * 4
 	endif
     set shanghai=ShangHaiGongShi(u,uc,22.,46.,shxishu,'A09M')
     call WuGongShangHai(u,uc,shanghai)
@@ -437,37 +437,37 @@ function GuMu_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function EE))
 	call TriggerAddAction(t,function FE)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function HE))
 	call TriggerAddAction(t,function LE)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function NE))
 	call TriggerAddAction(t,function OE)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function QE))
 	call TriggerAddAction(t,function TE)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function VE))
 	call TriggerAddAction(t,function WE)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function YE))
 	call TriggerAddAction(t,function ZE)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function e3))
 	call TriggerAddAction(t,function j3)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function m3))

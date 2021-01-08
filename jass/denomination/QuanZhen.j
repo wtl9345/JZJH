@@ -17,7 +17,7 @@ function QuanZhen_Action takes nothing returns nothing
     local location loc=GetUnitLoc(u)
     local location loc2=GetUnitLoc(uc)
     set shxishu=1+jingmai[i]/20
-    if UnitHaveItem(u,'I0DP') then
+    if UnitHasDenomWeapon(u,'I0DP') then
 		set shxishu=shxishu*2
 	endif
     // set shanghai=ShangHaiGongShi(u,uc,12.,21.,shxishu,'A0CF')
@@ -103,7 +103,7 @@ function XianTianYiYang_Action takes nothing returns nothing
     if GetUnitAbilityLevel(u,'A07U')>=1 then
 	    set shxishu=shxishu/2
     endif
-    if UnitHaveItem(u,'I0DP') then
+    if UnitHasDenomWeapon(u,'I0DP') then
 		set shxishu=shxishu*2
 	endif
     set shanghai=ShangHaiGongShi(u,uc,250,700,shxishu,'A0CM')
@@ -203,7 +203,7 @@ function JinYanKai takes nothing returns nothing
         set attackSpeedLevel = attackSpeedLevel + 1
     endif
     // 七星道袍，攻速+1级
-    if UnitHaveItem(u,'I0DP') then
+    if UnitHasDenomWeapon(u,'I0DP') then
         set attackSpeedLevel = attackSpeedLevel + 1
     endif
     call SetUnitAbilityLevel(u,'A0DB',attackSpeedLevel)
@@ -324,7 +324,7 @@ function XianTian_Action takes nothing returns nothing
         set shxishu = shxishu*5
     endif
     // 专属加成
-    if UnitHaveItem(GetTriggerUnit(),'I0DP') then
+    if UnitHasDenomWeapon(GetTriggerUnit(),'I0DP') then
 		set shxishu=shxishu*2
 	endif
     set shanghai=ShangHaiGongShi(udg_xiantiandanwei,uc,2000,800,shxishu,'A0CH')
@@ -436,7 +436,7 @@ function SanHua_Action takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A07A')>=1 then
 		call WanBuff(u, uc, 5)
 	endif
-    if UnitHaveItem(u,'I0DP') then
+    if UnitHasDenomWeapon(u,'I0DP') then
 		set shxishu=shxishu*2
 	endif
 	set shanghai=ShangHaiGongShi(u,uc,250,180,shxishu,'A0DE')
@@ -474,7 +474,7 @@ function SanHua takes nothing returns nothing
 		set imax = imax + 50
 	endif
     // 专属加成
-    if UnitHaveItem(u,'I0DP') then
+    if UnitHasDenomWeapon(u,'I0DP') then
 		set imax = imax + 50
 	endif
 	call WuGongShengChong(u,'A0DE',150.)

@@ -43,7 +43,7 @@ function YingZhao_Action takes nothing returns nothing
 	    set shxishu=shxishu*2
     endif
 	// 专属加成
-	if UnitHaveItem(u, 'I00D') then
+	if UnitHasDenomWeapon(u, 'I00D') then
 	    set shxishu = shxishu * 2
   	endif
     set shanghai=ShangHaiGongShi(u,uc,0.3,0.4,shxishu,'A030')
@@ -108,7 +108,7 @@ function YingZhaoZhuDong_Action takes nothing returns nothing
 	    set shxishu=shxishu*2
     endif
 	// 专属加成
-	if UnitHaveItem(u, 'I00D') then
+	if UnitHasDenomWeapon(u, 'I00D') then
 	    set shxishu = shxishu * 2
   	endif
     set shanghai=ShangHaiGongShi(u,uc,0.7,0.9,shxishu,'A030')
@@ -586,7 +586,7 @@ function ShiZiHou_Action takes nothing returns nothing
 	    set shxishu=shxishu+.7
     endif
 	// 专属加成
-	if UnitHaveItem(u, 'I00D') then
+	if UnitHasDenomWeapon(u, 'I00D') then
 	    set shxishu = shxishu * 2
   	endif
 	set shanghai=ShangHaiGongShi(u,uc,100.,200.,shxishu,'A06R')
@@ -735,7 +735,7 @@ function RengShengHuoLing_Action takes nothing returns nothing
     local real shxishu=1.
     local real shanghai=0
 	// 专属加成
-	if UnitHaveItem(u, 'I00D') then
+	if UnitHasDenomWeapon(u, 'I00D') then
 	    set shxishu = shxishu * 2
   	endif
     set shanghai=ShangHaiGongShi(u,uc,400,300,shxishu,'A035')

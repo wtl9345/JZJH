@@ -57,7 +57,7 @@ function WanHuaMaJia takes nothing returns nothing
         call Nw(1.,bj_lastCreatedTextTag)
         call SetTextTagVelocityBJ(bj_lastCreatedTextTag,100.,90)
     endif
-	if UnitHaveItem(u, 'I0DU') then
+	if UnitHasDenomWeapon(u, 'I0DU') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,5.,5.,shxishu,'A021')
@@ -88,7 +88,7 @@ function FuChenGong takes nothing returns nothing
 		call IncUnitAbilityLevel(u,'A020')
 	endif
 	// 专属加拂尘范围
-	if UnitHaveItem(GetTriggerUnit(), 'I0DU') then
+	if UnitHasDenomWeapon(GetTriggerUnit(), 'I0DU') then
 	    call IncUnitAbilityLevel(u,'A020')
 	    call IncUnitAbilityLevel(u,'A020')
     endif
@@ -118,7 +118,7 @@ function FuChenMaJia takes nothing returns nothing
 		set shxishu=shxishu+1.1
 	endif
 	// 专属
-	if UnitHaveItem(u, 'I0DU') then
+	if UnitHasDenomWeapon(u, 'I0DU') then
 	    set shxishu = shxishu * 2
     endif
 	// 仪琳拂尘功附带封穴
@@ -215,7 +215,7 @@ function CiBei_Action takes nothing returns nothing
 		set shxishu=shxishu+2
 	endif
 	// 专属
-	if UnitHaveItem(u, 'I0DU') then
+	if UnitHasDenomWeapon(u, 'I0DU') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,500.,250.,shxishu,'A023')
@@ -287,7 +287,7 @@ function PuSaYin takes nothing returns nothing
 		set shxishu=shxishu+0.7
 	endif
 	// 专属
-	if UnitHaveItem(u, 'I0DU') then
+	if UnitHasDenomWeapon(u, 'I0DU') then
 	    set shxishu = shxishu * 2
     endif
 	if GetRandomInt(1,100)<15+fuyuan[i]/5 then

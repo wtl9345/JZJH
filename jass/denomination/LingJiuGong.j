@@ -66,7 +66,7 @@ function ZheMei_Action takes nothing returns nothing
 	call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
 	call RemoveLocation(loc)
 	// 专属加成
-	if UnitHaveItem(u, 'I0DT') then
+	if UnitHasDenomWeapon(u, 'I0DT') then
 	    set shxishu = shxishu * 1.8
     endif
 	set shanghai=ShangHaiGongShi(u,uc,9,18,shxishu,'A02B')
@@ -133,7 +133,7 @@ function ZheMei_Action2 takes nothing returns nothing
 	call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
 	call RemoveLocation(loc)
 	// 专属加成
-	if UnitHaveItem(u, 'I0DT') then
+	if UnitHasDenomWeapon(u, 'I0DT') then
 	    set shxishu = shxishu * 1.8
     endif
 	set shanghai=ShangHaiGongShi(u,uc,9,18,shxishu,'A02B')
@@ -257,7 +257,7 @@ function RuYiMaJia takes nothing returns nothing
 		set shxishu=shxishu+0.8
 	endif
 	// 专属加成
-	if UnitHaveItem(u, 'I0DT') then
+	if UnitHasDenomWeapon(u, 'I0DT') then
 	    set shxishu = shxishu * 1.8
     endif
     set shanghai=ShangHaiGongShi(u,uc,48.,48.,shxishu,'A02F')
@@ -350,13 +350,13 @@ function BaHuangGong takes nothing returns nothing
 		set jishu = 15
 	endif
 	// 专属加成
-	if UnitHaveItem(u, 'I0DT') then
+	if UnitHasDenomWeapon(u, 'I0DT') then
 		set gailv = gailv + 20
     endif
 	// 随机数1-100 小于 （6+ 福缘/3 + 六脉等级*3）
 	if GetRandomInt(1,100) < IMaxBJ(30, gailv + fuyuan[i] / 5 + GetUnitAbilityLevel(u, 'A085') * 3) then
 		call WuGongShengChong(u, 'A02G', 500-50*GetUnitAbilityLevel(u, 'A089'))
-		
+
 		call ModifyHeroStat(0, u, 0, jishu*level)
 		call ModifyHeroStat(1, u, 0, jishu*level)
 		call ModifyHeroStat(2, u, 0, jishu*level)
@@ -365,7 +365,7 @@ function BaHuangGong takes nothing returns nothing
 		call SaveInteger(YDHT, GetHandleId(t), 2, jishu)
 		call SaveInteger(YDHT, GetHandleId(t), 3, level)
 		call TimerStart(t, 8., false, function BaHuangGong_2)
-		
+
 		call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Human\\Resurrect\\ResurrectCaster.mdl"))
 		if GetUnitAbilityLevel(u, 'A083')>=1 then
 			set juexuelingwu[i] = juexuelingwu[i] + level
@@ -414,7 +414,7 @@ function LiuYangMaJia takes nothing returns nothing
 		set shxishu=shxishu+1
 	endif
 	// 专属加成
-	if UnitHaveItem(u, 'I0DT') then
+	if UnitHasDenomWeapon(u, 'I0DT') then
 	    set shxishu = shxishu * 5
     endif
     set shanghai=ShangHaiGongShi(u,uc,84,48,shxishu,'A02H')

@@ -88,11 +88,11 @@ function yinZhenDamage takes nothing returns nothing
 
     // 专属加成
     // 子午砂
-    if UnitHaveItem(u, 'I0EP') then
+    if UnitHasDenomWeapon(u, 'I0EP') then
         set shxishu = shxishu * 2.0
     endif
     // 观音泪
-    if UnitHaveItem(u, 'I0EQ') then
+    if UnitHasDenomWeapon(u, 'I0EQ') then
         set shxishu = shxishu * 3.0
     endif
     set shanghai=ShangHaiGongShi(u,target,60,60,shxishu,'A098')
@@ -108,7 +108,7 @@ endfunction
  * + 冰魄银针 几率在导弹所到之处激活冰魄银针的效果
  * + 葵花宝典 伤害+90%
  * + 六合经 破防
- */ 
+ */
 function isManTian takes nothing returns boolean
     return PassiveWuGongCondition(GetAttacker(), GetTriggerUnit(), 'A09A')
 endfunction
@@ -180,11 +180,11 @@ function manTianDamage takes nothing returns nothing
         call WanBuff(u, target, 9)
     endif
     // 子午砂
-     if UnitHaveItem(u, 'I0EP') then
+     if UnitHasDenomWeapon(u, 'I0EP') then
          set shxishu = shxishu * 2.0
      endif
      // 观音泪
-     if UnitHaveItem(u, 'I0EQ') then
+     if UnitHasDenomWeapon(u, 'I0EQ') then
          set shxishu = shxishu * 3.0
      endif
 
@@ -206,7 +206,7 @@ endfunction
  * + 小无相功 触发被动烟雨夺魂，不冲刺
  * + 擒龙控鹤 冲刺速度增加100%
  * + 七伤拳 伤害+150%
- */ 
+ */
 function isDuoHun takes nothing returns boolean
     return GetSpellAbilityId() == 'A0B0'
 endfunction
@@ -286,11 +286,11 @@ function duoHunDamage takes nothing returns nothing
     endif
     call WanBuff(u, target, 4)
     // 子午砂
-    if UnitHaveItem(u, 'I0EP') then
+    if UnitHasDenomWeapon(u, 'I0EP') then
         set shxishu = shxishu * 2.0
     endif
     // 观音泪
-    if UnitHaveItem(u, 'I0EQ') then
+    if UnitHasDenomWeapon(u, 'I0EQ') then
         set shxishu = shxishu * 3.0
     endif
     set shanghai=ShangHaiGongShi(u,target,100,100,shxishu,'A0B0')
@@ -444,11 +444,11 @@ function biYuAction takes nothing returns nothing
         set shxishu = shxishu * 2
     endif
     // 子午砂
-    if UnitHaveItem(GetAttacker(), 'I0EP') then
+    if UnitHasDenomWeapon(GetAttacker(), 'I0EP') then
         set shxishu = shxishu * 2.0
     endif
     // 观音泪
-    if UnitHaveItem(GetAttacker(), 'I0EQ') then
+    if UnitHasDenomWeapon(GetAttacker(), 'I0EQ') then
         set shxishu = shxishu * 3.0
     endif
     call WuGongShangHai(GetAttacker(),GetEnumUnit(),ShangHaiGongShi(GetAttacker(),GetEnumUnit(),200,200,shxishu,'A0B1'))

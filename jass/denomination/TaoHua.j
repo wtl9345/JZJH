@@ -8,7 +8,7 @@
 // 桃花岛
 globals
 	constant integer BI_BO_POINT = $FEDC // 碧波心经点数
-	
+
 	integer array bibo_kill // 碧波心经杀人计数
 	boolean array tide_rising // 潮起
 endglobals
@@ -19,20 +19,20 @@ function luoYingZhang takes unit u returns nothing
 	local real duration = 3
 	local real frequency = 0.03
 	local real angleSpeed = 3.6
-	
+
 	// 武功升重
 	call WuGongShengChong(u, LUO_YING_ZHANG, 300)
-	
+
 	// +九阴真经·内功：持续时间翻倍
 	if GetUnitAbilityLevel(u, JIU_YIN) >= 1 then
 		set duration = duration * 2
 	endif
-	
+
 	// +碧海潮生曲：持续时间翻倍
 	if GetUnitAbilityLevel(u, BI_HAI) >= 1 then
 		set duration = duration * 2
 	endif
-	
+
 	// +双手互搏：额外发一个反向旋转的花盘
 	if GetUnitAbilityLevel(u, SHUANG_SHOU) >= 1 then
 		call YDWECreateEwsp( u, 'e01H', 1, radius, duration, frequency, -angleSpeed )
@@ -43,42 +43,42 @@ endfunction
 function luoYingZhangDamage takes unit u, unit ut returns nothing
 	local real shxishu = 1.
 	local real shanghai = 0.
-	
+
 	// +弹指神通：伤害+80%
 	if GetUnitAbilityLevel(u, TAN_ZHI)!=0 then
 		set shxishu = shxishu + 0.8
 	endif
- 
+
 	// 专属加成
-	if UnitHaveItem(u, ITEM_YU_XIAO) then
+	if UnitHasDenomWeapon(u, ITEM_YU_XIAO) then
 		set shxishu = shxishu * 3
 	endif
-	
+
 	set shanghai=ShangHaiGongShi(u, ut, 25, 25, shxishu, LUO_YING_ZHANG)
 	call WuGongShangHai(u, ut, shanghai)
-	
+
 	set u=null
 	set ut=null
 endfunction
 
 // 落英剑法
 function luoYingJian takes unit u, unit ut returns nothing
-	
+
 	local group g = CreateGroup()
 	local group gt
 	local unit current_unit
 	local unit dummy
 	local real range = 600
-	
-	
+
+
 	// 武功升重
 	call WuGongShengChong(u, LUO_YING_JIAN, 700)
-	
+
 	//+九阴真经内功：增加伤害范围
 	if GetUnitAbilityLevel(u, JIU_YIN) >= 1 then
 		set range = range + 300
 	endif
-	
+
 	call GroupEnumUnitsInRange(g, GetUnitX(u), GetUnitY(u), range, Condition(function isAttackerEnemy))
 	loop
 	exitwhen CountUnitsInGroup(g) == 0
@@ -109,7 +109,7 @@ function luoYingJian takes unit u, unit ut returns nothing
 	set gt = null
 	set current_unit = null
 	set dummy = null
-	
+
 endfunction
 
 function luoYingJianDamage takes unit u, unit ut returns nothing
@@ -133,15 +133,15 @@ function luoYingJianDamage takes unit u, unit ut returns nothing
 	if GetUnitAbilityLevel(u, DA_GOU) != 0 then
 		call WanBuff(u, ut, 3)
 	endif
- 
+
 	// 专属加成
-	if UnitHaveItem(u, ITEM_YU_XIAO) then
+	if UnitHasDenomWeapon(u, ITEM_YU_XIAO) then
 		set shxishu = shxishu * 3
 	endif
-	
+
 	set shanghai = ShangHaiGongShi(u, ut, 80, 80, shxishu, LUO_YING_JIAN)
 	call WuGongShangHai(u, ut, shanghai)
-	
+
 endfunction
 
 // 旋风扫叶腿
@@ -149,15 +149,15 @@ function xuanFengTui takes unit u, unit ut returns nothing
 	local unit dummy
 	local integer level = 1
 	local integer biBoPoint = LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT)
-	
+
 	// 武功升重
 	call WuGongShengChong(u, XUAN_FENG_TUI, 600)
-	
+
 	// 碧波心经点数：持续时间
 	if biBoPoint > 0 then
 		set level = IMinBJ(9, R2I(level + biBoPoint * 0.2))
 	endif
-	
+
 	// +双手互搏：额外形成一阵旋风
 	set dummy = CreateUnit(GetOwningPlayer(u), 'e000', GetUnitX(u), GetUnitY(u), bj_UNIT_FACING)
 	call ShowUnitHide(dummy)
@@ -167,7 +167,7 @@ function xuanFengTui takes unit u, unit ut returns nothing
 	endif
 	call IssueTargetOrderById(dummy, $D0275, ut)
 	call UnitApplyTimedLife(dummy, 'BHwe', 3)
-	
+
 	if GetUnitAbilityLevel(u, SHUANG_SHOU) >= 1 then
 		set dummy = CreateUnit(GetOwningPlayer(u), 'e000', GetUnitX(u), GetUnitY(u), bj_UNIT_FACING)
 		call ShowUnitHide(dummy)
@@ -180,7 +180,7 @@ function xuanFengTui takes unit u, unit ut returns nothing
 endfunction
 
 function xuanFengTuiDamage takes unit u, unit ut returns nothing
-	
+
 	local real shxishu = 1.
 	local real shanghai = 0.
 	local integer biBoPoint = LoadInteger(YDHT, GetHandleId(u), BI_BO_POINT)
@@ -188,20 +188,20 @@ function xuanFengTuiDamage takes unit u, unit ut returns nothing
 	if GetUnitAbilityLevel(u, TAN_ZHI) != 0 then
 		set shxishu = shxishu + 0.8
 	endif
-	
+
 	// +九阴真经内功：伤害+70%
 	if GetUnitAbilityLevel(u, JIU_YIN) != 0 then
 		set shxishu = shxishu + 0.7
 	endif
- 
+
 	// 专属加成
-	if UnitHaveItem(u, ITEM_YU_XIAO) then
+	if UnitHasDenomWeapon(u, ITEM_YU_XIAO) then
 		set shxishu = shxishu * 3
 	endif
-	
+
 	set shanghai=ShangHaiGongShi(u, ut, 15, 20, shxishu, XUAN_FENG_TUI)
 	call WuGongShangHai(u, ut, shanghai)
-	
+
 endfunction
 
 // 奇门术数
@@ -209,9 +209,9 @@ function qimenCd takes nothing returns nothing
 	local timer t = GetExpiredTimer()
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
 	local real cdPercent = LoadReal(YDHT, GetHandleId(t), 1)
-	
+
 	call EXSetAbilityState(EXGetUnitAbility(u, QI_MEN_SHU_SHU), 1, EXGetAbilityState(EXGetUnitAbility(u, QI_MEN_SHU_SHU), 1) * cdPercent)
-	
+
 	call FlushChildHashtable(YDHT, GetHandleId(t))
 	call PauseTimer(t)
 	call DestroyTimer(t)
@@ -237,7 +237,7 @@ function qiMenShuShu takes unit u returns nothing
 	local timer t
 	local real cdPercent = 1
     // 专属加成
-	if UnitHaveItem(u, ITEM_YU_XIAO) then
+	if UnitHasDenomWeapon(u, ITEM_YU_XIAO) then
 		set param = param * 3
 	endif
     //     “女中诸葛称号”：将加法变为乘法
@@ -250,7 +250,7 @@ function qiMenShuShu takes unit u returns nothing
     endif
 	// 武功升重
 	call WuGongShengChong(u, QI_MEN_SHU_SHU, 70)
-	
+
 	set num0 = GetRandomInt(1, base)
 	set num1 = GetRandomInt(1, base)
 	if opera == 0 then
@@ -260,11 +260,11 @@ function qiMenShuShu takes unit u returns nothing
 		set count = num0 * num1
 		set s = I2S(num0) + "×" + I2S(num1) + "=" + I2S(count)
 	endif
-	
+
 	call CreateTextTagLocBJ(s, loc, 0, 16., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
 	call Nw(3,bj_lastCreatedTextTag)
 	call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(70, 110))
-	
+
 	if qimen_status[i] == 0 then
 		// 效果1 火切
 		set g = CreateGroup()
@@ -272,11 +272,11 @@ function qiMenShuShu takes unit u returns nothing
 		loop
 		exitwhen count <= 0 or CountUnitsInGroup(g) <= 0
 			set currentUnit = FirstOfGroup(g)
-			
+
 			call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\huoqie.mdx" , currentUnit, "origin"))
 			set damage = ShangHaiGongShi(u, currentUnit, 800, 800, param, QI_MEN_SHU_SHU)
 			call WuGongShangHai(u, currentUnit, damage)
-			
+
 			set count = count - 1
 			call GroupRemoveUnit(g, currentUnit)
         endloop
@@ -334,19 +334,19 @@ function qiMenShuShuDamage takes unit u, unit ut returns nothing
 	local real shanghai = 0.
 
 	// 专属加成
-	if UnitHaveItem(u, ITEM_YU_XIAO) then
+	if UnitHasDenomWeapon(u, ITEM_YU_XIAO) then
 		set shxishu = shxishu * 3
 	endif
-	
+
 	set shanghai = ShangHaiGongShi(u, ut, 90, 90, shxishu, QI_MEN_SHU_SHU)
 	call WuGongShangHai(u, ut, shanghai)
-	
+
 endfunction
 
 // 碧波心经
 function biBoXinJingRemoveBuff takes nothing returns nothing
 	local timer t = GetExpiredTimer()
-	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)        
+	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
 	call UnitRemoveAbility(u,'A0DB')
 	call UnitRemoveAbility(u,'A0DC')
 	call FlushChildHashtable(YDHT, GetHandleId(t))
@@ -359,9 +359,9 @@ endfunction
 function biBoXinJingHalfCd takes nothing returns nothing
 	local timer t = GetExpiredTimer()
 	local unit u = LoadUnitHandle(YDHT, GetHandleId(t), 0)
-	
+
 	call EXSetAbilityState(EXGetUnitAbility(u, BI_BO_XIN_JING), 1, EXGetAbilityState(EXGetUnitAbility(u, BI_BO_XIN_JING), 1) / 2)
-	
+
 	call FlushChildHashtable(YDHT, GetHandleId(t))
 	call PauseTimer(t)
 	call DestroyTimer(t)
@@ -374,7 +374,7 @@ function biBoXinJing takes unit u returns nothing
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
 	local integer level = GetUnitAbilityLevel(u, BI_BO_XIN_JING)
-	local timer t 
+	local timer t
 	local string s = ""
 	local location loc
 	if tide_rising[i] then
@@ -392,7 +392,7 @@ function biBoXinJing takes unit u returns nothing
 			call ModifyHeroStat(0, u, 0, 30 * level)
 			call ModifyHeroStat(1, u, 0, 30 * level)
 			call ModifyHeroStat(2, u, 0, 30 * level)
-			
+
 			set loc = GetUnitLoc(u)
 			set s = "招式伤害+" + I2S(30 * level)
 			call CreateTextTagLocBJ(s, loc, 0, 15., GetRandomReal(0., 100), GetRandomReal(0., 100), GetRandomReal(0., 100), .0)
@@ -407,7 +407,7 @@ function biBoXinJing takes unit u returns nothing
 			call Nw(3,bj_lastCreatedTextTag)
 			call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(70, 110))
 			call RemoveLocation(loc)
-			
+
 			if GetUnitAbilityLevel(u, DA_GOU) >= 1 then
 				set t = CreateTimer()
 				call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
@@ -428,7 +428,7 @@ function biBoXinJing takes unit u returns nothing
 			call UnitAddAbility(u, 'A0DC')
 			call SetUnitAbilityLevel(u, 'A0DB', level)
 			call SetUnitAbilityLevel(u, 'A0DC', level)
-			
+
 			set t = CreateTimer()
 			call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 			call TimerStart(t, 25, false, function biBoXinJingRemoveBuff)

@@ -35,7 +35,7 @@ function Yc takes nothing returns nothing
         set shxishu=shxishu+.7
 	endif
 	// 专属加成
-	if UnitHaveItem(u, 'I0DK') then
+	if UnitHasDenomWeapon(u, 'I0DK') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,14,30,shxishu,'A04D')
@@ -72,7 +72,7 @@ function eD takes nothing returns nothing
         set shxishu=shxishu+.7
 	endif
 	// 专属加成
-	if UnitHaveItem(u, 'I0DK') then
+	if UnitHasDenomWeapon(u, 'I0DK') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,60,120,shxishu,'A08S')
@@ -112,7 +112,7 @@ function iD takes nothing returns nothing
         set shxishu=shxishu+.8
 	endif
 	// 专属加成
-	if UnitHaveItem(u, 'I0DK') then
+	if UnitHasDenomWeapon(u, 'I0DK') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc,150.,150.,shxishu,'A08R')
@@ -160,7 +160,7 @@ function jD takes nothing returns nothing
     call WuGongShengChong(u,'A08R',250.)
     call RemoveLocation(loc)
 	// 专属加成
-	if UnitHaveItem(u, 'I0DK') then
+	if UnitHasDenomWeapon(u, 'I0DK') then
 	    // 每次触发太极拳，绝学加1
 		set juexuelingwu[i]=juexuelingwu[i]+ 1
 		call DisplayTextToPlayer(p,0,0,"绝学领悟力+1")
@@ -171,8 +171,8 @@ function jD takes nothing returns nothing
 		set juexuelingwu[i]=juexuelingwu[i]+ 1
 		call DisplayTextToPlayer(p,0,0,"绝学领悟力+1")
     endif
-	
-	
+
+
     set u=null
 	set p = null
     set loc=null
@@ -209,7 +209,7 @@ function ChunYangHuo takes nothing returns nothing
     local real shxishu=1.
 	local real shanghai=0.
 	// 专属加成
-	if UnitHaveItem(u, 'I0DK') then
+	if UnitHasDenomWeapon(u, 'I0DK') then
 	    set shxishu = shxishu * 2
     endif
     //call BJDebugMsg("伤害执行了1")
@@ -291,13 +291,13 @@ function vD takes nothing returns nothing
     endif
 	// 专属概率加成
 	if GetRandomInt(1,100) <= 3 then
-		if UnitHaveItem(u, 'I0DK') then
+		if UnitHasDenomWeapon(u, 'I0DK') then
 			// 每次触发太极拳，绝学加1
 			set juexuelingwu[i]=juexuelingwu[i]+ 1
 			call DisplayTextToPlayer(p,0,0,"绝学领悟力+1")
 		endif
 	endif
-	
+
     set shanghai=ShangHaiGongShi(u,uc,50,50,shxishu,'A08R')
     call WuGongShangHai(u,uc,shanghai)
     set u=null
@@ -409,72 +409,72 @@ function WuDang_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function IsRouYun))
 	call TriggerAddAction(t,function RouYunZhang)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function Xc))
 	call TriggerAddAction(t,function Yc)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function dD))
 	call TriggerAddAction(t,function eD)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function gD))
 	call TriggerAddAction(t,function jD)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function mD))
 	call TriggerAddAction(t,function oD)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function IsChunYangHuo))
 	call TriggerAddAction(t,function ChunYangHuo)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function qD))
 	call TriggerAddAction(t,function rD)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function tD))
 	call TriggerAddAction(t,function wD)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function yD))
 	call TriggerAddAction(t,function zD)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function aD))
 	call TriggerAddAction(t,function BD)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function CD))
 	call TriggerAddAction(t,function cD)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function ED))
 	call TriggerAddAction(t,function FD)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function HD))
 	call TriggerAddAction(t,function ID)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function JD))
 	call TriggerAddAction(t,function KD)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function MD))

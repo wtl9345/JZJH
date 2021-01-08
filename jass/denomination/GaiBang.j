@@ -17,7 +17,7 @@ function TaiZu_Action takes nothing returns nothing
 	if GetUnitAbilityLevel(u,'A07S')>=1 then
 		set shxishu=shxishu+.8
 	endif
-	if UnitHaveItem(u,'I097') then
+	if UnitHasDenomWeapon(u,'I097') then
 	    set shxishu=shxishu*4
     endif
 	set shanghai=ShangHaiGongShi(u, uc, 30., 42.,shxishu,'A0C9')
@@ -99,7 +99,7 @@ function QuWuGongJi_Action takes nothing returns nothing
     local integer jmax=30
     local real shxishu=RMinBJ(I2R(GetUnitLevel(u)),10.)
     local real shanghai=0.
-    if UnitHaveItem(u,'I097') then
+    if UnitHasDenomWeapon(u,'I097') then
 	    set shxishu=shxishu*4
     endif
     if id=='ndog' then
@@ -294,7 +294,7 @@ function YeChaGun_SH takes nothing returns nothing
 	if GetUnitAbilityLevel(udg_yechadanwei,'A080')>=1 then
 		set shxishu=shxishu+1.5
 	endif
-	if UnitHaveItem(udg_yechadanwei,'I097') then
+	if UnitHasDenomWeapon(udg_yechadanwei,'I097') then
 	    set shxishu=shxishu*4
     endif
     set shanghai=ShangHaiGongShi(udg_yechadanwei,GetEnumUnit(),36,24,shxishu,'A0CB')
@@ -401,7 +401,7 @@ function FengMoShe takes nothing returns nothing
 	    set shxishu=20. // 搭配太玄系数
     endif
     // 打狗棒系数加成
-	if UnitHaveItem(u,'I097') then
+	if UnitHasDenomWeapon(u,'I097') then
 	    set shxishu=shxishu*6
     endif
 	set shanghai=ShangHaiGongShi(u, uc, 24., 45., shxishu, 'A0C8')
@@ -449,27 +449,27 @@ function GaiBang_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function IsTaiZu))
 	call TriggerAddAction(t,function TaiZuQuan)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function IsTieBuShan))
 	call TriggerAddAction(t,function TieBuShan)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function IsFengMo))
 	call TriggerAddAction(t,function FengMoGun)
-	
+
 	set Bk=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(Bk,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(Bk,Condition(function IsFengMoShe))
 	call TriggerAddAction(Bk,function FengMoShe)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t, Condition(function IsGaiBang))
 	call TriggerAddAction(t, function GaiBangXinFa)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t, Condition(function IsYeCha))

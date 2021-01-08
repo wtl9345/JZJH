@@ -21,7 +21,7 @@ function SiXiang2 takes nothing returns nothing
 	    set shxishu=shxishu+0.8
     endif
     // 倚天剑加成
-    if UnitHaveItem(udg_sixiangdanwei,'I00B') then
+    if UnitHasDenomWeapon(udg_sixiangdanwei,'I00B') then
 		set shxishu=shxishu * 4
 	endif
     set shanghai=ShangHaiGongShi(udg_sixiangdanwei,GetEnumUnit(), 12, 20, shxishu,'A0C7')
@@ -162,7 +162,7 @@ function JinDingZhang takes nothing returns nothing
 	    set shxishu=shxishu+.7
     endif
     // 倚天剑加成
-    if UnitHaveItem(u , 'I00B') then
+    if UnitHasDenomWeapon(u , 'I00B') then
 		set shxishu=shxishu * 4
 	endif
     set shanghai=ShangHaiGongShi(u,ut,130,106,shxishu,'A0C2')
@@ -196,7 +196,7 @@ function MieJue_Action takes nothing returns nothing
 	    set shxishu=shxishu+0.7
     endif
     // 倚天剑加成
-    if UnitHaveItem(udg_miejuedanwei, 'I00B') then
+    if UnitHasDenomWeapon(udg_miejuedanwei, 'I00B') then
 		set shxishu=shxishu * 4
 	endif
     set shanghai=ShangHaiGongShi(udg_miejuedanwei,GetEnumUnit(),5.5,5.5,shxishu,'A0C5')
@@ -311,9 +311,9 @@ function EMeiJiuYang_Action2 takes nothing returns nothing
 	local real shxishu=1.+GetUnitState(u,UNIT_STATE_MAX_MANA)/500
 	local unit ut=null
 	local location loc=GetUnitLoc(u)
-    // local real 
+    // local real
     // 倚天剑加成
-    if UnitHaveItem(u, 'I00B') then
+    if UnitHasDenomWeapon(u, 'I00B') then
 		set shxishu=shxishu * 4
 	endif
 	set shanghai=ShangHaiGongShi(u,uc,45.,45.,shxishu,'A0C6')
@@ -420,6 +420,6 @@ function EMei_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t, EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t, Condition(function IsMieJue))
 	call TriggerAddAction(t, function MieJueJian)
-	
+
 	set t = null
 endfunction

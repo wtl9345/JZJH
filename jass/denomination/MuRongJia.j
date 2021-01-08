@@ -16,7 +16,7 @@ function JiaChuanMaJia_1 takes nothing returns nothing
     if GetRandomInt(1, 4)==1 then
    		call DestroyEffect(AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Other\\Charm\\CharmTarget.mdl"))
 	endif
-	if UnitHaveItem(u, 'I0DS') then
+	if UnitHasDenomWeapon(u, 'I0DS') then
 	    set shxishu = shxishu * 1.8
     endif
     set shanghai=ShangHaiGongShi(u,uc,18.,27.,shxishu,'A02K')
@@ -108,7 +108,7 @@ function XiuZhongZhi takes nothing returns nothing
 		set shxishu = shxishu + 0.8
 	endif
 	// 专属加成
-	if UnitHaveItem(u, 'I0DS') then
+	if UnitHasDenomWeapon(u, 'I0DS') then
 	    set shxishu = shxishu * 1.8
 		set gailv = gailv + 40
     endif

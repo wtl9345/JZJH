@@ -36,8 +36,8 @@ function zaoLeiPi takes unit u, unit ut returns nothing
 	local integer rand = GetRandomInt(1, 100)
 
 	call WuGongShengChong(u, ZAO_LEI_PI, 700)
-	
-	
+
+
 	set loc = GetUnitLoc(u)
 	if rand < 50 then
 		set s = "20位伤害随便打"
@@ -48,7 +48,7 @@ function zaoLeiPi takes unit u, unit ut returns nothing
 	call Nw(3,bj_lastCreatedTextTag)
 	call SetTextTagVelocityBJ(bj_lastCreatedTextTag, GetRandomReal(50, 70),GetRandomReal(50, 130))
 	call RemoveLocation(loc)
-	
+
 	call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
 	call SaveReal(YDHT, GetHandleId(t), 1, GetUnitX(ut))
 	call SaveReal(YDHT, GetHandleId(t), 2, GetUnitY(ut))
@@ -62,20 +62,20 @@ function zaoLeiPiDamage takes unit u, unit ut returns nothing
 	local real shxishu = 1.
 	local real shanghai = 0.
 	local integer i = 1 + GetPlayerId(GetOwningPlayer(u))
- 
+
 	// 无魅雷手
 	if UnitHaveItem(u, 'I00S') then
 		set shxishu = shxishu + 2
 	endif
-	
+
 	// 专属
-	if UnitHaveItem(u, ITEM_YE_LUO) then
+	if UnitHasDenomWeapon(u, ITEM_YE_LUO) then
 		set shxishu = shxishu * ( 2 + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_YE_LUO)))
 	endif
-	
+
 	// 胆魄加成伤害
 	set shxishu = shxishu + danpo[i] * 0.03
-	
+
 	set shanghai = ShangHaiGongShi(u, ut, 20, 20, shxishu, ZAO_LEI_PI)
 	call WuGongShangHai(u, ut, shanghai)
 endfunction
@@ -121,13 +121,13 @@ function isShopKungfu takes integer id returns boolean
 endfunction
 
 function isShopOther takes integer id returns boolean
-	return id == 'I08W' or id == 'I0D1' or id == 'I00E' 
+	return id == 'I08W' or id == 'I0D1' or id == 'I00E'
 endfunction
 
 
 // - 八面玲珑 被动
 //     - 讨价还价 买东西返利20% + 3*等级 +龙象 返利+30%
-//     - 通融通融 历练用钱不用声望 （10% * 历练数）金钱 
+//     - 通融通融 历练用钱不用声望 （10% * 历练数）金钱
 function baMianLingLong takes unit u, item it returns nothing
 	local integer gold = S2I(EXExecuteScript("(require'jass.slk').item[" + I2S(GetItemTypeId(it)) + "].goldcost"))
 	local integer lumber = S2I(EXExecuteScript("(require'jass.slk').item[" + I2S(GetItemTypeId(it)) + "].lumbercost"))
@@ -140,14 +140,14 @@ function baMianLingLong takes unit u, item it returns nothing
 		if GetUnitAbilityLevel(u, LONG_XIANG) >= 1 then
 			set rate = rate + 0.3
 		endif
-		
+
 		set gold_return = R2I(gold * rate) + 1
 		set lumber_return = R2I(lumber * rate) + 1
-		
+
 		call AdjustPlayerStateBJ(gold_return, GetOwningPlayer(u),PLAYER_STATE_RESOURCE_GOLD)
 		call AdjustPlayerStateBJ(lumber_return, GetOwningPlayer(u),PLAYER_STATE_RESOURCE_LUMBER)
 		call DisplayTextToPlayer(GetOwningPlayer(u),0,0,"|cFFFFCC00购买成功，返利金币+"+I2S(gold_return)+"，珍稀币+"+I2S(lumber_return))
-		
+
 		call WuGongShengChong(u, BA_MIAN_LING_LONG, 50)
 	endif
 endfunction
@@ -156,7 +156,7 @@ endfunction
 
 
 // - 反手牵猪 偷钱 偷木 主动
-//     - +寻宝师副职 偷奇武 
+//     - +寻宝师副职 偷奇武
 //     - +妙手 偷秘籍（不含奇武）
 //     - +炼丹师副职 偷丹药
 //     - +寻宝大师 偷武器
@@ -169,11 +169,11 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 	local real addition = 1
 	local integer gold_num
 	local integer lumber_num
-	
-	if UnitHaveItem(u, ITEM_YE_LUO) then
+
+	if UnitHasDenomWeapon(u, ITEM_YE_LUO) then
 		set addition = addition + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_YE_LUO))
 	endif
-	
+
 	call WuGongShengChong(u, FAN_SHOU_QIAN_ZHU, 80)
 	call DestroyEffect(AddSpecialEffectTarget("Abilities\\Spells\\Other\\Transmute\\PileofGold.mdl", ut, "chest"))
 	// 判断目标是否为BOSS
@@ -262,7 +262,7 @@ function fanShouQianZhu takes unit u, unit ut returns nothing
 			call UnitAddItemById(u, item_id)
 		endif
 	endif
-	
+
 endfunction
 
 // - 乾坤一掷  主动
@@ -279,8 +279,8 @@ function qianKunYiZhi takes unit u returns nothing
 	local string s
 	local real addition = 1
 	local integer goldBase = 3000
-	
-	if UnitHaveItem(u, ITEM_YE_LUO) then
+
+	if UnitHasDenomWeapon(u, ITEM_YE_LUO) then
 		set addition = addition + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_YE_LUO))
 	endif
 	call WuGongShengChong(u, QIAN_KUN_YI_ZHI, 60)
@@ -292,7 +292,7 @@ function qianKunYiZhi takes unit u returns nothing
 			call ModifyHeroStat(0, u, 0, add)
 			call ModifyHeroStat(1, u, 0, add)
 			call ModifyHeroStat(2, u, 0, add)
-			
+
 			set loc = GetUnitLoc(u)
 			set s = "金币-" + I2S(rand * goldBase)
 			call AdjustPlayerStateBJ( - rand * goldBase, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_GOLD)
@@ -319,7 +319,7 @@ function qianKunYiZhi takes unit u returns nothing
 		if lumber > rand * 100 then
 			set add = R2I(GetRandomInt(1, rand * 5) * addition)
 			set juexuelingwu[i] = juexuelingwu[i] + add
-			
+
 			set loc = GetUnitLoc(u)
 			set s = "珍稀币-" + I2S(rand * 100)
 			call AdjustPlayerStateBJ( - rand * 100, GetOwningPlayer(u), PLAYER_STATE_RESOURCE_LUMBER)
@@ -348,7 +348,7 @@ endfunction
 function daGongGaoCheng takes unit u returns nothing
 	local integer level = GetUnitAbilityLevel(u, DA_GONG_GAO_CHENG)
 	local real addition = 1
-	if UnitHaveItem(u, ITEM_YE_LUO) then
+	if UnitHasDenomWeapon(u, ITEM_YE_LUO) then
 		set addition = addition + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_YE_LUO))
 	endif
 	call WuGongShengChong(u, DA_GONG_GAO_CHENG, 200)
@@ -356,7 +356,7 @@ function daGongGaoCheng takes unit u returns nothing
 		call WuDi(u)
 		call SetUnitLifePercentBJ(u, 100)
 	endif
-	
+
 endfunction
 
 

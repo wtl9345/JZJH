@@ -7,7 +7,7 @@
  * 升重速度：900
  * 技能搭配：
  *  经脉 > 20：对AOE伤害的目标30%几率造成中毒
- *  福缘 > 20：被动攻击时几率召唤毒蛛，与AOE几率单独结算 
+ *  福缘 > 20：被动攻击时几率召唤毒蛛，与AOE几率单独结算
  *      毒蛛攻击w1 = 64, w2 = 78，攻击时几率造成中毒/深度中毒
  *  + 双手：福缘>20时召唤毒蛛数量加倍
  *  特殊攻击 >= 10：伤害+(70 + 3 * 特攻)%
@@ -34,7 +34,7 @@ function qianZhuZhu takes nothing returns nothing
     endif
 
     // 专属加成
-    if UnitHaveItem(u, ITEM_HAN_SHA) then
+    if UnitHasDenomWeapon(u, ITEM_HAN_SHA) then
         set shxishu = shxishu * ( 2 + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_HAN_SHA)))
     endif
 
@@ -77,7 +77,7 @@ function qianZhuShouAoe takes nothing returns nothing
     endif
 
     // 专属加成
-    if UnitHaveItem(u, ITEM_HAN_SHA) then
+    if UnitHasDenomWeapon(u, ITEM_HAN_SHA) then
         set shxishu = shxishu * ( 2 + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_HAN_SHA)))
     endif
 
@@ -191,7 +191,7 @@ function wuDuZhouDamage takes nothing returns nothing
 	endif
 
 	// 专属加成
-    if UnitHaveItem(u, ITEM_HAN_SHA) then
+    if UnitHasDenomWeapon(u, ITEM_HAN_SHA) then
         set shxishu = shxishu * ( 2 + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_HAN_SHA)))
     endif
 
@@ -227,7 +227,7 @@ function yuSheShuExplosion takes nothing returns nothing
     endif
 
     // 专属加成
-    if UnitHaveItem(u, ITEM_HAN_SHA) then
+    if UnitHasDenomWeapon(u, ITEM_HAN_SHA) then
         set shxishu = shxishu * ( 2 + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_HAN_SHA)))
     endif
 
@@ -261,15 +261,15 @@ function yuSheShu takes nothing returns nothing
         endif
 
         // 专属加成
-        if UnitHaveItem(u, ITEM_HAN_SHA) then
+        if UnitHasDenomWeapon(u, ITEM_HAN_SHA) then
             set shxishu = shxishu * ( 2 + 0.03 * GetItemCharges(FetchUnitItem(u, ITEM_HAN_SHA)))
         endif
-        
+
         set damage = ShangHaiGongShi(u, ut, 30, 160, shxishu, YU_SHE_SHU)
         call DestroyEffect(AddSpecialEffectTarget("Objects\\Spawnmodels\\Undead\\UDeathSmall\\UDeathSmall.mdl", ut, "overhead"))
         call WuGongShangHai(u, ut, damage)
 
-        // 3. 技能搭配 + 化骨：破防 
+        // 3. 技能搭配 + 化骨：破防
         if GetUnitAbilityLevel(u, HUA_GU)>=1 then
             call WanBuff(u, ut, 9)
         endif
@@ -343,18 +343,18 @@ function buTianJing takes nothing returns nothing
     if GetUnitAbilityLevel(u, KUI_HUA)>=1 then
         set lifeBase = lifeBase * 2
         set deathPossibility = deathPossibility * 2
-    endif 
+    endif
 
     // 搭配 +小无相 不会死亡
     if GetUnitAbilityLevel(u, XIAO_WU_XIANG)>=1 then
         set deathPossibility = 0
-    endif 
+    endif
 
     // 搭配 +吸星大法 10秒之内提升攻速
     if GetUnitAbilityLevel(u, XI_XING)>=1 then
         call maJiaUseLeveldAbilityAtTargetLoc(u, 'e000',  'A08F', 4, $D0085, u, 3)
-    endif 
-    
+    endif
+
     // 50%概率增加气血上限，50%概率增加真实伤害
     if GetRandomInt(1, 100) <= 50 then
         call DestroyEffect(AddSpecialEffectTarget("war3mapImported\\zhiyu.mdx", u, "overhead"))
@@ -372,7 +372,7 @@ function buTianJing takes nothing returns nothing
 
     call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
     call TimerStart(t, 0.2, false, function buTianHalfCd)
-    
+
 
     set t = null
     set u = null
@@ -410,10 +410,10 @@ function wanChuAction takes nothing returns nothing
     endif
 
     // 搭配含沙射影：暗器数量加倍
-    if UnitHaveItem(u, ITEM_HAN_SHA) then
+    if UnitHasDenomWeapon(u, ITEM_HAN_SHA) then
         set jmax = jmax * 2
     endif
-    
+
     if j == 1 then
         // 搭配 +小无相 CD减半
         if GetUnitAbilityLevel(u, XIAO_WU_XIANG) >= 1 then
@@ -426,7 +426,7 @@ function wanChuAction takes nothing returns nothing
         endif
     endif
 
-    if j < jmax then 
+    if j < jmax then
         set g = CreateGroup()
         call GroupEnumUnitsInRange(g, GetUnitX(u), GetUnitY(u), 1200, Condition(function wanChuCondition))
         set target = GroupPickRandomUnit(g)
@@ -460,7 +460,7 @@ function wanChuShiXin takes nothing returns nothing
     call SaveUnitHandle(YDHT, GetHandleId(t), 0, u)
     call TimerStart(t, 0.2, true, function wanChuAction)
 
-    
+
 
     set u = null
 endfunction

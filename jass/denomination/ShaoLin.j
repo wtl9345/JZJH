@@ -20,7 +20,7 @@ function WeiTuo_Action takes nothing returns nothing
 	if((GetUnitAbilityLevel(u,'A07O')!=0))then
 	    set shxishu=shxishu+.7
 	endif
-	if UnitHaveItem(u,'I0AL') then
+	if UnitHasDenomWeapon(u,'I0AL') then
 		set shxishu=shxishu*8
 	endif
 	//if((GetUnitAbilityLevel(u,'A05G')==9))then
@@ -92,7 +92,7 @@ function sc takes nothing returns nothing
     if((GetUnitAbilityLevel(u,'A07S')!=0))then
         set shxishu=shxishu+.7
     endif
-    if UnitHaveItem(u,'I0AL') then
+    if UnitHasDenomWeapon(u,'I0AL') then
 		set shxishu=shxishu*8
 	endif
     set shanghai= ShangHaiGongShi(u,uc,70.,60.,shxishu,'A000')
@@ -115,7 +115,7 @@ function ucFunc takes nothing returns nothing
     if((GetUnitAbilityLevel(u,'A07S')!=0))then
         set shxishu=shxishu+.7
     endif
-    if UnitHaveItem(u,'I0AL') then
+    if UnitHasDenomWeapon(u,'I0AL') then
 		set shxishu=shxishu*8
 	endif
     set shanghai= ShangHaiGongShi(u,uc,10,30,shxishu,'A000')
@@ -187,7 +187,7 @@ function ac takes nothing returns nothing
 	if((GetUnitAbilityLevel(u,1093678930)!=0)and(GetUnitAbilityLevel(u,'A07P')!=0))then
 		set shxishu=shxishu+1.
 	endif
-	if UnitHaveItem(u,'I0AL') then
+	if UnitHasDenomWeapon(u,'I0AL') then
 		set shxishu=shxishu*8
 	endif
 	if((GetUnitAbilityLevel(u,'A07S')!=0))then
@@ -273,7 +273,7 @@ function Gc takes nothing returns nothing
 	local location loc=GetUnitLoc(uc)
 	local real shxishu=1.
 	local real shanghai=0.
-	if UnitHaveItem(u,'I0AL') then
+	if UnitHasDenomWeapon(u,'I0AL') then
 		set shxishu=shxishu*8
 	endif
 	call AddSpecialEffectLocBJ(loc,"Abilities\\Spells\\Undead\\DarkRitual\\DarkRitualTarget.mdl")
@@ -294,7 +294,7 @@ function Hc takes nothing returns nothing
 	local integer i=1+GetPlayerId(p)
 	local location loc=GetUnitLoc(u)
 	local location loc2=GetUnitLoc(uc)
-	if UnitHaveItem(u,'I0AL') then
+	if UnitHasDenomWeapon(u,'I0AL') then
 		set shxishu=shxishu*8
 	endif
 	if((GetEventDamage()<=D7[i]))then
@@ -427,7 +427,7 @@ function Sc takes nothing returns nothing
 	local unit uc=GetTriggerUnit()
 	local real shxishu=1.
 	local real shanghai=0.
-	if UnitHaveItem(u,'I0AL') then
+	if UnitHasDenomWeapon(u,'I0AL') then
 		set shxishu=shxishu*8
 	endif
 	set shanghai=ShangHaiGongShi(u,uc,50,50,shxishu,'S000')
@@ -444,7 +444,7 @@ function jinLunLongXiang takes nothing returns nothing
 	local unit u = GetAttacker()
 	local player p = GetOwningPlayer(u)
 	local integer i = 1 + GetPlayerId(p)
-	local integer gailv = 30 
+	local integer gailv = 30
 	if GetRandomInt(1, 100) <= gailv + fuyuan[i]/6  then
 		call ModifyHeroStat(0, u, 0, 200)
 		call YDWEPolledWaitNull(35)
@@ -459,47 +459,47 @@ function ShaoLin_Trigger takes nothing returns nothing
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function IsWeiTuo))
 	call TriggerAddAction(t,function WeiTuoGun)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function qc))
 	call TriggerAddAction(t,function ucFunc)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function wc))
 	call TriggerAddAction(t,function xc)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function zc))
 	call TriggerAddAction(t,function Bc)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_SPELL_EFFECT)
 	call TriggerAddCondition(t,Condition(function Cc))
 	call TriggerAddAction(t,function cc)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function Ec))
 	call TriggerAddAction(t,function Hc)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_DEATH)
 	call TriggerAddCondition(t,Condition(function lc))
 	call TriggerAddAction(t,function Jc)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function Lc))
 	call TriggerAddAction(t,function Mc)
-	
+
 	set t=CreateTrigger()
 	call TriggerRegisterAnyUnitEventBJ(t,EVENT_PLAYER_UNIT_ATTACKED)
 	call TriggerAddCondition(t,Condition(function Oc))
 	call TriggerAddAction(t,function Pc)
-	
+
 	set t=CreateTrigger()
 	call YDWESyStemAnyUnitDamagedRegistTrigger(t)
 	call TriggerAddCondition(t,Condition(function Rc))
@@ -510,5 +510,5 @@ function ShaoLin_Trigger takes nothing returns nothing
 	call TriggerAddCondition(t,Condition(function isJinLunLongXiang))
 	call TriggerAddAction(t,function jinLunLongXiang)
 
-	set t = null 
+	set t = null
 endfunction

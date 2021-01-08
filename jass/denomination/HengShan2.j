@@ -39,7 +39,7 @@ function TianZhu_Action takes nothing returns nothing
     	set shxishu = shxishu * 2
 	endif
 	// 专属
-	if UnitHaveItem(u, 'I0DY') then
+	if UnitHasDenomWeapon(u, 'I0DY') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,ut, 25, 6, shxishu,'A04M')
@@ -171,7 +171,7 @@ function HeXiangJianFa takes nothing returns nothing
 	    call WanBuff(u, uc, 12)
     endif
 	// 专属
-	if UnitHaveItem(u, 'I0DY') then
+	if UnitHasDenomWeapon(u, 'I0DY') then
 	    set shxishu = shxishu * 2
     endif
     set shanghai=ShangHaiGongShi(u,uc, 300, 100, shxishu,'A04N')
@@ -241,7 +241,7 @@ function ShiLinShu takes nothing returns nothing
     	set shxishu = shxishu * 2
 	endif
 	// 专属
-	if UnitHaveItem(u, 'I0DY') then
+	if UnitHasDenomWeapon(u, 'I0DY') then
 	    set shxishu = shxishu * 2
     endif
 	set shanghai=ShangHaiGongShi(u,uc,50.,28.,shxishu,'A04P')
@@ -294,7 +294,7 @@ function YanHuiJianFa takes nothing returns nothing
     	set shxishu = shxishu * 2
 	endif
 	// 专属
-	if UnitHaveItem(u, 'I0DY') then
+	if UnitHasDenomWeapon(u, 'I0DY') then
 	    set shxishu = shxishu * 2
     endif
 	set shanghai=ShangHaiGongShi(u,uc,200.,80.,shxishu,'A04R')
@@ -419,7 +419,7 @@ function Trig_Number14_1Func001A takes nothing returns nothing
     	set shxishu = shxishu * 2
 	endif
 	// 专属
-	if UnitHaveItem(u, 'I0DY') then
+	if UnitHasDenomWeapon(u, 'I0DY') then
 	    set shxishu = shxishu * 2
     endif
    	set shanghai=ShangHaiGongShi(u,GetEnumUnit(),60,95,shxishu,'A026')
