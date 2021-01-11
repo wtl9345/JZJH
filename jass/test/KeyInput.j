@@ -372,7 +372,7 @@ function KeyInput takes nothing returns nothing
             else
                 call RemoveUnit(J9[i])
                 set loc = GetUnitLoc(udg_hero[i])
-                call CreateNUnitsAtLoc(1,1697656906,p,loc,bj_UNIT_FACING)
+                call CreateNUnitsAtLoc(1,'e00J',p,loc,bj_UNIT_FACING)
                 set J9[i]=bj_lastCreatedUnit
                 call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"创建飞行点")
                 call RemoveLocation(loc)
@@ -401,7 +401,7 @@ function KeyInput takes nothing returns nothing
 		else
 			call RemoveUnit(qiankun2hao[i])
 			set loc = GetUnitLoc(udg_hero[i])
-			call CreateNUnitsAtLoc(1,1697656906,p,loc,bj_UNIT_FACING)
+			call CreateNUnitsAtLoc(1,'e00J',p,loc,bj_UNIT_FACING)
 			set qiankun2hao[i]=bj_lastCreatedUnit
 			call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"创建飞行点")
 			call RemoveLocation(loc)

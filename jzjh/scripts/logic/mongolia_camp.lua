@@ -78,6 +78,10 @@ function initMongoliaCamp()
     --- @param killer unit 凶手
     --- @param killed unit 被杀的单位
     et.game:event '单位-死亡' (function (self, killer, killed)
-
+        local p = killer:get_owner()
+        -- 五轮大转
+        if killer:has_ability('q01l') and math.random(0, 100) <= 15 then
+            p:create_unit('e00R', killed:get_point())
+        end
     end)
 end
