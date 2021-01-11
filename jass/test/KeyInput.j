@@ -364,16 +364,24 @@ function KeyInput takes nothing returns nothing
 		endloop
 	endif
 	if s=="1" and GetUnitAbilityLevel(udg_hero[i],'A07W')>0 and IsUnitAliveBJ(udg_hero[i]) then
-		if RectContainsUnit(lh_r,udg_hero[i]) then
-			call DisplayTextToPlayer(p,0,0,"桃花岛不能创建飞行点")
-		else
-			call RemoveUnit(J9[i])
-			set loc = GetUnitLoc(udg_hero[i])
-			call CreateNUnitsAtLoc(1,1697656906,p,loc,bj_UNIT_FACING)
-			set J9[i]=bj_lastCreatedUnit
-			call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"创建飞行点")
-			call RemoveLocation(loc)
-			set loc = null
+	    if qiankunCd[i] then
+	        call DisplayTextToPlayer(p,0,0,"目前CD中，不能创建飞行点")
+	    else
+            if RectContainsUnit(lh_r,udg_hero[i]) then
+                call DisplayTextToPlayer(p,0,0,"桃花岛不能创建飞行点")
+            else
+                call RemoveUnit(J9[i])
+                set loc = GetUnitLoc(udg_hero[i])
+                call CreateNUnitsAtLoc(1,1697656906,p,loc,bj_UNIT_FACING)
+                set J9[i]=bj_lastCreatedUnit
+                call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"创建飞行点")
+                call RemoveLocation(loc)
+                 set loc = null
+                set qiankunCd[i] = true
+                call YDWEPolledWaitNull(120)
+                set qiankunCd[i] = false
+
+            endif
 		endif
 	endif
 	if s=="2" and GetUnitAbilityLevel(udg_hero[i],'A07W')>0 and IsUnitAliveBJ(udg_hero[i]) then
@@ -411,30 +419,7 @@ function KeyInput takes nothing returns nothing
 			set loc = null
 		endif
 	endif
-	// if s=="111" and GetUnitAbilityLevel(udg_hero[i],'A07W')>2 and IsUnitAliveBJ(udg_hero[i]) then
-	// 	if RectContainsUnit(lh_r,udg_hero[i]) then
-	// 		call DisplayTextToPlayer(p,0,0,"桃花岛不能创建飞行点")
-	// 	else
-	// 		call RemoveUnit(qiankun3hao[i])
-	// 		set loc = GetUnitLoc(udg_hero[i])
-	// 		call CreateNUnitsAtLoc(1,1697656906,p,loc,bj_UNIT_FACING)
-	// 		set qiankun3hao[i]=bj_lastCreatedUnit
-	// 		call DisplayTextToPlayer(GetTriggerPlayer(),0,0,"创建飞行点")
-	// 		call RemoveLocation(loc)
-	// 		set loc = null
-	// 	endif
-	// endif
-	// if s=="222" and GetUnitAbilityLevel(udg_hero[i],'A07W')>2 and IsUnitAliveBJ(udg_hero[i]) then
-	// 	if qiankun3hao[i]==null then
-	// 		call DisplayTextToPlayer(p,0,0,"你还没有设置飞行点，请输入聊天信息“111”来设置")
-	// 	else
-	// 		set loc = GetUnitLoc(qiankun3hao[i])
-	// 		call SetUnitPositionLoc(udg_hero[i],loc)
-	// 		call PanCameraToTimedLocForPlayer(p,loc,0)
-	// 		call RemoveLocation(loc)
-	// 		set loc = null
-	// 	endif
-	// endif
+
 	if s=="-ms" then
 		call DisplayTextToPlayer(p,0,0,"|cFF00FFFF您当前的移动速度为"+I2S(R2I(GetUnitMoveSpeedEx(udg_hero[i]))))
 	endif

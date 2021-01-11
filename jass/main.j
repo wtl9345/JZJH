@@ -115,6 +115,7 @@ globals
 	integer array qimen_status // 奇门术数标识
 
 	integer array ateDenom // 是否吞了专属
+	boolean array qiankunCd // 乾坤是否处于CD中
 
 	// 多通速17门派数组，每位玩家的通关门派
 	string array manySuccess
@@ -2333,6 +2334,7 @@ function main1 takes nothing returns nothing
 
 		set qimen_status[i] = 0 // 奇门术数标识
 		set ateDenom[i] = 0 // 是否吞了专属
+		set qiankunCd[i] = false // 乾坤是否处理CD中
 
 		set wuxing[i] = 9
 		set jingmai[i] = 9

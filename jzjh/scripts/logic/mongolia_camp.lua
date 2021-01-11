@@ -74,4 +74,10 @@ function initMongoliaCamp()
             end
         end
     end)
+
+    --- @param killer unit 凶手
+    --- @param killed unit 被杀的单位
+    et.game:event '单位-死亡' (function (self, killer, killed)
+
+    end)
 end
