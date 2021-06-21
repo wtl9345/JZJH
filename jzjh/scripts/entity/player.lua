@@ -40,6 +40,7 @@ mt.luck = 0
 mt.talent = 0
 
 -- 获取玩家id
+--- @return number
 function mt:get()
     return self.id
 end

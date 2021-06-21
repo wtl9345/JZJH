@@ -7,6 +7,8 @@
 require 'logic.globals'
 require 'logic.recordHandleNumber'
 require 'logic.mongolia_camp'
+local jass = require 'jass.common'
+local g = require 'jass.globals'
 
 local logic = {}
 

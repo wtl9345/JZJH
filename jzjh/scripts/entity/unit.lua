@@ -1351,9 +1351,12 @@ function mt:fetch_item(id)
     return nil
 end
 
---- @param id number 物品ID
+--- @param id number|string 物品ID
 --- @return boolean
 function mt:has_item(id)
+    if type(id) ~= 'string' then
+        id = base.id2string(id)
+    end
     if id ~= 0 then
         for i = 1, 6 do
             if self:get_item_in_slot(i) and self:get_item_in_slot(i):get_id() == id then
