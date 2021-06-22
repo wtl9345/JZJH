@@ -170,3 +170,13 @@ end
 function item:disable_drop()
     jass.SetItemDroppable(self.item_handle, false)
 end
+
+--- @return number
+function item:get_charges()
+    return jass.GetItemCharges(self.handle)
+end
+
+--- @param i number
+function item:set_charges(i)
+    jass.SetItemCharges(self.handle, i)
+end
