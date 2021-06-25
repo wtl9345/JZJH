@@ -1,6 +1,9 @@
 
 log = require 'jass.log'
 
+local console = require 'jass.console'
+console.write('加载日志系统')
+
 local log = log
 
 local runtime = require 'jass.runtime'
@@ -21,14 +24,15 @@ if base.release then
 else
 	log.level = 'debug'
 end
---log.path = 'F:\\jzjh\\logs\\' .. split(log.path, '\\')[2]
-print(log.path)
+console.write(log.path)
+log.path = 'F:\\jzjh\\logs\\' .. split(log.path, '\\')[2]
 log.debug '日志系统装载完毕,向着星辰大海出击!'
 log.info('当前lua引擎的版本为'..runtime.version)
 
 local std_print = print
 function print(...)
 	log.info(...)
+    console.write(...)
 	return std_print(...)
 end
 

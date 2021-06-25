@@ -1599,10 +1599,6 @@ function unit.register_jass_triggers()
 
 end
 
-function init()
-    unit.init()
-end
-
-init()
+unit.init()
 
 return unit

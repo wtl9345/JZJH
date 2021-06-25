@@ -1762,6 +1762,12 @@ function InitDenominationSkills takes nothing returns nothing
 	set Y7[23]= FAN_SHOU_QIAN_ZHU
 	set Q8[23]= QIAN_KUN_YI_ZHI
 	set P8[23]= DA_GONG_GAO_CHENG
+	set udg_menpainame[24]="雪山派"
+	set X7[24]='A017'
+    set Z7[24]='A018'
+    set Y7[24]='A01A'
+    set Q8[24]='A0D1'
+    set P8[24]='A0D2'
 endfunction
 
 function InitSkillBooks takes nothing returns nothing

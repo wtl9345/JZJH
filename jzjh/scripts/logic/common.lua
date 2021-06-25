@@ -9,6 +9,7 @@ require 'utility'
 local g = require 'jass.globals'
 local jass = require 'jass.common'
 
+-- 各门派掌门加成
 local chief_table = {
     { denom_id = 1, name = '少林方丈', str = 170, agi = 190, int = 480 },
     { denom_id = 2, name = "古墓掌门", str = 240, agi = 240, int = 0 },
@@ -151,160 +152,144 @@ end
 --- @param u unit 单位
 --- @param i number 玩家序号
 --- @param config table 配置
-local function title_cond(u, i, config)
-    if config.abilities then
-        for k, v in pairs(config.abilities, defaultComp) do
-            if u:get_ability_level(k) < v then
-                return false
+local function title_cond(config)
+    return function(u, i)
+        if config.abilities then
+            for k, v in pairs(config.abilities, defaultComp) do
+                if u:get_ability_level(k) < v then
+                    return false
+                end
+            end
+        end
+        if config.attrs then
+            for k, v in pairs(config.attrs, defaultComp) do
+                if g[k][i] < v then
+                    return false
+                end
+            end
+        end
+        if config.items then
+            for _, v in ipairs(config.items) do
+                if not u:has_item(v) then
+                    return false
+                end
+            end
+        end
+        if config.title and has_title(i, config.title) then
+            return false
+        end
+        return true
+    end
+end
+
+local saodi = title_cond({ abilities = { A05O = 1 }, attrs = { yishu = 32 }, title = 1 })
+local damo = title_cond({ abilities = { A09D = 1, A080 = 1 }, title = 2 })
+local dalun = title_cond({ abilities = { A083 = 1, A03P = 1 }, attrs = { wuxing = 31 }, title = 3 })
+local jinlun = title_cond({ abilities = { S002 = 1 }, attrs = { gengu = 31 }, title = 4 })
+local shendiao = title_cond({ abilities = { A07G = 1 }, items = { 'I099' }, title = 5 })
+local longnv = title_cond({ abilities = { A07U = 1 }, items = { 'I09A' }, title = 6 })
+local shendiaoxialv = title_cond({ abilities = { A07G = 1, A07U = 1 }, items = { 'I09C' }, title = 7 })
+local chilian = title_cond({ abilities = { A07A = 6 }, title = 8 })
+local beigai = title_cond({ abilities = { A07L = 1, A07E = 1 }, items = { 'I097' }, title = 9 })
+local qiaofeng = title_cond({ abilities = { A07E = 3, A03V = 1 }, items = { 'I097' }, title = 10 })
+local junzi = title_cond({ abilities = { A07T = 1, A07J = 1 }, title = 11 })
+local fengqingyang = title_cond({ abilities = { A07F = 5 }, title = 12 })
+local shentong = title_cond({ abilities = { A06P = 1, A07S = 1, A0CH = 1 }, title = 14 })
+local xuedao = title_cond({ items = { 'I098' }, title = 15 })
+local kongxincai = title_cond({ abilities = { A07X = 1, A06J = 1, A071 = 1 }, title = 16 })
+local yilin = title_cond({ abilities = { A01Z = 7, A021 = 7, A0CD = 7 }, title = 17 })
+local xiaoao = title_cond({ abilities = { A07F = 1, A09D = 1, A07R = 1, A08W = 1 }, title = 18 })
+local zhiruo = title_cond({ abilities = { A07N = 1 }, items = { 'I00B' }, title = 19 })
+local xiaodongxie = title_cond({ abilities = { A0C6 = 1 }, items = { 'I09D' }, title = 20 })
+local lata = title_cond({ abilities = { A0DN = 1, A09D = 1 }, title = 21 })
+local zhangsanfeng = title_cond({ abilities = { A08R = 9 }, items = { 'I0DK' }, title = 22 })
+local laoxian = title_cond({ abilities = { A07P = 1, A083 = 1 }, title = 23 })
+local tonglao = title_cond({ abilities = { A02G = 6, A07A = 1, A082 = 1 }, title = 24 })
+local xuzhu = title_cond({ abilities = { A07A = 1, A082 = 1, A07O = 1 }, items = { 'I0DT' }, title = 25 })
+local murong = title_cond({ abilities = { A07Q = 1 }, title = 26 })
+local yingwang = title_cond({ abilities = { A030 = 9 }, title = 27 })
+local fuwang = title_cond({ abilities = { A032 = 9 }, title = 28 })
+local shiwang = title_cond({ abilities = { A06R = 9, A07M = 3 }, items = { 'I00D' }, title = 29 })
+local wuji = title_cond({ abilities = { A07W = 6, A0DN = 1, A08R = 4 }, title = 30 })
+local moda = title_cond({ abilities = { A04M = 7, A04N = 7, A04P = 7 }, title = 31 })
+local shenlong = title_cond({ abilities = { A0DN = 1, S002 = 1 }, title = 32 })
+local furen = title_cond({ abilities = { A07S = 1, A083 = 1 }, title = 33 })
+local tianmen = title_cond({ abilities = { A083 = 1 }, title = 34 })
+local shuishangpiao = title_cond({ abilities = { A07W = 1, A07U = 1 }, items = { 'I0EJ' }, title = 35 })
+local souhun = title_cond({ abilities = { A083 = 1, A07A = 1 }, title = 36 })
+local popo = title_cond({ abilities = { S002 = 1, A07T = 1 }, title = 45 })
+local nvzhuge = title_cond({ abilities = { A07S = 1, A07L = 1 }, title = 46 })
+local dongxie = title_cond({ abilities = { A06H = 3, A018 = 3 }, items = { 'I09D' }, title = 39 })
+---@param u unit
+local jueye = function(u, i)
+    return title_cond({ abilities = { A03N = 1 }, title = 47 })(u, i) and u:get_owner():get_gold() >= 600000
+end
+local xidu = title_cond({ abilities = { A089 = 5, A084 = 1 }, items = { 'I09B' }, title = 38 })
+local nandi = function(u, i)
+    return title_cond({ abilities = { A06P = 5, A0CH = 3 }, title = 40 })(u, i) and g.udg_runamen[i] ~= 5
+end
+local xiami = function(u, i)
+    return title_cond({ abilities = { A036 = 1, A07I = 5 }, title = 42 })(u, i) and g.udg_runamen == 11 and g.s__ZiZhuWuGong_name[g.zizhiwugong[i]] == "虾米神拳"
+end
+local shenxian = title_cond({ abilities = { A07S = 1, A0DN = 1, A07O = 1, A07R = 1, A07T = 1, A07Q = 1, A07W = 1, A07U = 1 }, title = 44 })
+
+local function kongxincai_extra(u, i)
+    g.udg_baojishanghai[i] = g.udg_baojishanghai[i] + 5.0
+end
+
+local function lata_extra(u, i)
+    -- FIXME
+    u:get_owner():send_message("魔法上限+500")
+end
+
+--- @param u unit
+--- @param id string
+--- @param level number
+local function set_ability_level_and_save_hashtable_(u, id, level)
+    u:set_ability_level(id, level)
+    jass.SaveInteger(g.YDHT, jass.GetHandleId(u:get_owner().handle), base.string2id(id) * 5, level)
+end
+
+local function wuji_extra(u, i)
+    set_ability_level_and_save_hashtable_(u, 'A07W', 7)
+end
+
+--- @param u unit
+local function moda_extra(u, i)
+    for j = 1, g.wugongshu[i] do
+        if g.I7[20 * (i - 1) + j] ~= base.string2id('AEfk') then
+            if j == g.wugongshu[i] then
+                set_ability_level_and_save_hashtable_(u, 'A04M', 9)
+                set_ability_level_and_save_hashtable_(u, 'A04N', 9)
+                set_ability_level_and_save_hashtable_(u, 'A04P', 9)
+            else
+                if u:get_ability_level('A026') >= 1 then
+                    u:add_ability('A04R')
+                else
+                    u:add_ability('A026')
+                end
+                break
             end
         end
     end
-    if config.attrs then
-        for k, v in pairs(config.attrs, defaultComp) do
-            if g[k][i] < v then
-                return false
+end
+local function nvzhuge_extra(u, i)
+    for j = 1, g.wugongshu[i] do
+        if g.I7[20 * (i - 1) + j] ~= base.string2id('AEfk') then
+            if j == g.wugongshu[i] then
+                set_ability_level_and_save_hashtable_(u, 'A0EE', 9)
+                set_ability_level_and_save_hashtable_(u, 'A0EG', 9)
+                set_ability_level_and_save_hashtable_(u, 'A0EI', 9)
+            else
+                if u:get_ability_level('A0EK') >= 1 then
+                    u:add_ability('A0EL')
+                else
+                    u:add_ability('A0EK')
+                end
+                break
             end
         end
     end
-    if config.items then
-        for _, v in ipairs(config.items) do
-            if not u:has_item(v) then
-                return false
-            end
-        end
-    end
-    if config.title and has_title(i, config.title) then
-        return false
-    end
-    return true
-end
-
-local function saodi(u, i)
-    return title_cond(u, i, { abilities = { A05O = 1 }, attrs = { yishu = 32 }, title = 1 })
-end
-
-local function damo(u, i)
-    return title_cond(u, i, { abilities = { A09D = 1, A080 = 1 }, title = 2 })
-end
-
-local function dalun(u, i)
-    return title_cond(u, i, { abilities = { A083 = 1, A03P = 1 }, attrs = { wuxing = 31 }, title = 3 })
-end
-
-local function jinlun(u, i)
-    return title_cond(u, i, { abilities = { S002 = 1 }, attrs = { gengu = 31 }, title = 4 })
-end
-
-local function shendiao(u, i)
-    return title_cond(u, i, { abilities = { A07G = 1 }, items = { 'I099' }, title = 5 })
-end
-
-local function longnv(u, i)
-    return title_cond(u, i, { abilities = { A07U = 1 }, items = { 'I09A' }, title = 6 })
-end
-
-local function shendiaoxialv(u, i)
-    return title_cond(u, i, { abilities = { A07G = 1, A07U = 1 }, items = { 'I09C' }, title = 7 })
-end
-
-local function chilian(u, i)
-    return title_cond(u, i, { abilities = { A07A = 6 }, title = 8 })
-end
-
-local function beigai(u, i)
-    return title_cond(u, i, { abilities = { A07L = 1, A07E = 1 }, items = { 'I097' }, title = 9 })
-end
-
-local function qiaofeng(u, i)
-    return title_cond(u, i, { abilities = { A07E = 3, A03V = 1 }, items = { 'I097' }, title = 10 })
-end
-
-local function junzi(u, i)
-    return title_cond(u, i, { abilities = { A07T = 1, A07J = 1 }, title = 11 })
-end
-
-local function fengqingyang(u, i)
-    return title_cond(u, i, { abilities = { A07F = 5 }, title = 12 })
-end
-
-local function shentong(u, i)
-    return title_cond(u, i, { abilities = { A06P = 1, A07S = 1, A0CH = 1 }, title = 14 })
-end
-
-local function xuedao(u, i)
-    return title_cond(u, i, { items = { 'I098' }, title = 15 })
-end
-
-local function kongxincai(u, i)
-    return title_cond(u, i, { abilities = { A07X = 1, A06J = 1, A071 = 1 }, title = 16 })
-end
-
-local function yilin(u, i)
-    return title_cond(u, i, { abilities = { A01Z = 7, A021 = 7, A0CD = 7 }, title = 17 })
-end
-
-local function xiaoao(u, i)
-    return title_cond(u, i, { abilities = { A07F = 1, A09D = 1, A07R = 1, A08W = 1 }, title = 18 })
-end
-
-local function zhiruo(u, i)
-    return title_cond(u, i, { abilities = { A07N = 1 }, items = { 'I00B' }, title = 19 })
-end
-
-local function xiaodongxie(u, i)
-    return title_cond(u, i, { abilities = { A0C6 = 1 }, items = { 'I09D' }, title = 20 })
-end
-
-local function lata(u, i)
-    return title_cond(u, i, { abilities = { A0DN = 1, A09D = 1 }, title = 21 })
-end
-
-local function zhangsanfeng(u, i)
-    return title_cond(u, i, { abilities = { A08R = 9 }, items = { 'I0DK' }, title = 22 })
-end
-
-local function laoxian(u, i)
-    return title_cond(u, i, { abilities = { A07P = 1, A083 = 1 }, title = 23 })
-end
-
-local function tonglao(u, i)
-    return title_cond(u, i, { abilities = { A02G = 6, A07A = 1, A082 = 1 }, title = 24 })
-end
-
-local function xuzhu(u, i)
-    return title_cond(u, i, { abilities = { A07A = 1, A082 = 1, A07O = 1 }, items = { 'I0DT' }, title = 25 })
-end
-
-local function murong(u, i)
-    return title_cond(u, i, { abilities = { A07Q = 1 }, title = 26 })
-end
-
-local function yingwang(u, i)
-    return title_cond(u, i, { abilities = { A030 = 9 }, title = 27 })
-end
-
-local function fuwang(u, i)
-    return title_cond(u, i, { abilities = { A032 = 9 }, title = 28 })
-end
-
-local function shiwang(u, i)
-    return title_cond(u, i, { abilities = { A06R = 9, A07M = 3 }, items = { 'I00D' }, title = 29 })
-end
-
-local function wuji(u, i)
-    return title_cond(u, i, { abilities = { A07W = 6, A0DN = 1, A08R = 4 }, title = 30 })
-end
-
-local function moda(u, i)
-    return title_cond(u, i, { abilities = { A04M = 7, A04N = 7, A04P = 7 }, title = 31 })
-end
-
-local function shenlong(u, i)
-    return title_cond(u, i, { abilities = { A0DN = 1, S002 = 1 }, title = 32 })
-end
-
-local function furen(u, i)
-    return title_cond(u, i, { abilities = { A07S = 1, A083 = 1 }, title = 33 })
 end
 
 local title_table = {
@@ -336,15 +321,15 @@ local title_table = {
     { chief = 14, cond = yingwang, name = "白眉鹰王", int = 500, title = 27 },
     { chief = 14, cond = fuwang, name = "青翼蝠王", agi = 300, title = 28 },
     { chief = 14, cond = shiwang, name = "金毛狮王", str = 300, title = 29 },
-    { chief = 14, cond = wuji, name = "无忌", agi = 1000, int = 500, to9 = 'A08R', item = 'I0CS', extra = wuji_extr, title = 30 },
-    { chief = 15, cond = moda, name = "莫大先生", extra = moda_extr, title = 31 },
+    { chief = 14, cond = wuji, name = "无忌", agi = 1000, int = 500, to9 = 'A08R', item = 'I0CS', extra = wuji_extra, title = 30 },
+    { chief = 15, cond = moda, name = "莫大先生", extra = moda_extra, title = 31 },
     { chief = 16, cond = shenlong, name = "神龙教主", str = 200, agi = 400, int = 300, title = 32 },
     { chief = 17, cond = furen, name = "教主夫人", str = 400, agi = 200, int = 300, title = 33 },
     { chief = 18, cond = tianmen, name = "天门道长", str = 300, agi = 600, title = 34 },
     { chief = 19, cond = shuishangpiao, name = "铁掌水上漂", str = 300, agi = 200, int = 100, title = 35 },
     { chief = 20, cond = souhun, name = "搜魂侠", str = 300, agi = 200, int = 300, title = 36 },
     { chief = 21, cond = popo, name = "婆婆姊姊", str = 300, agi = 300, int = 300, title = 45 },
-    { chief = 22, cond = nvzhuge, name = "女中诸葛", extr = nvzhuge_extr, title = 46 },
+    { chief = 22, cond = nvzhuge, name = "女中诸葛", extra = nvzhuge_extra, title = 46 },
     { chief = 22, cond = dongxie, name = "东邪", agi = 240, int = 300, to9 = { 'A06H', 'A018' }, item = { 'I04Q', 'I04Q' }, title = 39 },
     { chief = 23, cond = jueye, name = "爵爷", str = 400, agi = 400, int = 200, title = 47 },
     { cond = xidu, name = "西毒", str = 600, int = 360, item = { 'I070', 'I09G' }, to9 = 'A089', title = 38 },
@@ -383,7 +368,7 @@ local function become_chief_(u)
         if chief_table[i].int > 0 then
             u:set_int(u:get_int() + chief_table[i].int)
         end
-        p:set_name("〓" .. chief_table[i].name .. "〓" + jass.LoadStr(g.YDHT, jass.GetHandleId(p), jass.GetHandleId(p)))
+        p:set_name("〓" .. chief_table[i].name .. "〓" + jass.LoadStr(g.YDHT, jass.GetHandleId(p.handle), jass.GetHandleId(p.handle)))
         set_chief_(p_id, denom_id)
     end
 end
@@ -560,14 +545,55 @@ local function do_kungfu_levelup(u, id, r)
 
 end
 
+---@param u unit
+local function determine_titles(u)
+    local p = u:get_owner()
+    local p_id = 1 + p:get()
+    for i = 1, #title_table do
+        if (title_table.chief and is_chief(p_id, title_table.chief)) or not title_table.chief then
+            if title_table.cond(u, i) then
+                force.send_message("|cff66ff00恭喜玩家" .. p_id .. "获得了称号：" .. title_table.name)
+                if title_table.str then
+                    u:set_str(u:get_str() + title_table.str)
+                end
+                if title_table.agi then
+                    u:set_agi(u:get_agi() + title_table.agi)
+                end
+                if title_table.int then
+                    u:set_int(u:get_int() + title_table.int)
+                end
+                if title_table.item then
+                    if type(title_table.item) == "table" then
+                        for _, v in ipairs(title_table.item) do
+                            u:add_item(v)
+                        end
+                    else
+                        u:add_item(title_table.item)
+                    end
+                end
+                if title_table.to9 then
+                    if type(title_table.to9) == "table" then
+                        for _, v in ipairs(title_table.to9) do
+                            set_ability_level_and_save_hashtable_(u, v, 9)
+                        end
+                    else
+                        set_ability_level_and_save_hashtable_(u, title_table.to9, 9)
+                    end
+                end
+                if title_table.extra and type(title_table.extra) == 'function' then
+                    title_table.extra(u, p_id)
+                end
+                p:set_name("〓" .. title_table.name .. "〓" + jass.LoadStr(g.YDHT, jass.GetHandleId(p.handle), jass.GetHandleId(p.handle)))
+                set_title_(p_id, title_table.title)
+            end
+        end
+    end
+end
+
 --- @param u unit 升重单位
 --- @param id number|string 技能ID
 --- @param r number 升重系数
 local function kungfu_levelup(u, id, r)
-    local level = u:get_ability_level(id)
-    local p = u:get_owner()
-    local i = 1 + p:get()
-
     -- 武功升重
     do_kungfu_levelup(u, id, r)
 
@@ -654,15 +680,15 @@ local function damage_formula(source, target, w1, w2, coeff, id)
     basic_damage = attack * target_def * random * special_def
 
     -- 红怪
-    if jass.LoadInteger(g.YDHT, jass.GetHandleId(target), jass.StringHash("color")) == 1 then
+    if jass.LoadInteger(g.YDHT, jass.GetHandleId(target.handle), jass.StringHash("color")) == 1 then
         basic_damage = basic_damage / 100
     end
     -- 绿怪
-    if jass.LoadInteger(g.YDHT, jass.GetHandleId(target), jass.StringHash("color")) == 2 then
+    if jass.LoadInteger(g.YDHT, jass.GetHandleId(target.handle), jass.StringHash("color")) == 2 then
         basic_damage = basic_damage / 1000
     end
     -- 蓝怪
-    if jass.LoadInteger(g.YDHT, jass.GetHandleId(target), jass.StringHash("color")) == 3 then
+    if jass.LoadInteger(g.YDHT, jass.GetHandleId(target.handle), jass.StringHash("color")) == 3 then
         basic_damage = basic_damage / 10000
     end
 
@@ -686,8 +712,14 @@ local function damage_formula(source, target, w1, w2, coeff, id)
         id = base.string2id(id)
     end
 
+    local critical = false
+    if g.udg_baojilv[i] and math.random(0, 100) <= 100 * g.udg_baojilv[i] then
+        critical = true
+        damage = damage * g.udg_baojishanghai[i]
+    end
+
     jass.SaveReal(jass.YDHT, i, id * 3, basic_damage)
-    return damage
+    return damage, critical
 end
 
 --- @param ability_id number|string 技能ID
@@ -699,9 +731,13 @@ end
 --- @param exclusive function 专属加成
 --- @param damage_coefficients table<number, number> 伤害系数[w1, w2]
 --- @param levelup_coefficients number 升重系数
---- @param combinations table<number, function> 搭配
+--- @param combinations table<number, table> 搭配
 local function passive_ability(ability_id, source, target, action, effect,
                                possibility, exclusive, damage_coefficients, levelup_coefficients, combinations)
+
+    -- 伤害系数
+    local coeff = 1
+
     -- 技能ID
     if type(ability_id) == 'string' then
         ability_id = base.string2id(ability_id)
@@ -713,18 +749,35 @@ local function passive_ability(ability_id, source, target, action, effect,
     if type(possibility) == 'function' then
         possibility = possibility(g.fuyuan[i])
     end
-    -- 专属加成
 
+    -- 搭配加成
+    if combinations then
+        for _, v in ipairs(combinations) do
+            if v.type == '增加伤害' then
+                coeff = coeff + v.value
+            end
+        end
+    end
+
+    -- 专属加成
+    if exclusive and type(exclusive) == 'function' then
+        coeff = exclusive(source, coeff)
+    end
 
     if source:has_ability(ability_id) and math.random(1, 100) <= possibility then
         -- 伤害动作
         if not action then
             -- 直接造成伤害
-
             if type(target) == 'table' then
                 -- AOE
+                for _, v in ipairs(target) do
+                    local damage, critical = damage_formula(source, v, damage_coefficients[1], damage_coefficients[2], coeff, ability_id)
+                    base.apply_damage(source, v, damage, critical)
+                end
             else
                 -- 单体
+                local damage, critical = damage_formula(source, target, damage_coefficients[1], damage_coefficients[2], coeff, ability_id)
+                base.apply_damage(source, target, damage, critical)
             end
         else
             -- 自定义，如马甲施放技能、召唤物等
@@ -737,6 +790,7 @@ local function passive_ability(ability_id, source, target, action, effect,
         effect(source, target)
 
         -- 升重
+        kungfu_levelup(source, ability_id, levelup_coefficients)
 
     end
 

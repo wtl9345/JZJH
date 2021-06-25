@@ -1,12 +1,19 @@
-require 'scripts.utility'
-require 'scripts.native'
-require 'scripts.common'
-require 'scripts.blizzard'
-require 'scripts.runtime'
+package.path = package.path .. ';scripts\\?.lua'
+
+
+
+require 'utility'
+require 'native'
+require 'common'
+require 'blizzard'
+require 'runtime'
 
 local console = require 'jass.console'
 
-console.write("hello juezhan")
+console.write(package.path)
+console.write("hello juezhan3")
+
+
 
 require 'util.log'
 require 'util.common'
@@ -27,6 +34,9 @@ local kungfu = require 'kungfu.init'
 local function main()
     logic.init()
     kungfu.init()
+    for k, v in pairs(require 'jass.japi') do
+        print(k)
+    end
 end
 
 main()
