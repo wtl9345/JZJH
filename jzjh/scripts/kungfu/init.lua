@@ -10,7 +10,36 @@ local kungfu = {}
 
 function kungfu.init()
     --registerGuiYuan()
-end
+    --- @param source unit 攻击者
+    --- @param target unit 受攻击者
+    et.game:event '单位-受攻击'(function(self, source, target)
 
+        -- 雪山剑法
+        common_ability.passive({
+            ability_id = 'A017',
+            source = source,
+            target = target,
+            range = 500,
+            action = nil,
+            effect_str = "",
+            possibility = function(i)
+                return 15 + i / 5
+            end,
+            exclusive = function(u, coeff)
+                return coeff * 4
+            end,
+            damage_coefficients = { 10, 10 },
+            levelup_coefficients = 1000,
+            combinations = {
+                { type = "增加伤害", value = 0.8, id = 'A06J' },
+                { type = "增加伤害", value = 0.8, id = 'A07O' },
+                { type = "额外效果", id = 'A07A', value = function(s, t)
+                end },
+                { type = "增加范围", value = 700, id = 'A0D8' },
+            }
+        })
+
+    end)
+end
 
 return kungfu

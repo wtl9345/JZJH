@@ -732,8 +732,9 @@ end
 --- @param damage_coefficients table<number, number> 伤害系数[w1, w2]
 --- @param levelup_coefficients number 升重系数
 --- @param combinations table<number, table> 搭配
+--- @param range number|nil 范围
 local function passive_ability(ability_id, source, target, action, effect,
-                               possibility, exclusive, damage_coefficients, levelup_coefficients, combinations)
+                               possibility, exclusive, damage_coefficients, levelup_coefficients, combinations, range)
 
     -- 伤害系数
     local coeff = 1
@@ -753,7 +754,7 @@ local function passive_ability(ability_id, source, target, action, effect,
     -- 搭配加成
     if combinations then
         for _, v in ipairs(combinations) do
-            if v.type == '增加伤害' then
+            if v.type == '增加伤害' and source:has_ability(v.id) then
                 coeff = coeff + v.value
             end
         end
@@ -764,20 +765,47 @@ local function passive_ability(ability_id, source, target, action, effect,
         coeff = exclusive(source, coeff)
     end
 
+    local aoe = false
+    if range then
+        for _, v in ipairs(combinations) do
+            if v.type == '增加范围' and source:has_ability(v.id) then
+                range = range + v.value
+            end
+        end
+        target = et.selector():in_range(source:get_point(), range):get()
+        aoe = true
+    end
+
     if source:has_ability(ability_id) and math.random(1, 100) <= possibility then
         -- 伤害动作
         if not action then
             -- 直接造成伤害
-            if type(target) == 'table' then
+            if aoe then
                 -- AOE
                 for _, v in ipairs(target) do
                     local damage, critical = damage_formula(source, v, damage_coefficients[1], damage_coefficients[2], coeff, ability_id)
                     base.apply_damage(source, v, damage, critical)
+
+                    for _, eff in ipairs(combinations) do
+                        if eff.type == "额外效果" and source:has_ability(eff.id) then
+                            if type(eff.value) == 'function' then
+                                eff.value(source, v)
+                            end
+                        end
+                    end
                 end
             else
                 -- 单体
                 local damage, critical = damage_formula(source, target, damage_coefficients[1], damage_coefficients[2], coeff, ability_id)
                 base.apply_damage(source, target, damage, critical)
+
+                for _, eff in ipairs(combinations) do
+                    if eff.type == "额外效果" and source:has_ability(eff.id) then
+                        if type(eff.value) == 'function' then
+                            eff.value(source, target)
+                        end
+                    end
+                end
             end
         else
             -- 自定义，如马甲施放技能、召唤物等
@@ -806,9 +834,10 @@ common_ability.passive = function(config)
     local effect_str = config.effect_str
     local effect_target = config.effect_target or 'target'
     local effect_attach = config.effect_attach or 'overhead'
+    local range = config.range
     local effect_point = config.effect_point or source:get_point()
     local possibility = config.possibility or 20
-    local exclusive = config.exclusive
+    local exclusive = config.exclusive -- 专属
     local damage_coefficients = config.damage_coefficients or { 10, 10 }
     local levelup_coefficients = config.levelup_coefficients or 1000
     local combinations = config.combinations
@@ -826,10 +855,10 @@ common_ability.passive = function(config)
             end
 
         elseif effect_target == 'point' then
-            et.effect.add_to_point(effect_point, effect_point)
+            et.effect.add_to_point(effect_str, effect_point)
         end
     end
     passive_ability(ability_id, source, target, action, effect,
-            possibility, exclusive, damage_coefficients, levelup_coefficients, combinations)
+            possibility, exclusive, damage_coefficients, levelup_coefficients, combinations, range)
 
 end
